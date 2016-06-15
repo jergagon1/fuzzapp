@@ -1640,7 +1640,7 @@
   -ms-border-radius: 50%;
   -icab-border-radius: 50%;
   margin: 2px 0 0 2px;
-  background-image: url("../img/app/sightings-pet-4.png");
+  background-image: image-url("sightings-pet-4.png");
   background-size: cover;
   background-position: 50% 50%;
 }
@@ -1743,7 +1743,7 @@
   display: block;
   position: relative;
   overflow: hidden;
-  background-image: url("../img/app/background.png");
+  background-image: image-url("background.png");
   background-position: 70% center;
   background-size: cover;
 }
@@ -2054,14 +2054,14 @@
   font-size: 30px;
 }
 .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-1 .photo-wrapper.empty.wrapper-cat .preview-holder, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-1 .photo-wrapper.empty.wrapper-cat .preview-holder, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-1 .photo-wrapper.empty.wrapper-cat .preview-holder {
-  background-image: url("../img/app/wrapper-cat.png");
+  background-image: image-url("wrapper-cat.png");
 }
 .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-1 .photo-wrapper.empty.wrapper-cat .preview-holder i, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-1 .photo-wrapper.empty.wrapper-cat .preview-holder i, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-1 .photo-wrapper.empty.wrapper-cat .preview-holder i {
   bottom: 25px;
   right: 25px;
 }
 .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-1 .photo-wrapper.empty.wrapper-dog .preview-holder, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-1 .photo-wrapper.empty.wrapper-dog .preview-holder, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-1 .photo-wrapper.empty.wrapper-dog .preview-holder {
-  background-image: url("../img/app/wrapper-dog.png");
+  background-image: image-url("wrapper-dog.png");
 }
 .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-1 .photo-wrapper.empty.wrapper-dog .preview-holder i, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-1 .photo-wrapper.empty.wrapper-dog .preview-holder i, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-1 .photo-wrapper.empty.wrapper-dog .preview-holder i {
   top: 25px;
@@ -2531,7 +2531,7 @@
 }
 .fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .posts .placeholder-dog .photo-holder {
   border-right: 2px solid rgba(236, 240, 241, 0.4);
-  background-image: url("../img/main-page/dog.png");
+  background-image: image-url("dog.png");
   background-size: 80% auto;
   background-position: 50% 40%;
   background-repeat: no-repeat;
@@ -2539,7 +2539,7 @@
 }
 .fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .posts .placeholder-cat .photo-holder {
   border-right: 2px solid rgba(236, 240, 241, 0.4);
-  background-image: url("../img/main-page/cat.png");
+  background-image: image-url("cat.png");
   background-size: 80% auto;
   background-position: 50% 40%;
   background-repeat: no-repeat;
@@ -2547,7 +2547,7 @@
 }
 .fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .posts .placeholder-bird .photo-holder {
   border-right: 2px solid rgba(236, 240, 241, 0.4);
-  background-image: url("../img/main-page/bird.png");
+  background-image: image-url("bird.png");
   background-size: 80% auto;
   background-position: 50% 40%;
   background-repeat: no-repeat;
@@ -2648,7 +2648,7 @@
 .fuzzfinders-app .mainpage-wrapper {
   /*.found-pet-post-wrapper
    * .section-wrapper .map
-   * 	background-image: url('../img/app/map-demo-3.png') */
+   *  background-image: url('../img/app/map-demo-3.png') */
 }
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper {
   position: absolute;
@@ -2733,21 +2733,21 @@
   text-align: center;
 }
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .placeholder-dog .photo, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .placeholder-dog .photo {
-  background-image: url("../img/main-page/dog.png");
+  background-image: image-url("dog.png");
   background-size: auto 80%;
   background-position: 50% 40%;
   background-repeat: no-repeat;
   background-color: #ECF0F1;
 }
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .placeholder-cat .photo, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .placeholder-cat .photo {
-  background-image: url("../img/main-page/cat.png");
+  background-image: image-url("cat.png");
   background-size: auto 80%;
   background-position: 50% 40%;
   background-repeat: no-repeat;
   background-color: #ECF0F1;
 }
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .placeholder-bird .photo, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .placeholder-bird .photo {
-  background-image: url("../img/main-page/bird.png");
+  background-image: image-url("bird.png");
   background-size: auto 80%;
   background-position: 50% 40%;
   background-repeat: no-repeat;
@@ -2879,13 +2879,13 @@
   margin-right: 0;
 }
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .social-share-wrapper .buttons-wrapper .social-facebook, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .social-share-wrapper .buttons-wrapper .social-facebook {
-  background-image: url("../img/Social/Facebook-squared.png");
+  background-image: image-url("Facebook-squared.png");
 }
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .social-share-wrapper .buttons-wrapper .social-twitter, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .social-share-wrapper .buttons-wrapper .social-twitter {
-  background-image: url("../img/Social/Twitter-squared.png");
+  background-image: image-url("Twitter-squared.png");
 }
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .social-share-wrapper .buttons-wrapper .social-instagram, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .social-share-wrapper .buttons-wrapper .social-instagram {
-  background-image: url("../img/Social/Instagram-squared.png");
+  background-image: image-url("Instagram-squared.png");
 }
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .comments-wrapper, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .comments-wrapper {
   width: 90%;
@@ -3418,7 +3418,7 @@
   display: block;
   width: 7px;
   height: 16px;
-  background-image: url("../img/app/chat-message-arrow.png");
+  background-image: image-url("chat-message-arrow.png");
   position: absolute;
   top: 12px;
   left: -7px;
@@ -3709,7 +3709,7 @@
     z-index: -1;
     width: 100vw;
     height: 100vh;
-    background-image: url("../img/app/background.png");
+    background-image: image-url("background.png");
     background-position: 70% center;
     background-size: cover;
   }
@@ -3819,7 +3819,7 @@
     z-index: -1;
     width: 100vw;
     height: 100vh;
-    background-image: url("../img/app/background.png");
+    background-image: image-url("background.png");
     background-position: 70% center;
     background-size: cover;
   }

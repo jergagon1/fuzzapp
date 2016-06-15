@@ -28,6 +28,8 @@ gem 'mini_magick'
 gem 'fog-aws'
 
 gem 'jquery-rails'
+gem 'sass-rails'
+
 gem 'turbolinks'
 
 group :development, :test do
