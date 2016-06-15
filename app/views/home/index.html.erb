@@ -1,0 +1,1059 @@
+
+<!--********************************************************************************************************************************-->
+<!--********************************************************************************************************************************-->
+<!--********************************************************************************************************************************-->
+<!-- Весь скрипт, который отвечает за переключения и контроль отображения в приложении я вынес в app-interactions.js-->
+<!--********************************************************************************************************************************-->
+<!--********************************************************************************************************************************-->
+<!--********************************************************************************************************************************-->
+<html ng-app="lightbox">
+  <head>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <link href="/css/vendor.css" rel="stylesheet"/>
+    <link href="/css/custom.css" rel="stylesheet"/>
+    <link href="/css/vendor/angular-bootstrap-lightbox.css" rel="stylesheet"/>
+    <link href="/css/app.css" rel="stylesheet"/>
+        <meta property="og:title" content="FuzzFinders is a super-intuitive app bringing people together to find lost pets."/>
+        <meta property="og:url" content="http://fuzzfinders.bova.me/"/>
+        <meta property="og:description" content="Interactive features, collaborative mapping technology, and instant alerts. FuzzFinders is the social network empowering you to get Fuzzy back!"/>
+        <meta property="og:locale" content="en_US"/>
+        <meta property="og:image" content="http://fuzzfinders.bova.me/img/OGP.png"/>
+        <meta name="twitter:card" content="summary_large_image"/>
+        <meta name="twitter:site" content="@FuzzFinders"/>
+        <meta name="twitter:title" content="FuzzFinders is a super-intuitive app bringing people together to find lost pets."/>
+        <meta name="twitter:description" content="Interactive features, collaborative mapping technology, and instant alerts. FuzzFinders is the social network empowering you to get Fuzzy back!"/>
+        <meta name="twitter:image" content="http://fuzzfinders.bova.me/img/OGP.png"/>
+  </head>
+  <!--********************************************************************************************************************************-->
+  <!--********************************************************************************************************************************-->
+  <!--********************************************************************************************************************************-->
+  <!-- При открытых областях к body добавляются классы по цвету навигации-->
+  <!-- - для lost-pet-page и lost-pet-post : .navigation-orange-->
+  <!-- - для found-pet-page и found-pet-post : .navigation-green-->
+  <!-- - для local-fuzzalerts : .navigation-blue-light-->
+  <!-- - для local fuzzchat : .navigation-blue-dark-->
+  <!-- - для экрана профиля и его настроек : .navigation-blue-->
+  <!-- - остальные экраны — дам спецификацию позже-->
+  <!-- ВАЖНО: поскольку будет конфликт css этих классов — тип цвета навигации только 1 одновременно.-->
+  <!--********************************************************************************************************************************-->
+  <!--********************************************************************************************************************************-->
+  <!--********************************************************************************************************************************-->
+  <body class="fuzzfinders-app">
+    <div class="background-for-navigation"></div>
+    <div class="menu-navigation"><a href="main.html" class="brand">
+        <div class="logo"></div>
+        <h3 class="brand-title">Fuzz<span class="alt">Finders</span><span class="trademark">TM</span></h3></a>
+      <div class="profile-wrapper">
+        <!--********************************************************************************************************************************-->
+        <!--********************************************************************************************************************************-->
+        <!--********************************************************************************************************************************-->
+        <!-- Во всей верстке картинки находятся на бэкграунде чтоб их было легче контролировать.-->
+        <!-- Там где я предполагал увидеть картинку ты увидешь в html инлайновый стиль.-->
+        <!--********************************************************************************************************************************-->
+        <!--********************************************************************************************************************************-->
+        <!--********************************************************************************************************************************-->
+        <div style="background-image: url('../img/app/user-picture.png')" class="user-photo"></div>
+        <p class="user-name">SarahJ</p>
+      </div>
+      <ul>
+        <li class="link-home"><a href="main.html" class="active">FuzzFinders</a>
+        </li>
+        <li><a href="profile.html">FuzzProfile</a>
+        </li>
+        <li><a href="facts.html">FuzzFacts</a>
+        </li>
+        <li><a href="faq.html">FAQ</a>
+        </li>
+        <li><a href="contact.html">Find Us</a>
+        </li>
+        <li class="action"><a href="#">Log Out</a>
+        </li>
+        <li class="mobile-legal"><a href="../legal.html">User's agreement and Conditions</a>
+        </li>
+      </ul>
+      <!--********************************************************************************************************************************-->
+      <!--********************************************************************************************************************************-->
+      <!--********************************************************************************************************************************-->
+      <!-- Область, которая на мобильных отвечает за закрытие навигации.-->
+      <!--********************************************************************************************************************************-->
+      <!--********************************************************************************************************************************-->
+      <!--********************************************************************************************************************************		-->
+      <div class="extra-area"></div>
+      <div class="nav-trigger nav-trigger-white open"><span></span><span></span><span></span></div>
+    </div>
+    <!--********************************************************************************************************************************-->
+    <!--********************************************************************************************************************************-->
+    <!--********************************************************************************************************************************-->
+    <!-- Не спрашивай почему для навигационных тригера — так наиболее стабильно выйдет их свертстать с тем видом, который я хотел из задать-->
+    <!-- .nav-trigger и .extra-area переключает класс  .open у .menu-navigation-->
+    <!--********************************************************************************************************************************-->
+    <!--********************************************************************************************************************************-->
+    <!--********************************************************************************************************************************-->
+    <div class="mainpage-wrapper">
+      <div class="nav-trigger nav-trigger-black"><span></span><span></span><span></span></div>
+      <!--********************************************************************************************************************************-->
+      <!--********************************************************************************************************************************-->
+      <!--********************************************************************************************************************************-->
+      <!-- В кнопках-переключателях я через data-target определяю объекты, которые они переключают, в data-toggle - соответственно класс.-->
+      <!-- Все они имеют класс .btn-toggler только для отлова скриптом.-->
+      <!--********************************************************************************************************************************-->
+      <!--********************************************************************************************************************************-->
+      <!--********************************************************************************************************************************-->
+      <button data-target=".fuzz-chat-wrapper" data-toggle="show" class="btn btn-down btn-toggler">Local FuzzChat</button>
+      <div class="content-wrapper">
+        <div class="brand">
+          <div class="logo"></div>
+          <h1 class="brand-title">Fuzz<span class="alt">Finders</span><span class="trademark">TM</span></h1>
+        </div>
+        <button data-target=".lost-pet-page-wrapper" data-toggle="show" class="btn btn-orange btn-toggler">I Lost a Pet</button>
+        <button data-target=".found-pet-page-wrapper" data-toggle="show" class="btn btn-green btn-toggler">I Found a Pet</button>
+        <button data-target=".pet-sightings-page-wrapper" data-toggle="show" class="btn btn-blue btn-toggler">Local FuzzAlerts</button>
+      </div>
+      <div class="lost-pet-page-wrapper">
+        <div class="nav-block nav-block-orange">
+          <!--********************************************************************************************************************************-->
+          <!--********************************************************************************************************************************-->
+          <!--********************************************************************************************************************************-->
+          <!-- Я стекаю информацию о предыдушем переключении. Чтоб при нажатии назад улетала не вся область, а лишь прошлое переключение (в этой анкете-->
+          <!-- их будет 3 и более — чуть позже добавим завершающую серию диалогов).-->
+          <!--********************************************************************************************************************************-->
+          <!--********************************************************************************************************************************-->
+          <!--********************************************************************************************************************************-->
+          <btn class="back-arrow"><i class="icon-back"></i></btn>
+          <h2 class="title"> I Lost a pet</h2>
+          <div class="nav-trigger nav-trigger-white"><span></span><span></span><span></span></div>
+        </div>
+        <div class="section-wrapper">
+          <div class="progress-step progress-orange step-1">
+            <div class="step-icon step-1">
+              <div class="icon-photo-edit"></div>
+            </div>
+            <div class="devider step-2"></div>
+            <div class="step-icon step-2">
+              <div class="icon-location"></div>
+            </div>
+            <div class="devider step-3"></div>
+            <div class="step-icon step-3">
+              <div class="icon-fuzz-description"></div>
+            </div>
+          </div>
+          <!--********************************************************************************************************************************-->
+          <!--********************************************************************************************************************************-->
+          <!--********************************************************************************************************************************-->
+          <!-- С помощью библиотеки mresize обрабатывается событие для изменения высоты ancete-wrapper-а (при переключении классов). Для предотвращения-->
+          <!-- ошибок на некоторых устройствах после изменения класса скриптом нужно уменьшить его высоту мануально до заведомо меньшего размера (400рх-->
+          <!-- например). Тогда сработает изменятель размера и все будет отображаться коректно.-->
+          <!-- При переключении этапов анкеты классы .step-1, .step-2, .step-3 стэкуются, а не заменяются — так можно предоставить материал-дизайн анимацию-->
+          <!-- и ощущение слоев переключения. Пока это лучшее решение, которое мне удалось всерстать для данной задачи. Если есть идеи как обойтись без таких-->
+          <!-- костылей — с радостью выслушаю.-->
+          <!-- Так же при переключении у родителя и у всей секции должен срабатывать scroll to top-->
+          <!--********************************************************************************************************************************-->
+          <!--********************************************************************************************************************************-->
+          <!--********************************************************************************************************************************-->
+          <div class="ancete-wrapper step-1">
+            <div class="step-wrapper-1">
+              <h3 class="title">Snap a Photo</h3>
+              <p class="description">Photos are the best way to identify a&nbsp;missing&nbsp;pet!</p>
+              <div class="photo-wrapper wrapper-cat empty">
+                <div class="form-group">
+                  <div class="preview-holder"><i class="icon-photo-edit"></i></div>
+                  <btn class="btn btn-big btn-green btn-new">Upload Photo</btn>
+                  <btn data-target=".lost-pet-page-wrapper .progress-step, .lost-pet-page-wrapper .ancete-wrapper" data-toggle="step-2" class="btn btn-big btn-blue btn-new btn-toggler">Continue without Photo</btn>
+                  <btn class="btn btn-big btn-green btn-done">Upload another Photo</btn>
+                  <btn data-target=".lost-pet-page-wrapper .progress-step, .lost-pet-page-wrapper .ancete-wrapper" data-toggle="step-2" class="btn btn-big btn-blue btn-done btn-toggler">Continue</btn>
+                </div>
+              </div>
+            </div>
+            <div class="step-wrapper-2">
+              <h3 class="title">Enter last known location</h3>
+              <div class="form-group empty">
+                <input placeholder="Type address here" class="input form-control"/>
+                <p class="description">Or drag map pin to location</p>
+                <div class="map"></div>
+                <button data-target=".lost-pet-page-wrapper .progress-step, .lost-pet-page-wrapper .ancete-wrapper" data-toggle="step-3" class="btn btn-big btn-blue btn-new btn-toggler">Use My Current Location</button>
+                <button data-target=".lost-pet-page-wrapper .progress-step, .lost-pet-page-wrapper .ancete-wrapper" data-toggle="step-3" class="btn btn-big btn-orange btn-done btn-toggler">Use Location Provided</button>
+              </div>
+            </div>
+            <div class="step-wrapper-3">
+              <h3 class="title">Describe your pet</h3>
+              <form class="Pet-description">
+                <div class="dropdown">
+                  <button id="lost-pet-type-btn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn btn-dropdown dropdown-toggle">Pet type<span class="caret"></span></button>
+                  <ul aria-labelledby="lost-pet-type-btn" class="dropdown-menu">
+                    <li><a href="#">Dog</a></li>
+                    <li><a href="#">Cat</a></li>
+                    <li><a href="#">Bird</a></li>
+                    <li><a href="#">Other</a></li>
+                  </ul>
+                </div>
+                <div class="form-group">
+                  <input placeholder="Pet name" class="input input-small form-control"/>
+                </div>
+                <div class="dropdown last-seen-dropdown">
+                  <button id="lost-pet-seen-btn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn btn-dropdown dropdown-toggle">Time last seen<span class="caret"></span></button>
+                  <!--********************************************************************************************************************************-->
+                  <!--********************************************************************************************************************************-->
+                  <!--********************************************************************************************************************************-->
+                  <!-- При выборе custom date/time в dropdown к форме .pet-description применяется класс .custom date. Он спрячет дорпдаун и покажет кастомный инпут-->
+                  <!-- Ни один дропдаун пока не имеет скрипта по переключению (предлагаю для начала просто менять текст у переключателя дропдауна и добавлять класс-->
+                  <!-- .active в соответствующий пункт выпадающего списка. Стили предоставлю чуть позже).-->
+                  <!-- поле в last-seen-custom пока контролируется с помощью maskedInput библиотеки. Позже я думаю мы сможем нормально запустить скрипт обработчик (при-->
+                  <!-- наличии пары совсем лишних рабочих часов).-->
+                  <!--********************************************************************************************************************************-->
+                  <!--********************************************************************************************************************************-->
+                  <!--********************************************************************************************************************************-->
+                  <ul aria-labelledby="lost-pet-seen-btn" class="dropdown-menu">
+                    <li><a href="#">&nbsp;&nbsp;just now</a></li>
+                    <li><a href="#">&nbsp;&nbsp;1 hour ago	</a></li>
+                    <li><a href="#">&nbsp;&nbsp;2 hours ago</a></li>
+                    <li><a href="#">12 hours ago</a></li>
+                    <li><a href="#">24 hours ago</a></li>
+                    <li><a href="#">48 hours ago</a></li>
+                    <li><a class="custom-date-trigger">custom date/time</a></li>
+                  </ul>
+                </div>
+                <div class="form-group last-seen-custom">
+                  <input placeholder="MM/DD HH:MM" class="input input-small form-control"/>
+                </div>
+                <div class="form-group">
+                  <!--********************************************************************************************************************************-->
+                  <!--********************************************************************************************************************************-->
+                  <!--********************************************************************************************************************************-->
+                  <!-- Высота блока контролируется библиотекой autosize.-->
+                  <!--********************************************************************************************************************************-->
+                  <!--********************************************************************************************************************************-->
+                  <!--********************************************************************************************************************************-->
+                  <textarea placeholder="Briefly describe the incident" rows="2" class="textarea form-control"></textarea>
+                </div>
+                <!--********************************************************************************************************************************-->
+                <!--********************************************************************************************************************************-->
+                <!--********************************************************************************************************************************-->
+                <!-- Просто добавляет у родителя класс .extra-open. Все остальное уже задача CSS-->
+                <!--********************************************************************************************************************************-->
+                <!--********************************************************************************************************************************-->
+                <!--********************************************************************************************************************************-->
+                <button type="button" class="btn btn-big btn-green btn-subarea"><i class="icon-plus"></i>Add Pet Details</button>
+                <div class="extra-area">
+                  <div class="row">
+                    <div class="col-xs-6">
+                      <div class="dropdown dropdown-small">
+                        <button id="lost-gender-btn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn btn-dropdown dropdown-toggle">Gender<span class="caret"></span></button>
+                        <ul aria-labelledby="lost-gender-btn" class="dropdown-menu">
+                          <li><a href="#">Male</a></li>
+                          <li><a href="#">Female</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="col-xs-6">
+                      <div class="dropdown dropdown-small">
+                        <button id="lost-size-btn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn btn-dropdown dropdown-toggle">Size<span class="caret"></span></button>
+                        <ul aria-labelledby="lost-size-btn" class="dropdown-menu">
+                          <li><a href="#">Small</a></li>
+                          <li><a href="#">Medium</a></li>
+                          <li><a href="#">Large</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-6">
+                      <div class="dropdown dropdown-small">
+                        <button id="lost-age-btn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn btn-dropdown dropdown-toggle">Age<span class="caret"></span></button>
+                        <ul aria-labelledby="lost-age-btn" class="dropdown-menu">
+                          <li><a href="#">Baby</a></li>
+                          <li><a href="#">Young</a></li>
+                          <li><a href="#">Adult</a></li>
+                          <li><a href="#">Senior</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="col-xs-6">
+                      <input placeholder="Pet color" class="input input-small form-control"/>
+                    </div>
+                  </div>
+                  <input placeholder="Pet Breed" class="input input-small form-control"/>
+                  <input placeholder="Additional keywords" class="input input-small form-control"/>
+                </div>
+                <!--********************************************************************************************************************************-->
+                <!--********************************************************************************************************************************-->
+                <!--********************************************************************************************************************************-->
+                <!-- У этой кнопки особое переключение — при ее нажатии сначала мы убираем весь блок, а потом уже переключаем обратно внутренние классы-->
+                <!-- на дефолтные. Хотя если у нас ангуляр будет — просто можно будет удалять и не задумываться. Но к такому меня жизнь не готовила-->
+                <!--********************************************************************************************************************************-->
+                <!--********************************************************************************************************************************-->
+                <!--********************************************************************************************************************************-->
+                <button type="button" data-target=".lost-pet-page-wrapper" class="btn btn-big btn-blue btn-submit">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--********************************************************************************************************************************-->
+      <!--********************************************************************************************************************************-->
+      <!--********************************************************************************************************************************-->
+      <!-- Тупо то же самое что и для .lost-pet-page-wrapper-->
+      <!--********************************************************************************************************************************-->
+      <!--********************************************************************************************************************************-->
+      <!--********************************************************************************************************************************-->
+      <div class="found-pet-page-wrapper">
+        <div class="nav-block nav-block-green">
+          <btn class="back-arrow"><i class="icon-back"></i></btn>
+          <h2 class="title"> I Found a pet</h2>
+          <div class="nav-trigger nav-trigger-white"><span></span><span></span><span></span></div>
+        </div>
+        <div class="section-wrapper">
+          <div class="progress-step progress-green step-1">
+            <div class="step-icon step-1">
+              <div class="icon-photo-edit"></div>
+            </div>
+            <div class="devider step-2"></div>
+            <div class="step-icon step-2">
+              <div class="icon-location"></div>
+            </div>
+            <div class="devider step-3"></div>
+            <div class="step-icon step-3">
+              <div class="icon-fuzz-description"></div>
+            </div>
+          </div>
+          <div class="ancete-wrapper step-1">
+            <div class="step-wrapper-1">
+              <h3 class="title">Snap a Photo</h3>
+              <p class="description">Photos are the best way to identify a&nbsp;missing&nbsp;pet!</p>
+              <div class="photo-wrapper wrapper-dog empty">
+                <div class="form-group">
+                  <div class="preview-holder"><i class="icon-photo-edit"></i></div>
+                  <btn class="btn btn-big btn-green btn-new">Upload Photo</btn>
+                  <btn data-target=".found-pet-page-wrapper .progress-step, .found-pet-page-wrapper .ancete-wrapper" data-toggle="step-2" class="btn btn-big btn-blue btn-new btn-toggler">Continue without Photo</btn>
+                  <btn class="btn btn-big btn-green btn-done">Upload another Photo</btn>
+                  <btn data-target=".found-pet-page-wrapper .progress-step, ..found-pet-page-wrapperr .ancete-wrapper" data-toggle="step-2" class="btn btn-big btn-blue btn-done btn-toggler">Continue</btn>
+                </div>
+              </div>
+            </div>
+            <div class="step-wrapper-2">
+              <h3 class="title">Enter last known location</h3>
+              <div class="form-group empty">
+                <input placeholder="Type address here" class="input form-control"/>
+                <p class="description">Or drag map pin to location</p>
+                <div class="map"></div>
+                <button data-target=".found-pet-page-wrapper .progress-step, .found-pet-page-wrapper .ancete-wrapper" data-toggle="step-3" class="btn btn-big btn-blue btn-new btn-toggler">Use My Current Location</button>
+                <button data-target=".found-pet-page-wrapper .progress-step, .found-pet-page-wrapper .ancete-wrapper" data-toggle="step-3" class="btn btn-big btn-green btn-done btn-toggler">Use Location Provided</button>
+              </div>
+            </div>
+            <div class="step-wrapper-3">
+              <h3 class="title">Describe the pet</h3>
+              <form class="Pet-description">
+                <div class="dropdown">
+                  <button id="found-pet-type-btn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn btn-dropdown dropdown-toggle">Pet type<span class="caret"></span></button>
+                  <ul aria-labelledby="found-pet-type-btn" class="dropdown-menu">
+                    <li><a href="#">Dog</a></li>
+                    <li><a href="#">Cat</a></li>
+                    <li><a href="#">Bird</a></li>
+                    <li><a href="#">Other</a></li>
+                  </ul>
+                </div>
+                <div class="dropdown last-seen-dropdown">
+                  <button id="lost-pet-seen-btn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn btn-dropdown dropdown-toggle">Time last seen<span class="caret"></span></button>
+                  <ul aria-labelledby="lost-pet-seen-btn" class="dropdown-menu">
+                    <li><a href="#">&nbsp;&nbsp;just now</a></li>
+                    <li><a href="#">&nbsp;&nbsp;1 hour ago	</a></li>
+                    <li><a href="#">&nbsp;&nbsp;2 hours ago</a></li>
+                    <li><a href="#">12 hours ago</a></li>
+                    <li><a href="#">24 hours ago</a></li>
+                    <li><a href="#">48 hours ago</a></li>
+                    <li><a class="custom-date-trigger">custom date/time</a></li>
+                  </ul>
+                </div>
+                <div class="form-group last-seen-custom">
+                  <input placeholder="MM/DD HH:MM AM" class="input input-small form-control"/>
+                </div>
+                <div class="form-group">
+                  <textarea placeholder="Briefly describe the incident" rows="4" class="textarea form-control"></textarea>
+                </div>
+                <button type="button" class="btn btn-big btn-green btn-subarea"><i class="icon-plus"></i>Add Pet Details</button>
+                <div class="extra-area">
+                  <div class="row">
+                    <div class="col-xs-6">
+                      <div class="dropdown dropdown-small">
+                        <button id="found-gender-btn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn btn-dropdown dropdown-toggle">Gender<span class="caret"></span></button>
+                        <ul aria-labelledby="found-gender-btn" class="dropdown-menu">
+                          <li><a href="#">Male</a></li>
+                          <li><a href="#">Female</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="col-xs-6">
+                      <div class="dropdown dropdown-small">
+                        <button id="found-size-btn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn btn-dropdown dropdown-toggle">Size<span class="caret"></span></button>
+                        <ul aria-labelledby="found-size-btn" class="dropdown-menu">
+                          <li><a href="#">Small													</a></li>
+                          <li><a href="#">Medium</a></li>
+                          <li><a href="#">Large	</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-6">
+                      <div class="dropdown dropdown-small">
+                        <button id="found-age-btn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn btn-dropdown dropdown-toggle">Age<span class="caret"></span></button>
+                        <ul aria-labelledby="found-age-btn" class="dropdown-menu">
+                          <li><a href="#">Baby</a></li>
+                          <li><a href="#">Young</a></li>
+                          <li><a href="#">Adult</a></li>
+                          <li><a href="#">Senior</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="col-xs-6">
+                      <input placeholder="Pet color" class="input input-small form-control"/>
+                    </div>
+                  </div>
+                  <input placeholder="Pet Breed" class="input input-small form-control"/>
+                  <input placeholder="Additional keywords" class="input input-small form-control"/>
+                </div>
+                <button type="button" data-target=".found-pet-page-wrapper" class="btn btn-big btn-blue btn-submit">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pet-sightings-page-wrapper">
+        <div class="nav-block nav-block-blue">
+          <btn class="back-arrow"><i class="icon-back"></i></btn>
+          <h2 class="title"> Local FuzzAlerts</h2>
+          <div class="nav-trigger nav-trigger-white"><span></span><span></span><span></span></div>
+        </div>
+        <div class="section-wrapper">
+          <!--********************************************************************************************************************************-->
+          <!--********************************************************************************************************************************-->
+          <!--********************************************************************************************************************************-->
+          <!-- Про генерацию карты можем отдельно поговорить — так будет просто быстрее-->
+          <!--********************************************************************************************************************************-->
+          <!--********************************************************************************************************************************-->
+          <!--********************************************************************************************************************************-->
+          <div class="map"></div>
+          <form class="search-area">
+            <input placeholder="Search Keywords" class="input form-control"/>
+            <div class="row">
+              <div class="col-xs-6">
+                <div class="dropdown dropdown-small">
+                  <button id="sightings-lost-or-found" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn btn-dropdown dropdown-toggle">Lost or Found<span class="caret"></span></button>
+                  <ul aria-labelledby="sightings-lost-or-found" class="dropdown-menu">
+                    <li><a href="#">Lost</a></li>
+                    <li><a href="#">Found</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-xs-6">
+                <div class="dropdown">
+                  <button id="sightings-pet-type-btn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn btn-dropdown dropdown-toggle">Pet type<span class="caret"></span></button>
+                  <ul aria-labelledby="sightings-pet-type-btn" class="dropdown-menu">
+                    <li><a href="#">Dog</a></li>
+                    <li><a href="#">Cat</a></li>
+                    <li><a href="#">Bird</a></li>
+                    <li><a href="#">Other</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-6">
+                <input placeholder="Pet color" class="input input-small form-control"/>
+              </div>
+              <div class="col-xs-6">
+                <input placeholder="Pet Breed" class="input input-small form-control"/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-6">
+                <div class="dropdown dropdown-small">
+                  <button id="sightings-gender-btn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn btn-dropdown dropdown-toggle">Gender<span class="caret"></span></button>
+                  <ul aria-labelledby="sightings-gender-btn" class="dropdown-menu">
+                    <li><a href="#">Male</a></li>
+                    <li><a href="#">Female</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-xs-6">
+                <div class="dropdown dropdown-small">
+                  <button id="sightings-size-btn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn btn-dropdown dropdown-toggle">Size<span class="caret"></span></button>
+                  <ul aria-labelledby="sightings-size-btn" class="dropdown-menu">
+                    <li><a href="#">Small</a></li>
+                    <li><a href="#">Medium</a></li>
+                    <li><a href="#">Large										</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-6">
+                <div class="dropdown dropdown-small">
+                  <button id="sightings-age-btn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn btn-dropdown dropdown-toggle">Age<span class="caret"></span></button>
+                  <ul aria-labelledby="sightings-age-btn" class="dropdown-menu">
+                    <li><a href="#">Baby</a></li>
+                    <li><a href="#">Young</a></li>
+                    <li><a href="#">Adult</a></li>
+                    <li><a href="#">Senior</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-xs-6">
+                <button type="reset" class="btn btn-small btn-blue">Reset Filters</button>
+              </div>
+            </div>
+          </form>
+          <!--********************************************************************************************************************************-->
+          <!--********************************************************************************************************************************-->
+          <!--********************************************************************************************************************************-->
+          <!-- Просто добавляет у родителя класс .extra-open. Все остальное уже задача CSS-->
+          <!--********************************************************************************************************************************-->
+          <!--********************************************************************************************************************************-->
+          <!--********************************************************************************************************************************-->
+          <button class="btn btn-search btn-blue btn-subarea"><span class="icon icon-search"></span>Search FuzzAlerts</button>
+          <div class="posts">
+            <div data-target=".lost-pet-post-wrapper" data-toggle="show" class="post lost-post btn-toggler placeholder-dog">
+              <h3 class="title">Lost Dog</h3>
+              <div class="photo-holder"></div>
+              <div class="content-holder">
+                <table>
+                  <tr>
+                    <td>Last Seen</td>
+                    <td>02/15/2016 9:55pm</td>
+                  </tr>
+                  <tr>
+                    <td>Posted by</td>
+                    <td>SarahJ</td>
+                  </tr>
+                </table><a data-target=".lost-pet-post" class="read-more">Read more</a>
+              </div>
+            </div>
+            <div data-target=".found-pet-post-wrapper" data-toggle="show" class="post found-post btn-toggler placeholder-cat">
+              <h3 class="title">Found Cat Missy</h3>
+              <div class="photo-holder"></div>
+              <div class="content-holder">
+                <table>
+                  <tr>
+                    <td>Last Seen</td>
+                    <td>2 hours ago</td>
+                  </tr>
+                  <tr>
+                    <td>Posted by</td>
+                    <td>IguaneFinder</td>
+                  </tr>
+                </table><a data-target=".found-pet-post" class="read-more">Read more</a>
+              </div>
+            </div>
+            <div data-target=".found-pet-post-wrapper" data-toggle="show" class="post found-post btn-toggler placeholder-bird">
+              <h3 class="title">Found Bird</h3>
+              <div class="photo-holder"></div>
+              <div class="content-holder">
+                <table>
+                  <tr>
+                    <td>Last Seen</td>
+                    <td>02/15/2016 9:55pm</td>
+                  </tr>
+                  <tr>
+                    <td>Posted by</td>
+                    <td>HelloKitty</td>
+                  </tr>
+                </table><a data-target=".found-pet-post" class="read-more">Read more</a>
+              </div>
+            </div>
+            <div data-target=".lost-pet-post-wrapper" data-toggle="show" class="post lost-post btn-toggler">
+              <h3 class="title">Lost Parrot</h3>
+              <div style="background-image: url('../img/app/sightings-pet-1.png')" class="photo-holder"></div>
+              <div class="content-holder">
+                <table>
+                  <tr>
+                    <td>Last Seen</td>
+                    <td>23 hours ago</td>
+                  </tr>
+                  <tr>
+                    <td>Posted by</td>
+                    <td>H. Morgan</td>
+                  </tr>
+                </table><a data-target=".lost-pet-post" class="read-more">Read more</a>
+              </div>
+            </div>
+            <div data-target=".lost-pet-post-wrapper" data-toggle="show" class="post lost-post btn-toggler">
+              <h3 class="title">Lost Dog</h3>
+              <div style="background-image: url('../img/app/sightings-pet-4.png')" class="photo-holder"></div>
+              <div class="content-holder">
+                <table>
+                  <tr>
+                    <td>Last Seen</td>
+                    <td>02/15/2016 9:55pm</td>
+                  </tr>
+                  <tr>
+                    <td>Posted by</td>
+                    <td>SarahJ</td>
+                  </tr>
+                </table><a data-target=".lost-pet-post" class="read-more">Read more</a>
+              </div>
+            </div>
+            <div data-target=".found-pet-post-wrapper" data-toggle="show" class="post found-post btn-toggler">
+              <h3 class="title">Found Reptile</h3>
+              <div style="background-image: url('../img/app/sightings-pet-3.png')" class="photo-holder"></div>
+              <div class="content-holder">
+                <table>
+                  <tr>
+                    <td>Last Seen</td>
+                    <td>2 hours ago</td>
+                  </tr>
+                  <tr>
+                    <td>Posted by</td>
+                    <td>IguaneFinder</td>
+                  </tr>
+                </table><a data-target=".found-pet-post" class="read-more">Read more</a>
+              </div>
+            </div>
+            <div data-target=".found-pet-post-wrapper" data-toggle="show" class="post found-post btn-toggler">
+              <h3 class="title">Found Pet</h3>
+              <div style="background-image: url('../img/app/sightings-pet-2.png')" class="photo-holder"></div>
+              <div class="content-holder">
+                <table>
+                  <tr>
+                    <td>Last Seen</td>
+                    <td>02/15/2016 9:55pm</td>
+                  </tr>
+                  <tr>
+                    <td>Posted by</td>
+                    <td>HelloKitty</td>
+                  </tr>
+                </table><a data-target=".found-pet-post" class="read-more">Read more</a>
+              </div>
+            </div>
+            <div data-target=".lost-pet-post-wrapper" data-toggle="show" class="post lost-post btn-toggler">
+              <h3 class="title">Lost Parrot</h3>
+              <div style="background-image: url('../img/app/sightings-pet-1.png')" class="photo-holder"></div>
+              <div class="content-holder">
+                <table>
+                  <tr>
+                    <td>Last Seen</td>
+                    <td>23 hours ago</td>
+                  </tr>
+                  <tr>
+                    <td>Posted by</td>
+                    <td>H. Morgan</td>
+                  </tr>
+                </table><a data-target=".lost-pet-post" class="read-more">Read more</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="lost-pet-post-wrapper">
+        <div class="nav-block nav-block-orange">
+          <btn class="back-arrow"><i class="icon-back"></i></btn>
+          <h2 class="title"> Lost dog</h2>
+          <div class="nav-trigger nav-trigger-white"><span></span><span></span><span></span></div>
+        </div>
+        <div class="section-wrapper">
+          <!--********************************************************************************************************************************-->
+          <!--********************************************************************************************************************************-->
+          <!--********************************************************************************************************************************-->
+          <!-- Про генерацию карты можем отдельно поговорить — так будет просто быстрее-->
+          <!--********************************************************************************************************************************-->
+          <!--********************************************************************************************************************************-->
+          <!--********************************************************************************************************************************-->
+          <div class="map"></div>
+          <div class="photo-wrapper photo-wrapper-purple placeholder-dog">
+            <div class="photo"></div>
+            <h3 class="label">Last Seen 2 Hours Ago</h3>
+          </div>
+          <div class="post-description">
+            <div class="header">
+              <div style="background-image: url('../img/app/user-picture-3.png')" class="face-lockup"></div>
+              <div class="content">
+                <p>Posted by SarahJ</p>
+                <p>3 hours ago</p>
+                <p class="type">Lost Dog</p>
+              </div>
+            </div>
+            <table class="table table-stripped">
+              <tr>
+                <td>Size</td>
+                <td>Medium</td>
+              </tr>
+              <tr>
+                <td>Color</td>
+                <td>Brown</td>
+              </tr>
+              <tr>
+                <td>Breed</td>
+                <td>Shepherd</td>
+              </tr>
+              <tr>
+                <td>Sex</td>
+                <td>Female</td>
+              </tr>
+              <tr>
+                <td>Last seen</td>
+                <td>02/09/2016 6:30PM</td>
+              </tr>
+            </table>
+            <p class="description">It tore off the leash in the park. If you have any information please contact 732-757-2923</p>
+            <button class="btn btn-big btn-blue"><i class="icon-edit"></i>Edit Post</button>
+          </div>
+          <div class="social-share-wrapper">
+            <p>Share this post to help find fuzzy!</p>
+            <div class="buttons-wrapper">
+              <button class="social-facebook"></button>
+              <button class="social-twitter"></button>
+              <button class="social-instagram"></button>
+            </div>
+          </div>
+          <div class="comments-wrapper">
+            <h2>Comments</h2>
+            <div class="comment with-image">
+              <!--********************************************************************************************************************************-->
+              <!--********************************************************************************************************************************-->
+              <!--********************************************************************************************************************************-->
+              <!-- Если в комменте будет фотка — у обертки присвой .with-image. Нужен для правильной отработки css на больших экранах.-->
+              <!--********************************************************************************************************************************-->
+              <!--********************************************************************************************************************************-->
+              <!--********************************************************************************************************************************-->
+              <div class="header">
+                <div style="background-image: url('../img/app/user-placeholder.png')" class="face-lockup"></div>
+                <div class="content">
+                  <p>Posted by Tomas17</p>
+                  <p>3 hours ago</p>
+                </div>
+              </div>
+              <div style="background-image: url('../img/app/dog-demo-2.png')" class="image"></div>
+              <div class="description-wrapper">
+                <p class="description">Check out is it your dog? Some shepherd-dog walked on my backyard.</p>
+                <div class="location-sign"><i class="icon-location"></i>Location point added</div>
+              </div>
+            </div>
+            <div class="comment">
+              <div class="header">
+                <div style="background-image: url('../img/app/user-picture-3.png')" class="face-lockup"></div>
+                <div class="content">
+                  <p>Posted by SarahJ</p>
+                  <p>2 hours ago</p>
+                </div>
+              </div>
+              <div class="description-wrapper">
+                <p class="description">No, unfurtunately it’s not my Nicy. May be you should post a message about it? </p>
+              </div>
+            </div>
+            <div class="comment with-image">
+              <div class="header">
+                <div style="background-image: url('../img/app/user-picture-5.png')" class="face-lockup"></div>
+                <div class="content">
+                  <p>Posted by AnnaMay</p>
+                  <p>2 hours ago</p>
+                </div>
+              </div>
+              <div style="background-image: url('../img/app/dog-demo-3.png')" class="image"></div>
+              <div class="description-wrapper">
+                <p class="description">Hey, looks like it’s your dog, isn’t it? It was playing in the same park for hours without any owner. I take care for it temporaty. If it’s yours call me by this phone 732-757-2923</p>
+                <div class="location-sign"><i class="icon-location"></i>Location point added</div>
+              </div>
+            </div>
+            <div class="comment">
+              <div class="header">
+                <div style="background-image: url('../img/app/user-picture-3.png')" class="face-lockup"></div>
+                <div class="content">
+                  <p>Posted by SarahJ</p>
+                  <p>2 hours ago</p>
+                </div>
+              </div>
+              <div class="description-wrapper">
+                <p class="description">Oh, thanks! Thanks a lot. It is my dog. I will call you in 5 minutes.</p>
+              </div>
+            </div>
+          </div>
+          <form class="post-comment">
+            <!--********************************************************************************************************************************-->
+            <!--********************************************************************************************************************************-->
+            <!--********************************************************************************************************************************-->
+            <!-- При нажатии на .btn-photo к форме добавляется класс .photo-added, при нажатии на .btn-location — .location-added-->
+            <!-- С диалогом и выгрузкой на амазон подсобить не могу потому что не уверен, что правильно сделаю при случае ангуляра-->
+            <!--********************************************************************************************************************************-->
+            <!--********************************************************************************************************************************-->
+            <!--********************************************************************************************************************************-->
+            <h2>Post Your Comment</h2>
+            <textarea placeholder="Type Here" row="4" class="textarea form-control"></textarea>
+            <div style="background-image: url('../img/app/dog-demo-2.png')" class="photo-wrapper">
+              <button class="btn-remove"></button>
+            </div>
+            <div class="location-wrapper">
+              <div class="map"></div>
+              <div class="btn-remove"></div>
+            </div>
+            <div class="row">
+              <div class="col-xs-6">
+                <button type="button" class="btn btn-small btn-blue btn-photo">Upload Photo</button>
+              </div>
+              <div class="col-xs-6">
+                <button type="button" class="btn btn-small btn-blue btn-location">Add a Location</button>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-xbig btn-blue">Post</button>
+          </form>
+        </div>
+      </div>
+      <div class="found-pet-post-wrapper">
+        <div class="nav-block nav-block-green">
+          <btn class="back-arrow"><i class="icon-back"></i></btn>
+          <h2 class="title"> Lost dog</h2>
+          <div class="nav-trigger nav-trigger-white"><span></span><span></span><span></span></div>
+        </div>
+        <div class="section-wrapper">
+          <div class="map"></div>
+          <div class="photo-wrapper photo-wrapper-green">
+            <div style="background-image: url('../img/app/sightings-pet-4.png')" class="photo"></div>
+            <h3 class="label">Last Seen 2 Hours Ago</h3>
+          </div>
+          <div class="post-description">
+            <div class="header">
+              <div style="background-image: url('../img/app/user-picture-3.png')" class="face-lockup"></div>
+              <div class="content">
+                <p>Posted by SarahJ</p>
+                <p>3 hours ago</p>
+                <p class="type">Lost Dog</p>
+              </div>
+            </div>
+            <table class="table table-stripped">
+              <tr>
+                <td>Size</td>
+                <td>Medium</td>
+              </tr>
+              <tr>
+                <td>Color</td>
+                <td>Brown</td>
+              </tr>
+              <tr>
+                <td>Breed</td>
+                <td>Shepherd</td>
+              </tr>
+              <tr>
+                <td>Sex</td>
+                <td>Female</td>
+              </tr>
+              <tr>
+                <td>Last seen</td>
+                <td>02/09/2016 6:30PM</td>
+              </tr>
+            </table>
+            <p class="description">It tore off the leash in the park. If you have any information please contact 732-757-2923</p>
+            <button class="btn btn-big btn-blue"><i class="icon-edit"></i>Edit Post</button>
+          </div>
+          <div class="social-share-wrapper">
+            <p>Share this post to help find fuzzy!</p>
+            <div class="buttons-wrapper">
+              <button class="social-facebook"></button>
+              <button class="social-twitter"></button>
+              <button class="social-instagram"></button>
+            </div>
+          </div>
+          <div class="comments-wrapper">
+            <h2>Comments</h2>
+            <div class="comment with-image">
+              <div class="header">
+                <div style="background-image: url('../img/app/user-placeholder.png')" class="face-lockup"></div>
+                <div class="content">
+                  <p>Posted by Tomas17</p>
+                  <p>3 hours ago</p>
+                </div>
+              </div>
+              <div style="background-image: url('../img/app/dog-demo-2.png')" class="image"></div>
+              <div class="description-wrapper">
+                <p class="description">Check out is it your dog? Some shepherd-dog walked on my backyard.</p>
+                <div class="location-sign"><i class="icon-location"></i>Location point added</div>
+              </div>
+            </div>
+            <div class="comment">
+              <div class="header">
+                <div style="background-image: url('../img/app/user-picture-3.png')" class="face-lockup"></div>
+                <div class="content">
+                  <p>Posted by SarahJ</p>
+                  <p>2 hours ago</p>
+                </div>
+              </div>
+              <div class="description-wrapper">
+                <p class="description">No, unfurtunately it’s not my Nicy. May be you should post a message about it? </p>
+              </div>
+            </div>
+            <div class="comment with-image">
+              <div class="header">
+                <div style="background-image: url('../img/app/user-picture-5.png')" class="face-lockup"></div>
+                <div class="content">
+                  <p>Posted by AnnaMay</p>
+                  <p>2 hours ago</p>
+                </div>
+              </div>
+              <div style="background-image: url('../img/app/dog-demo-3.png')" class="image"></div>
+              <div class="description-wrapper">
+                <p class="description">Hey, looks like it’s your dog, isn’t it? It was playing in the same park for hours without any owner. I take care for it temporaty. If it’s yours call me by this phone 732-757-2923</p>
+                <div class="location-sign"><i class="icon-location"></i>Location point added</div>
+              </div>
+            </div>
+            <div class="comment">
+              <div class="header">
+                <div style="background-image: url('../img/app/user-picture-3.png')" class="face-lockup"></div>
+                <div class="content">
+                  <p>Posted by SarahJ</p>
+                  <p>2 hours ago</p>
+                </div>
+              </div>
+              <div class="description-wrapper">
+                <p class="description">Oh, thanks! Thanks a lot. It is my dog. I will call you in 5 minutes.</p>
+              </div>
+            </div>
+          </div>
+          <form class="post-comment">
+            <h2>Post Your Comment</h2>
+            <textarea placeholder="Type Here" row="4" class="textarea form-control"></textarea>
+            <div style="background-image: url('../img/app/dog-demo-2.png')" class="photo-wrapper">
+              <button class="btn-remove"></button>
+            </div>
+            <div class="location-wrapper">
+              <div class="map"></div>
+              <div class="btn-remove"></div>
+            </div>
+            <div class="row">
+              <div class="col-xs-6">
+                <button type="button" class="btn btn-small btn-blue btn-photo">Upload Photo</button>
+              </div>
+              <div class="col-xs-6">
+                <button type="button" class="btn btn-small btn-blue btn-location">Add a Location</button>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-xbig btn-blue">Post</button>
+          </form>
+        </div>
+      </div>
+      <!--********************************************************************************************************************************-->
+      <!--********************************************************************************************************************************-->
+      <!--********************************************************************************************************************************-->
+      <!-- Сейчас используется какое-то стороннее решение для чата. Прошлый разработчик сказал, что я могу обновить структуру выдаваемого html-->
+      <!-- как мне угодно в пределах этих функций.-->
+      <!--********************************************************************************************************************************-->
+      <!--********************************************************************************************************************************-->
+      <!--********************************************************************************************************************************-->
+      <div class="fuzz-chat-wrapper">
+        <div class="nav-block nav-block-dark-blue">
+          <btn data-target=".fuzz-chat-wrapper" class="back-arrow"><i class="icon-back"></i></btn>
+          <h2 class="title"> Local FUZZCHAT</h2>
+          <div class="nav-trigger nav-trigger-white"><span></span><span></span><span></span></div>
+        </div>
+        <div class="chat-wrapper">
+          <div class="message-wrapper">
+            <div style="background-image: url('../img/app/user-picture-2.png')" class="face-lockup"></div>
+            <div class="text-holder">
+              <h5 class="name">Robert</h5>
+              <p class="message">Hi guys. Does anyone have a list of shelters of Oakland? I’ve posted Lost pet message, but still worried</p>
+              <h6 class="time">about 10 minutes ago</h6>
+            </div>
+          </div>
+          <div class="message-wrapper">
+            <div style="background-image: url('../img/app/user-picture.png')" class="face-lockup"></div>
+            <div class="text-holder">
+              <h5 class="name">Aisher</h5>
+              <p class="message">Well, Robert. System automaticly proposes you links to article with nearest shelters. Don’t you receive it?</p>
+              <h6 class="time">about 10 minutes ago</h6>
+            </div>
+          </div>
+          <div class="message-wrapper">
+            <div style="background-image: url('../img/app/user-picture-2.png')" class="face-lockup"></div>
+            <div class="text-holder">
+              <h5 class="name">Robert</h5>
+              <p class="message">I’ve just misclicked and closed window. Is there any place to get this information? Or I should make another post?</p>
+              <h6 class="time">about 9 minutes ago</h6>
+            </div>
+          </div>
+          <div class="message-wrapper">
+            <div style="background-image: url('../img/app/user-picture.png')" class="face-lockup"></div>
+            <div class="text-holder">
+              <h5 class="name">Aisher</h5>
+              <p class="message">I've seen it somewhere. Not sure where, but it really was. Wait a bit, I'll try to find this link.</p>
+              <h6 class="time">about 8 minutes ago</h6>
+            </div>
+          </div>
+          <div class="message-wrapper">
+            <div style="background-image: url('../img/app/user-picture-2.png')" class="face-lockup"></div>
+            <div class="text-holder">
+              <h5 class="name">Robert</h5>
+              <p class="message">Thanks a lot =)</p>
+              <h6 class="time">about 7 minutes ago</h6>
+            </div>
+          </div>
+        </div>
+        <div class="message-input form-group">
+          <input placeholder="Enter message" class="form-control"/>
+          <button class="btn btn-message"><span class="icon-fuzz-flash"></span></button>
+        </div>
+      </div>
+    </div>
+    <div class="alert-wrapper lost-pet">
+      <div class="shadow"></div>
+      <div class="fuzz-alert">
+        <div class="image-wrapper"></div>
+        <div class="content-wrapper">
+          <h1>FuzzAlert</h1>
+          <p>Lost Dog Buggy</p>
+        </div>
+        <div class="close icon-plus"></div>
+      </div>
+    </div>
+    <div class="alert-wrapper found-pet">
+      <div class="shadow"></div>
+      <div class="fuzz-alert">
+        <div class="image-wrapper"></div>
+        <div class="content-wrapper">
+          <h1>FuzzAlert</h1>
+          <p>Found Dog</p>
+        </div>
+        <div class="close icon-plus"></div>
+      </div>
+    </div>
+    <script type="text/javascript" src="/js/min/vendor-min.js"></script>
+    <script type="text/javascript" src="/js/mresize.js"></script>
+    <!--script(type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.10/angular.min.js")-->
+    <!--script(type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.10/angular-touch.min.js")-->
+    <!--script(type="text/javascript" src="/js/angular-bootstrap-lightbox.min.js")-->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+    <script type="text/javascript" src="/js/marketwithlabel.js"></script>
+    <script type="text/javascript" src="/js/app-interactions.js"></script>
+    <!-- Yandex.Metrika counter-->
+    <script type="text/javascript">
+      (function (d, w, c) {
+      (w[c] = w[c] || []).push(function() {
+      try {
+      w.yaCounter36900400 = new Ya.Metrika({
+      id:36900400,
+      clickmap:true,
+      trackLinks:true,
+      accurateTrackBounce:true,
+      webvisor:true,
+      trackHash:true,
+      ut:"noindex"
+      });
+      } catch(e) { }
+      });
+      var n = d.getElementsByTagName("script")[0],
+      s = d.createElement("script"),
+      f = function () { n.parentNode.insertBefore(s, n); };
+      s.type = "text/javascript";
+      s.async = true;
+      s.src = "https://mc.yandex.ru/metrika/watch.js";
+      if (w.opera == "[object Opera]") {
+      d.addEventListener("DOMContentLoaded", f, false);
+      } else { f(); }
+      })(document, window, "yandex_metrika_callbacks");
+    </script>
+    <noscript>
+      <div><img src="https://mc.yandex.ru/watch/36900400?ut=noindex" style="position:absolute; left:-9999px;" alt=""/></div>
+    </noscript>
+    <!-- /Yandex.Metrika counter-->
+  </body>
+</html>
+

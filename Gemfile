@@ -27,6 +27,9 @@ gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'mini_magick'
 gem 'fog-aws'
 
+gem 'jquery-rails'
+gem 'turbolinks'
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'rspec-mocks'
