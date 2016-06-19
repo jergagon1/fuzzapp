@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root 'home#index'
+
   # Devise Authentication
   scope :api do
     scope :v1 do
