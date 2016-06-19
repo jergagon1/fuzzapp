@@ -23196,7 +23196,7 @@ body .colapsed-menu::-webkit-scrollbar {
 
 .content-21 .features.features-tabs .features-bodies {
   position: relative;
-  background: #ebedee url("../../../common-files/img/content/screen@2x.png") 0 50% no-repeat;
+  background: #ebedee image-url("screen@2x.png") 0 50% no-repeat;
   -webkit-background-size: 322px 418px;
   -moz-background-size: 322px 418px;
   -o-background-size: 322px 418px;
@@ -23323,7 +23323,7 @@ body .colapsed-menu::-webkit-scrollbar {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   position: relative;
   max-width: 220px;
-  background: url("../../../common-files/img/content/line-l@2x.png") no-repeat scroll center top/50% auto transparent;
+  background: image-url("line-l@2x.png") no-repeat scroll center top/50% auto transparent;
   padding-top: 110px;
   opacity: 0;
   filter: alpha(opacity=0);
@@ -24640,11 +24640,11 @@ body .colapsed-menu::-webkit-scrollbar {
 
 .content-34 .box-1 {
   padding-top: 105px;
-  background: url("../../../common-files/img/content/icon-1.png") 15px 0 no-repeat; }
+  background: image-url("icon-1.png") 15px 0 no-repeat; }
 
 .content-34 .box-2 {
   padding-top: 85px;
-  background: url("../../../common-files/img/content/icon-2.png") 15px 0 no-repeat; }
+  background: image-url("icon-2.png") 15px 0 no-repeat; }
 
 .content-35 {
   position: relative;
@@ -24867,7 +24867,7 @@ body .colapsed-menu::-webkit-scrollbar {
     padding-top: 0; } }
 .content-35 .contact {
   padding: 30px 0 10px 92px;
-  background: url("../../../common-files/img/content/anthony.png") no-repeat center left;
+  background: image-url("anthony.png") no-repeat center left;
   color: #7f8c8d;
   font-size: 16px;
   line-height: 26px;
@@ -25102,7 +25102,7 @@ body .colapsed-menu::-webkit-scrollbar {
 .largeScreenshots span {
   display: block;
   height: 36px;
-  background: #e1e1e1 url("../../../common-files/img/content/browser.png") no-repeat left center;
+  background: #e1e1e1 image-url("browser.png") no-repeat left center;
   margin: 0 auto;
   width: 798px;
   border-radius: 5px 5px 0 0;
@@ -25114,7 +25114,7 @@ body .colapsed-menu::-webkit-scrollbar {
   transition: 0.25s; }
 
 .largeScreenshots span:hover {
-  background: #e1e1e1 url("../../../common-files/img/content/browser-c.png") no-repeat left center; }
+  background: #e1e1e1 image-url("browser-c.png") no-repeat left center; }
 
 .largeScreenshots .next,
 .largeScreenshots .prev {
@@ -25130,7 +25130,7 @@ body .colapsed-menu::-webkit-scrollbar {
   opacity: 1; }
 
 .largeScreenshots .next {
-  background: url("../../../common-files/img/content/next.svg") no-repeat 50% 50%;
+  background: image-url("next.svg") no-repeat 50% 50%;
   margin-left: 400px;
   -webkit-transition: 0.5s;
   -moz-transition: 0.5s;
@@ -25139,7 +25139,7 @@ body .colapsed-menu::-webkit-scrollbar {
   transition: 0.5s; }
 
 .largeScreenshots .prev {
-  background: url("../../../common-files/img/content/prev.svg") no-repeat 50% 50%;
+  background: image-url("prev.svg") no-repeat 50% 50%;
   margin-left: -600px;
   -webkit-transition: 0.35s;
   -moz-transition: 0.35s;
@@ -25168,7 +25168,7 @@ body .colapsed-menu::-webkit-scrollbar {
   top: 2px; }
 
 .close {
-  background: url("../../../common-files/img/content/close.svg") no-repeat center;
+  background: image-url("close.svg") no-repeat center;
   position: fixed;
   top: 100px;
   right: 27px;

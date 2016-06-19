@@ -9,6 +9,7 @@
 <html ng-app="lightbox">
   <head>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
 
@@ -57,7 +58,7 @@
         <!--********************************************************************************************************************************-->
         <!--********************************************************************************************************************************-->
         <!--********************************************************************************************************************************-->
-        <div style="background-image: url('../img/app/user-picture.png')" class="user-photo"></div>
+        <div style="background-image: <%= image_url('user-picture.png') %>" class="user-photo"></div>
         <p class="user-name">SarahJ</p>
       </div>
       <ul>
@@ -566,7 +567,7 @@
             </div>
             <div data-target=".lost-pet-post-wrapper" data-toggle="show" class="post lost-post btn-toggler">
               <h3 class="title">Lost Parrot</h3>
-              <div style="background-image: url('../img/app/sightings-pet-1.png')" class="photo-holder"></div>
+              <div style="background-image: <%= image_url('sightings-pet-1.png') %>" class="photo-holder"></div>
               <div class="content-holder">
                 <table>
                   <tr>
@@ -582,7 +583,7 @@
             </div>
             <div data-target=".lost-pet-post-wrapper" data-toggle="show" class="post lost-post btn-toggler">
               <h3 class="title">Lost Dog</h3>
-              <div style="background-image: url('../img/app/sightings-pet-4.png')" class="photo-holder"></div>
+              <div style="background-image: <%= image_url('sightings-pet-4.png') %>" class="photo-holder"></div>
               <div class="content-holder">
                 <table>
                   <tr>
@@ -598,7 +599,7 @@
             </div>
             <div data-target=".found-pet-post-wrapper" data-toggle="show" class="post found-post btn-toggler">
               <h3 class="title">Found Reptile</h3>
-              <div style="background-image: url('../img/app/sightings-pet-3.png')" class="photo-holder"></div>
+              <div style="background-image: <%= image_url('sightings-pet-3.png') %>" class="photo-holder"></div>
               <div class="content-holder">
                 <table>
                   <tr>
@@ -614,7 +615,7 @@
             </div>
             <div data-target=".found-pet-post-wrapper" data-toggle="show" class="post found-post btn-toggler">
               <h3 class="title">Found Pet</h3>
-              <div style="background-image: url('../img/app/sightings-pet-2.png')" class="photo-holder"></div>
+              <div style="background-image: <%= image_url('sightings-pet-2.png') %>" class="photo-holder"></div>
               <div class="content-holder">
                 <table>
                   <tr>
@@ -630,7 +631,7 @@
             </div>
             <div data-target=".lost-pet-post-wrapper" data-toggle="show" class="post lost-post btn-toggler">
               <h3 class="title">Lost Parrot</h3>
-              <div style="background-image: url('../img/app/sightings-pet-1.png')" class="photo-holder"></div>
+              <div style="background-image: <%= image_url('sightings-pet-1.png') %>" class="photo-holder"></div>
               <div class="content-holder">
                 <table>
                   <tr>
@@ -668,7 +669,7 @@
           </div>
           <div class="post-description">
             <div class="header">
-              <div style="background-image: url('../img/app/user-picture-3.png')" class="face-lockup"></div>
+              <div style="background-image: <%= image_url('user-picture-3.png') %>" class="face-lockup"></div>
               <div class="content">
                 <p>Posted by SarahJ</p>
                 <p>3 hours ago</p>
@@ -719,13 +720,13 @@
               <!--********************************************************************************************************************************-->
               <!--********************************************************************************************************************************-->
               <div class="header">
-                <div style="background-image: url('../img/app/user-placeholder.png')" class="face-lockup"></div>
+                <div style="background-image: <%= image_url('user-placeholder.png') %>" class="face-lockup"></div>
                 <div class="content">
                   <p>Posted by Tomas17</p>
                   <p>3 hours ago</p>
                 </div>
               </div>
-              <div style="background-image: url('../img/app/dog-demo-2.png')" class="image"></div>
+              <div style="background-image: <%= image_url('dog-demo-2.png') %>" class="image"></div>
               <div class="description-wrapper">
                 <p class="description">Check out is it your dog? Some shepherd-dog walked on my backyard.</p>
                 <div class="location-sign"><i class="icon-location"></i>Location point added</div>
@@ -733,7 +734,7 @@
             </div>
             <div class="comment">
               <div class="header">
-                <div style="background-image: url('../img/app/user-picture-3.png')" class="face-lockup"></div>
+                <div style="background-image: <%= image_url('user-picture-3.png') %>" class="face-lockup"></div>
                 <div class="content">
                   <p>Posted by SarahJ</p>
                   <p>2 hours ago</p>
@@ -745,13 +746,13 @@
             </div>
             <div class="comment with-image">
               <div class="header">
-                <div style="background-image: url('../img/app/user-picture-5.png')" class="face-lockup"></div>
+                <div style="background-image: <%= image_url('user-picture-5.png') %>" class="face-lockup"></div>
                 <div class="content">
                   <p>Posted by AnnaMay</p>
                   <p>2 hours ago</p>
                 </div>
               </div>
-              <div style="background-image: url('../img/app/dog-demo-3.png')" class="image"></div>
+              <div style="background-image: <%= image_url('dog-demo-3.png') %>" class="image"></div>
               <div class="description-wrapper">
                 <p class="description">Hey, looks like it’s your dog, isn’t it? It was playing in the same park for hours without any owner. I take care for it temporaty. If it’s yours call me by this phone 732-757-2923</p>
                 <div class="location-sign"><i class="icon-location"></i>Location point added</div>
@@ -759,7 +760,7 @@
             </div>
             <div class="comment">
               <div class="header">
-                <div style="background-image: url('../img/app/user-picture-3.png')" class="face-lockup"></div>
+                <div style="background-image: <%= image_url('user-picture-3.png') %>" class="face-lockup"></div>
                 <div class="content">
                   <p>Posted by SarahJ</p>
                   <p>2 hours ago</p>
@@ -781,7 +782,7 @@
             <!--********************************************************************************************************************************-->
             <h2>Post Your Comment</h2>
             <textarea placeholder="Type Here" row="4" class="textarea form-control"></textarea>
-            <div style="background-image: url('../img/app/dog-demo-2.png')" class="photo-wrapper">
+            <div style="background-image: <%= image_url('dog-demo-2.png') %>" class="photo-wrapper">
               <button class="btn-remove"></button>
             </div>
             <div class="location-wrapper">
@@ -809,12 +810,12 @@
         <div class="section-wrapper">
           <div class="map"></div>
           <div class="photo-wrapper photo-wrapper-green">
-            <div style="background-image: url('../img/app/sightings-pet-4.png')" class="photo"></div>
+            <div style="background-image: <%= image_url('sightings-pet-4.png') %>" class="photo"></div>
             <h3 class="label">Last Seen 2 Hours Ago</h3>
           </div>
           <div class="post-description">
             <div class="header">
-              <div style="background-image: url('../img/app/user-picture-3.png')" class="face-lockup"></div>
+              <div style="background-image: <%= image_url('user-picture-3.png') %>" class="face-lockup"></div>
               <div class="content">
                 <p>Posted by SarahJ</p>
                 <p>3 hours ago</p>
@@ -858,13 +859,13 @@
             <h2>Comments</h2>
             <div class="comment with-image">
               <div class="header">
-                <div style="background-image: url('../img/app/user-placeholder.png')" class="face-lockup"></div>
+                <div style="background-image: <%= image_url('user-placeholder.png') %>" class="face-lockup"></div>
                 <div class="content">
                   <p>Posted by Tomas17</p>
                   <p>3 hours ago</p>
                 </div>
               </div>
-              <div style="background-image: url('../img/app/dog-demo-2.png')" class="image"></div>
+              <div style="background-image: <%= image_url('dog-demo-2.png') %>" class="image"></div>
               <div class="description-wrapper">
                 <p class="description">Check out is it your dog? Some shepherd-dog walked on my backyard.</p>
                 <div class="location-sign"><i class="icon-location"></i>Location point added</div>
@@ -872,7 +873,7 @@
             </div>
             <div class="comment">
               <div class="header">
-                <div style="background-image: url('../img/app/user-picture-3.png')" class="face-lockup"></div>
+                <div style="background-image: <%= image_url('user-picture-3.png') %>" class="face-lockup"></div>
                 <div class="content">
                   <p>Posted by SarahJ</p>
                   <p>2 hours ago</p>
@@ -884,13 +885,13 @@
             </div>
             <div class="comment with-image">
               <div class="header">
-                <div style="background-image: url('../img/app/user-picture-5.png')" class="face-lockup"></div>
+                <div style="background-image: <%= image_url('user-picture-5.png') %>" class="face-lockup"></div>
                 <div class="content">
                   <p>Posted by AnnaMay</p>
                   <p>2 hours ago</p>
                 </div>
               </div>
-              <div style="background-image: url('../img/app/dog-demo-3.png')" class="image"></div>
+              <div style="background-image: <%= image_url('dog-demo-3.png') %>" class="image"></div>
               <div class="description-wrapper">
                 <p class="description">Hey, looks like it’s your dog, isn’t it? It was playing in the same park for hours without any owner. I take care for it temporaty. If it’s yours call me by this phone 732-757-2923</p>
                 <div class="location-sign"><i class="icon-location"></i>Location point added</div>
@@ -898,7 +899,7 @@
             </div>
             <div class="comment">
               <div class="header">
-                <div style="background-image: url('../img/app/user-picture-3.png')" class="face-lockup"></div>
+                <div style="background-image: <%= image_url('user-picture-3.png') %>" class="face-lockup"></div>
                 <div class="content">
                   <p>Posted by SarahJ</p>
                   <p>2 hours ago</p>
@@ -912,7 +913,7 @@
           <form class="post-comment">
             <h2>Post Your Comment</h2>
             <textarea placeholder="Type Here" row="4" class="textarea form-control"></textarea>
-            <div style="background-image: url('../img/app/dog-demo-2.png')" class="photo-wrapper">
+            <div style="background-image: <%= image_url('dog-demo-2.png') %>" class="photo-wrapper">
               <button class="btn-remove"></button>
             </div>
             <div class="location-wrapper">
@@ -947,7 +948,7 @@
         </div>
         <div class="chat-wrapper">
           <div class="message-wrapper">
-            <div style="background-image: url('../img/app/user-picture-2.png')" class="face-lockup"></div>
+            <div style="background-image: <%= image_url('user-picture-2.png') %>" class="face-lockup"></div>
             <div class="text-holder">
               <h5 class="name">Robert</h5>
               <p class="message">Hi guys. Does anyone have a list of shelters of Oakland? I’ve posted Lost pet message, but still worried</p>
@@ -955,7 +956,7 @@
             </div>
           </div>
           <div class="message-wrapper">
-            <div style="background-image: url('../img/app/user-picture.png')" class="face-lockup"></div>
+            <div style="background-image: <%= image_url('user-picture.png') %>" class="face-lockup"></div>
             <div class="text-holder">
               <h5 class="name">Aisher</h5>
               <p class="message">Well, Robert. System automaticly proposes you links to article with nearest shelters. Don’t you receive it?</p>
@@ -963,7 +964,7 @@
             </div>
           </div>
           <div class="message-wrapper">
-            <div style="background-image: url('../img/app/user-picture-2.png')" class="face-lockup"></div>
+            <div style="background-image: <%= image_url('user-picture-2.png') %>" class="face-lockup"></div>
             <div class="text-holder">
               <h5 class="name">Robert</h5>
               <p class="message">I’ve just misclicked and closed window. Is there any place to get this information? Or I should make another post?</p>
@@ -971,7 +972,7 @@
             </div>
           </div>
           <div class="message-wrapper">
-            <div style="background-image: url('../img/app/user-picture.png')" class="face-lockup"></div>
+            <div style="background-image: <%= image_url('user-picture.png') %>" class="face-lockup"></div>
             <div class="text-holder">
               <h5 class="name">Aisher</h5>
               <p class="message">I've seen it somewhere. Not sure where, but it really was. Wait a bit, I'll try to find this link.</p>
@@ -979,7 +980,7 @@
             </div>
           </div>
           <div class="message-wrapper">
-            <div style="background-image: url('../img/app/user-picture-2.png')" class="face-lockup"></div>
+            <div style="background-image: <%= image_url('user-picture-2.png') %>" class="face-lockup"></div>
             <div class="text-holder">
               <h5 class="name">Robert</h5>
               <p class="message">Thanks a lot =)</p>
@@ -1015,45 +1016,9 @@
         <div class="close icon-plus"></div>
       </div>
     </div>
-    <script type="text/javascript" src="/js/min/vendor-min.js"></script>
-    <script type="text/javascript" src="/js/mresize.js"></script>
     <!--script(type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.10/angular.min.js")-->
     <!--script(type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.10/angular-touch.min.js")-->
     <!--script(type="text/javascript" src="/js/angular-bootstrap-lightbox.min.js")-->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
-    <script type="text/javascript" src="/js/marketwithlabel.js"></script>
-    <script type="text/javascript" src="/js/app-interactions.js"></script>
-    <!-- Yandex.Metrika counter-->
-    <script type="text/javascript">
-      (function (d, w, c) {
-      (w[c] = w[c] || []).push(function() {
-      try {
-      w.yaCounter36900400 = new Ya.Metrika({
-      id:36900400,
-      clickmap:true,
-      trackLinks:true,
-      accurateTrackBounce:true,
-      webvisor:true,
-      trackHash:true,
-      ut:"noindex"
-      });
-      } catch(e) { }
-      });
-      var n = d.getElementsByTagName("script")[0],
-      s = d.createElement("script"),
-      f = function () { n.parentNode.insertBefore(s, n); };
-      s.type = "text/javascript";
-      s.async = true;
-      s.src = "https://mc.yandex.ru/metrika/watch.js";
-      if (w.opera == "[object Opera]") {
-      d.addEventListener("DOMContentLoaded", f, false);
-      } else { f(); }
-      })(document, window, "yandex_metrika_callbacks");
-    </script>
-    <noscript>
-      <div><img src="https://mc.yandex.ru/watch/36900400?ut=noindex" style="position:absolute; left:-9999px;" alt=""/></div>
-    </noscript>
-    <!-- /Yandex.Metrika counter-->
   </body>
 </html>
 
