@@ -30,6 +30,10 @@ gem 'fog-aws'
 gem 'jquery-rails'
 gem 'sass-rails'
 
+gem 'therubyracer'
+gem 'uglifier'
+
+
 gem 'turbolinks'
 
 group :development, :test do

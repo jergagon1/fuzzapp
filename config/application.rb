@@ -46,5 +46,7 @@ module FuzzfindersApi
     #   password: ENV['EMAIL_PASSWORD'] # CHANGE THIS
     # }
 
+
+    config.assets.initialize_on_precompile = false
   end
 end
