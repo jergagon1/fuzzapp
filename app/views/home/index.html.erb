@@ -193,7 +193,7 @@
                   </ul>
                 </div>
                 <div class="form-group">
-                  <input placeholder="Pet name" class="input input-small form-control"/>
+                  <input placeholder="Pet name" id="lost_pet_name" class="input input-small form-control"/>
                 </div>
                 <div class="dropdown last-seen-dropdown">
                   <button id="lost-pet-seen-btn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn btn-dropdown dropdown-toggle">Time last seen<span class="caret"></span></button>
@@ -229,7 +229,7 @@
                   <!--********************************************************************************************************************************-->
                   <!--********************************************************************************************************************************-->
                   <!--********************************************************************************************************************************-->
-                  <textarea placeholder="Briefly describe the incident" rows="2" class="textarea form-control"></textarea>
+                  <textarea placeholder="Briefly describe the incident" rows="2" class="textarea form-control" id="lost_notes"></textarea>
                 </div>
                 <!--********************************************************************************************************************************-->
                 <!--********************************************************************************************************************************-->
@@ -288,7 +288,7 @@
                 <!--********************************************************************************************************************************-->
                 <!--********************************************************************************************************************************-->
                 <!--********************************************************************************************************************************-->
-                <button type="button" data-target=".lost-pet-page-wrapper" class="btn btn-big btn-blue btn-submit">Submit</button>
+                <button type="button" id="lost_pet_button" data-target=".lost-pet-page-wrapper" class="btn btn-big btn-blue btn-submit">Submit</button>
               </form>
             </div>
           </div>

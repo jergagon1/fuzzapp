@@ -2,7 +2,7 @@ class ReportsController < ApplicationController
   skip_before_filter :verify_authenticity_token, only: [:mapquery]
 
   acts_as_token_authentication_handler_for User, unless: lambda { |controller|
-    controller_name.eql?('reports') && action_name.eql?('show')
+    controller_name.eql?('reports') && (['show', 'create'].include? action_name)
   }
 
   def status
@@ -10,6 +10,7 @@ class ReportsController < ApplicationController
   end
 
   def create
+require 'pry';binding.pry
     @report = Report.new report_params
     @user = User.where(id: params[:report][:user_id]).first
     if @report.save
@@ -68,7 +69,7 @@ class ReportsController < ApplicationController
       :user_id, :report_type, :notes,
       :img_url, :age, :breed, :sex,
       :pet_size, :distance, :color,
-      :last_seen, :tag_list, :report_username,
+      :last_seen, :tag_list,
       :address
     )
   end
