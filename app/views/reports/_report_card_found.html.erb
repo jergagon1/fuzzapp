@@ -1,21 +1,24 @@
 <div class="nav-block nav-block-green">
     <btn class="back-arrow"><i class="icon-back"></i></btn>
-    <h2 class="title"> Found Doge</h2>
+    <h2 class="title"> Found <%= @report.animal_type %>
+</h2>
     <div class="nav-trigger nav-trigger-white"><span></span><span></span><span></span></div>
 </div>
 <div class="section-wrapper">
     <div class="map map-found"></div>
     <div class="photo-wrapper photo-wrapper-green">
         <div style="background-image: url('<%= image_url('sightings-pet-4.png') %>')" class="photo"></div>
-        <h3 class="label">Last Seen 2 Hours Ago</h3>
+        <% unless report.last_seen.nil? %>
+          <h3 class="label">Last Seen <%= l report.last_seen, format: :short %></h3>
+         <% end %>
     </div>
     <div class="post-description">
         <div class="header">
             <div style="background-image: url('<%= image_url('user-picture-3.png') %>')" class="face-lockup"></div>
             <div class="content">
-                <p>Posted by SarahJ</p>
+                <p>Posted by <%= report.user.username %></p>
                 <p>3 hours ago</p>
-                <p class="type">Lost Dog</p>
+                <p class="type">Found <%= @report.animal_type %></p>
             </div>
         </div>
         <table class="table table-stripped">

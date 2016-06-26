@@ -1,4 +1,4 @@
-$('.<%= @report.report_type %>-pet-post-wrapper').html('<%= j render("reports/report_card_#{@report.report_type}") %>')
+$('.<%= @report.report_type %>-pet-post-wrapper').html('<%= j render("reports/report_card_#{@report.report_type}", report: @report) %>')
 
   var lostPetMapDOM = $('.map-<%= @report.report_type %>')[0],
 
