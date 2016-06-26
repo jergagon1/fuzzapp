@@ -11,7 +11,8 @@ class ReportsController < ApplicationController
 
   def create
     @report = Report.new report_params
-    @user = User.where(id: params[:report][:user_id]).first
+    @user = User.where(id: params[:report][:user_id]).first || User.first
+    # TODO: fix when added authorization
     if @report.save
       render json: { report: @report, wags: @user.reload.wags, tags: @report.tag_list }
     else
