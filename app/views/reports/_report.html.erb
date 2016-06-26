@@ -1,4 +1,4 @@
-<div data-target=".<%= report.report_type %>-pet-post-wrapper" data-toggle="show" class="post <%= report.report_type %>-post btn-toggler placeholder-<%= report.animal_type.downcase %>">
+<div data-target=".<%= report.report_type %>-pet-post-wrapper" data-toggle="show" class="post <%= report.report_type %>-post btn-toggler small-report-card placeholder-<%= report.animal_type.downcase %>" data-report-id="<%= report.id %>">
     <h3 class="title"><%= report.report_type.capitalize %> <%=report.animal_type.capitalize %></h3>
     <div class="photo-holder"></div>
     <div class="content-holder">
@@ -18,3 +18,4 @@
         </table><a data-target=".<%= report.report_type %>-pet-post" class="read-more">Read more</a>
     </div>
 </div>
+

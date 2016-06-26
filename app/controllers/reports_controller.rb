@@ -1,5 +1,6 @@
 class ReportsController < ApplicationController
   skip_before_filter :verify_authenticity_token, only: [:mapquery]
+  respond_to :js
 
   acts_as_token_authentication_handler_for User, unless: lambda { |controller|
     controller_name.eql?('reports') && (['show', 'create'].include? action_name)
@@ -24,7 +25,7 @@ class ReportsController < ApplicationController
     @report = Report.find params[:id]
     @tags = @report.tags
     @comments = @report.comments
-    render json: { :report => @report, :tags => @tags, :comments => @comments }
+    # render json: { :report => @report, :tags => @tags, :comments => @comments }
   end
 
   def update

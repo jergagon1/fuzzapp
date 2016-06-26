@@ -49,7 +49,9 @@ $(function(){
        });
   });
 
-
+$('.small-report-card').click(function(){
+  $.get("/api/v1/reports/"+$(this).data('report-id'), null, 'script')
+})
 
 
 
