@@ -142,7 +142,7 @@ $(function(){
   //********************************************************************************************************************************
 
 
-  var FuzzAppMapStyles = [
+  window.FuzzAppMapStyles = [
     {"featureType":"landscape.man_made",
      "elementType":"geometry",
      "stylers":[{"color":"#f7f1df"}]},
