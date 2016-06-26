@@ -173,7 +173,7 @@
             <div class="step-wrapper-2">
               <h3 class="title">Enter last known location</h3>
               <div class="form-group empty">
-                <input placeholder="Type address here" class="input form-control"/>
+                <input placeholder="Type address here" id="lost_address" class="input form-control"/>
                 <p class="description">Or drag map pin to location</p>
                 <div class="map"></div>
                 <button data-target=".lost-pet-page-wrapper .progress-step, .lost-pet-page-wrapper .ancete-wrapper" data-toggle="step-3" class="btn btn-big btn-blue btn-new btn-toggler">Use My Current Location</button>
@@ -411,11 +411,11 @@
                       </div>
                     </div>
                     <div class="col-xs-6">
-                      <input placeholder="Pet color" class="input input-small form-control"/>
+                      <input placeholder="Pet color" id="lost_pet_color" class="input input-small form-control"/>
                     </div>
                   </div>
-                  <input placeholder="Pet Breed" class="input input-small form-control"/>
-                  <input placeholder="Additional keywords" class="input input-small form-control"/>
+                  <input placeholder="Pet Breed" id="lost_pet_breed" class="input input-small form-control"/>
+                  <input placeholder="Additional keywords" id="lost_tag_list" class="input input-small form-control"/>
                 </div>
                 <button type="button" data-target=".found-pet-page-wrapper" class="btn btn-big btn-blue btn-submit">Submit</button>
               </form>

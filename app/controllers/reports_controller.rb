@@ -10,7 +10,6 @@ class ReportsController < ApplicationController
   end
 
   def create
-require 'pry';binding.pry
     @report = Report.new report_params
     @user = User.where(id: params[:report][:user_id]).first
     if @report.save
