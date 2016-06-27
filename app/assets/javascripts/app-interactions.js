@@ -48,7 +48,7 @@ $(function(){
     }
   });
 
-  $('.back-arrow').click(function() {
+  $('body').on('click', '.back-arrow', function() {
     var lastTransition = navigationStack.pop();
     var target = lastTransition[0];
     var tClass = lastTransition[1];
@@ -142,7 +142,7 @@ $(function(){
   //********************************************************************************************************************************
 
 
-  var FuzzAppMapStyles = [
+  window.FuzzAppMapStyles = [
     {"featureType":"landscape.man_made",
      "elementType":"geometry",
      "stylers":[{"color":"#f7f1df"}]},

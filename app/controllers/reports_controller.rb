@@ -1,8 +1,9 @@
 class ReportsController < ApplicationController
   skip_before_filter :verify_authenticity_token, only: [:mapquery]
+  respond_to :js
 
   acts_as_token_authentication_handler_for User, unless: lambda { |controller|
-    controller_name.eql?('reports') && action_name.eql?('show')
+    controller_name.eql?('reports') && (['show', 'create'].include? action_name)
   }
 
   def status
@@ -11,7 +12,8 @@ class ReportsController < ApplicationController
 
   def create
     @report = Report.new report_params
-    @user = User.where(id: params[:report][:user_id]).first
+    @user = User.where(id: params[:report][:user_id]).first || User.first
+    # TODO: fix when added authorization
     if @report.save
       render json: { report: @report, wags: @user.reload.wags, tags: @report.tag_list }
     else
@@ -23,7 +25,7 @@ class ReportsController < ApplicationController
     @report = Report.find params[:id]
     @tags = @report.tags
     @comments = @report.comments
-    render json: { :report => @report, :tags => @tags, :comments => @comments }
+    # render json: { :report => @report, :tags => @tags, :comments => @comments }
   end
 
   def update
@@ -68,7 +70,7 @@ class ReportsController < ApplicationController
       :user_id, :report_type, :notes,
       :img_url, :age, :breed, :sex,
       :pet_size, :distance, :color,
-      :last_seen, :tag_list, :report_username,
+      :last_seen, :tag_list,
       :address
     )
   end

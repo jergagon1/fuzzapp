@@ -14,3 +14,4 @@
 //= require mresize
 //= require marketwithlabel
 //= require app-interactions
+//= require app-flow

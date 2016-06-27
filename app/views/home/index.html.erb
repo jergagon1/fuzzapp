@@ -173,7 +173,7 @@
             <div class="step-wrapper-2">
               <h3 class="title">Enter last known location</h3>
               <div class="form-group empty">
-                <input placeholder="Type address here" class="input form-control"/>
+                <input placeholder="Type address here" id="lost_address" class="input form-control"/>
                 <p class="description">Or drag map pin to location</p>
                 <div class="map"></div>
                 <button data-target=".lost-pet-page-wrapper .progress-step, .lost-pet-page-wrapper .ancete-wrapper" data-toggle="step-3" class="btn btn-big btn-blue btn-new btn-toggler">Use My Current Location</button>
@@ -193,7 +193,7 @@
                   </ul>
                 </div>
                 <div class="form-group">
-                  <input placeholder="Pet name" class="input input-small form-control"/>
+                  <input placeholder="Pet name" id="lost_pet_name" class="input input-small form-control"/>
                 </div>
                 <div class="dropdown last-seen-dropdown">
                   <button id="lost-pet-seen-btn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn btn-dropdown dropdown-toggle">Time last seen<span class="caret"></span></button>
@@ -229,7 +229,7 @@
                   <!--********************************************************************************************************************************-->
                   <!--********************************************************************************************************************************-->
                   <!--********************************************************************************************************************************-->
-                  <textarea placeholder="Briefly describe the incident" rows="2" class="textarea form-control"></textarea>
+                  <textarea placeholder="Briefly describe the incident" rows="2" class="textarea form-control" id="lost_notes"></textarea>
                 </div>
                 <!--********************************************************************************************************************************-->
                 <!--********************************************************************************************************************************-->
@@ -288,7 +288,7 @@
                 <!--********************************************************************************************************************************-->
                 <!--********************************************************************************************************************************-->
                 <!--********************************************************************************************************************************-->
-                <button type="button" data-target=".lost-pet-page-wrapper" class="btn btn-big btn-blue btn-submit">Submit</button>
+                <button type="button" id="lost_pet_button" data-target=".lost-pet-page-wrapper" class="btn btn-big btn-blue btn-submit">Submit</button>
               </form>
             </div>
           </div>
@@ -411,11 +411,11 @@
                       </div>
                     </div>
                     <div class="col-xs-6">
-                      <input placeholder="Pet color" class="input input-small form-control"/>
+                      <input placeholder="Pet color" id="lost_pet_color" class="input input-small form-control"/>
                     </div>
                   </div>
-                  <input placeholder="Pet Breed" class="input input-small form-control"/>
-                  <input placeholder="Additional keywords" class="input input-small form-control"/>
+                  <input placeholder="Pet Breed" id="lost_pet_breed" class="input input-small form-control"/>
+                  <input placeholder="Additional keywords" id="lost_tag_list" class="input input-small form-control"/>
                 </div>
                 <button type="button" data-target=".found-pet-page-wrapper" class="btn btn-big btn-blue btn-submit">Submit</button>
               </form>
@@ -516,136 +516,9 @@
           <!--********************************************************************************************************************************-->
           <!--********************************************************************************************************************************-->
           <button class="btn btn-search btn-blue btn-subarea"><span class="icon icon-search"></span>Search FuzzAlerts</button>
-          <div class="posts">
-            <div data-target=".lost-pet-post-wrapper" data-toggle="show" class="post lost-post btn-toggler placeholder-dog">
-              <h3 class="title">Lost Dog</h3>
-              <div class="photo-holder"></div>
-              <div class="content-holder">
-                <table>
-                  <tr>
-                    <td>Last Seen</td>
-                    <td>02/15/2016 9:55pm</td>
-                  </tr>
-                  <tr>
-                    <td>Posted by</td>
-                    <td>SarahJ</td>
-                  </tr>
-                </table><a data-target=".lost-pet-post" class="read-more">Read more</a>
-              </div>
-            </div>
-            <div data-target=".found-pet-post-wrapper" data-toggle="show" class="post found-post btn-toggler placeholder-cat">
-              <h3 class="title">Found Cat Missy</h3>
-              <div class="photo-holder"></div>
-              <div class="content-holder">
-                <table>
-                  <tr>
-                    <td>Last Seen</td>
-                    <td>2 hours ago</td>
-                  </tr>
-                  <tr>
-                    <td>Posted by</td>
-                    <td>IguaneFinder</td>
-                  </tr>
-                </table><a data-target=".found-pet-post" class="read-more">Read more</a>
-              </div>
-            </div>
-            <div data-target=".found-pet-post-wrapper" data-toggle="show" class="post found-post btn-toggler placeholder-bird">
-              <h3 class="title">Found Bird</h3>
-              <div class="photo-holder"></div>
-              <div class="content-holder">
-                <table>
-                  <tr>
-                    <td>Last Seen</td>
-                    <td>02/15/2016 9:55pm</td>
-                  </tr>
-                  <tr>
-                    <td>Posted by</td>
-                    <td>HelloKitty</td>
-                  </tr>
-                </table><a data-target=".found-pet-post" class="read-more">Read more</a>
-              </div>
-            </div>
-            <div data-target=".lost-pet-post-wrapper" data-toggle="show" class="post lost-post btn-toggler">
-              <h3 class="title">Lost Parrot</h3>
-              <div style="background-image: url('<%= image_url('sightings-pet-1.png') %>')" class="photo-holder"></div>
-              <div class="content-holder">
-                <table>
-                  <tr>
-                    <td>Last Seen</td>
-                    <td>23 hours ago</td>
-                  </tr>
-                  <tr>
-                    <td>Posted by</td>
-                    <td>H. Morgan</td>
-                  </tr>
-                </table><a data-target=".lost-pet-post" class="read-more">Read more</a>
-              </div>
-            </div>
-            <div data-target=".lost-pet-post-wrapper" data-toggle="show" class="post lost-post btn-toggler">
-              <h3 class="title">Lost Dog</h3>
-              <div style="background-image: url('<%= image_url('sightings-pet-4.png') %>')" class="photo-holder"></div>
-              <div class="content-holder">
-                <table>
-                  <tr>
-                    <td>Last Seen</td>
-                    <td>02/15/2016 9:55pm</td>
-                  </tr>
-                  <tr>
-                    <td>Posted by</td>
-                    <td>SarahJ</td>
-                  </tr>
-                </table><a data-target=".lost-pet-post" class="read-more">Read more</a>
-              </div>
-            </div>
-            <div data-target=".found-pet-post-wrapper" data-toggle="show" class="post found-post btn-toggler">
-              <h3 class="title">Found Reptile</h3>
-              <div style="background-image: url('<%= image_url('sightings-pet-3.png') %>')" class="photo-holder"></div>
-              <div class="content-holder">
-                <table>
-                  <tr>
-                    <td>Last Seen</td>
-                    <td>2 hours ago</td>
-                  </tr>
-                  <tr>
-                    <td>Posted by</td>
-                    <td>IguaneFinder</td>
-                  </tr>
-                </table><a data-target=".found-pet-post" class="read-more">Read more</a>
-              </div>
-            </div>
-            <div data-target=".found-pet-post-wrapper" data-toggle="show" class="post found-post btn-toggler">
-              <h3 class="title">Found Pet</h3>
-              <div style="background-image: url('<%= image_url('sightings-pet-2.png') %>')" class="photo-holder"></div>
-              <div class="content-holder">
-                <table>
-                  <tr>
-                    <td>Last Seen</td>
-                    <td>02/15/2016 9:55pm</td>
-                  </tr>
-                  <tr>
-                    <td>Posted by</td>
-                    <td>HelloKitty</td>
-                  </tr>
-                </table><a data-target=".found-pet-post" class="read-more">Read more</a>
-              </div>
-            </div>
-            <div data-target=".lost-pet-post-wrapper" data-toggle="show" class="post lost-post btn-toggler">
-              <h3 class="title">Lost Parrot</h3>
-              <div style="background-image: url('<%= image_url('sightings-pet-1.png') %>')" class="photo-holder"></div>
-              <div class="content-holder">
-                <table>
-                  <tr>
-                    <td>Last Seen</td>
-                    <td>23 hours ago</td>
-                  </tr>
-                  <tr>
-                    <td>Posted by</td>
-                    <td>H. Morgan</td>
-                  </tr>
-                </table><a data-target=".lost-pet-post" class="read-more">Read more</a>
-              </div>
-            </div>
-          </div>
+
+          <%= render 'reports/reports', reports: @reports %>
+
         </div>
       </div>
       <div class="lost-pet-post-wrapper">

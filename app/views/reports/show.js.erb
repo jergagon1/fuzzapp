@@ -1,0 +1,21 @@
+$('.<%= @report.report_type %>-pet-post-wrapper').html('<%= j render("reports/report_card_#{@report.report_type}", report: @report) %>')
+
+  var lostPetMapDOM = $('.map-<%= @report.report_type %>')[0],
+
+    mapOptions = {
+        zoom: 14,
+        center: new google.maps.LatLng(37.801, -122.28),
+        styles: FuzzAppMapStyles,
+        mapTypeControl: false,
+        streetViewControl: false,
+        scrollwheel: false
+    },
+
+    lostPetMap = new google.maps.Map(lostPetMapDOM, mapOptions),
+
+    lostPetMarker = new google.maps.Marker({
+      position: {lat: 37.802, lng: -122.28},
+      map: lostPetMap,
+      icon: '/img/app/map/<%= @report.report_type %>-pin.png',
+      draggable: false
+    })
