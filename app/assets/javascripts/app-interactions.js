@@ -238,9 +238,14 @@ $(function(){
         map: lostPetMap,
         icon: '/img/app/map/lost-pin.png',
         draggable: true
-      }),
+      });
 
-      foundPetMapDOM = $('.fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .section-wrapper .ancete-wrapper .step-wrapper-2 .map')[0],
+      google.maps.event.addListener(lostPetMarker, 'dragend', function (event) {
+        $('#lost_position_lat').val(this.position.lat());
+        $('#lost_position_lng').val(this.position.lng());
+      });
+
+      var foundPetMapDOM = $('.fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .section-wrapper .ancete-wrapper .step-wrapper-2 .map')[0],
 
       foundPetMap = new google.maps.Map(foundPetMapDOM, mapOptions),
 
@@ -249,10 +254,15 @@ $(function(){
         map: foundPetMap,
         icon: '/img/app/map/found-pin.png',
         draggable: true
-      }),
+      });
+
+      google.maps.event.addListener(foundPetMarker, 'dragend', function (event) {
+        $('#found_position_lat').val(this.position.lat());
+        $('#found_position_lng').val(this.position.lng());
+      });
 
 
-      sightingsMapDOM = $('.fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .map')[0],
+      var sightingsMapDOM = $('.fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .map')[0],
 
       sightingsMap = new google.maps.Map(sightingsMapDOM, mapOptions),
 
