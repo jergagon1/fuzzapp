@@ -23,7 +23,7 @@
             <div class="header">
                 <div style="background-image: url('<%= image_url('user-picture-3.png') %>')" class="face-lockup"></div>
                 <div class="content">
-                    <p>Posted by <%= report.user.username %> ago</p>
+                    <p>Posted by <%= report.user.username %></p>
                     <p><%= time_ago_in_words report.created_at %></p>
                     <p class="type">Lost <%= @report.animal_type %></p>
                 </div>
