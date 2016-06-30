@@ -15,14 +15,14 @@ $(function(){
           user_id: '1',
           // user_id: $('#').val(),
           report_type: 'lost',
-          notes: $('#lost_notes').text(),
+          notes: $('#lost_notes').val(),
           // img_url: $('#').val(),
           img_url: "https://pbs.twimg.com/profile_images/378800000822867536/3f5a00acf72df93528b6bb7cd0a4fd0c.jpeg",
-          age: $('#lost-age-btn').text(),
+          age: ($('#lost-age-btn').text() == "Age" ) ? "" : $('#lost-age-btn').text(),
           color: $('#lost_pet_color').val(),
           breed: $('#lost_pet_breed').val(),
-          sex: $('#lost-gender-btn').text(),
-          pet_size: $('#lost-size-btn').text(),
+          sex: ($('#lost-gender-btn').text() == "Gender") ? "" : $('#lost-gender-btn').text(),
+          pet_size: ($('#lost-size-btn').text() == "Size")  ? "" : $('#lost-size-btn').text(),
           // distance: $('#').val(),
           distance: '11',
           last_seen: $('#lost-pet-seen-btn').text(),
@@ -59,7 +59,7 @@ $(function(){
           user_id: '1',
           // user_id: $('#').val(),
           report_type: 'found',
-          notes: $('#found_notes').text(),
+          notes: $('#found_notes').val(),
           // img_url: $('#').val(),
           img_url: "https://pbs.twimg.com/profile_images/378800000822867536/3f5a00acf72df93528b6bb7cd0a4fd0c.jpeg",
           age: $('#found-age-btn').text(),
@@ -95,8 +95,8 @@ $(function(){
 
 
 $('.small-report-card').click(function(){
-  $.get("/api/v1/reports/"+$(this).data('report-id'), null, 'script')
-})
+  $.get("/api/v1/reports/"+$(this).data('report-id'), null, 'script');
+});
 
 
 
