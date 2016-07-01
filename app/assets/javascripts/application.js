@@ -14,4 +14,8 @@
 //= require mresize
 //= require marketwithlabel
 //= require app-interactions
+//= require jquery.ui.widget
+//= require jquery.iframe-transport
+//= require jquery.fileupload
+//= require image-upload
 //= require app-flow
