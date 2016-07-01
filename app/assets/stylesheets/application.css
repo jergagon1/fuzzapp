@@ -12,7 +12,6 @@
  *
  *= require vendor
  *= require custom
- *= require vendor/angular-bootstrap-lightbox
  *= require app
  *= require_self
  */
