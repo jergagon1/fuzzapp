@@ -17,7 +17,7 @@ $(function(){
           report_type: 'lost',
           notes: $('#lost_notes').val(),
           // img_url: $('#').val(),
-          img_url: "https://pbs.twimg.com/profile_images/378800000822867536/3f5a00acf72df93528b6bb7cd0a4fd0c.jpeg",
+          img_url: $('#lost-pet-image-url').val(),
           age: ($('#lost-age-btn').text() == "Age" ) ? "" : $('#lost-age-btn').text(),
           color: $('#lost_pet_color').val(),
           breed: $('#lost_pet_breed').val(),

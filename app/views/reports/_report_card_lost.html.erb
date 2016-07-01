@@ -14,14 +14,23 @@
         <!--********************************************************************************************************************************-->
         <div class="map map-lost"></div>
         <div class="photo-wrapper photo-wrapper-purple placeholder-dog">
-            <div class="photo"></div>
-            <% unless report.last_seen.nil? %>
-                <h3 class="label">Last Seen <%= time_ago_in_words report.last_seen %> ago</h3>
-            <% end %>
+          <% if report.img_url? %>
+            <div class="photo" style="background-size: initial; background-image: url('<%= image_url(report.img_url) %>')"></div>
+          <% else %>
+            <div style="background-image: url('<%= image_url('user-picture-3.png') %>')" class="face-lockup"></div>
+          <% end %>
+
+          <% unless report.last_seen.nil? %>
+            <h3 class="label">Last Seen <%= time_ago_in_words report.last_seen %> ago</h3>
+          <% end %>
         </div>
         <div class="post-description">
             <div class="header">
+              <% if report.img_url? %>
                 <div style="background-image: url('<%= image_url('user-picture-3.png') %>')" class="face-lockup"></div>
+              <% else %>
+                <div style="background-image: url('<%= image_url('user-picture-3.png') %>')" class="face-lockup"></div>
+              <% end %>
                 <div class="content">
                     <p>Posted by <%= report.user.username %></p>
                     <p><%= time_ago_in_words report.created_at %> ago</p>
