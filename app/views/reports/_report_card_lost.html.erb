@@ -14,43 +14,54 @@
         <!--********************************************************************************************************************************-->
         <div class="map map-lost"></div>
         <div class="photo-wrapper photo-wrapper-purple placeholder-dog">
-            <div class="photo"></div>
-            <% unless report.last_seen.nil? %>
-                <h3 class="label">Last Seen <%= l report.last_seen, format: :short %></h3>
-            <% end %>
+          <% if report.img_url? %>
+            <div class="photo" style="background-size: initial; background-image: url('<%= image_url(report.img_url) %>')"></div>
+          <% else %>
+            <div style="background-image: url('<%= image_url('user-picture-3.png') %>')" class="face-lockup"></div>
+          <% end %>
+
+          <% unless report.last_seen.nil? %>
+            <h3 class="label">Last Seen <%= time_ago_in_words report.last_seen %> ago</h3>
+          <% end %>
         </div>
         <div class="post-description">
             <div class="header">
+              <% if report.img_url? %>
                 <div style="background-image: url('<%= image_url('user-picture-3.png') %>')" class="face-lockup"></div>
+              <% else %>
+                <div style="background-image: url('<%= image_url('user-picture-3.png') %>')" class="face-lockup"></div>
+              <% end %>
                 <div class="content">
                     <p>Posted by <%= report.user.username %></p>
-                    <p>3 hours ago</p>
+                    <p><%= time_ago_in_words report.created_at %> ago</p>
                     <p class="type">Lost <%= @report.animal_type %></p>
                 </div>
             </div>
             <table class="table table-stripped">
                 <tr>
                     <td>Size</td>
-                    <td>Medium</td>
+                    <td><%= @report.pet_size %></td>
                 </tr>
                 <tr>
                     <td>Color</td>
-                    <td>Brown</td>
+                    <td><%= @report.color %></td>
                 </tr>
                 <tr>
                     <td>Breed</td>
-                    <td>Shepherd</td>
+                    <td><%= @report.breed %></td>
                 </tr>
                 <tr>
                     <td>Sex</td>
-                    <td>Female</td>
+                    <td><%= @report.sex %></td>
                 </tr>
-                <tr>
-                    <td>Last seen</td>
-                    <td>02/09/2016 6:30PM</td>
-                </tr>
+                <% unless report.last_seen.nil? %>
+                  <tr>
+                      <td>Last seen</td>
+                      <td><%= l report.last_seen, format: :short %></td>
+                  </tr>
+                <% end %>
             </table>
-            <p class="description">It tore off the leash in the park. If you have any information please contact 732-757-2923</p>
+            <p class="description"><%= @report.notes %></p>
             <button class="btn btn-big btn-blue"><i class="icon-edit"></i>Edit Post</button>
         </div>
         <div class="social-share-wrapper">

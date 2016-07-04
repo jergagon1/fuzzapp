@@ -4,7 +4,7 @@ $('.<%= @report.report_type %>-pet-post-wrapper').html('<%= j render("reports/re
 
     mapOptions = {
         zoom: 14,
-        center: new google.maps.LatLng(37.801, -122.28),
+        center: new google.maps.LatLng(<%= @report.lat %>, <%= @report.lng %>),
         styles: FuzzAppMapStyles,
         mapTypeControl: false,
         streetViewControl: false,
@@ -14,7 +14,7 @@ $('.<%= @report.report_type %>-pet-post-wrapper').html('<%= j render("reports/re
     lostPetMap = new google.maps.Map(lostPetMapDOM, mapOptions),
 
     lostPetMarker = new google.maps.Marker({
-      position: {lat: 37.802, lng: -122.28},
+      position: {lat: <%= @report.lat %>, lng: <%= @report.lng %>},
       map: lostPetMap,
       icon: '/img/app/map/<%= @report.report_type %>-pin.png',
       draggable: false

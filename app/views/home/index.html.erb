@@ -1,92 +1,4 @@
 
-<!--********************************************************************************************************************************-->
-<!--********************************************************************************************************************************-->
-<!--********************************************************************************************************************************-->
-<!-- Весь скрипт, который отвечает за переключения и контроль отображения в приложении я вынес в app-interactions.js-->
-<!--********************************************************************************************************************************-->
-<!--********************************************************************************************************************************-->
-<!--********************************************************************************************************************************-->
-<html ng-app="lightbox">
-  <head>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-    <%= csrf_meta_tags %>
-
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width"/>
-    <!-- <link href="/css/vendor.css" rel="stylesheet"/> -->
-    <!-- <link href="/css/custom.css" rel="stylesheet"/> -->
-    <!-- <link href="/css/vendor/angular-bootstrap-lightbox.css" rel="stylesheet"/> -->
-    <!-- <link href="/css/app.css" rel="stylesheet"/> -->
-        <meta property="og:title" content="FuzzFinders is a super-intuitive app bringing people together to find lost pets."/>
-        <meta property="og:url" content="http://fuzzfinders.bova.me/"/>
-        <meta property="og:description" content="Interactive features, collaborative mapping technology, and instant alerts. FuzzFinders is the social network empowering you to get Fuzzy back!"/>
-        <meta property="og:locale" content="en_US"/>
-        <meta property="og:image" content="http://fuzzfinders.bova.me/img/OGP.png"/>
-        <meta name="twitter:card" content="summary_large_image"/>
-        <meta name="twitter:site" content="@FuzzFinders"/>
-        <meta name="twitter:title" content="FuzzFinders is a super-intuitive app bringing people together to find lost pets."/>
-        <meta name="twitter:description" content="Interactive features, collaborative mapping technology, and instant alerts. FuzzFinders is the social network empowering you to get Fuzzy back!"/>
-        <meta name="twitter:image" content="http://fuzzfinders.bova.me/img/OGP.png"/>
-  </head>
-  <!--********************************************************************************************************************************-->
-  <!--********************************************************************************************************************************-->
-  <!--********************************************************************************************************************************-->
-  <!-- При открытых областях к body добавляются классы по цвету навигации-->
-  <!-- - для lost-pet-page и lost-pet-post : .navigation-orange-->
-  <!-- - для found-pet-page и found-pet-post : .navigation-green-->
-  <!-- - для local-fuzzalerts : .navigation-blue-light-->
-  <!-- - для local fuzzchat : .navigation-blue-dark-->
-  <!-- - для экрана профиля и его настроек : .navigation-blue-->
-  <!-- - остальные экраны — дам спецификацию позже-->
-  <!-- ВАЖНО: поскольку будет конфликт css этих классов — тип цвета навигации только 1 одновременно.-->
-  <!--********************************************************************************************************************************-->
-  <!--********************************************************************************************************************************-->
-  <!--********************************************************************************************************************************-->
-  <body class="fuzzfinders-app">
-    <div class="background-for-navigation"></div>
-    <div class="menu-navigation"><a href="main.html" class="brand">
-        <div class="logo"></div>
-        <h3 class="brand-title">Fuzz<span class="alt">Finders</span><span class="trademark">TM</span></h3></a>
-      <div class="profile-wrapper">
-        <!--********************************************************************************************************************************-->
-        <!--********************************************************************************************************************************-->
-        <!--********************************************************************************************************************************-->
-        <!-- Во всей верстке картинки находятся на бэкграунде чтоб их было легче контролировать.-->
-        <!-- Там где я предполагал увидеть картинку ты увидешь в html инлайновый стиль.-->
-        <!--********************************************************************************************************************************-->
-        <!--********************************************************************************************************************************-->
-        <!--********************************************************************************************************************************-->
-        <div style="background-image: url('<%= image_url('user-picture.png') %>')" class="user-photo"></div>
-        <p class="user-name">SarahJ</p>
-      </div>
-      <ul>
-        <li class="link-home"><a href="main.html" class="active">FuzzFinders</a>
-        </li>
-        <li><a href="profile.html">FuzzProfile</a>
-        </li>
-        <li><a href="facts.html">FuzzFacts</a>
-        </li>
-        <li><a href="faq.html">FAQ</a>
-        </li>
-        <li><a href="contact.html">Find Us</a>
-        </li>
-        <li class="action"><a href="#">Log Out</a>
-        </li>
-        <li class="mobile-legal"><a href="../legal.html">User's agreement and Conditions</a>
-        </li>
-      </ul>
-      <!--********************************************************************************************************************************-->
-      <!--********************************************************************************************************************************-->
-      <!--********************************************************************************************************************************-->
-      <!-- Область, которая на мобильных отвечает за закрытие навигации.-->
-      <!--********************************************************************************************************************************-->
-      <!--********************************************************************************************************************************-->
-      <!--********************************************************************************************************************************    -->
-      <div class="extra-area"></div>
-      <div class="nav-trigger nav-trigger-white open"><span></span><span></span><span></span></div>
-    </div>
     <!--********************************************************************************************************************************-->
     <!--********************************************************************************************************************************-->
     <!--********************************************************************************************************************************-->
@@ -162,11 +74,18 @@
               <p class="description">Photos are the best way to identify a&nbsp;missing&nbsp;pet!</p>
               <div class="photo-wrapper wrapper-cat empty">
                 <div class="form-group">
-                  <div class="preview-holder"><i class="icon-photo-edit"></i></div>
-                  <btn class="btn btn-big btn-green btn-new">Upload Photo</btn>
-                  <btn data-target=".lost-pet-page-wrapper .progress-step, .lost-pet-page-wrapper .ancete-wrapper" data-toggle="step-2" class="btn btn-big btn-blue btn-new btn-toggler">Continue without Photo</btn>
-                  <btn class="btn btn-big btn-green btn-done">Upload another Photo</btn>
-                  <btn data-target=".lost-pet-page-wrapper .progress-step, .lost-pet-page-wrapper .ancete-wrapper" data-toggle="step-2" class="btn btn-big btn-blue btn-done btn-toggler">Continue</btn>
+                  <div class="preview-holder" id="lost-pet-image">
+                    <i class="icon-photo-edit"></i>
+                  </div>
+
+                  <input type="file" name="image" id="lost-pet-image-file" style="display: none" />
+                  <p id="lost_pet_info"></p>
+                  <input type="hidden" name="lost_pet_image" id="lost-pet-image-url" />
+
+                  <button data-target=".lost-pet-page-wrapper .progress-step, .lost-pet-page-wrapper .ancete-wrapper" class="btn btn-big btn-green btn-new btn-toggler btn-next-step" data-toggle="step-2">Continue</button>
+                  <button data-target=".lost-pet-page-wrapper .progress-step, .lost-pet-page-wrapper .ancete-wrapper" data-toggle="step-2" class="btn btn-big btn-blue btn-new btn-toggler btn-next-step">Continue without Photo</button>
+                  <!-- <btn class="btn btn&#45;big btn&#45;green btn&#45;done">Upload another Photo</btn> -->
+                  <button data-target=".lost-pet-page-wrapper .progress-step, .lost-pet-page-wrapper .ancete-wrapper" data-toggle="step-2" class="btn btn-big btn-blue btn-done btn-toggler btn-next-step">Continue</button>
                 </div>
               </div>
             </div>
@@ -174,6 +93,8 @@
               <h3 class="title">Enter last known location</h3>
               <div class="form-group empty">
                 <input placeholder="Type address here" id="lost_address" class="input form-control"/>
+                <input type="hidden" id="lost_position_lng" value="">
+                <input type="hidden" id="lost_position_lat" value="">
                 <p class="description">Or drag map pin to location</p>
                 <div class="map"></div>
                 <button data-target=".lost-pet-page-wrapper .progress-step, .lost-pet-page-wrapper .ancete-wrapper" data-toggle="step-3" class="btn btn-big btn-blue btn-new btn-toggler">Use My Current Location</button>
@@ -274,10 +195,10 @@
                       </div>
                     </div>
                     <div class="col-xs-6">
-                      <input placeholder="Pet color" class="input input-small form-control"/>
+                      <input placeholder="Pet color" id="lost_pet_color" class="input input-small form-control"/>
                     </div>
                   </div>
-                  <input placeholder="Pet Breed" class="input input-small form-control"/>
+                  <input placeholder="Pet Breed" id="lost_pet_breed"class="input input-small form-control"/>
                   <input placeholder="Additional keywords" class="input input-small form-control"/>
                 </div>
                 <!--********************************************************************************************************************************-->
@@ -338,7 +259,9 @@
             <div class="step-wrapper-2">
               <h3 class="title">Enter last known location</h3>
               <div class="form-group empty">
-                <input placeholder="Type address here" class="input form-control"/>
+                <input placeholder="Type address here" id="found_address" class="input form-control"/>
+                <input type="hidden" id="found_position_lng" value="">
+                <input type="hidden" id="found_position_lat" value="">
                 <p class="description">Or drag map pin to location</p>
                 <div class="map"></div>
                 <button data-target=".found-pet-page-wrapper .progress-step, .found-pet-page-wrapper .ancete-wrapper" data-toggle="step-3" class="btn btn-big btn-blue btn-new btn-toggler">Use My Current Location</button>
@@ -358,8 +281,8 @@
                   </ul>
                 </div>
                 <div class="dropdown last-seen-dropdown">
-                  <button id="lost-pet-seen-btn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn btn-dropdown dropdown-toggle">Time last seen<span class="caret"></span></button>
-                  <ul aria-labelledby="lost-pet-seen-btn" class="dropdown-menu">
+                  <button id="found-pet-seen-btn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn btn-dropdown dropdown-toggle">Time last seen<span class="caret"></span></button>
+                  <ul aria-labelledby="found-pet-seen-btn" class="dropdown-menu">
                     <li><a href="#">&nbsp;&nbsp;just now</a></li>
                     <li><a href="#">&nbsp;&nbsp;1 hour ago  </a></li>
                     <li><a href="#">&nbsp;&nbsp;2 hours ago</a></li>
@@ -411,13 +334,13 @@
                       </div>
                     </div>
                     <div class="col-xs-6">
-                      <input placeholder="Pet color" id="lost_pet_color" class="input input-small form-control"/>
+                      <input placeholder="Pet color" id="found_pet_color" class="input input-small form-control"/>
                     </div>
                   </div>
-                  <input placeholder="Pet Breed" id="lost_pet_breed" class="input input-small form-control"/>
+                  <input placeholder="Pet Breed" id="found_pet_breed" class="input input-small form-control"/>
                   <input placeholder="Additional keywords" id="lost_tag_list" class="input input-small form-control"/>
                 </div>
-                <button type="button" data-target=".found-pet-page-wrapper" class="btn btn-big btn-blue btn-submit">Submit</button>
+                <button type="button" id="found_pet_button" data-target=".found-pet-page-wrapper" class="btn btn-big btn-blue btn-submit">Submit</button>
               </form>
             </div>
           </div>
@@ -889,9 +812,6 @@
         <div class="close icon-plus"></div>
       </div>
     </div>
-    <!--script(type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.10/angular.min.js")-->
-    <!--script(type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.10/angular-touch.min.js")-->
-    <!--script(type="text/javascript" src="/js/angular-bootstrap-lightbox.min.js")-->
-  </body>
-</html>
+
+
 

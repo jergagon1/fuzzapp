@@ -3299,7 +3299,7 @@ body {
 }
 .blog-3 {
   padding: 70px 0 0;
-  background-image: url("../img/team/background-team.png");
+  background-image: image-url("background-team.png");
   background-size: cover;
 }
 .blog-3 .container .row {
@@ -3308,7 +3308,7 @@ body {
 .blog-3 .cats {
   height: 35vh;
   background-size: contain;
-  background-image: url("../img/team/cats-bottom.png");
+  background-image: image-url("cats-bottom.png");
   background-position: bottom center;
   background-repeat: no-repeat;
 }
@@ -3470,7 +3470,7 @@ body {
   color: #212F40;
 }
 .two-members .member-one .col-md-4 .photo {
-  background-image: url("../img/team/tiffany.png");
+  background-image: image-url("tiffany.png");
 }
 .two-members .member-two {
   -webkit-box-orient: horizontal;
@@ -3486,7 +3486,7 @@ body {
   margin-bottom: 0;
 }
 .two-members .member-two .col-md-4 .photo {
-  background-image: url("../img/team/jeremy.png");
+  background-image: image-url("jeremy.png");
 }
 
 @media screen and (max-width: 1200px) {
