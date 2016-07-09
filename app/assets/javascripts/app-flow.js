@@ -61,7 +61,7 @@ $(function(){
           report_type: 'found',
           notes: $('#found_notes').val(),
           // img_url: $('#').val(),
-          img_url: "https://pbs.twimg.com/profile_images/378800000822867536/3f5a00acf72df93528b6bb7cd0a4fd0c.jpeg",
+          img_url: $('#found-pet-image-url').val(),
           age: $('#found-age-btn').text(),
           color: $('#found_pet_color').val(),
           breed: $('#found_pet_breed').val(),

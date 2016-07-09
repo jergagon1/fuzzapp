@@ -248,11 +248,19 @@
               <p class="description">Photos are the best way to identify a&nbsp;missing&nbsp;pet!</p>
               <div class="photo-wrapper wrapper-dog empty">
                 <div class="form-group">
-                  <div class="preview-holder"><i class="icon-photo-edit"></i></div>
-                  <btn class="btn btn-big btn-green btn-new">Upload Photo</btn>
-                  <btn data-target=".found-pet-page-wrapper .progress-step, .found-pet-page-wrapper .ancete-wrapper" data-toggle="step-2" class="btn btn-big btn-blue btn-new btn-toggler">Continue without Photo</btn>
-                  <btn class="btn btn-big btn-green btn-done">Upload another Photo</btn>
-                  <btn data-target=".found-pet-page-wrapper .progress-step, ..found-pet-page-wrapperr .ancete-wrapper" data-toggle="step-2" class="btn btn-big btn-blue btn-done btn-toggler">Continue</btn>
+                    <div class="preview-holder" id="found-pet-image">
+                      <i class="icon-photo-edit"></i>
+                    </div>
+
+                    <input type="file" name="image" id="found-pet-image-file" style="display: none" />
+                      <p id="found_pet_info"></p>
+                      <input type="hidden" name="found_pet_image" id="found-pet-image-url" />
+
+                      <button data-target=".found-pet-page-wrapper .progress-step, .found-pet-page-wrapper .ancete-wrapper" class="btn btn-big btn-green btn-new btn-toggler btn-next-step" data-toggle="step-2">Continue</button>
+                      <button data-target=".found-pet-page-wrapper .progress-step, .found-pet-page-wrapper .ancete-wrapper" data-toggle="step-2" class="btn btn-big btn-blue btn-new btn-toggler btn-next-step">Continue without Photo</button>
+                      <!-- <btn class="btn btn&#45;big btn&#45;green btn&#45;done">Upload another Photo</btn> -->
+                      <button data-target=".found-pet-page-wrapper .progress-step, .found-pet-page-wrapper .ancete-wrapper" data-toggle="step-2" class="btn btn-big btn-blue btn-done btn-toggler btn-next-step">Continue</button>
+
                 </div>
               </div>
             </div>
