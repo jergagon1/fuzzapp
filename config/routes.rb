@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'home#index'
 
   get 'facts', to: 'home#facts'
+  get 'faq', to: 'home#faq'
 
   # Devise Authentication
   scope :api do
