@@ -2929,7 +2929,7 @@ body {
 }
 
 .header-11 .navbar .navbar-toggle {
-  background-image: url("../img/icons/menu-icon-header-8@2x.png");
+  background-image: image-url("icons/menu-icon-header-8@2x.png");
 }
 .header-11 .navbar .nav > li > a {
   font-size: 17px;
@@ -2953,7 +2953,7 @@ body {
   width: 280px;
   height: 66px;
   margin: 15px 0;
-  background-image: url("../img/logo.png"), url("../img/logo-title-1.png");
+  background-image: image-url("logo.png"), image-url("logo-title-1.png");
   background-position: left center, right center;
   background-repeat: no-repeat, no-repeat;
 }
@@ -3003,7 +3003,7 @@ body {
   display: flex;
 }
 .description-block .background-image {
-  background-image: url("../img/main-page/img1.png");
+  background-image: image-url("main-page/img1.png");
   background-position: center right;
   background-repeat: no-repeat;
   background-size: cover;
@@ -3026,7 +3026,7 @@ body {
   margin: 45px auto 30px;
 }
 .description-block .content .promo ul {
-  list-style-image: url("../img/main-page/list-dot.png");
+  list-style-image: image-url("main-page/list-dot.png");
   padding-left: 20px;
 }
 .description-block .content .promo ul li {
@@ -3046,15 +3046,15 @@ body {
   background-repeat: no-repeat;
 }
 .content-3.v-center .rabbit {
-  background-image: url("../img/main-page/rabbit.png");
+  background-image: image-url("main-page/rabbit.png");
   background-position: 70% center;
 }
 .content-3.v-center .cat {
-  background-image: url("../img/main-page/cat.png");
+  background-image: image-url("main-page/cat.png");
   background-position: center center;
 }
 .content-3.v-center .dog {
-  background-image: url("../img/main-page/dog.png");
+  background-image: image-url("main-page/dog.png");
   background-position: 70% center;
 }
 
@@ -3554,7 +3554,7 @@ body {
   padding-bottom: 0;
 }
 .fund .row .background-image-fund {
-  background-image: url("../img/fund1.png");
+  background-image: image-url("fund1.png");
   background-position: center center;
   background-repeat: no-repeat;
 }
@@ -3604,7 +3604,7 @@ body {
   content: " ";
   display: block;
   height: 90px;
-  background-image: url("../img/fund2.png");
+  background-image: image-url("fund2.png");
   background-repeat: no-repeat, no-repeat;
   background-position: center center;
 }
@@ -3658,13 +3658,13 @@ body {
   opacity: 0.7;
 }
 .footer-2 .social-btns .social-instagram {
-  background-image: url("../img/Social/Instagram.png");
+  background-image: image-url("Social/Instagram.png");
 }
 .footer-2 .social-btns .social-facebook {
-  background-image: url("../img/Social/Facebook.png");
+  background-image: image-url("Social/Facebook.png");
 }
 .footer-2 .social-btns .social-twitter {
-  background-image: url("../img/Social/Twitter.png");
+  background-image: image-url("Social/Twitter.png");
 }
 
 .nav-icon {
@@ -3948,7 +3948,7 @@ body {
   }
 }
 .header-11-sub .background {
-  background-image: url("../img/main-page/header_background-1.jpg");
+  background-image: image-url("main-page/header_background-1.jpg");
   background-position: cover;
 }
 .header-11-sub h3, .header-11-sub .legal-page .tab-content h4, .legal-page .tab-content .header-11-sub h4 {
@@ -4032,7 +4032,7 @@ body {
   display: flex;
 }
 .description-block .background-image {
-  background-image: url("../img/main-page/img1.png");
+  background-image: image-url("main-page/img1.png");
   background-position: center right;
   background-repeat: no-repeat;
   background-size: cover;
@@ -4058,7 +4058,7 @@ body {
   margin: 45px auto 30px;
 }
 .description-block .content .promo ul {
-  list-style-image: url("../img/main-page/list-dot.png");
+  list-style-image: image-url("main-page/list-dot.png");
   padding-left: 20px;
 }
 .description-block .content .promo ul li {
@@ -4106,15 +4106,15 @@ body {
   background-repeat: no-repeat;
 }
 .content-3.v-center .rabbit {
-  background-image: url("../img/main-page/rabbit.png");
+  background-image: image-url("main-page/rabbit.png");
   background-position: 70% center;
 }
 .content-3.v-center .cat {
-  background-image: url("../img/main-page/cat.png");
+  background-image: image-url("main-page/cat.png");
   background-position: center center;
 }
 .content-3.v-center .dog {
-  background-image: url("../img/main-page/dog.png");
+  background-image: image-url("main-page/dog.png");
   background-position: 70% center;
 }
 
@@ -4271,13 +4271,13 @@ body {
   opacity: 0.7;
 }
 .footer-2 .social-btns .social-instagram {
-  background-image: url("../img/Social/Instagram.png");
+  background-image: image-url("Social/Instagram.png");
 }
 .footer-2 .social-btns .social-facebook {
-  background-image: url("../img/Social/Facebook.png");
+  background-image: image-url("Social/Facebook.png");
 }
 .footer-2 .social-btns .social-twitter {
-  background-image: url("../img/Social/Twitter.png");
+  background-image: image-url("Social/Twitter.png");
 }
 
 @media screen and (max-width: 769px) {
@@ -4356,7 +4356,7 @@ body {
   margin: auto;
 }
 #sign-modal .close {
-  background-image: url("../img/icons/close.png");
+  background-image: image-url("icons/close.png");
   position: absolute;
   top: 15px;
   right: 15px;
@@ -4522,13 +4522,13 @@ body {
   margin-right: 0;
 }
 #sign-modal .modal-body .tab-content .social-holder .social-facebook {
-  background-image: url("../img/Social/Facebook-squared.png");
+  background-image: image-url("Social/Facebook-squared.png");
 }
 #sign-modal .modal-body .tab-content .social-holder .social-twitter {
-  background-image: url("../img/Social/Twitter-squared.png");
+  background-image: image-url("Social/Twitter-squared.png");
 }
 #sign-modal .modal-body .tab-content .social-holder .social-instagram {
-  background-image: url("../img/Social/Instagram-squared.png");
+  background-image: image-url("Social/Instagram-squared.png");
 }
 #sign-modal .modal-body .tab-content .social-holder h2 {
   margin: 10px 0 30px -40px;
@@ -4893,7 +4893,7 @@ body {
   top: -9.74%;
   left: -216.47%;
   position: absolute;
-  background-image: url("../img/main-page/table-2.png");
+  background-image: image-url("main-page/table-2.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
@@ -4905,7 +4905,7 @@ body {
   width: 53.69%;
   height: 85.5%;
   position: absolute;
-  background-image: url("../img/main-page/arrow.png");
+  background-image: image-url("main-page/arrow.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }

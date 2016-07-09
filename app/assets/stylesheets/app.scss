@@ -3785,7 +3785,7 @@
     padding: 0 20px;
   }
 }
-@media screen and (min-width: 640px) and (min-height: 640px) {
+/*@media screen and (min-width: 640px) and (min-height: 640px) {
   .fuzzfinders-app {
     position: relative;
     background-color: #ECF0F1;
@@ -3803,7 +3803,7 @@
   .fuzzfinders-app .fund p, .fuzzfinders-app .fund .faq-page-wrapper .section-wrapper .question .question-content a, .fuzzfinders-app .faq-page-wrapper .section-wrapper .question .question-content .fund a {
     margin-left: 30px;
   }
-}
+}*/
 @media screen and (min-width: 1025px) and (min-height: 500px) {
   .fuzzfinders-app.fund-page {
     background-color: transparent;
@@ -4085,7 +4085,7 @@
 }
 .fuzzfinders-app.faq-outer-page {
   background-size: cover;
-  background-image: url(/img/background.png);
+  background-image: image-url("background.png");
   background-attachment: fixed;
 }
 .fuzzfinders-app.faq-outer-page .header-11 {

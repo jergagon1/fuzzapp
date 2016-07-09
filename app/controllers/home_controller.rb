@@ -14,9 +14,12 @@ class HomeController < ApplicationController
   def findus
   end
 
+  def fund
+  end
+
 private
 
   def set_layout
-    %w(facts faq findus).include?(action_name) ? "guest" : "application"
+    %w(facts faq findus fund).include?(action_name) ? "guest" : "application"
   end
 end
