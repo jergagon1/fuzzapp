@@ -96,9 +96,10 @@
                 <input type="hidden" id="lost_position_lng" value="">
                 <input type="hidden" id="lost_position_lat" value="">
                 <p class="description">Or drag map pin to location</p>
-                <div class="map"></div>
-                <button data-target=".lost-pet-page-wrapper .progress-step, .lost-pet-page-wrapper .ancete-wrapper" data-toggle="step-3" class="btn btn-big btn-blue btn-new btn-toggler">Use My Current Location</button>
-                <button data-target=".lost-pet-page-wrapper .progress-step, .lost-pet-page-wrapper .ancete-wrapper" data-toggle="step-3" class="btn btn-big btn-orange btn-done btn-toggler">Use Location Provided</button>
+                <div class="map" id="lost_map"></div>
+                <!-- <button data&#45;target=".lost&#45;pet&#45;page&#45;wrapper .progress&#45;step, .lost&#45;pet&#45;page&#45;wrapper .ancete&#45;wrapper" data&#45;toggle="step&#45;3" class="btn btn&#45;big btn&#45;orange btn&#45;done btn&#45;toggler">Use Location Provided</button> -->
+                <button data-target=".lost-pet-page-wrapper .progress-step, .lost-pet-page-wrapper .ancete-wrapper" id="lost_current_location" class="btn btn-big btn-blue btn-new">Use My Current Location</button>
+                <button data-target=".lost-pet-page-wrapper .progress-step, .lost-pet-page-wrapper .ancete-wrapper" data-toggle="step-3" class="btn btn-big btn-green btn-new btn-toggler btn-next-step" data-toggle="step-2">Continue</button>
               </div>
             </div>
             <div class="step-wrapper-3">

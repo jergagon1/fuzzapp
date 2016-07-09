@@ -1,3 +1,16 @@
+window.moveBus = function (map, marker, geolocation, updateInputs) {
+  map.panTo( new google.maps.LatLng(geolocation.coords.latitude, geolocation.coords.longitude) );
+
+  $('#lost_position_lng').val(geolocation.coords.longitude);
+  $('#lost_position_lat').val(geolocation.coords.latitude);
+
+  if (marker) {
+    marker.setPosition(new google.maps.LatLng(geolocation.coords.latitude, geolocation.coords.longitude) );
+  }
+};
+
+
+
 $(function(){
   $('.nav-trigger').click(function(){
     $('.menu-navigation').toggleClass('open');
@@ -29,6 +42,33 @@ $(function(){
     } else {return null;}
   }
 
+  $('#lost_current_location').click(function () {
+    if (window.geolocation) {
+      moveBus(lostPetMap, lostPetMarker, window.geolocation);
+    }
+  });
+
+  $("#lost_address").keypress(function( event ) {
+    if (event.which == 13) {
+      var address = $(this).val();
+
+      // var options = {
+      //   address: address,
+      //   map: '#lost_map'
+      // };
+
+      geolocator.geocode({address: address}, function(err, location) {
+        // debugger;
+        moveBus(lostPetMap, lostPetMarker, location);
+        console.log('callback');
+      });
+
+      event.preventDefault();
+    }
+  });
+
+ 
+
   $('.btn-toggler, .btn-apply').click( function() {
     var target = $(this).data('target');
     var tClass = $(this).data('toggle');
@@ -37,6 +77,11 @@ $(function(){
     navigationStack.push([target, tClass]);
     $('body').scrollTop(0);
     $(target).parent().scrollTop(0);
+
+    if (tClass === 'step-2') {
+      if (window.geolocation) {
+      }
+    }
 
     var navigationClass = getNavigationToggler(target);
     if (navigationClass && (tClass === 'show')) {
@@ -107,11 +152,11 @@ $(function(){
 
     turnTransition(lastTransition[0],lastTransition[1]);
     setTimeout(function(){
-        backStack.forEach(function(item){turnTransition(item[0],item[1]);});
-      }, 600);
+      backStack.forEach(function(item){turnTransition(item[0],item[1]);});
+    }, 600);
 
     setTimeout(function(){ $('.ancete-wrapper').removeAttr('style');
-      }, 650);
+    }, 650);
 
     $('body').scrollTop(0);
   });
@@ -144,78 +189,78 @@ $(function(){
 
   window.FuzzAppMapStyles = [
     {"featureType":"landscape.man_made",
-     "elementType":"geometry",
-     "stylers":[{"color":"#f7f1df"}]},
-      {
-        "featureType":"landscape.natural",
-        "elementType":"geometry",
-        "stylers":[{"color":"#d0e3b4"}]
-      },
-      {
-        "featureType":"landscape.natural.terrain",
-        "elementType":"geometry",
-        "stylers":[{"visibility":"off"}]
-      },
-      {
-        "featureType":"poi",
-        "elementType":"labels",
-        "stylers":[{"visibility":"off"}]
-      },
-      {
-        "featureType":"poi.business",
-        "elementType":"all",
-        "stylers":[{"visibility":"off"}]
-      },
-      {
-        "featureType":"poi.medical",
-        "elementType":"geometry",
-        "stylers":[{"color":"#fbd3da"}]
-      },
-      {
-        "featureType":"poi.park",
-        "elementType":"geometry",
-        "stylers":[{"color":"#bde6ab"}]
-      },
-      {
-        "featureType":"road",
-        "elementType":"geometry.stroke",
-        "stylers":[{"visibility":"off"}]
-      },
-      {
-        "featureType":"road",
-        "elementType":"labels",
-        "stylers":[{"visibility":"off"}]
-      },
-      {
-        "featureType":"road.highway",
-        "elementType":"geometry.fill",
-        "stylers":[{"color":"#ffe15f"}]
-      },
-      {
-        "featureType":"road.highway",
-        "elementType":"geometry.stroke",
-        "stylers":[{"color":"#efd151"}]
-      },
-      {
-        "featureType":"road.arterial",
-        "elementType":"geometry.fill",
-        "stylers":[{"color":"#ffffff"}]
-      },
-      {
-        "featureType":"road.local",
-        "elementType":"geometry.fill",
-        "stylers":[{"color":"black"}]
-      },
-      {
-        "featureType":"transit.station.airport",
-        "elementType":"geometry.fill",
-        "stylers":[{"color":"#cfb2db"}]
-      },
-      {
-        "featureType":"water",
-        "elementType":"geometry",
-        "stylers":[{"color":"#a2daf2"}]
-      }];
+      "elementType":"geometry",
+      "stylers":[{"color":"#f7f1df"}]},
+    {
+      "featureType":"landscape.natural",
+      "elementType":"geometry",
+      "stylers":[{"color":"#d0e3b4"}]
+    },
+    {
+      "featureType":"landscape.natural.terrain",
+      "elementType":"geometry",
+      "stylers":[{"visibility":"off"}]
+    },
+    {
+      "featureType":"poi",
+      "elementType":"labels",
+      "stylers":[{"visibility":"off"}]
+    },
+    {
+      "featureType":"poi.business",
+      "elementType":"all",
+      "stylers":[{"visibility":"off"}]
+    },
+    {
+      "featureType":"poi.medical",
+      "elementType":"geometry",
+      "stylers":[{"color":"#fbd3da"}]
+    },
+    {
+      "featureType":"poi.park",
+      "elementType":"geometry",
+      "stylers":[{"color":"#bde6ab"}]
+    },
+    {
+      "featureType":"road",
+      "elementType":"geometry.stroke",
+      "stylers":[{"visibility":"off"}]
+    },
+    {
+      "featureType":"road",
+      "elementType":"labels",
+      "stylers":[{"visibility":"off"}]
+    },
+    {
+      "featureType":"road.highway",
+      "elementType":"geometry.fill",
+      "stylers":[{"color":"#ffe15f"}]
+    },
+    {
+      "featureType":"road.highway",
+      "elementType":"geometry.stroke",
+      "stylers":[{"color":"#efd151"}]
+    },
+    {
+      "featureType":"road.arterial",
+      "elementType":"geometry.fill",
+      "stylers":[{"color":"#ffffff"}]
+    },
+    {
+      "featureType":"road.local",
+      "elementType":"geometry.fill",
+      "stylers":[{"color":"black"}]
+    },
+    {
+      "featureType":"transit.station.airport",
+      "elementType":"geometry.fill",
+      "stylers":[{"color":"#cfb2db"}]
+    },
+    {
+      "featureType":"water",
+      "elementType":"geometry",
+      "stylers":[{"color":"#a2daf2"}]
+    }];
 
 
   $(document).ready(function(){
@@ -223,17 +268,17 @@ $(function(){
     var lostPetMapDOM = $('.fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .section-wrapper .ancete-wrapper .step-wrapper-2 .map')[0],
 
       mapOptions = {
-          zoom: 14,
-          center: new google.maps.LatLng(37.801, -122.28),
-          styles: FuzzAppMapStyles,
-          mapTypeControl: false,
-          streetViewControl: false,
-          scrollwheel: false
-      },
+        zoom: 14,
+        center: new google.maps.LatLng(37.801, -122.28),
+        styles: FuzzAppMapStyles,
+        mapTypeControl: false,
+        streetViewControl: false,
+        scrollwheel: false
+      };
 
-      lostPetMap = new google.maps.Map(lostPetMapDOM, mapOptions),
+      window.lostPetMap = new google.maps.Map(lostPetMapDOM, mapOptions);
 
-      lostPetMarker = new google.maps.Marker({
+      window.lostPetMarker = new google.maps.Marker({
         position: {lat: 37.802, lng: -122.28},
         map: lostPetMap,
         icon: '/img/app/map/lost-pin.png',
@@ -245,11 +290,11 @@ $(function(){
         $('#lost_position_lng').val(this.position.lng());
       });
 
-      var foundPetMapDOM = $('.fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .section-wrapper .ancete-wrapper .step-wrapper-2 .map')[0],
+      var foundPetMapDOM = $('.fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .section-wrapper .ancete-wrapper .step-wrapper-2 .map')[0];
 
-      foundPetMap = new google.maps.Map(foundPetMapDOM, mapOptions),
+      window.foundPetMap = new google.maps.Map(foundPetMapDOM, mapOptions);
 
-      foundPetMarker = new google.maps.Marker({
+      window.foundPetMarker = new google.maps.Marker({
         position: {lat: 37.802, lng: -122.28},
         map: foundPetMap,
         icon: '/img/app/map/found-pin.png',
@@ -262,60 +307,80 @@ $(function(){
       });
 
 
-      var sightingsMapDOM = $('.fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .map')[0],
+      var sightingsMapDOM = $('.fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .map')[0];
 
-      sightingsMap = new google.maps.Map(sightingsMapDOM, mapOptions),
+        if (window.geolocation) {
+          var mapOptions = {
+            zoom: 14,
+            center: new google.maps.LatLng(geolocation.coords.latitude, geolocation.coords.longitude),
+            styles: FuzzAppMapStyles,
+            mapTypeControl: false,
+            streetViewControl: false,
+            scrollwheel: false
+          };
+        } else {
+          var mapOptions = {
+            zoom: 14,
+            center: new google.maps.LatLng(37.801, -122.28),
+            styles: FuzzAppMapStyles,
+            mapTypeControl: false,
+            streetViewControl: false,
+            scrollwheel: false
+          };
+        }
 
-      arrayCoodinates1 = [
-      [37.807560843059925, -122.27261856079099],
-      [37.80762865563491,  -122.28343322753904],
-      [37.803627607163115, -122.28180244445798],
-      [37.796438738238166, -122.28506401062009],
-      [37.79589615369872,  -122.298196105957]
-      ],
+        window.sightingsMap = new google.maps.Map(sightingsMapDOM, mapOptions);
 
-      arrayCoodinates2 = [
-      [37.80810334191614, -122.29553535461423],
-      [37.80444139729422,  -122.28617980957029],
-      [37.79569268346904, -122.27133110046384]
-      ];
+        var arrayCoodinates1 = [
+          [37.807560843059925, -122.27261856079099],
+          [37.80762865563491,  -122.28343322753904],
+          [37.803627607163115, -122.28180244445798],
+          [37.796438738238166, -122.28506401062009],
+          [37.79589615369872,  -122.298196105957]
+        ],
 
-      arrayCoodinates1.forEach( function (item, i) {
-        new google.maps.Marker({
-                  position: {lat: item[0], lng: item[1]},
-                  map: sightingsMap,
-                  icon: '/img/app/map/lost-pin.png',
-                  draggable: false,
-                  opacity: (10-i)/10
-              });
-      });
+        arrayCoodinates2 = [
+          [37.80810334191614, -122.29553535461423],
+          [37.80444139729422,  -122.28617980957029],
+          [37.79569268346904, -122.27133110046384]
+        ];
 
-      arrayCoodinates2.forEach( function (item, i) {
-        new google.maps.Marker({
-                  position: {lat: item[0], lng: item[1]},
-                  map: sightingsMap,
-                  icon: '/img/app/map/found-pin.png',
-                  draggable: false,
-                  opacity: (10-i)/10
-              });
-      });
+        arrayCoodinates1.forEach( function (item, i) {
+          new google.maps.Marker({
+            position: {lat: item[0], lng: item[1]},
+            map: sightingsMap,
+            icon: '/img/app/map/lost-pin.png',
+            draggable: false,
+            opacity: (10-i)/10
+          });
+        });
+
+        arrayCoodinates2.forEach( function (item, i) {
+          new google.maps.Marker({
+            position: {lat: item[0], lng: item[1]},
+            map: sightingsMap,
+            icon: '/img/app/map/found-pin.png',
+            draggable: false,
+            opacity: (10-i)/10
+          });
+        });
 
 
-      var lostPostMapDOM = $('.fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .map')[0],
+        var lostPostMapDOM = $('.fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .map')[0],
 
-        lostPostMap = new google.maps.Map(lostPostMapDOM, mapOptions),
+          lostPostMap = new google.maps.Map(lostPostMapDOM, mapOptions),
 
-        foundPostMapDOM = $('.fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .map')[0],
+          foundPostMapDOM = $('.fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .map')[0],
 
-        foundPostMap = new google.maps.Map(foundPostMapDOM, mapOptions),
+          foundPostMap = new google.maps.Map(foundPostMapDOM, mapOptions),
 
-        polyCoordinates = [];
+          polyCoordinates = [];
 
-      arrayCoodinates1.forEach( function (item) {
-        polyCoordinates.push({lat: item[0], lng: item[1]});
-      });
+        arrayCoodinates1.forEach( function (item) {
+          polyCoordinates.push({lat: item[0], lng: item[1]});
+        });
 
-      var lostPostMapPath = new google.maps.Polyline({
+        var lostPostMapPath = new google.maps.Polyline({
           path: polyCoordinates,
           geodesic: true,
           strokeColor: '#E2573B',
@@ -325,81 +390,81 @@ $(function(){
         }),
 
         foundPostMapPath = new google.maps.Polyline({
-            path: polyCoordinates,
-            geodesic: true,
-            strokeColor: '#1E9F84',
-            strokeOpacity: 1.0,
-            strokeWeight: 3,
-            map: foundPostMap
-          });
+          path: polyCoordinates,
+          geodesic: true,
+          strokeColor: '#1E9F84',
+          strokeOpacity: 1.0,
+          strokeWeight: 3,
+          map: foundPostMap
+        });
 
 
-      var circleSymbol = {
+        var circleSymbol = {
           path: google.maps.SymbolPath.CIRCLE,
-              fillOpacity: 1,
-              fillColor: '#E2573B',
-              scale: 7,
-              strokeColor: '#E2573B'
+          fillOpacity: 1,
+          fillColor: '#E2573B',
+          scale: 7,
+          strokeColor: '#E2573B'
         },
         circleStartSymbol = {
           path: google.maps.SymbolPath.CIRCLE,
-              fillOpacity: 1,
-              fillColor: '#FFF',
-              scale: 9,
-              strokeColor: '#E2573B'
+          fillOpacity: 1,
+          fillColor: '#FFF',
+          scale: 9,
+          strokeColor: '#E2573B'
         },
         circleSymbolAlt = {
           path: google.maps.SymbolPath.CIRCLE,
-              fillOpacity: 1,
-              fillColor: '#1E9F84',
-              scale: 7,
-              strokeColor: '#1E9F84'
+          fillOpacity: 1,
+          fillColor: '#1E9F84',
+          scale: 7,
+          strokeColor: '#1E9F84'
         },
         circleStartSymbolAlt = {
           path: google.maps.SymbolPath.CIRCLE,
-              fillOpacity: 1,
-              fillColor: '#FFF',
-              scale: 9,
-              strokeColor: '#1E9F84'
+          fillOpacity: 1,
+          fillColor: '#FFF',
+          scale: 9,
+          strokeColor: '#1E9F84'
         };
 
 
 
-      arrayCoodinates1.forEach( function (item, i) {
+        arrayCoodinates1.forEach( function (item, i) {
 
-        if (i === 0) {
-          new MarkerWithLabel({
-                    position: {lat: item[0], lng: item[1]},
-                    map: lostPostMap,
-                    icon: circleStartSymbol,
-                    draggable: false
-                });
-                new MarkerWithLabel({
-                    position: {lat: item[0], lng: item[1]},
-                    map: foundPostMap,
-                    icon: circleStartSymbolAlt,
-                    draggable: false
-                });
-        } else {
-          new google.maps.Marker({
-                    position: {lat: item[0], lng: item[1]},
-                    map: lostPostMap,
-                    icon: circleSymbol,
-                    draggable: false,
+          if (i === 0) {
+            new MarkerWithLabel({
+              position: {lat: item[0], lng: item[1]},
+              map: lostPostMap,
+              icon: circleStartSymbol,
+              draggable: false
+            });
+            new MarkerWithLabel({
+              position: {lat: item[0], lng: item[1]},
+              map: foundPostMap,
+              icon: circleStartSymbolAlt,
+              draggable: false
+            });
+          } else {
+            new google.maps.Marker({
+              position: {lat: item[0], lng: item[1]},
+              map: lostPostMap,
+              icon: circleSymbol,
+              draggable: false,
 
-                    label: i.toString()
-                });
-                new google.maps.Marker({
-                    position: {lat: item[0], lng: item[1]},
-                    map: foundPostMap,
-                    icon: circleSymbolAlt,
-                    draggable: false,
+              label: i.toString()
+            });
+            new google.maps.Marker({
+              position: {lat: item[0], lng: item[1]},
+              map: foundPostMap,
+              icon: circleSymbolAlt,
+              draggable: false,
 
-                    label: i.toString()
-                });
-        }
+              label: i.toString()
+            });
+          }
 
-      });
+        });
 
 
 
@@ -430,7 +495,7 @@ $(function(){
             dd = parseInt(inputDate.substring(3,5)),
             h = parseInt(inputDate.substring(6,8)),
             m = parseInt(inputDate.substring(9,11));
-            am = inputDate.substring(12)
+          am = inputDate.substring(12)
 
           mm = mm<=12 ? mm : 12;
           dd = dd<=31 ? mm : 31;
@@ -445,12 +510,12 @@ $(function(){
 
     var lostPostMapDOM = $('.fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .location-wrapper .map')[0],
       mapOptions = {
-          zoom: 14,
-          center: new google.maps.LatLng(37.801, -122.28),
-          styles: FuzzAppMapStyles,
-          mapTypeControl: false,
-          streetViewControl: false,
-          scrollwheel: false
+        zoom: 14,
+        center: new google.maps.LatLng(37.801, -122.28),
+        styles: FuzzAppMapStyles,
+        mapTypeControl: false,
+        streetViewControl: false,
+        scrollwheel: false
       },
       lostPostMap = new google.maps.Map(lostPostMapDOM, mapOptions),
       lostPostMarker = new google.maps.Marker({
@@ -535,7 +600,7 @@ $(function(){
 
   $(document).on('click', '.question-button', function (e) {
     e.preventDefault();
-          $(this).parent().toggleClass('show').children('.question-content').collapse('toggle')
+    $(this).parent().toggleClass('show').children('.question-content').collapse('toggle')
   });
 
   //Social connect buttons
