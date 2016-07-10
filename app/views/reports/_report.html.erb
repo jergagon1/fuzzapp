@@ -1,4 +1,6 @@
-<div data-target=".<%= report.report_type %>-pet-post-wrapper" data-toggle="show" class="post <%= report.report_type %>-post btn-toggler small-report-card placeholder-<%= report.animal_type.downcase %>" data-report-id="<%= report.id %>">
+<div data-target=".<%= report.report_type %>-pet-post-wrapper" data-toggle="show" class="post <%= report.report_type %>-post btn-toggler small-report-card
+<%= report.img_url? ? "" : "placeholder-#{report.animal_type.downcase}" %>"
+data-report-id="<%= report.id %>">
   <h3 class="title"><%= report.report_type.capitalize %> <%=report.animal_type.capitalize %></h3>
   <% if report.img_url? %>
     <div class="photo-holder" style="background-image: url('<%= report.img_url %>')"></div>
