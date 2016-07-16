@@ -2,9 +2,9 @@ class ReportsController < ApplicationController
   skip_before_filter :verify_authenticity_token, only: [:mapquery]
   respond_to :js
 
-  acts_as_token_authentication_handler_for User, unless: lambda { |controller|
-    controller_name.eql?('reports') && (['show', 'create'].include? action_name)
-  }
+  # acts_as_token_authentication_handler_for User, unless: lambda { |controller|
+  #   controller_name.eql?('reports') && (['show', 'create'].include? action_name)
+  # }
 
   def status
     render json: { value: 'jeremy', user_count: User.all.count }
