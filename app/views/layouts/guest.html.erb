@@ -2,7 +2,7 @@
 <html>
   <head>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
     <%= javascript_include_tag 'guest', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
 
@@ -39,7 +39,17 @@
           <div role="navigation" class="navbar col-sm-12"><a href="/" class="brand">
               <div class="logo"></div>
               <h3 class="brand-title">Fuzz<span class="alt">Finders</span><span class="trademark">TM</span></h3></a>
-            <div class="nav-icon pull-right"><span></span><span></span><span></span></div><a data-target="sign-in" class="btn btn-sign">SIGN IN</a>
+
+            <% if current_user %>
+              <div class="nav-icon pull-right"><span></span><span></span><span></span></div>
+
+              <a data-target="log-out" class="btn btn-sign btn-logout">LOG OUT</a>
+            <% else %>
+              <div class="nav-icon pull-right"><span></span><span></span><span></span></div>
+
+              <a data-target="sign-in" class="btn btn-sign">SIGN IN</a>
+            <% end %>
+
             <ul class="navigation">
               <li class="main-page-link"><a href="/">FuzzFinders</a>
               </li>
@@ -98,11 +108,11 @@
                     <input id="sing-in-pass-input" type="password" data-target="password" placeholder="Password" name="user-pass" required="required" class="form-control"/><i class="icon-password form-control-feedback"></i>
                   </div>
                   <button type="submit" class="btn btn-block btn-submit">Sign In</button><a href="#" class="forgot">Forgot a password?</a>
-                  <div class="social-holder">
-                    <button class="social-facebook"></button>
-                    <button class="social-twitter"></button>
-                    <button class="social-instagram"></button>
-                  </div>
+                  <!-- <div class="social&#45;holder"> -->
+                    <!--   <button class="social&#45;facebook"></button> -->
+                    <!--   <button class="social&#45;twitter"></button> -->
+                    <!--   <button class="social&#45;instagram"></button> -->
+                    <!-- </div> -->
                 </form>
               </div>
               <div id="sign-up-form" class="tab-pane">
@@ -131,12 +141,12 @@
                     <input id="legalcheckbox" type="checkbox" value="" data-toggle="checkbox" required="required"/>I accept the <a href="legal.html">Legal Agreement</a>
                   </label>
                   <button type="submit" class="btn btn-block btn-submit">Sign Up, Free!</button>
-                  <div class="social-holder">
-                    <h2>Or Sign Up via Social</h2>
-                    <button class="social-facebook"></button>
-                    <button class="social-twitter"></button>
-                    <button class="social-instagram"></button>
-                  </div>
+                  <!-- <div class="social&#45;holder"> -->
+                    <!--   <h2>Or Sign Up via Social</h2> -->
+                    <!--   <button class="social&#45;facebook"></button> -->
+                    <!--   <button class="social&#45;twitter"></button> -->
+                    <!--   <button class="social&#45;instagram"></button> -->
+                    <!-- </div> -->
                 </form>
               </div>
             </div>

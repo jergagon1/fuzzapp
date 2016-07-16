@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     scope :v1 do
       devise_for :users, controllers: {
         registrations: 'registrations',
-        sessions: 'sessions',
+        # sessions: 'sessions',
         passwords: 'passwords'
       }
 
