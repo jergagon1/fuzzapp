@@ -1,9 +1,7 @@
-
 <html>
   <head>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
-    <%= javascript_include_tag 'guest', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
 
     <meta charset="utf-8"/>
@@ -29,7 +27,7 @@
     <%= favicon_link_tag "icon-167.png", rel: "apple-touch-icon", sizes: "167x167" %>
     <%= favicon_link_tag "icon-152.png", rel: "apple-touch-icon", sizes: "152x152" %>
     <%= favicon_link_tag "icon-180.png", rel: "apple-touch-icon", sizes: "180x180" %>
-    <%=favicon_link_tag "favicon.ico", rel: "shortcut icon", type: "image/x-icon"  %>
+    <%= favicon_link_tag "favicon.ico", rel: "shortcut icon", type: "image/x-icon"  %>
 
   </head>
   <body class="fuzzfinders-app faq-outer-page">
@@ -154,5 +152,7 @@
         </div>
       </div>
     </div>
+
+    <%= javascript_include_tag 'guest', 'data-turbolinks-track' => true %>
   </body>
 </html>

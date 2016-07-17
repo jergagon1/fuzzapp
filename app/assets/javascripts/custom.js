@@ -44,12 +44,25 @@ $(function() {
 
   });
 
-  $('.btn-logout').click(function () {
+  // $('._btn-logout > a').click(function () {
+  //   $.ajax({
+  //     url: '/api/v1/users/sign_out',
+  //     method: 'DELETE',
+  //   }).success(function () {
+  //     // document.location.reload();
+  //     document.location.href = '/';
+  //   });
+  //
+  //   return false;
+  // });
+
+  $('.btn-logout, ._btn-logout > a').click(function () {
     $.ajax({
       url: '/api/v1/users/sign_out',
       method: 'DELETE',
     }).success(function () {
-      document.location.reload();
+      // document.location.reload();
+      document.location.href = '/';
     });
 
     return false;
@@ -60,7 +73,7 @@ $(function() {
       email: $('#sing-in-email-input').val(),
       password: $('#sing-in-pass-input').val()
     }}).success(function (data) {
-      document.location.reload();
+      document.location.href = '/fuzzapp';
     }).error(function (data) {
       alert('error');
     })
@@ -77,14 +90,14 @@ $(function() {
       password_confirmation: $('#sign-up-confirm-input').val(),
     }}).success(function (data) {
       // alert(JSON.stringify(data));
-      document.location.reload();
+      // document.location.reload();
+      document.location.href = '/fuzzapp';
     }).error(function (data) {
       alert(JSON.stringify(data));
     })
 
     return false;
   });
-
 })
 
 //Centering modal
@@ -179,10 +192,10 @@ $(document).on('focusout', '#sign-modal .form-control', function(){
   var val = $(this).val();
   if (val)
   {
-    // Email validation 
+    // Email validation
     if ($(this).attr('type') === 'email')
     {
-      if (checkMail(val)) { toggleInput(this); } 
+      if (checkMail(val)) { toggleInput(this); }
       else { toggleInput(this, 'Please, provide correct email'); }
 
 
@@ -190,11 +203,11 @@ $(document).on('focusout', '#sign-modal .form-control', function(){
     // Password and Confirmation Valudation
     else if ($(this).attr('type') === 'password')
     {
-      /*if (!checkPassword(this)) { toggleInput(this); } 
+      /*if (!checkPassword(this)) { toggleInput(this); }
         else { toggleInput(this, checkPassword(this) );}*/
 
       toggleInput(this, checkPassword(this));
-    } 
+    }
     // Zip code and Username validation
     else if ($(this).attr('type') === 'text')
     {
@@ -278,7 +291,7 @@ $(document).on('click', '.legal-page .legal-tabs li a', function(){
 });
 
 $(document).on('click', ' .legal-page .nav-icon', function(){
-  $(this).parent().toggleClass('open');	
+  $(this).parent().toggleClass('open');
 });
 
 
