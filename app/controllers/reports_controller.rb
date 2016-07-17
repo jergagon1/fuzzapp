@@ -1,10 +1,7 @@
 class ReportsController < ApplicationController
-  skip_before_filter :verify_authenticity_token, only: [:mapquery]
-  respond_to :js
+  before_filter :authenticate_user!
 
-  acts_as_token_authentication_handler_for User, unless: lambda { |controller|
-    controller_name.eql?('reports') && (['show', 'create'].include? action_name)
-  }
+  respond_to :js
 
   def status
     render json: { value: 'jeremy', user_count: User.all.count }
@@ -12,6 +9,7 @@ class ReportsController < ApplicationController
 
   def create
     @report = Report.new report_params
+    @report.user = current_user
     @user = User.where(id: params[:report][:user_id]).first || User.first
     # TODO: fix when added authorization
     if @report.save

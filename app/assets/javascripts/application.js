@@ -17,5 +17,8 @@
 //= require jquery.ui.widget
 //= require jquery.iframe-transport
 //= require jquery.fileupload
+//= require geolocator
+//= require geostuff
 //= require image-upload
 //= require app-flow
+//= require custom

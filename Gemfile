@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'geokit-rails', github: 'geokit/geokit-rails'
 gem 'rails', '4.2.4'
 
-gem 'rails-api'
+# gem 'rails-api'
 
 gem 'pg'
 
@@ -18,7 +18,7 @@ gem 'acts-as-taggable-on', '~> 3.4'
 gem 'rack-cors', require: 'rack/cors'
 
 gem 'devise'
-gem 'simple_token_authentication', '~> 1.0'
+# gem 'simple_token_authentication', '~> 1.0'
 
 gem 'mailgun_rails'
 # gem 'mailgun-ruby', '~>1.0.3', require: 'mailgun'
