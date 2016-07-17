@@ -247,7 +247,7 @@ $(document).ready(function() {
     }
   });
 
-  //$('#sign-up-form .checkbox').radiocheck();
+  $('#sign-up-form .checkbox').radiocheck();
 });
 $(':checkbox').radiocheck('uncheck');
 //------------------------------------------

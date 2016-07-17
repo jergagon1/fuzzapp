@@ -10222,8 +10222,8 @@ footer p {
  */
 @font-face {
   font-family: Flat-UI-Pro-Icons;
-  src: url(../fonts/glyphicons/flat-ui-pro-icons-regular.eot);
-  src: url(../fonts/glyphicons/flat-ui-pro-icons-regular.eot?#iefix) format("embedded-opentype"), url(../fonts/glyphicons/flat-ui-pro-icons-regular.woff) format("woff"), url(../fonts/glyphicons/flat-ui-pro-icons-regular.ttf) format("truetype"), url(../fonts/glyphicons/flat-ui-pro-icons-regular.svg#flat-ui-pro-icons-regular) format("svg"); }
+  src: font-url("glyphicons/flat-ui-pro-icons-regular.eot");
+  src: font-url("glyphicons/flat-ui-pro-icons-regular.eot?#iefix") format("embedded-opentype"), font-url("glyphicons/flat-ui-pro-icons-regular.woff") format("woff"), font-url("glyphicons/flat-ui-pro-icons-regular.ttf") format("truetype"), font-url("glyphicons/flat-ui-pro-icons-regular.svg#flat-ui-pro-icons-regular") format("svg"); }
 [class^=fui-], [class*=fui-] {
   font-family: Flat-UI-Pro-Icons;
   font-style: normal;
