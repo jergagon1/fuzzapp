@@ -21,3 +21,4 @@
 //= require geostuff
 //= require image-upload
 //= require app-flow
+//= require custom

@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
 
-  root 'home#index'
+  root 'home#main'
 
   get 'facts', to: 'home#facts'
   get 'faq', to: 'home#faq'
   get 'findus', to: 'home#findus'
   get 'fund', to: 'home#fund'
-  get 'main', to: 'home#main'
+  get 'fuzzapp', to: 'home#index'
 
   # Devise Authentication
   scope :api do
