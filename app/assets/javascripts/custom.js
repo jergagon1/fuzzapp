@@ -37,7 +37,7 @@ function showModal(target) {
 
 
 $(function() {
-  $('.btn-sign, .navigation .action a, .call-to-action .btn-inverted').not('.btn-logout').click(function(){
+  $('.btn-sign, .navigation .action a, .call-to-action .btn-inverted, ._btn-sign').not('.btn-logout').click(function(){
 
     showModal($(this).data('target'));
     if ($(this).parent().hasClass('action')) {$('.nav-icon, .navigation li a').toggleClass('open');}
