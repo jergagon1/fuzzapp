@@ -8,11 +8,6 @@
 //------------------------------------------
 
 
-$('.nav-icon, .navigation li a').click( function(){
-  $(this).toggleClass('open');
-  $('.navigation').toggleClass('open');
-});
-
 
 
 //------------------------------------------

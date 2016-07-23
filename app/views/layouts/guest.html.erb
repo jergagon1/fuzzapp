@@ -49,20 +49,16 @@
             <% end %>
 
             <ul class="navigation">
-              <li class="main-page-link"><a href="/">FuzzFinders</a>
-              </li>
-              <li><a href="/facts">FuzzFacts</a>
-              </li>
-              <li><a href="/faq">FAQ</a>
-              </li>
-              <li><a href="/fund">FuzzFund</a>
-              </li>
-              <li><a href="/findus">Find Us</a>
-              </li>
-              <li class="action"><a data-target="sign-in">Sign In</a>
-              </li>
-              <li class="action"><a data-target="sign-up">Sign Up</a>
-              </li>
+              <li class="main-page-link"><a href="/">FuzzFinders</a></li>
+              <li><a href="/facts">FuzzFacts</a></li>
+              <li><a href="/faq">FAQ</a></li>
+              <li><a href="/fund">FuzzFund</a></li>
+              <li><a href="/findus">Find Us</a></li>
+
+              <% unless current_user %>
+                <li class="action"><a data-target="sign-in">Sign In</a></li>
+                <li class="action"><a data-target="sign-up">Sign Up</a></li>
+              <% end %>
             </ul>
           </div>
         </div>
