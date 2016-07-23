@@ -3,6 +3,21 @@
 $(function(){
 
 
+  $('#comments_submit_button').click(function() {
+      Console.log("huihui");
+      alert('hui');
+      $.post(("/api/v1/reports/" +$('.comment_report_id').val() + "/comments"), {
+        comment: {
+          content: $('.comment_body').val(),
+          report_id: $('.comment_report_id').val(),
+          lat: '1',
+          lng: '1',
+          image: 'lost'
+        }
+      });
+
+  });
+
   $('#lost_pet_button').click(function(){
       $.post("/api/v1/reports", {
         report: {
@@ -92,6 +107,7 @@ $(function(){
           // }
        });
   });
+
 
 
 $('.small-report-card').click(function(){

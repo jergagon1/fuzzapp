@@ -134,7 +134,6 @@
                 </div>
             </div>
         </div>
-        <form class="post-comment">
             <!--********************************************************************************************************************************-->
             <!--********************************************************************************************************************************-->
             <!--********************************************************************************************************************************-->
@@ -143,23 +142,25 @@
             <!--********************************************************************************************************************************-->
             <!--********************************************************************************************************************************-->
             <!--********************************************************************************************************************************-->
-            <h2>Post Your Comment</h2>
-            <textarea placeholder="Type Here" row="4" class="textarea form-control"></textarea>
-            <div style="background-image: url('<%= image_url('dog-demo-2.png') %>')" class="photo-wrapper">
-                <button class="btn-remove"></button>
+    <form class="post-comment">
+        <h2>Post Your Comment</h2>
+        <textarea placeholder="Type Here" row="4" class="textarea form-control comment_body"></textarea>
+        <input type="hidden" class="comment_report_id" value="<%= @report.id %>">
+        <div style="background-image: url('<%= image_url('dog-demo-2.png') %>')" class="photo-wrapper">
+            <button class="btn-remove"></button>
+        </div>
+        <div class="location-wrapper">
+            <div class="map"></div>
+            <div class="btn-remove"></div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6">
+                <button type="button" class="btn btn-small btn-blue btn-photo">Upload Photo</button>
             </div>
-            <div class="location-wrapper">
-                <div class="map"></div>
-                <div class="btn-remove"></div>
+            <div class="col-xs-6">
+                <button type="button" class="btn btn-small btn-blue btn-location">Add a Location</button>
             </div>
-            <div class="row">
-                <div class="col-xs-6">
-                    <button type="button" class="btn btn-small btn-blue btn-photo">Upload Photo</button>
-                </div>
-                <div class="col-xs-6">
-                    <button type="button" class="btn btn-small btn-blue btn-location">Add a Location</button>
-                </div>
-            </div>
-            <button type="submit" class="btn btn-xbig btn-blue">Post</button>
-        </form>
+        </div>
+        <button class="btn btn-xbig btn-blue comments_button">Post</button>
+    </form>
     </div>

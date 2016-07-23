@@ -7,6 +7,7 @@ class CommentsController < ApplicationController
   def create
     # Notify creator of report @report.user_id
     # @original_poster = @report.user
+    require 'pry';binding.pry
     @report = Report.find params[:report_id]
     @comment = @report.comments.build comment_params
 
@@ -35,6 +36,6 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:content, :user_id, :report_id, :lat, :lng, :image)
+    params.require(:comment).permit(:content, :report_id, :lat, :lng, :image)
   end
 end

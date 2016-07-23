@@ -122,7 +122,8 @@
     </div>
     <form class="post-comment">
         <h2>Post Your Comment</h2>
-        <textarea placeholder="Type Here" row="4" class="textarea form-control"></textarea>
+        <textarea placeholder="Type Here" row="4" class="textarea form-control comment_body"></textarea>
+        <input type="hidden" class="comment_report_id" value="<%= @report.id %>">
         <div style="background-image: url('<%= image_url('dog-demo-2.png') %>')" class="photo-wrapper">
             <button class="btn-remove"></button>
         </div>
@@ -138,6 +139,6 @@
                 <button type="button" class="btn btn-small btn-blue btn-location">Add a Location</button>
             </div>
         </div>
-        <button type="submit" class="btn btn-xbig btn-blue">Post</button>
+        <button type="button" class="btn btn-xbig btn-blue" id="comments_submit_button">Post</button>
     </form>
 </div>
