@@ -67,57 +67,8 @@
   </div>
   <div class="comments-wrapper">
     <h2>Comments</h2>
-    <div class="comment with-image">
-      <div class="header">
-        <div style="background-image: <%= image_url('user-placeholder.png') %>" class="face-lockup"></div>
-        <div class="content">
-          <p>Posted by Tomas17</p>
-          <p>3 hours ago</p>
-        </div>
-      </div>
-      <div style="background-image: url('<%= image_url('dog-demo-2.png') %>')" class="image"></div>
-      <div class="description-wrapper">
-        <p class="description">Check out is it your dog? Some shepherd-dog walked on my backyard.</p>
-        <div class="location-sign"><i class="icon-location"></i>Location point added</div>
-      </div>
-    </div>
-    <div class="comment">
-      <div class="header">
-        <div style="background-image: url('<%= image_url('user-picture-3.png') %>')" class="face-lockup"></div>
-        <div class="content">
-          <p>Posted by SarahJ</p>
-          <p>2 hours ago</p>
-        </div>
-      </div>
-      <div class="description-wrapper">
-        <p class="description">No, unfurtunately it’s not my Nicy. May be you should post a message about it? </p>
-      </div>
-    </div>
-    <div class="comment with-image">
-      <div class="header">
-        <div style="background-image: url('<%= image_url('user-picture-5.png') %>')" class="face-lockup"></div>
-        <div class="content">
-          <p>Posted by AnnaMay</p>
-          <p>2 hours ago</p>
-        </div>
-      </div>
-      <div style="background-image: url('<%= image_url('dog-demo-3.png') %>')" class="image"></div>
-      <div class="description-wrapper">
-        <p class="description">Hey, looks like it’s your dog, isn’t it? It was playing in the same park for hours without any owner. I take care for it temporaty. If it’s yours call me by this phone 732-757-2923</p>
-        <div class="location-sign"><i class="icon-location"></i>Location point added</div>
-      </div>
-    </div>
-    <div class="comment">
-      <div class="header">
-        <div style="background-image: url('<%= image_url('user-picture-3.png') %>')" class="face-lockup"></div>
-        <div class="content">
-          <p>Posted by SarahJ</p>
-          <p>2 hours ago</p>
-        </div>
-      </div>
-      <div class="description-wrapper">
-        <p class="description">Oh, thanks! Thanks a lot. It is my dog. I will call you in 5 minutes.</p>
-      </div>
+      <div id="comments">
+        <%= render @report.comments %>
     </div>
   </div>
 

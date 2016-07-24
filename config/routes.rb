@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'home#main'
 
   get 'facts', to: 'home#facts'
+  get 'profile', to: 'home#profile'
   get 'faq', to: 'home#faq'
   get 'findus', to: 'home#findus'
   get 'fund', to: 'home#fund'

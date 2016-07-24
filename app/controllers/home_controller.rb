@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   layout :set_layout
 
-  before_filter :authenticate_user!, only: %i(index)
+  before_filter :authenticate_user!, only: %i(index profile)
 
   def index
     @reports = Report.all.includes(:user)
