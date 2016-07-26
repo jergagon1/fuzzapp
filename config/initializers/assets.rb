@@ -1,1 +1,1 @@
-Rails.application.config.assets.precompile += %w( guest.js )
+Rails.application.config.assets.precompile += %w( guest.js new_application.css new_application.js )

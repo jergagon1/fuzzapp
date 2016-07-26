@@ -10,6 +10,12 @@ class HomeController < ApplicationController
   private
 
   def set_layout
-    %w(facts faq findus fund main).include?(action_name) ? 'guest' : 'application'
+    if %w(faq findus fund main).include?(action_name)
+     'guest'
+    elsif action_name == 'facts'
+      'new_application'
+    else
+     'application'
+    end
   end
 end
