@@ -1,0 +1,164 @@
+
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width"/>
+
+    <link href="/last_markup/css/style.css" rel="stylesheet"/>
+        <meta property="og:title" content="FuzzFinders is a super-intuitive app bringing people together to find lost pets."/>
+        <meta property="og:url" content="http://fuzzfinders.bova.me/"/>
+        <meta property="og:description" content="Interactive features, collaborative mapping technology, and instant alerts. FuzzFinders is the social network empowering you to get Fuzzy back!"/>
+        <meta property="og:locale" content="en_US"/>
+        <meta property="og:image" content="http://fuzzfinders.bova.me/img/OGP.png"/>
+        <meta name="twitter:card" content="summary_large_image"/>
+        <meta name="twitter:site" content="@FuzzFinders"/>
+        <meta name="twitter:title" content="FuzzFinders is a super-intuitive app bringing people together to find lost pets."/>
+        <meta name="twitter:description" content="Interactive features, collaborative mapping technology, and instant alerts. FuzzFinders is the social network empowering you to get Fuzzy back!"/>
+        <meta name="twitter:image" content="http://fuzzfinders.bova.me/img/OGP.png"/>
+  </head>
+  <body>
+        <header class="header-11">
+          <div class="container">
+            <div class="row">
+              <div role="navigation" class="navbar col-sm-12"><a href="index.html" class="brand">
+                  <div class="logo"></div>
+                  <h3 class="brand-title">Fuzz<span class="alt">Finders</span><span class="trademark">TM</span></h3></a>
+                <div class="nav-icon pull-right"><span></span><span></span><span></span></div><a data-target="sign-in" class="btn btn-sign">SIGN IN</a>
+                <ul class="navigation">
+                  <li class="main-page-link"><a href="index.html">FuzzFinders</a>
+                  </li>
+                  <li><a href="fuzzfacts.html">FuzzFacts</a>
+                  </li>
+                  <li><a href="faq-outer.html">FAQ</a>
+                  </li>
+                  <li><a href="fuzzfund.html" class="active">FuzzFund</a>
+                  </li>
+                  <li><a href="findus.html">Find Us</a>
+                  </li>
+                  <li class="action"><a data-target="sign-in">Sign In</a>
+                  </li>
+                  <li class="action"><a data-target="sign-up">Sign Up</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </header>
+    <section class="fund description-block">
+      <div class="row">
+        <div class="col-sm-5 background-image-fund"></div>
+        <div class="col-sm-7 content-fund">
+          <div class="wrapper-content">
+            <div class="logo"></div>
+            <h3 class="title">Help Make Us Fuzzier</h3>
+            <div class="promo">
+              <p>
+                The FuzzFinders service is free to use and will be forever.
+                To do what we do requires a lot of technology, servers, development and catnip.
+              </p>
+              <p>
+                Your contribution helps make this happen. We believe
+                FuzzFinders will help enrich your community and foster
+                awareness and compassion towards all&nbsp;things&nbsp;fuzzy!!
+              </p>
+            </div>
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" class="fund-donate">
+              <input type="hidden" name="cmd" value="_s-xclick"/>
+              <input type="hidden" name="hosted_button_id" value="TPTD7AJ9A4RP6"/>
+              <!--input(type='image', src='https://www.fuzzfinders.bova.me/img/logo.png', border='0', name='submit', alt='PayPal - The safer, easier way to pay online!')--><img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1"/>
+              <button type="submit" class="btn btn-info">Contribute</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+        <footer class="footer-2 bg-midnight-blue">
+          <div class="container">
+            <nav>
+              <ul>
+                <li><a href="fuzzfacts.html">FuzzFacts</a></li>
+                <li><a href="faq-outer.html" class="active">FAQ</a></li>
+                <li><a href="fuzzfund.html">FuzzFund</a></li>
+                <li><a href="findus.html">Find Us</a></li>
+              </ul>
+            </nav>
+            <div class="social-btns"><a href="#" class="social-facebook"></a><a href="#" class="social-twitter"></a><a href="#" class="social-instagram"></a></div>
+          </div>
+        </footer>
+    <div id="sign-modal" role="dialog" aria-labelledby="SignModalLabel" aria-hidden="false" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <button type="button" data-dismiss="modal" aria-hidden="true" class="close"></button>
+            <div class="brand"></div>
+            <ul class="nav nav-tabs nav-append-content">
+              <li id="sign-in-trigger" class="active"><a data-target="#sign-in-form">Sign In</a></li>
+              <li id="sign-up-trigger"><a data-target="#sign-up-form">Sign Up</a></li>
+            </ul>
+            <div class="tab-content">
+              <div id="sign-in-form" class="active tab-pane">
+                <form>
+                  <div class="form-group has-feedback has-feedback-left">
+                    <label for="#sing-in-email-input"></label>
+                    <input id="sing-in-email-input" type="email" placeholder="Email" name="user-mail" required="required" class="form-control"/><i class="icon-mail form-control-feedback"></i>
+                  </div>
+                  <div class="form-group has-feedback has-feedback-left">
+                    <label for="#sing-in-pass-input"></label>
+                    <input id="sing-in-pass-input" type="password" data-target="password" placeholder="Password" name="user-pass" required="required" class="form-control"/><i class="icon-password form-control-feedback"></i>
+                  </div>
+                  <button type="submit" class="btn btn-block btn-submit">Sign In</button>
+                  <!-- ***********************************************************-->
+                  <!-- По умолчанию скрыта. Показывается только если не правильный ввод пароля-->
+                  <!-- Добавить к ней класс .show чтоб отобразить-->
+                  <!-- ***********************************************************--><a href="#" class="forgot">Forgot a password?</a>
+                  <div class="social-holder">
+                    <button class="social-facebook"></button>
+                    <button class="social-twitter"></button>
+                    <button class="social-instagram"></button>
+                  </div>
+                </form>
+              </div>
+              <div id="sign-up-form" class="tab-pane">
+                <form class="sign-up">
+                  <div class="form-group has-feedback has-feedback-left">
+                    <label for="#sign-up-username-input"></label>
+                    <input id="sign-up-username-input" type="text" data-target="user-name" placeholder="Username" name="user-name" required="required" class="form-control"/><i class="icon-username form-control-feedback"></i>
+                  </div>
+                  <div class="form-group has-feedback has-feedback-left">
+                    <label for="#sign-up-email-input"></label>
+                    <input id="sign-up-email-input" type="email" placeholder="Email" name="user-mail" required="required" class="form-control"/><i class="icon-mail form-control-feedback"></i>
+                  </div>
+                  <div class="form-group has-feedback has-feedback-left">
+                    <label for="#sign-up-zip-input"></label>
+                    <input id="sign-up-zip-input" type="text" data-target="zipcode" placeholder="Zip code" name="user-zip" required="required" class="form-control"/><i class="icon-location form-control-feedback"></i>
+                  </div>
+                  <div class="form-group has-feedback has-feedback-left">
+                    <label for="#sign-up-password-input"></label>
+                    <input id="sign-up-password-input" type="password" data-target="password" placeholder="Password" name="user-pass" required="required" class="form-control"/><i class="icon-password form-control-feedback"></i>
+                  </div>
+                  <div class="form-group has-feedback has-feedback-left">
+                    <label for="#sign-up-confirm-input"></label>
+                    <input id="sign-up-confirm-input" type="password" data-target="confirmation" placeholder="Confirm Password" name="user-pass-confirm" required="required" class="form-control icon-password"/><i class="icon-password form-control-feedback"></i>
+                  </div>
+                  <label for="legalcheckbox" class="checkbox">
+                    <input id="legalcheckbox" type="checkbox" value="" data-toggle="checkbox" required="required"/>I accept the <a href="legal.html">Legal Agreement</a>
+                  </label>
+                  <button type="submit" class="btn btn-block btn-submit">Sign Up, Free!</button>
+                  <div class="social-holder">
+                    <h2>Or Sign Up via Social</h2>
+                    <button class="social-facebook"></button>
+                    <button class="social-twitter"></button>
+                    <button class="social-instagram"></button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="/last_markup/js/min/vendor-min.js"></script>
+    <script type="text/javascript" src="/last_markup/js/min/custom-min.js"></script>
+
+  </body>
+</html>
