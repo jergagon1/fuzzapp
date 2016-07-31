@@ -4303,7 +4303,7 @@ body section[class*=content-] {
  * */
 
 .close {
-  background: url("../../../common-files/img/content/close.svg") no-repeat center;
+  background: image-url("close.svg") no-repeat center;
   position: fixed;
   top: 100px;
   right: 27px;
@@ -6974,7 +6974,7 @@ body {
   font-size: 92px;
   color: #E64D3A;
   /*background:
-   * image: url("../img/logo-105.png")
+   * image: image-url("logo-105.png")
    * size: 100% 100% */
 }
 
@@ -6985,7 +6985,7 @@ body {
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
-  background-image: url("../img/contacts-pin.png");
+  background-image: image-url("contacts-pin.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center right;
@@ -7046,7 +7046,7 @@ body {
    * margin: auto
    * +set-size(95px, 105px)
    * background:
-   *  image: url('../img/logo-105.png')
+   *  image: image-url('logo-105.png')
    *  repeat: no-repeat, no-repeat */
 }
 
@@ -7319,7 +7319,7 @@ body {
 }
 
 .fund .row .background-image-fund {
-  background-image: url("../img/fund1.png");
+  background-image: image-url("fund1.png");
   background-position: center center;
   background-repeat: no-repeat;
 }
@@ -7342,7 +7342,7 @@ body {
   color: #E64D3A;
   margin: 0;
   /*background:
-   * image: url('../img/logo-105.png')
+   * image: image-url('logo-105.png')
    * position: center center
    * repeat: no-repeat */
 }
@@ -7377,7 +7377,7 @@ body {
   content: " ";
   display: block;
   height: 90px;
-  background-image: url("../img/fund2.png");
+  background-image: image-url("fund2.png");
   background-repeat: no-repeat, no-repeat;
   background-position: center center;
 }
@@ -7551,7 +7551,7 @@ body {
 .header-11 .navbar .brand .logo {
   width: 75px;
   /*background:
-   * image: url('../img/logo-heading.png')
+   * image: image-url('logo-heading.png')
    * position: center center
    * repeat: no-repeat
    * size: contain */
@@ -7820,7 +7820,7 @@ body {
   display: block;
   height: 105px;
   /*background:
-   * image: url('../img/logo-105.png')
+   * image: image-url('logo-105.png')
    * position: center center
    * repeat: no-repeat */
   margin: auto;
@@ -8178,7 +8178,7 @@ body {
 }
 
 #sign-modal .close {
-  background-image: url("../img/icons/close.png");
+  background-image: image-url("icons/close.png");
   position: absolute;
   top: 15px;
   right: 15px;
@@ -8200,7 +8200,7 @@ body {
   font-size: 50px;
   color: #E64D3A;
   /*background:
-   * image: url("../img/logo.png")
+   * image: image-url("logo.png")
    * position: center center
    * size: 100% 100 */
 }
