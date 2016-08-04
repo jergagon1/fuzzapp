@@ -1285,8 +1285,8 @@ button.close {
 
 @font-face {
   font-family: "Flat-UI-Icons";
-  src: url("../fonts/flat-ui-icons-regular.eot");
-  src: url("../fonts/flat-ui-icons-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/flat-ui-icons-regular.woff") format("woff"), url("../fonts/flat-ui-icons-regular.ttf") format("truetype"), url("../fonts/flat-ui-icons-regular.svg#flat-ui-icons-regular") format("svg");
+  src: font-url("flat-ui-icons-regular.eot");
+  src: font-url("flat-ui-icons-regular.eot?#iefix") format("embedded-opentype"), font-url("glyphicons/flat-ui-icons-regular.woff") format("woff"), font-url("glyphicons/flat-ui-icons-regular.ttf") format("truetype"), font-url("glyphicons/flat-ui-icons-regular.svg#flat-ui-icons-regular") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -2058,8 +2058,8 @@ footer a {
 
 @font-face {
   font-family: Flat-UI-Pro-Icons;
-  src: url("../fonts/glyphicons/flat-ui-pro-icons-regular.eot");
-  src: url("../fonts/glyphicons/flat-ui-pro-icons-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/glyphicons/flat-ui-pro-icons-regular.woff") format("woff"), url("../fonts/glyphicons/flat-ui-pro-icons-regular.ttf") format("truetype"), url("../fonts/glyphicons/flat-ui-pro-icons-regular.svg#flat-ui-pro-icons-regular") format("svg");
+  src: font-url("glyphicons/flat-ui-pro-icons-regular.eot");
+  src: font-url("glyphicons/flat-ui-pro-icons-regular.eot?#iefix") format("embedded-opentype"), font-url("glyphicons/flat-ui-pro-icons-regular.woff") format("woff"), font-url("glyphicons/flat-ui-pro-icons-regular.ttf") format("truetype"), font-url("glyphicons/flat-ui-pro-icons-regular.svg#flat-ui-pro-icons-regular") format("svg");
 }
 
 body {
