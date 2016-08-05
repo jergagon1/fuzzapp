@@ -54,18 +54,13 @@
       </div>
 
       <ul>
-        <li class="link-home"><a href="/">FuzzFinders</a>
+        <li class="link-home <%= 'action' if current_page?('/') || current_page?('/fuzzapp') %>"><a href="/">FuzzFinders</a>
         </li>
-        <li><a href="/profile">FuzzProfile</a>
-        </li>
-        <li><a href="/facts">FuzzFacts</a>
-        </li>
-        <li><a href="/faq">FAQ</a>
-        </li>
-        <li><a href="/findus">Find Us</a>
-        </li>
-        <li class="action _btn-logout"><a href="#">Log Out</a>
-        </li>
+        <li class="<%= 'action' if current_page?('/profile') %>"><a href="/profile">FuzzProfile</a></li>
+        <li class="<%= 'action' if current_page?('/facts') %>"><a href="/facts">FuzzFacts</a></li>
+        <li class="<%= 'action' if current_page?('/faq') %>"><a href="/faq">FAQ</a></li>
+        <li class="<%= 'action' if current_page?('/findus') %>"><a href="/findus">Find Us</a></li>
+        <li class="_btn-logout"><a href="#">Log Out</a></li>
         <li class="mobile-legal"><a href="../legal.html">User's agreement and Conditions</a>
         </li>
       </ul>
