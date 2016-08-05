@@ -7,6 +7,10 @@ class HomeController < ApplicationController
     @reports = Report.all.includes(:user)
   end
 
+  def main
+    redirect_to :fuzzapp if current_user
+  end
+
   private
 
   def set_layout
