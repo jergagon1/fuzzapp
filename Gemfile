@@ -57,6 +57,7 @@ end
 
 group :development do
   gem 'spring'
+  gem 'partially_useful'
 end
 
 group :production do
