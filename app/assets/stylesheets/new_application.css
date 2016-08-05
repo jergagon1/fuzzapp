@@ -11,6 +11,6 @@
  * file per style scope.
  *
  *= require new_style
- * require new_app
+ *= require new_app
  *= require_self
  */

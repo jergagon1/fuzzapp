@@ -43,6 +43,10 @@
             <ul class="navigation">
               <li class="main-page-link"><a href="/">FuzzFinders</a>
               </li>
+              <% if current_user  %>
+                <li><a href="/profile">FuzzProfile</a>
+                </li>
+              <% end %>
               <li><a href="/facts" class="active">FuzzFacts</a>
               </li>
               <li><a href="/faq">FAQ</a>
