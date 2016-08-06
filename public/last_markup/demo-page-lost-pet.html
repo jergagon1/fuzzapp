@@ -1,0 +1,253 @@
+
+<html ng-app="lightbox">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width"/>
+
+    <link href="/last_markup/css/style.css" rel="stylesheet"/>
+    <link href="/css/vendor/angular-bootstrap-lightbox.css" rel="stylesheet"/>
+    <link href="/css/app.css" rel="stylesheet"/>
+        <meta property="og:title" content="Lost Dog Buggy"/>
+        <meta property="og:url" content="http://fuzzfinders.bova.me/demo-page-lost-pet.html"/>
+        <meta property="og:description" content="Hey! Have you seen or have any information about this pet? Last seen at 12/01/16, Vermont Ave, Oakland CA"/>
+        <meta property="og:locale" content="en_US"/>
+        <meta property="og:image" content="http://fuzzfinders.bova.me/img/app/sightings-pet-4.png"/>
+        <meta name="twitter:card" content="summary_large_image"/>
+        <meta name="twitter:site" content="@FuzzFinders"/>
+        <meta name="twitter:title" content="Lost Dog Buggy"/>
+        <meta name="twitter:description" content="Hey! Have you seen or have any information about this pet? Last seen 01/01/16 at 2244, Vermont Ave, Oakland CA"/>
+        <meta name="twitter:image" content="http://fuzzfinders.bova.me/img/app/sightings-pet-4.png"/>
+  </head>
+  <body class="fuzzfinders-app navigation-orange demo">
+    <div class="background-for-navigation"></div>
+    <div class="menu-navigation"><a href="index.html" class="brand">
+        <div class="logo"></div>
+        <h3 class="brand-title">Fuzz<span class="alt">Finders</span><span class="trademark">TM</span></h3></a>
+      <ul>
+        <li class="link-home"><a href="index.html">FuzzFinders</a></li>
+        <li><a href="fuzzfacts.html">FuzzFacts</a></li>
+        <li><a href="faq-outer.html">FAQ</a></li>
+        <li><a href="faq.html">FuzzFund</a></li>
+        <li><a href="faq.html">Find Us</a></li>
+        <li class="action"><a data-target="sign-in">Sign In</a></li>
+        <li class="action"><a data-target="sign-up">Sign Up </a></li>
+      </ul>
+      <div class="extra-area"></div>
+      <div class="nav-trigger nav-trigger-white open"><span></span><span></span><span></span></div>
+    </div>
+    <div class="mainpage-wrapper">
+      <div class="nav-trigger nav-trigger-black"><span></span><span></span><span></span></div>
+      <button data-target=".fuzz-chat-wrapper" data-toggle="show" class="btn btn-down btn-toggler">Local FuzzChat</button>
+      <div class="content-wrapper">
+        <div class="brand">
+          <div class="logo"></div>
+          <h1 class="brand-title">Fuzz<span class="alt">Finders</span><span class="trademark">TM</span></h1>
+        </div>
+        <button data-target=".lost-pet-page-wrapper" data-toggle="show" class="btn btn-orange btn-toggler">I Lost a Pet</button>
+        <button data-target=".found-pet-page-wrapper" data-toggle="show" class="btn btn-green btn-toggler">I Found a Pet</button>
+        <button data-target=".pet-sightings-page-wrapper" data-toggle="show" class="btn btn-blue btn-toggler">Local FuzzAlerts</button>
+      </div>
+      <div class="lost-pet-post-wrapper show">
+        <div class="nav-block nav-block-orange">
+          <btn class="back-arrow"><i class="icon-back"></i></btn>
+          <h2 class="title"> Lost dog</h2>
+          <div class="nav-trigger nav-trigger-white"><span></span><span></span><span></span></div>
+        </div>
+        <div class="section-wrapper">
+          <div class="map"></div>
+          <div class="photo-wrapper photo-wrapper-purple placeholder-dog">
+            <div class="photo"></div>
+            <h3 class="label">Last Seen 2 Hours Ago</h3>
+          </div>
+          <div class="post-description">
+            <div class="header">
+              <div style="background-image: url('../img/app/user-picture-3.png')" class="face-lockup"></div>
+              <div class="content">
+                <p>Posted by SarahJ</p>
+                <p>3 hours ago</p>
+                <p class="type">Lost Dog</p>
+              </div>
+            </div>
+            <table class="table table-stripped">
+              <tr>
+                <td>Size</td>
+                <td>Medium</td>
+              </tr>
+              <tr>
+                <td>Color</td>
+                <td>Brown</td>
+              </tr>
+              <tr>
+                <td>Breed</td>
+                <td>Shepherd</td>
+              </tr>
+              <tr>
+                <td>Sex</td>
+                <td>Female</td>
+              </tr>
+              <tr>
+                <td>Last seen</td>
+                <td>02/09/2016 6:30PM</td>
+              </tr>
+            </table>
+            <p class="description up-side">It tore off the leash in the park. If you have any information please contact 732-757-2923</p>
+          </div>
+          <div class="social-share-wrapper">
+            <p>Share this post to help find fuzzy!</p>
+            <div class="buttons-wrapper">
+              <button class="social-facebook"></button>
+              <button class="social-twitter"></button>
+              <button class="social-instagram"></button>
+            </div>
+          </div>
+          <div class="comments-wrapper">
+            <h2>Comments</h2>
+            <div class="comment with-image">
+              <div class="header">
+                <div style="background-image: url('../img/app/user-placeholder.png')" class="face-lockup"></div>
+                <div class="content">
+                  <p>Posted by Tomas17</p>
+                  <p>3 hours ago</p>
+                </div>
+              </div>
+              <div style="background-image: url('../img/app/dog-demo-2.png')" class="image"></div>
+              <div class="description-wrapper">
+                <p class="description">Check out is it your dog? Some shepherd-dog walked on my backyard.</p>
+                <div class="location-sign"><i class="icon-location"></i>Location point added</div>
+              </div>
+            </div>
+            <div class="comment">
+              <div class="header">
+                <div style="background-image: url('../img/app/user-picture-3.png')" class="face-lockup"></div>
+                <div class="content">
+                  <p>Posted by SarahJ</p>
+                  <p>2 hours ago</p>
+                </div>
+              </div>
+              <div class="description-wrapper">
+                <p class="description">No, unfurtunately it’s not my Nicy. May be you should post a message about it? </p>
+              </div>
+            </div>
+            <div class="comment with-image">
+              <div class="header">
+                <div style="background-image: url('../img/app/user-picture-5.png')" class="face-lockup"></div>
+                <div class="content">
+                  <p>Posted by AnnaMay</p>
+                  <p>2 hours ago</p>
+                </div>
+              </div>
+              <div style="background-image: url('../img/app/dog-demo-3.png')" class="image"></div>
+              <div class="description-wrapper">
+                <p class="description">Hey, looks like it’s your dog, isn’t it? It was playing in the same park for hours without any owner. I take care for it temporaty. If it’s yours call me by this phone 732-757-2923</p>
+                <div class="location-sign"><i class="icon-location"></i>Location point added</div>
+              </div>
+            </div>
+            <div class="comment">
+              <div class="header">
+                <div style="background-image: url('../img/app/user-picture-3.png')" class="face-lockup"></div>
+                <div class="content">
+                  <p>Posted by SarahJ</p>
+                  <p>2 hours ago</p>
+                </div>
+              </div>
+              <div class="description-wrapper">
+                <p class="description">Oh, thanks! Thanks a lot. It is my dog. I will call you in 5 minutes.</p>
+              </div>
+            </div>
+          </div>
+          <form class="post-comment">
+            <h2>Your Comment</h2>
+            <p>Unlogined users are not allowed to left comments to reports. Please, login to FuzzFinders app</p>
+            <div class="row">
+              <div class="col-xs-6">
+                <button type="button" class="btn btn-small btn-blue btn-photo">SIGN IN</button>
+              </div>
+              <div class="col-xs-6">
+                <button type="button" class="btn btn-small btn-blue btn-location">SIGN UP</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div id="sign-modal" role="dialog" aria-labelledby="SignModalLabel" aria-hidden="false" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <button type="button" data-dismiss="modal" aria-hidden="true" class="close"></button>
+            <div class="brand"></div>
+            <ul class="nav nav-tabs nav-append-content">
+              <li id="sign-in-trigger" class="active"><a data-target="#sign-in-form">Sign In</a></li>
+              <li id="sign-up-trigger"><a data-target="#sign-up-form">Sign Up</a></li>
+            </ul>
+            <div class="tab-content">
+              <div id="sign-in-form" class="active tab-pane">
+                <form>
+                  <div class="form-group has-feedback has-feedback-left">
+                    <label for="#sing-in-email-input"></label>
+                    <input id="sing-in-email-input" type="email" placeholder="Email" name="user-mail" required="required" class="form-control"/><i class="icon-mail form-control-feedback"></i>
+                  </div>
+                  <div class="form-group has-feedback has-feedback-left">
+                    <label for="#sing-in-pass-input"></label>
+                    <input id="sing-in-pass-input" type="password" data-target="password" placeholder="Password" name="user-pass" required="required" class="form-control"/><i class="icon-password form-control-feedback"></i>
+                  </div>
+                  <button type="submit" class="btn btn-block btn-submit">Sign In</button>
+                  <!-- ***********************************************************-->
+                  <!-- По умолчанию скрыта. Показывается только если не правильный ввод пароля-->
+                  <!-- Добавить к ней класс .show чтоб отобразить-->
+                  <!-- ***********************************************************--><a href="#" class="forgot">Forgot a password?</a>
+                  <div class="social-holder">
+                    <button class="social-facebook"></button>
+                    <button class="social-twitter"></button>
+                    <button class="social-instagram"></button>
+                  </div>
+                </form>
+              </div>
+              <div id="sign-up-form" class="tab-pane">
+                <form class="sign-up">
+                  <div class="form-group has-feedback has-feedback-left">
+                    <label for="#sign-up-username-input"></label>
+                    <input id="sign-up-username-input" type="text" data-target="user-name" placeholder="Username" name="user-name" required="required" class="form-control"/><i class="icon-username form-control-feedback"></i>
+                  </div>
+                  <div class="form-group has-feedback has-feedback-left">
+                    <label for="#sign-up-email-input"></label>
+                    <input id="sign-up-email-input" type="email" placeholder="Email" name="user-mail" required="required" class="form-control"/><i class="icon-mail form-control-feedback"></i>
+                  </div>
+                  <div class="form-group has-feedback has-feedback-left">
+                    <label for="#sign-up-zip-input"></label>
+                    <input id="sign-up-zip-input" type="text" data-target="zipcode" placeholder="Zip code" name="user-zip" required="required" class="form-control"/><i class="icon-location form-control-feedback"></i>
+                  </div>
+                  <div class="form-group has-feedback has-feedback-left">
+                    <label for="#sign-up-password-input"></label>
+                    <input id="sign-up-password-input" type="password" data-target="password" placeholder="Password" name="user-pass" required="required" class="form-control"/><i class="icon-password form-control-feedback"></i>
+                  </div>
+                  <div class="form-group has-feedback has-feedback-left">
+                    <label for="#sign-up-confirm-input"></label>
+                    <input id="sign-up-confirm-input" type="password" data-target="confirmation" placeholder="Confirm Password" name="user-pass-confirm" required="required" class="form-control icon-password"/><i class="icon-password form-control-feedback"></i>
+                  </div>
+                  <label for="legalcheckbox" class="checkbox">
+                    <input id="legalcheckbox" type="checkbox" value="" data-toggle="checkbox" required="required"/>I accept the <a href="legal.html">Legal Agreement</a>
+                  </label>
+                  <button type="submit" class="btn btn-block btn-submit">Sign Up, Free!</button>
+                  <div class="social-holder">
+                    <h2>Or Sign Up via Social</h2>
+                    <button class="social-facebook"></button>
+                    <button class="social-twitter"></button>
+                    <button class="social-instagram"></button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="/last_markup/js/min/vendor-min.js"></script>
+    <script type="text/javascript" src="/last_markup/js/min/custom-min.js"></script>
+    <script type="text/javascript" src="/js/mresize.js"></script>
+    <script type="text/javascript" src="/js/maps.js"></script>
+    <script type="text/javascript" src="/js/marketwithlabel.js"></script>
+    <script type="text/javascript" src="/js/app-interactions-for-demo.js"></script>
+
+  </body>
+</html>

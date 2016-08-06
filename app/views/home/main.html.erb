@@ -4,7 +4,10 @@
         <div class="col-md-4 about">
           <h3><strong>Fuzz<span>Finders</span></strong>&nbsp;is a super-intuitive app bringing people together to&nbsp;find lost&nbsp;pets.</h3>
           <p>Interactive features, collaborative mapping technology, and&nbsp;instant alerts. FuzzFinders is the&nbsp;social network empowering you to&nbsp;get Fuzzy back!</p>
-          <button class="btn btn-orange btn-big">SIGN UP FREE</button>
+
+          <% unless current_user %>
+            <button data-target="sign-in" class="btn btn-orange btn-big _btn-sign">SIGN UP FREE</button>
+          <% end %>
         </div>
         <div class="col-md-4 col-md-offset-3 player-wrapper">
           <div class="player">

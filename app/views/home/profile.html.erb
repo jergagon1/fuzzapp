@@ -1,0 +1,92 @@
+    <div class="file-view-wrapper">
+      <div class="nav-block nav-block-blue-dark"><a href="main.html" class="brand-logo"><i class="icon-logo"></i></a>
+        <h2 class="section-title fuzz-file">Fuzz<span class="alt">Profile</span></h2>
+        <div class="nav-trigger nav-trigger-white"><span></span><span></span><span></span></div>
+      </div>
+      <div class="top-profile-wrapper">
+        <div class="locker">
+          <div style="background-image: url('<%= image_url('user-picture.png')%>')" class="blured-profile"></div>
+        </div>
+        <div style="background-image: url('<%= image_url('user-picture.png')%>')" class="photo-profile"></div>
+      </div>
+      <table class="table table-striped">
+        <tr>
+          <td>Name</td>
+          <td><%= current_user.username %> </td>
+        </tr>
+        <tr>
+          <td>E-mail</td>
+          <td><%= current_user.email %> </td>
+        </tr>
+        <tr>
+          <td>Zip Code</td>
+          <td><%= current_user.zipcode %> </td>
+        </tr>
+        <tr>
+          <td>FuzzAlert</td>
+          <td>1.5 miles</td>
+        </tr>
+        <tr>
+          <td>Wags</td>
+          <td>35</td>
+        </tr>
+      </table>
+      <div class="social-buttons">
+        <button class="btn btn-facebook to-connect"><i class="icon-facebook"></i>Link Facebook account</button>
+        <button class="btn btn-twitter to-connect"><i class="icon-twitter"></i>Link Twitter account</button>
+      </div>
+      <button data-target=".file-edit-wrapper" data-toggle="show" class="btn btn-blue btn-big btn-toggler"><i class="icon-edit"></i>Edit Profile & Settings</button>
+      <div class="file-edit-wrapper">
+        <div class="nav-block nav-block-blue">
+          <btn class="back-arrow"><i class="icon-back"></i></btn>
+          <h2 class="title"> EDITING PROFILE</h2>
+          <div class="nav-trigger nav-trigger-white"><span></span><span></span><span></span></div>
+        </div>
+        <h3 class="settings-title">Profile info</h3>
+        <div class="profile-edit-wrapper">
+          <div id="photo-holder" style="background-image: url('<%= image_url('user-picture.png')%>')"></div>
+          <button id="upload-profile-image" data-target="#photo-holder" class="btn btn-big btn-blue">Upload another Image</button>
+        </div>
+        <form id="general-settings" class="profile-edit-wrapper">
+          <div class="form-group">
+            <label for="user-name" class="input-label">Name</label>
+            <input id="user-name" placeholder="<%= current_user.username %>" class="input form-control"/>
+          </div>
+          <div class="form-group">
+            <label for="email" class="input-label">E-mail</label>
+            <input id="email" placeholder="<%= current_user.email %>" class="input form-control"/>
+          </div>
+          <div class="form-group">
+            <label for="zipcode" class="input-label">Zip Code</label>
+            <input id="zipcode" placeholder="<%= current_user.zipcode %>" class="input form-control"/>
+          </div>
+        </form>
+        <h3 class="settings-title">Password</h3>
+        <form id="password-settings" class="profile-edit-wrapper">
+          <div class="form-group">
+            <input placeholder="Old password" class="input form-control"/>
+          </div>
+          <div class="form-group">
+            <input placeholder="New password" class="input form-control"/>
+          </div>
+          <div class="form-group">
+            <input placeholder="Confirm password" class="input form-control"/>
+          </div>
+        </form>
+        <h3 class="settings-title">Notifications</h3>
+        <form id="notification-settings" class="profile-edit-wrapper">
+          <div class="form-group">
+            <label for="fuzz-flash-dropdown" class="input-label">FuzzAlert</label>
+            <div id="fuzz-flash-dropdown" class="dropdown">
+              <button id="fuzz-flash" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn btn-dropdown dropdown-toggle">1.5 miles from me<span class="caret"></span></button>
+              <ul aria-labelledby="fuzz-flash" class="dropdown-menu">
+                <li><a href="#" class="active">1.5 miles</a></li>
+                <li><a href="#">5 miles</a></li>
+                <li><a href="#">10 miles</a></li>
+              </ul>
+            </div>
+          </div>
+        </form>
+        <button data-target=".file-edit-wrapper" data-toggle="show" class="btn btn-down btn-down-small btn-green btn-apply">Update profile</button>
+      </div>
+    </div>

@@ -1,143 +1,76 @@
 <div class="nav-block nav-block-green">
-    <btn class="back-arrow"><i class="icon-back"></i></btn>
-    <h2 class="title"> Found <%= @report.animal_type %>
+  <btn class="back-arrow"><i class="icon-back"></i></btn>
+  <h2 class="title"> Found <%= @report.animal_type %>
 </h2>
-    <div class="nav-trigger nav-trigger-white"><span></span><span></span><span></span></div>
+<div class="nav-trigger nav-trigger-white"><span></span><span></span><span></span></div>
 </div>
 <div class="section-wrapper">
-    <div class="map map-found"></div>
-    <div class="photo-wrapper photo-wrapper-green">
-        <% if report.img_url? %>
-          <div class="photo" style="background-size: initial; background-image: url('<%= image_url(report.img_url) %>')"></div>
-        <% else %>
-          <div style="background-image: url('<%= image_url('sightings-pet-4.png') %>')" class="photo"></div>
-        <% end %>
+  <div class="map map-found"></div>
+  <div class="photo-wrapper photo-wrapper-green">
+    <% if report.img_url? %>
+      <div class="photo" style="background-size: initial; background-image: url('<%= image_url(report.img_url) %>')"></div>
+    <% else %>
+      <div style="background-image: url('<%= image_url('sightings-pet-4.png') %>')" class="photo"></div>
+    <% end %>
 
-        <% unless report.last_seen.nil? %>
-          <h3 class="label">Last Seen <%= time_ago_in_words report.last_seen %> ago</h3>
-         <% end %>
+    <% unless report.last_seen.nil? %>
+      <h3 class="label">Last Seen <%= time_ago_in_words report.last_seen %> ago</h3>
+    <% end %>
+  </div>
+  <div class="post-description">
+    <div class="header">
+      <% if report.img_url? %>
+        <div style="background-image: url('<%= image_url('user-picture-3.png') %>')" class="face-lockup"></div>
+      <% else %>
+        <div style="background-image: url('<%= image_url('user-picture-3.png') %>')" class="face-lockup"></div>
+      <% end %>
+      <div class="content">
+        <p>Posted by <%= report.user.username %></p>
+        <p><%= time_ago_in_words report.created_at %> ago</p>
+        <p class="type">Found <%= @report.animal_type %></p>
+      </div>
     </div>
-    <div class="post-description">
-        <div class="header">
-            <% if report.img_url? %>
-                <div style="background-image: url('<%= image_url('user-picture-3.png') %>')" class="face-lockup"></div>
-            <% else %>
-                <div style="background-image: url('<%= image_url('user-picture-3.png') %>')" class="face-lockup"></div>
-            <% end %>
-            <div class="content">
-                <p>Posted by <%= report.user.username %></p>
-                <p><%= time_ago_in_words report.created_at %> ago</p>
-                <p class="type">Found <%= @report.animal_type %></p>
-            </div>
-        </div>
-        <table class="table table-stripped">
-            <tr>
-                <td>Size</td>
-                <td><%= @report.pet_size %></td>
-            </tr>
-            <tr>
-                <td>Color</td>
-                <td><%= @report.color %></td>
-            </tr>
-            <tr>
-                <td>Breed</td>
-                <td><%= @report.breed %></td>
-            </tr>
-            <tr>
-                <td>Sex</td>
-                <td><%= @report.sex %></td>
-            </tr>
-            <% unless report.last_seen.nil? %>
-              <tr>
-                  <td>Last seen</td>
-                  <td><%= l report.last_seen, format: :short %></td>
-              </tr>
-            <% end %>
-        </table>
-        <p class="description"><%= @report.notes %></p>
-        <button class="btn btn-big btn-blue"><i class="icon-edit"></i>Edit Post</button>
+    <table class="table table-stripped">
+      <tr>
+        <td>Size</td>
+        <td><%= @report.pet_size %></td>
+      </tr>
+      <tr>
+        <td>Color</td>
+        <td><%= @report.color %></td>
+      </tr>
+      <tr>
+        <td>Breed</td>
+        <td><%= @report.breed %></td>
+      </tr>
+      <tr>
+        <td>Sex</td>
+        <td><%= @report.sex %></td>
+      </tr>
+      <% unless report.last_seen.nil? %>
+        <tr>
+          <td>Last seen</td>
+          <td><%= l report.last_seen, format: :short %></td>
+        </tr>
+      <% end %>
+    </table>
+    <p class="description"><%= @report.notes %></p>
+    <button class="btn btn-big btn-blue"><i class="icon-edit"></i>Edit Post</button>
+  </div>
+  <div class="social-share-wrapper">
+    <p>Share this post to help find fuzzy!</p>
+    <div class="buttons-wrapper">
+      <button class="social-facebook"></button>
+      <button class="social-twitter"></button>
+      <button class="social-instagram"></button>
     </div>
-    <div class="social-share-wrapper">
-        <p>Share this post to help find fuzzy!</p>
-        <div class="buttons-wrapper">
-            <button class="social-facebook"></button>
-            <button class="social-twitter"></button>
-            <button class="social-instagram"></button>
-        </div>
+  </div>
+  <div class="comments-wrapper">
+    <h2>Comments</h2>
+      <div id="comments">
+        <%= render @report.comments %>
     </div>
-    <div class="comments-wrapper">
-        <h2>Comments</h2>
-        <div class="comment with-image">
-            <div class="header">
-                <div style="background-image: <%= image_url('user-placeholder.png') %>" class="face-lockup"></div>
-                <div class="content">
-                    <p>Posted by Tomas17</p>
-                    <p>3 hours ago</p>
-                </div>
-            </div>
-            <div style="background-image: url('<%= image_url('dog-demo-2.png') %>')" class="image"></div>
-            <div class="description-wrapper">
-                <p class="description">Check out is it your dog? Some shepherd-dog walked on my backyard.</p>
-                <div class="location-sign"><i class="icon-location"></i>Location point added</div>
-            </div>
-        </div>
-        <div class="comment">
-            <div class="header">
-                <div style="background-image: url('<%= image_url('user-picture-3.png') %>')" class="face-lockup"></div>
-                <div class="content">
-                    <p>Posted by SarahJ</p>
-                    <p>2 hours ago</p>
-                </div>
-            </div>
-            <div class="description-wrapper">
-                <p class="description">No, unfurtunately it’s not my Nicy. May be you should post a message about it? </p>
-            </div>
-        </div>
-        <div class="comment with-image">
-            <div class="header">
-                <div style="background-image: url('<%= image_url('user-picture-5.png') %>')" class="face-lockup"></div>
-                <div class="content">
-                    <p>Posted by AnnaMay</p>
-                    <p>2 hours ago</p>
-                </div>
-            </div>
-            <div style="background-image: url('<%= image_url('dog-demo-3.png') %>')" class="image"></div>
-            <div class="description-wrapper">
-                <p class="description">Hey, looks like it’s your dog, isn’t it? It was playing in the same park for hours without any owner. I take care for it temporaty. If it’s yours call me by this phone 732-757-2923</p>
-                <div class="location-sign"><i class="icon-location"></i>Location point added</div>
-            </div>
-        </div>
-        <div class="comment">
-            <div class="header">
-                <div style="background-image: url('<%= image_url('user-picture-3.png') %>')" class="face-lockup"></div>
-                <div class="content">
-                    <p>Posted by SarahJ</p>
-                    <p>2 hours ago</p>
-                </div>
-            </div>
-            <div class="description-wrapper">
-                <p class="description">Oh, thanks! Thanks a lot. It is my dog. I will call you in 5 minutes.</p>
-            </div>
-        </div>
-    </div>
-    <form class="post-comment">
-        <h2>Post Your Comment</h2>
-        <textarea placeholder="Type Here" row="4" class="textarea form-control"></textarea>
-        <div style="background-image: url('<%= image_url('dog-demo-2.png') %>')" class="photo-wrapper">
-            <button class="btn-remove"></button>
-        </div>
-        <div class="location-wrapper">
-            <div class="map"></div>
-            <div class="btn-remove"></div>
-        </div>
-        <div class="row">
-            <div class="col-xs-6">
-                <button type="button" class="btn btn-small btn-blue btn-photo">Upload Photo</button>
-            </div>
-            <div class="col-xs-6">
-                <button type="button" class="btn btn-small btn-blue btn-location">Add a Location</button>
-            </div>
-        </div>
-        <button type="submit" class="btn btn-xbig btn-blue">Post</button>
-    </form>
+  </div>
+
+  <%= render 'comments/form', report: @report %>
 </div>

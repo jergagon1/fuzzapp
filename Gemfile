@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.3.1'
+
 gem 'geokit-rails', github: 'geokit/geokit-rails'
 gem 'rails', '4.2.4'
 
@@ -55,6 +57,7 @@ end
 
 group :development do
   gem 'spring'
+  gem 'partially_useful'
 end
 
 group :production do

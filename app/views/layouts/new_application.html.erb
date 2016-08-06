@@ -1,0 +1,157 @@
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <%= stylesheet_link_tag    'new_application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <meta property="og:title" content="FuzzFinders is a super-intuitive app bringing people together to find lost pets."/>
+    <meta property="og:url" content="http://fuzzfinders.com/"/>
+    <meta property="og:description" content="Interactive features, collaborative mapping technology, and instant alerts. FuzzFinders is the social network empowering you to get Fuzzy back!"/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:image" content="http://fuzzfinders.com/img/OGP.png"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@FuzzFinders"/>
+    <meta name="twitter:title" content="FuzzFinders is a super-intuitive app bringing people together to find lost pets."/>
+    <meta name="twitter:description" content="Interactive features, collaborative mapping technology, and instant alerts. FuzzFinders is the social network empowering you to get Fuzzy back!"/>
+    <meta name="twitter:image" content="http://fuzzfinders.com/img/OGP.png"/>
+
+    <%= favicon_link_tag "icon-60.png", rel: "apple-touch-icon", sizes: "60x60" %>
+    <%= favicon_link_tag "icon-76.png", rel: "apple-touch-icon", sizes: "76x76" %>
+    <%= favicon_link_tag "icon-72.png", rel: "apple-touch-icon", sizes: "72x72" %>
+    <%= favicon_link_tag "icon-114.png", rel: "apple-touch-icon", sizes: "114x114" %>
+    <%= favicon_link_tag "icon-120.png", rel: "apple-touch-icon", sizes: "120x120" %>
+    <%= favicon_link_tag "icon-144.png", rel: "apple-touch-icon", sizes: "144x144" %>
+    <%= favicon_link_tag "icon-167.png", rel: "apple-touch-icon", sizes: "167x167" %>
+    <%= favicon_link_tag "icon-152.png", rel: "apple-touch-icon", sizes: "152x152" %>
+    <%= favicon_link_tag "icon-180.png", rel: "apple-touch-icon", sizes: "180x180" %>
+    <%= favicon_link_tag "favicon.ico", rel: "shortcut icon", type: "image/x-icon"  %>
+
+  </head>
+  <body class="<%= content_for :body_class %>">
+    <header class="header-11">
+      <div class="container">
+        <div class="row">
+          <div role="navigation" class="navbar col-sm-12"><a href="/" class="brand">
+              <div class="logo"></div>
+              <h3 class="brand-title">Fuzz<span class="alt">Finders</span><span class="trademark">TM</span></h3></a>
+            <div class="nav-icon pull-right"><span></span><span></span><span></span></div>
+            <% if current_user %>
+              <a data-target="log-out" class="btn btn-sign btn-logout">LOG OUT</a>
+            <% else %>
+              <a data-target="sign-in" class="btn btn-sign">SIGN IN</a>
+            <% end %>
+            <ul class="navigation">
+              <li class="main-page-link" class="<%= 'active' if current_page?('/') %>"><a href="/">FuzzFinders</a></li>
+
+              <% if current_user  %>
+                <li><a href="/profile" class="<%= 'active' if current_page?('/profile') %>">FuzzProfile</a></li>
+              <% end %>
+
+              <li><a href="/facts" class="<%= 'active' if current_page?('/facts') %>">FuzzFacts</a></li>
+              <li><a href="/faq" class="<%= 'active' if current_page?('/faq') %>">FAQ</a></li>
+              <li><a href="/fund" class="<%= 'active' if current_page?('/fund') %>">FuzzFund</a></li>
+              <li><a href="/findus" class="<%= 'active' if current_page?('/findus') %>">Find Us</a></li>
+
+              <% unless current_user %>
+                <li class="action"><a data-target="sign-in">Sign In</a></li>
+                <li class="action"><a data-target="sign-up">Sign Up</a></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- blog-3-->
+    <%= yield %>
+
+    <!-- footer-2-->
+    <footer class="footer-2 bg-midnight-blue">
+      <div class="container">
+        <nav>
+          <ul>
+            <li><a href="/facts" class="active">FuzzFacts</a></li>
+            <li><a href="/faq">FAQ</a></li>
+            <li><a href="/fund">FuzzFund</a></li>
+            <li><a href="/findus">Find Us</a></li>
+          </ul>
+        </nav>
+        <div class="social-btns"><a href="#" class="social-facebook"></a><a href="#" class="social-twitter"></a><a href="#" class="social-instagram"></a></div>
+      </div>
+    </footer>
+    <div id="sign-modal" role="dialog" aria-labelledby="SignModalLabel" aria-hidden="false" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <button type="button" data-dismiss="modal" aria-hidden="true" class="close"></button>
+            <div class="brand"></div>
+            <ul class="nav nav-tabs nav-append-content">
+              <li id="sign-in-trigger" class="active"><a data-target="#sign-in-form">Sign In</a></li>
+              <li id="sign-up-trigger"><a data-target="#sign-up-form">Sign Up</a></li>
+            </ul>
+            <div class="tab-content">
+              <div id="sign-in-form" class="active tab-pane">
+                <form>
+                  <div class="form-group has-feedback has-feedback-left">
+                    <label for="#sing-in-email-input"></label>
+                    <input id="sing-in-email-input" type="email" placeholder="Email" name="user-mail" required="required" class="form-control"/><i class="icon-mail form-control-feedback"></i>
+                  </div>
+                  <div class="form-group has-feedback has-feedback-left">
+                    <label for="#sing-in-pass-input"></label>
+                    <input id="sing-in-pass-input" type="password" data-target="password" placeholder="Password" name="user-pass" required="required" class="form-control"/><i class="icon-password form-control-feedback"></i>
+                  </div>
+                  <button type="submit" class="btn btn-block btn-submit">Sign In</button>
+                  <!-- ***********************************************************-->
+                  <!-- По умолчанию скрыта. Показывается только если не правильный ввод пароля-->
+                  <!-- Добавить к ней класс .show чтоб отобразить-->
+                  <!-- ***********************************************************--><a href="#" class="forgot">Forgot a password?</a>
+                  <div class="social-holder">
+                    <button class="social-facebook"></button>
+                    <button class="social-twitter"></button>
+                    <button class="social-instagram"></button>
+                  </div>
+                </form>
+              </div>
+              <div id="sign-up-form" class="tab-pane">
+                <form class="sign-up">
+                  <div class="form-group has-feedback has-feedback-left">
+                    <label for="#sign-up-username-input"></label>
+                    <input id="sign-up-username-input" type="text" data-target="user-name" placeholder="Username" name="user-name" required="required" class="form-control"/><i class="icon-username form-control-feedback"></i>
+                  </div>
+                  <div class="form-group has-feedback has-feedback-left">
+                    <label for="#sign-up-email-input"></label>
+                    <input id="sign-up-email-input" type="email" placeholder="Email" name="user-mail" required="required" class="form-control"/><i class="icon-mail form-control-feedback"></i>
+                  </div>
+                  <div class="form-group has-feedback has-feedback-left">
+                    <label for="#sign-up-zip-input"></label>
+                    <input id="sign-up-zip-input" type="text" data-target="zipcode" placeholder="Zip code" name="user-zip" required="required" class="form-control"/><i class="icon-location form-control-feedback"></i>
+                  </div>
+                  <div class="form-group has-feedback has-feedback-left">
+                    <label for="#sign-up-password-input"></label>
+                    <input id="sign-up-password-input" type="password" data-target="password" placeholder="Password" name="user-pass" required="required" class="form-control"/><i class="icon-password form-control-feedback"></i>
+                  </div>
+                  <div class="form-group has-feedback has-feedback-left">
+                    <label for="#sign-up-confirm-input"></label>
+                    <input id="sign-up-confirm-input" type="password" data-target="confirmation" placeholder="Confirm Password" name="user-pass-confirm" required="required" class="form-control icon-password"/><i class="icon-password form-control-feedback"></i>
+                  </div>
+                  <label for="legalcheckbox" class="checkbox">
+                    <input id="legalcheckbox" type="checkbox" value="" data-toggle="checkbox" required="required"/>I accept the <a href="legal.html">Legal Agreement</a>
+                  </label>
+                  <button type="submit" class="btn btn-block btn-submit">Sign Up, Free!</button>
+                  <div class="social-holder">
+                    <h2>Or Sign Up via Social</h2>
+                    <button class="social-facebook"></button>
+                    <button class="social-twitter"></button>
+                    <button class="social-instagram"></button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+    <%= javascript_include_tag 'guest', 'data-turbolinks-track' => true %>
+  </body>
+</html>

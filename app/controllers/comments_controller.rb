@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  respond_to :js
+
   def index
     @report = Report.find params[:report_id]
     render json: @report.comments
@@ -15,7 +17,6 @@ class CommentsController < ApplicationController
     @comment.save
 
     # NotificationEmailer.found_email(@original_poster) if @original_poster != @comment.user
-    render json: @comment
   end
 
   def update
@@ -35,6 +36,6 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:content, :user_id, :report_id, :lat, :lng, :image)
+    params.require(:comment).permit(:content, :report_id, :lat, :lng, :image)
   end
 end

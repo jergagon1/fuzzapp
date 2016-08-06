@@ -4990,4 +4990,12 @@ body {
   }
 }
 
+/* fixes */
+.menu-navigation-header { display: none; }
+
+@media screen and (min-height: 500px) and (min-width: 1025px) {
+  .menu-navigation-header { display: block; }
+}
+
+
 /*# sourceMappingURL=custom.css.map */
