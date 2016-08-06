@@ -18,3 +18,5 @@ public/uploads
 
 # Ignore swp files
 *.swp
+
+.idea
