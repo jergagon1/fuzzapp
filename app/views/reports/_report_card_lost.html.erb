@@ -1,4 +1,3 @@
-
 <div class="nav-block nav-block-orange">
   <btn class="back-arrow"><i class="icon-back"></i></btn>
   <h2 class="title"> Lost <%= @report.animal_type %></h2>
@@ -15,21 +14,21 @@
   <div class="map map-lost"></div>
   <div class="photo-wrapper photo-wrapper-purple placeholder-dog">
     <% if report.img_url? %>
-      <div class="photo" style="background-size: initial; background-image: url('<%= image_url(report.img_url) %>')"></div>
+        <div class="photo" style="background-size: initial; background-image: url('<%= image_url(report.img_url) %>')"></div>
     <% else %>
-      <div style="background-image: url('<%= image_url('user-picture-3.png') %>')" class="face-lockup"></div>
+        <div style="background-image: url('<%= image_url('user-picture-3.png') %>')" class="face-lockup"></div>
     <% end %>
 
     <% unless report.last_seen.nil? %>
-      <h3 class="label">Last Seen <%= time_ago_in_words report.last_seen %> ago</h3>
+        <h3 class="label">Last Seen <%= time_ago_in_words report.last_seen %> ago</h3>
     <% end %>
   </div>
   <div class="post-description">
     <div class="header">
       <% if report.img_url? %>
-        <div style="background-image: url('<%= image_url('user-picture-3.png') %>')" class="face-lockup"></div>
+          <div style="background-image: url('<%= image_url('user-picture-3.png') %>')" class="face-lockup"></div>
       <% else %>
-        <div style="background-image: url('<%= image_url('user-picture-3.png') %>')" class="face-lockup"></div>
+          <div style="background-image: url('<%= image_url('user-picture-3.png') %>')" class="face-lockup"></div>
       <% end %>
       <div class="content">
         <p>Posted by <%= report.user.username %></p>
@@ -37,28 +36,37 @@
         <p class="type">Lost <%= @report.animal_type %></p>
       </div>
     </div>
+
     <table class="table table-stripped">
-      <tr>
-        <td>Size</td>
-        <td><%= @report.pet_size %></td>
-      </tr>
-      <tr>
-        <td>Color</td>
-        <td><%= @report.color %></td>
-      </tr>
-      <tr>
-        <td>Breed</td>
-        <td><%= @report.breed %></td>
-      </tr>
-      <tr>
-        <td>Sex</td>
-        <td><%= @report.sex %></td>
-      </tr>
+      <% if @report.pet_size && @report.pet_size != '' %>
+          <tr>
+            <td>Size</td>
+            <td><%= @report.pet_size %></td>
+          </tr>
+      <% end %>
+      <% if @report.color && @report.color != '' %>
+          <tr>
+            <td>Color</td>
+            <td><%= @report.color %></td>
+          </tr>
+      <% end %>
+      <% if @report.breed && @report.breed != '' %>
+          <tr>
+            <td>Breed</td>
+            <td><%= @report.breed %></td>
+          </tr>
+      <% end %>
+      <% if @report.sex && @report.sex != '' %>
+          <tr>
+            <td>Sex</td>
+            <td><%= @report.sex %></td>
+          </tr>
+      <% end %>
       <% unless report.last_seen.nil? %>
-        <tr>
-          <td>Last seen</td>
-          <td><%= l report.last_seen, format: :short %></td>
-        </tr>
+          <tr>
+            <td>Last seen</td>
+            <td><%= l report.last_seen, format: :short %></td>
+          </tr>
       <% end %>
     </table>
     <p class="description"><%= @report.notes %></p>
@@ -80,43 +88,43 @@
     </div>
 
     <!-- <div class="comment"> -->
-      <!--     <div class="header"> -->
-        <!--         <div style="background&#45;image: url('<%= image_url('user&#45;picture&#45;3.png') %>')" class="face&#45;lockup"></div> -->
-        <!--         <div class="content"> -->
-          <!--             <p>Posted by SarahJ</p> -->
-          <!--             <p>2 hours ago</p> -->
-          <!--         </div> -->
-        <!--     </div> -->
-      <!--     <div class="description&#45;wrapper"> -->
-        <!--         <p class="description">No, unfurtunately it’s not my Nicy. May be you should post a message about it? </p> -->
-        <!--     </div> -->
-      <!-- </div> -->
+    <!--     <div class="header"> -->
+    <!--         <div style="background&#45;image: url('<%= image_url('user&#45;picture&#45;3.png') %>')" class="face&#45;lockup"></div> -->
+    <!--         <div class="content"> -->
+    <!--             <p>Posted by SarahJ</p> -->
+    <!--             <p>2 hours ago</p> -->
+    <!--         </div> -->
+    <!--     </div> -->
+    <!--     <div class="description&#45;wrapper"> -->
+    <!--         <p class="description">No, unfurtunately it’s not my Nicy. May be you should post a message about it? </p> -->
+    <!--     </div> -->
+    <!-- </div> -->
     <!-- <div class="comment with&#45;image"> -->
-      <!--     <div class="header"> -->
-        <!--         <div style="background&#45;image: url('<%= image_url('user&#45;picture&#45;5.png') %>')" class="face&#45;lockup"></div> -->
-        <!--         <div class="content"> -->
-          <!--             <p>Posted by AnnaMay</p> -->
-          <!--             <p>2 hours ago</p> -->
-          <!--         </div> -->
-        <!--     </div> -->
-      <!--     <div style="background&#45;image: url('<%= image_url('dog&#45;demo&#45;3.png') %>')" class="image"></div> -->
-      <!--     <div class="description&#45;wrapper"> -->
-        <!--         <p class="description">Hey, looks like it’s your dog, isn’t it? It was playing in the same park for hours without any owner. I take care for it temporaty. If it’s yours call me by this phone 732&#45;757&#45;2923</p> -->
-        <!--         <div class="location&#45;sign"><i class="icon&#45;location"></i>Location point added</div> -->
-        <!--     </div> -->
-      <!-- </div> -->
+    <!--     <div class="header"> -->
+    <!--         <div style="background&#45;image: url('<%= image_url('user&#45;picture&#45;5.png') %>')" class="face&#45;lockup"></div> -->
+    <!--         <div class="content"> -->
+    <!--             <p>Posted by AnnaMay</p> -->
+    <!--             <p>2 hours ago</p> -->
+    <!--         </div> -->
+    <!--     </div> -->
+    <!--     <div style="background&#45;image: url('<%= image_url('dog&#45;demo&#45;3.png') %>')" class="image"></div> -->
+    <!--     <div class="description&#45;wrapper"> -->
+    <!--         <p class="description">Hey, looks like it’s your dog, isn’t it? It was playing in the same park for hours without any owner. I take care for it temporaty. If it’s yours call me by this phone 732&#45;757&#45;2923</p> -->
+    <!--         <div class="location&#45;sign"><i class="icon&#45;location"></i>Location point added</div> -->
+    <!--     </div> -->
+    <!-- </div> -->
     <!-- <div class="comment"> -->
-      <!--     <div class="header"> -->
-        <!--         <div style="background&#45;image: url('<%= image_url('user&#45;picture&#45;3.png') %>')" class="face&#45;lockup"></div> -->
-        <!--         <div class="content"> -->
-          <!--             <p>Posted by SarahJ</p> -->
-          <!--             <p>2 hours ago</p> -->
-          <!--         </div> -->
-        <!--     </div> -->
-      <!--     <div class="description&#45;wrapper"> -->
-        <!--         <p class="description">Oh, thanks! Thanks a lot. It is my dog. I will call you in 5 minutes.</p> -->
-        <!--     </div> -->
-      <!-- </div> -->
+    <!--     <div class="header"> -->
+    <!--         <div style="background&#45;image: url('<%= image_url('user&#45;picture&#45;3.png') %>')" class="face&#45;lockup"></div> -->
+    <!--         <div class="content"> -->
+    <!--             <p>Posted by SarahJ</p> -->
+    <!--             <p>2 hours ago</p> -->
+    <!--         </div> -->
+    <!--     </div> -->
+    <!--     <div class="description&#45;wrapper"> -->
+    <!--         <p class="description">Oh, thanks! Thanks a lot. It is my dog. I will call you in 5 minutes.</p> -->
+    <!--     </div> -->
+    <!-- </div> -->
   </div>
   <!--********************************************************************************************************************************-->
   <!--********************************************************************************************************************************-->
