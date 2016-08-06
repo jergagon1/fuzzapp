@@ -64,20 +64,23 @@
     <!-- blog-3-->
     <%= yield %>
 
-    <!-- footer-2-->
-    <footer class="footer-2 bg-midnight-blue">
-      <div class="container">
-        <nav>
-          <ul>
-            <li><a href="/facts" class="active">FuzzFacts</a></li>
-            <li><a href="/faq">FAQ</a></li>
-            <li><a href="/fund">FuzzFund</a></li>
-            <li><a href="/findus">Find Us</a></li>
-          </ul>
-        </nav>
-        <div class="social-btns"><a href="#" class="social-facebook"></a><a href="#" class="social-twitter"></a><a href="#" class="social-instagram"></a></div>
-      </div>
-    </footer>
+    <% unless current_user %>
+      <!-- footer-2-->
+      <footer class="footer-2 bg-midnight-blue">
+        <div class="container">
+          <nav>
+            <ul>
+              <li><a href="/facts" class="<%= 'active' if current_page?('/facts') %>">FuzzFacts</a></li>
+              <li><a href="/faq" class="<%= 'active' if current_page?('/faq') %>">FAQ</a></li>
+              <li><a href="/fund" class="<%= 'active' if current_page?('/fund') %>">FuzzFund</a></li>
+              <li><a href="/findus" class="<%= 'active' if current_page?('/findus') %>">Find Us</a></li>
+            </ul>
+          </nav>
+          <div class="social-btns"><a href="#" class="social-facebook"></a><a href="#" class="social-twitter"></a><a href="#" class="social-instagram"></a></div>
+        </div>
+      </footer>
+    <% end %>
+
     <div id="sign-modal" role="dialog" aria-labelledby="SignModalLabel" aria-hidden="false" class="modal fade">
       <div class="modal-dialog">
         <div class="modal-content">
