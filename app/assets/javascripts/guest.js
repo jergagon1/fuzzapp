@@ -3,4 +3,4 @@
 //= require mresize
 //= require marketwithlabel
 //= require custom
-// require app-interactions
+//= require app-interactions
