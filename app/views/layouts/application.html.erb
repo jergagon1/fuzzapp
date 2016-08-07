@@ -1,7 +1,6 @@
 <html>
   <head>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
     <%= csrf_meta_tags %>
 
     <meta charset="utf-8"/>
@@ -77,7 +76,7 @@
     </div>
 
     <%= yield %>
-
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDaLeywAepT480tGLGBfoSUyvhClCfD8YE"></script>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   </body>
 </html>
