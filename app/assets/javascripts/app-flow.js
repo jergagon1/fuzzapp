@@ -87,8 +87,7 @@ $(function(){
         // address: $('#').val()
       }
     })
-      .done(function (data)
-          {
+      .done(function (data) {
             alert('saved');
             // alert( "Data Loaded: " + data );
             // data = JSON.parse(data);
@@ -105,15 +104,7 @@ $(function(){
           });
   });
 
-
-
   $('.small-report-card').click(function(){
     $.get("/api/v1/reports/"+$(this).data('report-id'), null, 'script');
   });
-
-
-
-
-
-
 });
