@@ -342,6 +342,46 @@ function showReport(item) {
   $('[data-report-id="'+item.id+'"]').trigger('click')
 }
 
+function getBounds(map) {
+  var bounds = map.getBounds();
+  var ne = bounds.getNorthEast();
+  var sw = bounds.getSouthWest();
+
+  return {
+    ne: {
+      lat: ne.lat(),
+      lng: ne.lng(),
+    },
+    sw: {
+      lat: sw.lat(),
+      lng: sw.lng()
+    }
+  };
+}
+
+var need_update = false;
+var last_bound;
+function getReports(map, callback) {
+  last_bound = getBounds(map);
+  if(!need_update) {
+    need_update = setTimeout(function() {
+      $.getJSON('/api/v1/reports/mapquery.json?sw='+last_bound.sw.lat+','+last_bound.sw.lng+'&ne='+last_bound.ne.lat+','+last_bound.ne.lng, callback);
+      need_update = false;
+    }, 100);
+  }
+}
+
+function updateMap(data) {
+  var active = data.reports.map(function(report) {
+    return report.id;
+  });
+
+  $('.pet-sightings-page-wrapper .small-report-card').each(function(i, card) {
+    var id = $(this).data('report-id');
+    this.style.display = active.indexOf(id) > -1 ? 'block' : 'none';
+  });
+}
+
 function initMap2() {
   var lostPetMapDOM = $('.fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .section-wrapper .ancete-wrapper .step-wrapper-2 .map')[0],
 
@@ -415,7 +455,22 @@ function initMap2() {
     foundPostMap = new google.maps.Map(foundPostMapDOM, mapOptions),
     polyCoordinates = [];
 
+
   $(function() {
+
+
+    google.maps.event.addListenerOnce(sightingsMap, 'idle', function(){
+      getReports(sightingsMap, updateMap)
+
+      sightingsMap.addListener('center_changed', function() {
+        getReports(sightingsMap, updateMap)
+      });
+
+      sightingsMap.addListener('zoom_changed', function() {
+        getReports(sightingsMap, updateMap)
+      });
+    });
+
     var lost = [], found = [];
     $('[data-type="lost"]').each(function(i, coord) {
       lost.push( {
