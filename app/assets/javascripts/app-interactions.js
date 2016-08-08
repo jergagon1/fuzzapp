@@ -192,17 +192,6 @@ $(function () {
     });
   });
 
-
-  //********************************************************************************************************************************
-  //********************************************************************************************************************************
-  //********************************************************************************************************************************
-  // Ниже я в основном занимаюсь настройкой карты. Если хочешь — можешь посмотреть что тут и как, нет — просто я тебе расскажу что нужно
-  // на каждом из этапов работы приложения сгенерировать
-  //********************************************************************************************************************************
-  //********************************************************************************************************************************
-  //********************************************************************************************************************************
-
-
   //Dropdown interaction
 
   $('.dropdown .dropdown-menu li a').click(function () {
@@ -349,6 +338,10 @@ window.FuzzAppMapStyles = [
     "stylers": [{"color": "#a2daf2"}]
   }];
 
+function showReport(item) {
+  $('[data-report-id="'+item.id+'"]').trigger('click')
+}
+
 function initMap2() {
   var lostPetMapDOM = $('.fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .section-wrapper .ancete-wrapper .step-wrapper-2 .map')[0],
 
@@ -416,54 +409,57 @@ function initMap2() {
 
   window.sightingsMap = new google.maps.Map(sightingsMapDOM, mapOptions);
 
-  var arrayCoodinates1 = [
-      [37.807560843059925, -122.27261856079099],
-      [37.80762865563491, -122.28343322753904],
-      [37.803627607163115, -122.28180244445798],
-      [37.796438738238166, -122.28506401062009],
-      [37.79589615369872, -122.298196105957]
-    ],
-
-    arrayCoodinates2 = [
-      [37.80810334191614, -122.29553535461423],
-      [37.80444139729422, -122.28617980957029],
-      [37.79569268346904, -122.27133110046384]
-    ];
-
-  arrayCoodinates1.forEach(function (item, i) {
-    new google.maps.Marker({
-      position: {lat: item[0], lng: item[1]},
-      map: sightingsMap,
-      icon: '/img/app/map/lost-pin.png',
-      draggable: false,
-      opacity: (10 - i) / 10
-    });
-  });
-
-  arrayCoodinates2.forEach(function (item, i) {
-    new google.maps.Marker({
-      position: {lat: item[0], lng: item[1]},
-      map: sightingsMap,
-      icon: '/img/app/map/found-pin.png',
-      draggable: false,
-      opacity: (10 - i) / 10
-    });
-  });
-
-
   var lostPostMapDOM = $('.fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .map')[0],
-
     lostPostMap = new google.maps.Map(lostPostMapDOM, mapOptions),
-
     foundPostMapDOM = $('.fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .map')[0],
-
     foundPostMap = new google.maps.Map(foundPostMapDOM, mapOptions),
-
     polyCoordinates = [];
 
-  arrayCoodinates1.forEach(function (item) {
-    polyCoordinates.push({lat: item[0], lng: item[1]});
-  });
+  $(function() {
+    var lost = [], found = [];
+    $('[data-type="lost"]').each(function(i, coord) {
+      lost.push( {
+        id: $(coord).data('report-id'),
+        lat: $(coord).data('lat'),
+        lng: $(coord).data('lng')
+      });
+    });
+
+    $('[data-type="found"]').each(function(i, coord) {
+      found.push({
+        id: $(coord).data('report-id'),
+        lat: $(coord).data('lat'),
+        lng: $(coord).data('lng')
+      })
+    })
+
+    lost.forEach(function (item, i) {
+      var marker = new google.maps.Marker({
+        position: item,
+        map: sightingsMap,
+        icon: '/img/app/map/lost-pin.png',
+        draggable: false,
+        opacity: (10 - i) / 10
+      });
+
+      marker.addListener('click',showReport.bind(null , item));
+
+      polyCoordinates.push(item);
+    });
+
+    found.forEach(function(item, i) {
+     var marker = new google.maps.Marker({
+        position: item,
+        map: sightingsMap,
+        icon: '/img/app/map/found-pin.png',
+        draggable: false,
+        opacity: (10 - i) / 10
+      });
+
+      marker.addListener('click',showReport.bind(null , item));
+
+    })
+  })
 
   var lostPostMapPath = new google.maps.Polyline({
       path: polyCoordinates,
@@ -513,7 +509,7 @@ function initMap2() {
       strokeColor: '#1E9F84'
     };
 
-
+/*
   arrayCoodinates1.forEach(function (item, i) {
 
     if (i === 0) {
@@ -549,6 +545,7 @@ function initMap2() {
     }
 
   });
+  */
 };
 
 google.maps.event.addDomListener(window, 'load', initMap2);
@@ -616,4 +613,3 @@ function initMap() {
 };
 
 google.maps.event.addDomListener(window, 'load', initMap);
-
