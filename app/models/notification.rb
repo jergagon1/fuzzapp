@@ -1,6 +1,7 @@
 class Notification
   def self.notify_about_new_report(report)
     Pusher.trigger(ENV['PUSHER_CHANNEL_NAME'], 'report_created', {
+      report_type: report.report_type,
       report: report,
       comments: report.comments,
       tags: report.tags
