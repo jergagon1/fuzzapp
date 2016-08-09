@@ -378,7 +378,7 @@ function updateMap(data) {
 
   $('.pet-sightings-page-wrapper .small-report-card').each(function(i, card) {
     var id = $(this).data('report-id');
-    this.style.display = active.indexOf(id) > -1 ? 'block' : 'none';
+    this.style.display = active.indexOf(id) > -1 ? 'inline-block' : 'none';
   });
 }
 
