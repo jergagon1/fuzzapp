@@ -10,7 +10,7 @@ gem 'rails', '4.2.4'
 gem 'pg'
 
 gem 'httparty'
-gem 'pusher', '~> 0.14.5'
+gem 'pusher'
 
 gem 'active_model_serializers'
 

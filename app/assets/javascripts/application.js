@@ -21,4 +21,6 @@
 //= require geostuff
 //= require image-upload
 //= require app-flow
+//= require pusher/pusher
 //= require custom
+//= require notifications

@@ -90,9 +90,9 @@ class Report < ActiveRecord::Base
   end
 
   def subscribe_user_and_notify
-    # subscriptions.create(user: user)
+    subscriptions.create(user: user)
 
-    # Notification.notify_about_new_report(self)
+    Notification.notify_about_new_report(self)
   end
 
   def downcase_fields
