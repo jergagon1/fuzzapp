@@ -27,6 +27,7 @@
     <%= favicon_link_tag "icon-180.png", rel: "apple-touch-icon", sizes: "180x180" %>
     <%= favicon_link_tag "favicon.ico", rel: "shortcut icon", type: "image/x-icon"  %>
   </head>
+  <!-- layouts/fuzzapp -->
   <body class="fuzzfinders-app <%= content_for :body_class %>">
     <div class="background-for-navigation"></div>
     <div class="menu-navigation"><a href="/" class="brand">
@@ -44,7 +45,7 @@
         <li><a href="/faq" class="<%= 'active' if current_page?('/faq') %>">FAQ</a></li>
         <li><a href="/findus" class="<%= 'active' if current_page?('/findus') %>">Find Us</a></li>
         </li>
-        <li class="action"><a data-target="log-out">Log Out</a>
+        <li class="action _btn-logout"><a data-target="log-out">Log Out</a>
         </li>
         <li class="mobile-legal"><a href="/legal">User's agreement and Conditions</a>
         </li>

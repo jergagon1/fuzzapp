@@ -30,16 +30,9 @@ class HomeController < ApplicationController
     else
      'application'
     end
-    # if current_user
-    #   'application'
-    # else
-    #   'new_application'
-    # end
   end
 
   def authenticate_view
-    unless current_user
-      render "guest_#{action_name}"
-    end
+    render "guest_#{action_name}" unless current_user
   end
 end
