@@ -27,7 +27,7 @@ $(function () {
 
   // SECTIONS AND ANCETE INTERACTIONS
 
-  var navigationStack = [];
+  window.navigationStack = [];
 
   function getNavigationToggler(target) {
     if (target.indexOf('.lost-pet-') > -1) {
@@ -40,6 +40,21 @@ $(function () {
       return 'navigation-blue-dark';
     } else {
       return null;
+    }
+  }
+
+  function getNavigationRouter(target) {
+    switch (target) {
+      case 'lost':
+        return 'navigation-orange';
+      case 'found':
+        return 'navigation-green';
+      case 'local':
+        return 'navigation-blue-light';
+      case 'chat':
+        return 'navigation-blue-dark';
+      default:
+        return null;
     }
   }
 
@@ -68,6 +83,90 @@ $(function () {
     }
   });
 
+  function after_router(fragment, target, tClass, state) {
+    window.navigationStack.push([target, tClass, fragment]);
+    var navigationClass = getNavigationToggler(target);
+    if (navigationClass && (tClass === 'show')) {
+      if (state) {
+        $('.fuzzfinders-app').removeClass('navigation-blue-light');
+        $('.fuzzfinders-app .pet-sightings-page-wrapper').addClass('post-shown');
+      }
+      $('.fuzzfinders-app').addClass(navigationClass);
+    }
+  }
+
+  Router.root = '/fuzzapp/';
+
+  Router
+    .add('local', 'local', function (fragment) {
+      document.querySelector('.pet-sightings-page-wrapper').classList.add('show');
+      after_router(fragment, '.pet-sightings-page-wrapper', 'show');
+    })
+    .add('local_found', 'local/found/(.*)', function (fragment, id) {
+      $.get("/api/v1/reports/" + id, null, 'script')
+        .done(function () {
+          document.querySelector('.found-pet-post-wrapper').classList.add('show');
+          after_router(fragment, '.found-pet-post-wrapper', 'show', true);
+        });
+    })
+    .add('local_lost', 'local/lost/(.*)', function (fragment, id) {
+      $.get("/api/v1/reports/" + id, null, 'script')
+        .done(function () {
+          document.querySelector('.lost-pet-post-wrapper').classList.add('show');
+          after_router(fragment, '.lost-pet-post-wrapper', 'show', true);
+        })
+    })
+    .add('lost', 'lost', function (fragment) {
+      document.querySelector('.lost-pet-page-wrapper').classList.add('show');
+      after_router(fragment, '.lost-pet-page-wrapper', 'show');
+    })
+    .add('lost_step2', 'lost/step_2', function (fragment) {
+      document.querySelector('.lost-pet-page-wrapper').classList.add('show');
+      document.querySelector('.lost-pet-page-wrapper .progress-step').classList.add('step-2');
+      document.querySelector('.lost-pet-page-wrapper .ancete-wrapper').classList.add('step-2');
+      after_router(fragment, '.lost-pet-page-wrapper .progress-step , .lost-pet-page-wrapper .ancete-wrapper ', 'step-2');
+    })
+    .add('lost_step3', 'lost/step_3', function (fragment) {
+      document.querySelector('.lost-pet-page-wrapper').classList.add('show');
+      document.querySelector('.lost-pet-page-wrapper .progress-step').classList.add('step-3');
+      document.querySelector('.lost-pet-page-wrapper .ancete-wrapper').classList.add('step-3');
+      after_router(fragment, '.lost-pet-page-wrapper .progress-step , .lost-pet-page-wrapper .ancete-wrapper ', 'step-3');
+    })
+    .add('found', 'found', function (fragment) {
+      document.querySelector('.found-pet-page-wrapper').classList.add('show');
+      after_router(fragment, '.found-pet-page-wrapper', 'show');
+    })
+    .add('found_step2', 'found/step_2', function (fragment) {
+      document.querySelector('.found-pet-page-wrapper').classList.add('show');
+      document.querySelector('.found-pet-page-wrapper .progress-step').classList.add('step-2');
+      document.querySelector('.found-pet-page-wrapper .ancete-wrapper').classList.add('step-2');
+      after_router(fragment, '.found-pet-page-wrapper .progress-step , .found-pet-page-wrapper .ancete-wrapper ', 'step-2');
+    })
+    .add('found_step3', 'found/step_3', function (fragment) {
+      document.querySelector('.found-pet-page-wrapper').classList.add('show');
+      document.querySelector('.found-pet-page-wrapper .progress-step').classList.add('step-3');
+      document.querySelector('.found-pet-page-wrapper .ancete-wrapper').classList.add('step-3');
+      after_router(fragment, '.found-pet-page-wrapper .progress-step , .found-pet-page-wrapper .ancete-wrapper ', 'step-3');
+    })
+    .add('chat', 'chat', function (fragment) {
+      document.querySelector('.fuzz-chat-wrapper').classList.add('show');
+      after_router(fragment, '.fuzz-chat-wrapper', 'show');
+    })
+    .listen();
+
+  if (window.location.pathname && window.location.pathname) {
+    var hash = Router.getFragment();
+    if (Router.is(['local', 'local_found', 'local_lost'], hash)) {
+      Router.check(hash);
+    } else {
+      Router.navigate();
+    }
+  }
+
+  $('[data-route]').on('click', function () {
+    var route = $(this).data('route');
+    Router.navigate('/' + route);
+  });
 
   $('.btn-toggler, .btn-apply').click(function () {
     var target = $(this).data('target');
@@ -113,7 +212,16 @@ $(function () {
       $('.show .ancete-wrapper').height(300);
     }
     $('.show .ancete-wrapper').height(300);
+
+    var prev = navigationStack.slice(-1)
+    if (prev.length) {
+      Router.navigate(prev[0][2]);
+    } else {
+      Router.navigate();
+    }
+
   });
+
 
   // SHOW DROPDOWN AREA IN ANCETE AND SIGHTS SCREEN
   $('.btn-subarea').click(function () {
@@ -239,7 +347,7 @@ $(function () {
 
 
   $(window).resize(function () {
-    var boffset = $('.mainpage-wrapper .content-wrapper .btn-toggler:first').offset().left,
+    var boffset = $('.mainpage-wrapper .content-wrapper [data-route]:first').offset().left,
       dwidth = $(window).width();
     if (dwidth < 1025) {
       $('.alert-wrapper').width($(window).width() - boffset + 3);
@@ -339,7 +447,7 @@ window.FuzzAppMapStyles = [
   }];
 
 function showReport(item) {
-  $('[data-report-id="'+item.id+'"]').trigger('click')
+  Router.navigate('local/' + item.type + '/' + item.id);
 }
 
 function getBounds(map) {
@@ -350,7 +458,7 @@ function getBounds(map) {
   return {
     ne: {
       lat: ne.lat(),
-      lng: ne.lng(),
+      lng: ne.lng()
     },
     sw: {
       lat: sw.lat(),
@@ -363,20 +471,20 @@ var need_update = false;
 var last_bound;
 function getReports(map, callback) {
   last_bound = getBounds(map);
-  if(!need_update) {
-    need_update = setTimeout(function() {
-      $.getJSON('/api/v1/reports/mapquery.json?sw='+last_bound.sw.lat+','+last_bound.sw.lng+'&ne='+last_bound.ne.lat+','+last_bound.ne.lng, callback);
+  if (!need_update) {
+    need_update = setTimeout(function () {
+      $.getJSON('/api/v1/reports/mapquery.json?sw=' + last_bound.sw.lat + ',' + last_bound.sw.lng + '&ne=' + last_bound.ne.lat + ',' + last_bound.ne.lng, callback);
       need_update = false;
     }, 100);
   }
 }
 
 function updateMap(data) {
-  var active = data.reports.map(function(report) {
+  var active = data.reports.map(function (report) {
     return report.id;
   });
 
-  $('.pet-sightings-page-wrapper .small-report-card').each(function(i, card) {
+  $('.pet-sightings-page-wrapper .small-report-card').each(function (i, card) {
     var id = $(this).data('report-id');
     this.style.display = active.indexOf(id) > -1 ? 'inline-block' : 'none';
   });
@@ -456,63 +564,68 @@ function initMap2() {
     polyCoordinates = [];
 
 
-  $(function() {
+  $(function () {
 
 
-    google.maps.event.addListenerOnce(sightingsMap, 'idle', function(){
+    google.maps.event.addListenerOnce(sightingsMap, 'idle', function () {
       getReports(sightingsMap, updateMap)
 
-      sightingsMap.addListener('center_changed', function() {
+      sightingsMap.addListener('center_changed', function () {
         getReports(sightingsMap, updateMap)
       });
 
-      sightingsMap.addListener('zoom_changed', function() {
+      sightingsMap.addListener('zoom_changed', function () {
         getReports(sightingsMap, updateMap)
       });
     });
 
     var lost = [], found = [];
-    $('[data-type="lost"]').each(function(i, coord) {
-      lost.push( {
+    $('[data-type="lost"]').each(function (i, coord) {
+      lost.push({
         id: $(coord).data('report-id'),
+        type: $(coord).data('type'),
         lat: $(coord).data('lat'),
         lng: $(coord).data('lng')
       });
     });
 
-    $('[data-type="found"]').each(function(i, coord) {
+    $('[data-type="found"]').each(function (i, coord) {
       found.push({
         id: $(coord).data('report-id'),
+        type: $(coord).data('type'),
         lat: $(coord).data('lat'),
         lng: $(coord).data('lng')
       })
     })
 
     lost.forEach(function (item, i) {
-      var marker = new google.maps.Marker({
-        position: item,
-        map: sightingsMap,
-        icon: '/img/app/map/lost-pin.png',
-        draggable: false,
-        opacity: (10 - i) / 10
-      });
+      if (item.lat && item.lng) {
+        var marker = new google.maps.Marker({
+          position: item,
+          map: sightingsMap,
+          icon: '/img/app/map/lost-pin.png',
+          draggable: false,
+          opacity: (10 - i) / 10
+        });
 
-      marker.addListener('click',showReport.bind(null , item));
+        marker.addListener('click', showReport.bind(null, item));
 
-      polyCoordinates.push(item);
+        polyCoordinates.push(item);
+      }
     });
 
-    found.forEach(function(item, i) {
-     var marker = new google.maps.Marker({
-        position: item,
-        map: sightingsMap,
-        icon: '/img/app/map/found-pin.png',
-        draggable: false,
-        opacity: (10 - i) / 10
-      });
+    found.forEach(function (item, i) {
+      if (item.lat && item.lng) {
+        var marker = new google.maps.Marker({
+          position: item,
+          map: sightingsMap,
+          icon: '/img/app/map/found-pin.png',
+          draggable: false,
+          opacity: (10 - i) / 10
+        });
 
-      marker.addListener('click',showReport.bind(null , item));
-
+        marker.addListener('click', showReport.bind(null, item));
+      }
     })
   })
 
@@ -564,43 +677,43 @@ function initMap2() {
       strokeColor: '#1E9F84'
     };
 
-/*
-  arrayCoodinates1.forEach(function (item, i) {
+  /*
+   arrayCoodinates1.forEach(function (item, i) {
 
-    if (i === 0) {
-      new MarkerWithLabel({
-        position: {lat: item[0], lng: item[1]},
-        map: lostPostMap,
-        icon: circleStartSymbol,
-        draggable: false
-      });
-      new MarkerWithLabel({
-        position: {lat: item[0], lng: item[1]},
-        map: foundPostMap,
-        icon: circleStartSymbolAlt,
-        draggable: false
-      });
-    } else {
-      new google.maps.Marker({
-        position: {lat: item[0], lng: item[1]},
-        map: lostPostMap,
-        icon: circleSymbol,
-        draggable: false,
+   if (i === 0) {
+   new MarkerWithLabel({
+   position: {lat: item[0], lng: item[1]},
+   map: lostPostMap,
+   icon: circleStartSymbol,
+   draggable: false
+   });
+   new MarkerWithLabel({
+   position: {lat: item[0], lng: item[1]},
+   map: foundPostMap,
+   icon: circleStartSymbolAlt,
+   draggable: false
+   });
+   } else {
+   new google.maps.Marker({
+   position: {lat: item[0], lng: item[1]},
+   map: lostPostMap,
+   icon: circleSymbol,
+   draggable: false,
 
-        label: i.toString()
-      });
-      new google.maps.Marker({
-        position: {lat: item[0], lng: item[1]},
-        map: foundPostMap,
-        icon: circleSymbolAlt,
-        draggable: false,
+   label: i.toString()
+   });
+   new google.maps.Marker({
+   position: {lat: item[0], lng: item[1]},
+   map: foundPostMap,
+   icon: circleSymbolAlt,
+   draggable: false,
 
-        label: i.toString()
-      });
-    }
+   label: i.toString()
+   });
+   }
 
-  });
-  */
+   });
+   */
 };
 
 google.maps.event.addDomListener(window, 'load', initMap2);
