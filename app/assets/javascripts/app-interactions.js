@@ -43,21 +43,6 @@ $(function () {
     }
   }
 
-  function getNavigationRouter(target) {
-    switch (target) {
-      case 'lost':
-        return 'navigation-orange';
-      case 'found':
-        return 'navigation-green';
-      case 'local':
-        return 'navigation-blue-light';
-      case 'chat':
-        return 'navigation-blue-dark';
-      default:
-        return null;
-    }
-  }
-
   $('#lost_current_location').click(function () {
     if (window.geolocation) {
       moveBus(lostPetMap, lostPetMarker, window.geolocation);
@@ -222,7 +207,6 @@ $(function () {
 
   });
 
-
   // SHOW DROPDOWN AREA IN ANCETE AND SIGHTS SCREEN
   $('.btn-subarea').click(function () {
     //event.preventDefault();
@@ -299,7 +283,6 @@ $(function () {
 
     });
   });
-
   //Dropdown interaction
 
   $('.dropdown .dropdown-menu li a').click(function () {
