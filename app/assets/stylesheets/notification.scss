@@ -1,0 +1,183 @@
+.Notification {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  z-index: 1000;
+  width: 80%;
+  height: 85px;
+  -webkit-transition: right 0.6s ease-in-out;
+  -moz-transition: right 0.6s ease-in-out;
+  transition: right 0.6s ease-in-out;
+}
+
+.Notification__shadow {
+  position: absolute;
+  z-index: -1;
+  top: -5px;
+  right: -5px;
+  width: calc(100% + 10px);
+  height: calc(100% + 10px);
+  background-color: rgba(0, 0, 0, 0.05);
+  border-top-left-radius: 80px;
+  border-bottom-left-radius: 80px;
+  opacity: 0;
+  -webkit-transition: opacity 1s ease-in;
+  -moz-transition: opacity 1s ease-in;
+  transition: opacity 1s ease-in;
+}
+
+.Notification__alert {
+  height: 100%;
+  width: 100%;
+  border-top-left-radius: 70px;
+  border-bottom-left-radius: 70px;
+  background: pink;
+  box-shadow: 0px 2px 9px 0px rgba(0, 0, 0, 0.15);
+  padding: 2px 3px;
+  opacity: 0;
+  -webkit-transition: opacity 1s ease-in;
+  -moz-transition: opacity 1s ease-in;
+  transition: opacity 1s ease-in;
+}
+
+.Notification__alert-image {
+  display: block;
+  float: left;
+  height: 76px;
+  width: 76px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -khtml-border-radius: 50%;
+  -o-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -icab-border-radius: 50%;
+  margin: 2px 0 0 2px;
+  background-image: image-url("sightings-pet-4.png");
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.Notification__alert-content {
+  display: block;
+  float: left;
+  padding: 0;
+  width: calc(100% - 80px);
+  height: 76px;
+  overflow: hidden;
+  padding: 12px 25px !important;
+}
+
+.Notification__alert-content h1,
+.Notification__alert-content p {
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  font-weight: 500;
+  color: white;
+  letter-spacing: 0.02em;
+}
+
+.Notification__alert-close {
+
+  opacity: 0.3;
+  cursor: pointer;
+  display: block;
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0);
+
+  position: absolute;
+  top: 50%;
+  right: 35px;
+  margin-top: -20px;
+  color: white;
+  -webkit-transform: none;
+  -moz-transform: none;
+  -ms-transform: none;
+  -o-transform: none;
+  transform: none;
+  font-size: 25px;
+
+  &:hover {
+
+    opacity: 1;
+    border-radius: 50%;
+    border-color: rgba(255, 255, 255, 0.3);
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+  }
+
+  &:before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -0.5em 0 0 -0.5em;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+}
+
+.Notification__type-lost {
+  .Notification__alert {
+    background-color: #E2573B;
+  }
+}
+
+.Notification__type-found {
+  .Notification__alert {
+    background-color: #1E9F84;
+  }
+}
+
+.Notification.show {
+  right: 0;
+
+  .Notification__shadow {
+    opacity: 1;
+  }
+
+  .Notification__alert {
+    opacity: 1;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .Notification {
+    width: 60%;
+  }
+}
+
+@media screen and (min-width: 720px) {
+  .Notification {
+    width: 480px;
+  }
+  .Notification__alert-content h1,
+  .Notification__alert-content p {
+    display: inline-block;
+    line-height: 46px;
+  }
+  .Notification__alert-content h1 {
+    padding-right: 30px;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .Notification {
+    top: auto;
+    bottom: 0;
+  }
+  .Notification__alert-content {
+    padding-top: 18px !important;
+  }
+  .Notification__alert-close {
+    right: 15px;
+  }
+}

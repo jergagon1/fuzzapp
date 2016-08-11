@@ -11,6 +11,8 @@
 // about supported directives.
 //
 //= require vendor-min
+//= require handlebars
+//= require template
 //= require router
 //= require mresize
 //= require marketwithlabel

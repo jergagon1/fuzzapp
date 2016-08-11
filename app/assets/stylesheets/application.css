@@ -13,6 +13,7 @@
  *= require vendor
  *= require custom
  *= require app
+ *= require notification
  *= require_self
  */
 

@@ -302,42 +302,6 @@ $(function () {
 
 
   //Alerts workflow
-
-  $(document).ready(function () {
-
-    function showAlert(type) {
-      $('.alert-wrapper' + type).addClass('show');
-      setTimeout(function () {
-        $('.alert-wrapper' + type).removeClass('show');
-      }, 15000);
-    }
-
-    var lostPetTiker = setTimeout(function lostshow() {
-      showAlert('.lost-pet')
-      lostPetTiker = setTimeout(lostshow, 120000);
-    }, 5000);
-
-    var foundPetTiker = setTimeout(function foundshow() {
-      showAlert('.found-pet')
-      foundPetTiker = setTimeout(foundshow, 120000);
-    }, 60000);
-
-  });
-
-  $('.fuzz-alert .close').click(function () {
-    $(this).parents('.alert-wrapper').removeClass('show');
-  })
-
-
-  $(window).resize(function () {
-    var boffset = $('.mainpage-wrapper .content-wrapper [data-route]:first').offset().left,
-      dwidth = $(window).width();
-    if (dwidth < 1025) {
-      $('.alert-wrapper').width($(window).width() - boffset + 3);
-    }
-
-  })
-
   //FAQ workflow
 
   $(document).on('click', '.question-button', function (e) {

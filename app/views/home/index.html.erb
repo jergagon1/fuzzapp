@@ -268,8 +268,10 @@
               <p id="found_pet_info"></p>
               <input type="hidden" name="found_pet_image" id="found-pet-image-url"/>
 
-              <button data-route="found/step_2" class="btn btn-big btn-green btn-new btn-next-step" >Continue</button>
-              <button data-route="found/step_2" class="btn btn-big btn-blue btn-new btn-next-step">Continue without Photo</button>
+              <button data-route="found/step_2" class="btn btn-big btn-green btn-new btn-next-step">Continue</button>
+              <button data-route="found/step_2" class="btn btn-big btn-blue btn-new btn-next-step">Continue without
+                Photo
+              </button>
               <!-- <btn class="btn btn&#45;big btn&#45;green btn&#45;done">Upload another Photo</btn> -->
               <button data-route="found/step_2" class="btn btn-big btn-blue btn-done btn-next-step">Continue</button>
 
@@ -830,28 +832,22 @@
     </div>
   </div>
 </div>
-<div class="alert-wrapper lost-pet">
-  <div class="shadow"></div>
-  <div class="fuzz-alert">
-    <div class="image-wrapper"></div>
-    <div class="content-wrapper">
-      <h1>FuzzAlert</h1>
-      <p>Lost Dog Buggy</p>
+
+<script id="notification-template" type="text/x-handlebars-template">
+  <div class="Notification Notification__type-{{report_type}}">
+    <div class="Notification__shadow"></div>
+    <div class="Notification__alert">
+      <div class="Notification__alert-image"></div>
+      <div class="Notification__alert-content">
+        <h1>FuzzAlert</h1>
+        <p>{{normalized_title}} Buggy</p>
+      </div>
+      <div class="Notification__alert-close icon-plus"></div>
     </div>
-    <div class="close icon-plus"></div>
   </div>
-</div>
-<div class="alert-wrapper found-pet">
-  <div class="shadow"></div>
-  <div class="fuzz-alert">
-    <div class="image-wrapper"></div>
-    <div class="content-wrapper">
-      <h1>FuzzAlert</h1>
-      <p>Found Dog</p>
-    </div>
-    <div class="close icon-plus"></div>
-  </div>
-</div>
+</script>
+
+<div class="notifications"></div>
 
 
 

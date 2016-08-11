@@ -74,6 +74,7 @@
   font-weight: normal;
   font-style: normal;
 }
+
 /* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
 /* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
 /*
@@ -234,6 +235,7 @@
   font-weight: normal;
   font-style: normal;
 }
+
 [class^="icomoon-"], [class*=" icomoon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'icomoon' !important;
@@ -298,15 +300,19 @@
   color: #2C3E51;
   line-height: 20px;
 }
+
 .fuzzInputsFont::-webkit-input-placeholder {
   font-weight: 300;
 }
+
 .fuzzInputsFont:-moz-placeholder {
   font-weight: 300;
 }
+
 .fuzzInputsFont::-moz-placeholder {
   font-weight: 300;
 }
+
 .fuzzInputsFont:-ms-input-placeholder {
   font-weight: 300;
 }
@@ -344,6 +350,7 @@
     line-height: 16px;
   }
 }
+
 .fuzzfinders-app .btn {
   width: 72%;
   height: 52px;
@@ -363,50 +370,63 @@
   -moz-transition: background, 0.15s;
   transition: background, 0.15s;
 }
+
 .fuzzfinders-app .btn .icon {
   font-size: 0.85em;
   padding-right: 15px;
 }
+
 .fuzzfinders-app .btn-orange {
   background-color: #E2573B;
 }
+
 .fuzzfinders-app .btn-orange:hover, .fuzzfinders-app .btn-orange:focus, .fuzzfinders-app .btn-orange.focus, .fuzzfinders-app .btn-orange:active, .fuzzfinders-app .btn-orange.active {
   background-color: rgba(226, 87, 59, 0.9);
 }
+
 .fuzzfinders-app .btn-green {
   background-color: #1E9F84;
 }
+
 .fuzzfinders-app .btn-green:hover, .fuzzfinders-app .btn-green:focus, .fuzzfinders-app .btn-green.focus, .fuzzfinders-app .btn-green:active, .fuzzfinders-app .btn-green.active {
   background-color: rgba(30, 159, 132, 0.9);
 }
+
 .fuzzfinders-app .btn-blue {
   background-color: #3498DB;
 }
+
 .fuzzfinders-app .btn-blue:hover, .fuzzfinders-app .btn-blue:focus, .fuzzfinders-app .btn-blue.focus, .fuzzfinders-app .btn-blue:active, .fuzzfinders-app .btn-blue.active {
   background-color: rgba(52, 152, 219, 0.9);
 }
+
 .fuzzfinders-app .btn-purple {
   background-color: #9A5CB9;
 }
+
 .fuzzfinders-app .btn-purple:hover, .fuzzfinders-app .btn-purple:focus, .fuzzfinders-app .btn-purple.focus, .fuzzfinders-app .btn-purple:active, .fuzzfinders-app .btn-purple.active {
   background-color: rgba(154, 92, 185, 0.9);
 }
+
 .fuzzfinders-app .btn-small {
   width: 150px;
   height: 40px;
   font-size: 16px;
   font-weight: 700;
 }
+
 .fuzzfinders-app .btn-big {
   width: 100%;
   height: 50px;
   font-size: 20px;
   line-height: 28px;
 }
+
 .fuzzfinders-app .btn-xbig {
   width: 325px;
   height: 50px;
 }
+
 .fuzzfinders-app .btn-down {
   width: 100%;
   height: 60px;
@@ -421,9 +441,11 @@
   box-shadow: 0px -2px 10px 0px rgba(127, 140, 141, 0.5);
   font-weight: 300;
 }
+
 .fuzzfinders-app .btn-down:hover, .fuzzfinders-app .btn-down:focus, .fuzzfinders-app .btn-down.focus, .fuzzfinders-app .btn-down:active, .fuzzfinders-app .btn-down.active {
   background-color: rgba(52, 73, 95, 0.96);
 }
+
 .fuzzfinders-app .btn-message {
   margin: 0;
   height: 60px;
@@ -440,6 +462,7 @@
   padding: 4px 0;
   display: inline-block;
 }
+
 .fuzzfinders-app .btn-dropdown {
   font-size: 16px;
   font-weight: 400;
@@ -453,6 +476,7 @@
   padding: 0 18px;
   position: relative;
 }
+
 .fuzzfinders-app .btn-dropdown .caret {
   position: absolute;
   right: 18px;
@@ -462,10 +486,12 @@
   -moz-transition: all, 0.2s;
   transition: all, 0.2s;
 }
+
 .fuzzfinders-app .open .btn-dropdown {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
+
 .fuzzfinders-app .open .btn-dropdown .caret {
   -webkit-transform: rotate(180deg);
   -moz-transform: rotate(180deg);
@@ -473,49 +499,62 @@
   -o-transform: rotate(180deg);
   transform: rotate(180deg);
 }
+
 .fuzzfinders-app .btn-search {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
 .fuzzfinders-app .btn-search .icon {
   margin-left: -10px;
 }
+
 .fuzzfinders-app .nav-trigger {
   width: 50px;
   height: 50px;
 }
+
 .fuzzfinders-app .nav-trigger span {
   width: 25px;
   left: 13px;
   margin: auto;
   background: #000;
 }
+
 .fuzzfinders-app .nav-trigger span:nth-child(1) {
   top: 18px;
 }
+
 .fuzzfinders-app .nav-trigger span:nth-child(2) {
   top: 24px;
 }
+
 .fuzzfinders-app .nav-trigger span:nth-child(3) {
   top: 30px;
 }
+
 .fuzzfinders-app .nav-trigger.open span:nth-child(1), .fuzzfinders-app .nav-trigger.open span:nth-child(3) {
   top: 25px;
 }
+
 .fuzzfinders-app .nav-trigger-black span {
   background: #34495F;
 }
+
 .fuzzfinders-app .nav-trigger-black.open span {
   background: #ECF0F1;
 }
+
 .fuzzfinders-app .nav-trigger-white span {
   background: #ECF0F1;
 }
+
 .fuzzfinders-app .back-arrow {
   height: 50px;
   width: 50px;
   display: table;
 }
+
 .fuzzfinders-app .back-arrow .icon-back {
   display: table-cell;
   text-align: center;
@@ -523,27 +562,35 @@
   color: white;
   font-size: 18px;
 }
+
 .fuzzfinders-app .btn-orange {
   background-color: #E2573B;
 }
+
 .fuzzfinders-app .btn-orange:hover, .fuzzfinders-app .btn-orange:focus, .fuzzfinders-app .btn-orange.focus, .fuzzfinders-app .btn-orange:active, .fuzzfinders-app .btn-orange.active {
   background-color: rgba(226, 87, 59, 0.9);
 }
+
 .fuzzfinders-app .btn-green {
   background-color: #1E9F84;
 }
+
 .fuzzfinders-app .btn-green:hover, .fuzzfinders-app .btn-green:focus, .fuzzfinders-app .btn-green.focus, .fuzzfinders-app .btn-green:active, .fuzzfinders-app .btn-green.active {
   background-color: rgba(30, 159, 132, 0.9);
 }
+
 .fuzzfinders-app .btn-blue {
   background-color: #3498DB;
 }
+
 .fuzzfinders-app .btn-blue:hover, .fuzzfinders-app .btn-blue:focus, .fuzzfinders-app .btn-blue.focus, .fuzzfinders-app .btn-blue:active, .fuzzfinders-app .btn-blue.active {
   background-color: rgba(52, 152, 219, 0.9);
 }
+
 .fuzzfinders-app .btn-purple {
   background-color: #9A5CB9;
 }
+
 .fuzzfinders-app .btn-purple:hover, .fuzzfinders-app .btn-purple:focus, .fuzzfinders-app .btn-purple.focus, .fuzzfinders-app .btn-purple:active, .fuzzfinders-app .btn-purple.active {
   background-color: rgba(154, 92, 185, 0.9);
 }
@@ -556,6 +603,7 @@
     line-height: 20px;
   }
 }
+
 @media screen and (min-width: 641px) and (min-height: 640px) {
   .fuzzfinders-app .btn-small {
     height: 50px;
@@ -577,32 +625,40 @@
     font-size: 20px;
   }
 }
+
 .fuzzfinders-app .social-buttons {
   text-align: center;
 }
+
 .fuzzfinders-app .btn-facebook, .fuzzfinders-app .btn-twitter {
   text-align: center;
   width: 34%;
   display: inline-block;
   font-size: 20px;
 }
+
 .fuzzfinders-app .btn-facebook i, .fuzzfinders-app .btn-twitter i {
   padding-right: 2%;
   margin-left: -8px;
 }
+
 .fuzzfinders-app .btn-facebook {
   background-color: #36528C;
   margin-right: 19px;
 }
+
 .fuzzfinders-app .btn-twitter {
   background-color: #3A8DEB;
 }
+
 .fuzzfinders-app .connected {
   font-size: 15px;
 }
+
 .fuzzfinders-app .connected i {
   font-size: 20px;
 }
+
 .fuzzfinders-app .btn.btn-blue.btn-big.btn-toggler i {
   padding-right: 10px;
 }
@@ -623,6 +679,7 @@
     padding-right: 15px;
   }
 }
+
 @media screen and (max-width: 667px) and (min-height: 320px) {
   .fuzzfinders-app .btn-facebook, .fuzzfinders-app .btn-twitter {
     width: 75%;
@@ -634,6 +691,7 @@
     margin-bottom: 40px;
   }
 }
+
 @media screen and (max-width: 350px) {
   .fuzzfinders-app .btn-facebook, .fuzzfinders-app .btn-twitter {
     font-size: 16px;
@@ -646,6 +704,7 @@
     margin-left: 0;
   }
 }
+
 @media screen and (max-width: 480px) {
   .fuzzfinders-app .btn-twitter {
     margin: 20px auto 0;
@@ -655,6 +714,7 @@
     margin-left: -10px;
   }
 }
+
 .fuzzfinders-app .input, .fuzzfinders-app .textarea, .fuzzfinders-app .message-input .form-control {
   width: 100%;
   height: 40px;
@@ -665,30 +725,37 @@
   font-weight: 400;
   color: #34495F;
 }
+
 .fuzzfinders-app .input::-webkit-input-placeholder, .fuzzfinders-app .textarea::-webkit-input-placeholder, .fuzzfinders-app .message-input .form-control::-webkit-input-placeholder {
   color: #34495F;
   opacity: 0.8;
 }
+
 .fuzzfinders-app .input:-moz-placeholder, .fuzzfinders-app .textarea:-moz-placeholder, .fuzzfinders-app .message-input .form-control:-moz-placeholder {
   color: #34495F;
   opacity: 0.8;
 }
+
 .fuzzfinders-app .input::-moz-placeholder, .fuzzfinders-app .textarea::-moz-placeholder, .fuzzfinders-app .message-input .form-control::-moz-placeholder {
   color: #34495F;
   opacity: 0.8;
 }
+
 .fuzzfinders-app .input:-ms-input-placeholder, .fuzzfinders-app .textarea:-ms-input-placeholder, .fuzzfinders-app .message-input .form-control:-ms-input-placeholder {
   color: #34495F;
   opacity: 0.8;
 }
+
 .fuzzfinders-app .input:focus, .fuzzfinders-app .textarea:focus, .fuzzfinders-app .message-input .form-control:focus, .fuzzfinders-app .input.focus, .fuzzfinders-app .focus.textarea, .fuzzfinders-app .message-input .focus.form-control {
   border: 1px solid rgba(52, 73, 95, 0.7);
 }
+
 .fuzzfinders-app .textarea {
   height: 160px;
   padding: 11px 18px;
   resize: vertical;
 }
+
 .fuzzfinders-app .message-input {
   display: block;
   width: 100%;
@@ -696,6 +763,7 @@
   box-shadow: 0px -2px 4px 0px rgba(127, 140, 141, 0.5);
   position: relative;
 }
+
 .fuzzfinders-app .message-input .form-control {
   border-radius: 0;
   -webkit-border-radius: 0;
@@ -711,6 +779,7 @@
   padding-left: 30px;
   background-color: #ECF0F1;
 }
+
 .fuzzfinders-app .message-input .btn-message {
   position: absolute;
   right: 0;
@@ -725,6 +794,7 @@
     height: 250px;
   }
 }
+
 .fuzzfinders-app .nav-block {
   width: 100%;
   height: 80px;
@@ -755,9 +825,11 @@
   -ms-flex-align: center;
   padding: 5px;
 }
+
 .fuzzfinders-app .nav-block .nav-trigger {
   margin: 0;
 }
+
 .fuzzfinders-app .nav-block h2 {
   margin: 0;
   font-size: 22px;
@@ -767,34 +839,43 @@
   letter-spacing: 1.2px;
   text-transform: uppercase;
 }
+
 .fuzzfinders-app .nav-block .brand-logo {
   font-size: 45px;
   color: #ECF0F1;
   padding-left: 7px;
 }
+
 .fuzzfinders-app .nav-bottom {
   display: table;
 }
+
 .fuzzfinders-app .nav-bottom h2 {
   display: table-cell;
   text-align: center;
   vertical-align: middle;
 }
+
 .fuzzfinders-app .nav-block-orange {
   background-color: #E2573B;
 }
+
 .fuzzfinders-app .nav-block-green {
   background-color: #1E9F84;
 }
+
 .fuzzfinders-app .nav-block-blue {
   background-color: #3498DB;
 }
+
 .fuzzfinders-app .nav-block-dark-blue {
   background-color: #34495F;
 }
+
 .fuzzfinders-app .nav-block-purple {
   background-color: #9A5CB9;
 }
+
 .fuzzfinders-app .nav-block-blue-dark {
   background-color: #2C81BB;
 }
@@ -808,6 +889,7 @@
     font-size: 35px;
   }
 }
+
 .fuzzfinders-app .progress-step {
   width: 260px;
   margin: auto;
@@ -838,6 +920,7 @@
   -ms-flex-align: center;
   font-size: 18px;
 }
+
 .fuzzfinders-app .progress-step .step-icon {
   display: table;
   height: 41px;
@@ -851,6 +934,7 @@
   -icab-border-radius: 40px;
   background-color: #95A5A6;
 }
+
 .fuzzfinders-app .progress-step .step-icon [class*=" icon-"], .fuzzfinders-app .progress-step .step-icon [class^="icon-"] {
   display: table-cell;
   text-align: center;
@@ -858,18 +942,23 @@
   color: white;
   font-size: 1em;
 }
+
 .fuzzfinders-app .progress-step .step-icon [class*=" icon-"]:before, .fuzzfinders-app .progress-step .step-icon [class^="icon-"]:before {
   margin: 0;
 }
+
 .fuzzfinders-app .progress-step .step-icon .icon-location {
   font-size: 1.1em;
 }
+
 .fuzzfinders-app .progress-step .step-icon .icon-photo-edit:before {
   margin-left: 0;
 }
+
 .fuzzfinders-app .progress-step .step-icon .icon-fuzz-description:before {
   margin-right: 0;
 }
+
 .fuzzfinders-app .progress-step .devider {
   display: block;
   width: 50px;
@@ -883,30 +972,39 @@
   -icab-border-radius: 3px;
   background-color: #95A5A6;
 }
+
 .fuzzfinders-app .progress-orange .step-1 {
   background-color: #E2573B;
 }
+
 .fuzzfinders-app .progress-orange.step-2 .step-2 {
   background-color: #E2573B;
 }
+
 .fuzzfinders-app .progress-orange.step-3 .step-2, .fuzzfinders-app .progress-orange.step-3 .step-3 {
   background-color: #E2573B;
 }
+
 .fuzzfinders-app .progress-green .step-1 {
   background-color: #1E9F84;
 }
+
 .fuzzfinders-app .progress-green.step-2 .step-2 {
   background-color: #1E9F84;
 }
+
 .fuzzfinders-app .progress-green.step-3 .step-2, .fuzzfinders-app .progress-green.step-3 .step-3 {
   background-color: #1E9F84;
 }
+
 .fuzzfinders-app .progress-purple .step-1 {
   background-color: #9A5CB9;
 }
+
 .fuzzfinders-app .progress-purple.step-2 .step-2 {
   background-color: #9A5CB9;
 }
+
 .fuzzfinders-app .progress-purple.step-3 .step-2, .fuzzfinders-app .progress-purple.step-3 .step-3 {
   background-color: #9A5CB9;
 }
@@ -927,12 +1025,14 @@
   -moz-transition: all 0.3s ease-in;
   transition: all 0.3s ease-in;
 }
+
 .fuzzfinders-app .menu-navigation li {
   display: block;
   width: 80%;
   text-align: left;
   margin: 0 0 30px 10px;
 }
+
 .fuzzfinders-app .menu-navigation li a {
   font-size: 22px;
   line-height: 22px;
@@ -940,18 +1040,22 @@
   letter-spacing: 0.08em;
   color: #ECF0F1;
 }
+
 .fuzzfinders-app .menu-navigation li .active {
   opacity: 0.5;
 }
+
 .fuzzfinders-app .menu-navigation .desktop-legal {
   display: none;
 }
+
 .fuzzfinders-app .menu-navigation .mobile-legal {
   position: absolute;
   bottom: 10px;
   margin: 0 0 3 10px;
   width: 90%;
 }
+
 .fuzzfinders-app .menu-navigation .mobile-legal a {
   font-size: 14px;
   line-height: 20px;
@@ -960,25 +1064,31 @@
   color: #ECF0F1;
   opacity: 0.8;
 }
+
 .fuzzfinders-app .menu-navigation .action a {
   color: #1E9F84;
 }
+
 .fuzzfinders-app .menu-navigation .nav-trigger {
   position: absolute;
   top: 15px;
   right: 4px;
   margin: 0;
 }
+
 .fuzzfinders-app .menu-navigation .brand {
   display: none;
 }
+
 .fuzzfinders-app .menu-navigation .profile-wrapper {
   display: none;
 }
+
 .fuzzfinders-app .menu-navigation.open {
   right: 0;
   opacity: 1;
 }
+
 .fuzzfinders-app .menu-navigation.open .extra-area {
   position: fixed;
   width: calc(100vw - 250px);
@@ -998,6 +1108,7 @@
     font-size: 18px;
   }
 }
+
 @media screen and (max-height: 320px) and (orientation: landscape) {
   .fuzzfinders-app .menu-navigation {
     padding-top: 50px;
@@ -1006,6 +1117,7 @@
     margin-bottom: 15px;
   }
 }
+
 @media screen and (min-width: 1025px) and (min-height: 500px) {
   .fuzzfinders-app .menu-navigation {
     display: block;
@@ -1308,6 +1420,7 @@
     line-height: 70px;
   }
 }
+
 .fuzzfinders-app .brand .logo {
   width: 75px;
   height: 85px;
@@ -1316,6 +1429,7 @@
   font-size: 85px;
   color: #E2573B;
 }
+
 .fuzzfinders-app .brand .brand-title {
   font-size: 31px;
   line-height: 37px;
@@ -1324,15 +1438,18 @@
   text-align: center;
   position: relative;
 }
+
 .fuzzfinders-app .brand .brand-title .alt, .fuzzfinders-app .brand .brand-title .trademark {
   color: #7F8C8D;
 }
+
 .fuzzfinders-app .brand .brand-title .trademark {
   font-size: 13px;
   font-weight: 900;
   position: absolute;
   top: -0.6em;
 }
+
 .fuzzfinders-app .section-title {
   font-size: 31px;
   line-height: 37px;
@@ -1340,34 +1457,44 @@
   font-weight: 500;
   text-align: center;
 }
+
 .fuzzfinders-app .section-title .alt {
   padding-left: 2px;
 }
+
 .fuzzfinders-app .fuzz-feed {
   color: #34495F;
 }
+
 .fuzzfinders-app .fuzz-feed .alt {
   color: #ECF0F1;
 }
+
 .fuzzfinders-app .fuzz-file {
   color: #7AC6FB;
 }
+
 .fuzzfinders-app .fuzz-file .alt {
   color: #F0F3F4;
 }
+
 .fuzzfinders-app .fuzz-file {
   color: #7AC6FB;
 }
+
 .fuzzfinders-app .fuzz-file .alt {
   color: #F0F3F4;
 }
+
 .fuzzfinders-app .fuzz-fund {
   color: #5A2116;
   opacity: 0.8;
 }
+
 .fuzzfinders-app .fuzz-fund .alt {
   color: #ECF0F1;
 }
+
 .fuzzfinders-app .title, .fuzzfinders-app .title-bold {
   font-size: 20px;
   line-height: 28px;
@@ -1375,10 +1502,12 @@
   font-weight: 500;
   text-align: center;
 }
+
 .fuzzfinders-app .title-bold {
   font-weight: 700;
   color: white;
 }
+
 .fuzzfinders-app .description {
   font-size: 14px;
   line-height: 20px;
@@ -1386,12 +1515,14 @@
   font-weight: 400;
   text-align: center;
 }
+
 .fuzzfinders-app .name {
   font-size: 16px;
   line-height: 19px;
   color: #34495F;
   font-weight: 500;
 }
+
 .fuzzfinders-app .message {
   font-size: 16px;
   line-height: 25px;
@@ -1399,6 +1530,7 @@
   font-weight: 400;
   opacity: 0.9;
 }
+
 .fuzzfinders-app .time {
   font-size: 12px;
   line-height: 12px;
@@ -1406,12 +1538,14 @@
   font-weight: 700;
   opacity: 0.4;
 }
+
 .fuzzfinders-app .text-feed, .fuzzfinders-app .read-more {
   font-size: 18px;
   line-height: 25px;
   color: #2C3E51;
   font-weight: 400;
 }
+
 .fuzzfinders-app .read-more {
   color: #3799DE;
   font-size: 14px;
@@ -1420,9 +1554,11 @@
   -moz-transition: opacity, 0.2s;
   transition: opacity, 0.2s;
 }
+
 .fuzzfinders-app .read-more:hover, .fuzzfinders-app .read-more:focus, .fuzzfinders-app .read-more.focus, .fuzzfinders-app .read-more:active, .fuzzfinders-app .read-more.active {
   opacity: 0.8;
 }
+
 .fuzzfinders-app .type, .fuzzfinders-app .data {
   font-size: 16px;
   line-height: 22px;
@@ -1430,15 +1566,18 @@
   font-weight: 700;
   opacity: 0.7;
 }
+
 .fuzzfinders-app .data {
   opacity: 0.8;
 }
+
 .fuzzfinders-app .input-label {
   font-size: 14px;
   line-height: 25px;
   color: #2C3E51;
   font-weight: 700;
 }
+
 .fuzzfinders-app .settings-title {
   font-size: 24px;
   line-height: 29px;
@@ -1503,12 +1642,14 @@
     line-height: 36px;
   }
 }
+
 .fuzzfinders-app .dropdown {
   display: block;
   margin: 10px auto;
   width: 100%;
   cursor: pointer;
 }
+
 .fuzzfinders-app .dropdown .dropdown-menu {
   min-width: 0;
   width: 100%;
@@ -1518,19 +1659,23 @@
   background: white;
   cursor: pointer;
 }
+
 .fuzzfinders-app .dropdown .dropdown-menu li a {
   padding-left: 30px;
   color: #2C3E51;
   font-weight: 500;
   cursor: pointer;
 }
+
 .fuzzfinders-app .dropdown .dropdown-menu li a:hover, .fuzzfinders-app .dropdown .dropdown-menu li a:focus, .fuzzfinders-app .dropdown .dropdown-menu li a.focus {
   background-color: #ECF0F1;
   cursor: pointer;
 }
+
 .fuzzfinders-app .dropdown .dropdown-menu li a:active, .fuzzfinders-app .dropdown .dropdown-menu li a.active {
   background-color: #FAFBFB;
 }
+
 .fuzzfinders-app .dropdown-small {
   width: 147px;
   cursor: pointer;
@@ -1565,12 +1710,15 @@
     -icab-border-radius: 5px;
   }
 }
+
 .fuzzfinders-app .table tr:nth-child(odd) {
   background-color: #F9FAFB;
 }
+
 .fuzzfinders-app .table tr:nth-child(even) {
   background-color: white;
 }
+
 .fuzzfinders-app .table tr th:first-child {
   padding: 9px 25px;
   opacity: 0.7;
@@ -1579,6 +1727,7 @@
   color: #2C3E51;
   line-height: 22px;
 }
+
 .fuzzfinders-app .table tr th:last-child {
   padding: 8px 25px;
   opacity: 0.8;
@@ -1588,155 +1737,6 @@
   line-height: 22px;
 }
 
-.fuzzfinders-app .alert-wrapper {
-  position: fixed;
-  top: 0;
-  right: -100%;
-  z-index: 1000;
-  width: 80%;
-  height: 85px;
-  -webkit-transition: right 0.6s ease-in-out;
-  -moz-transition: right 0.6s ease-in-out;
-  transition: right 0.6s ease-in-out;
-}
-.fuzzfinders-app .alert-wrapper .shadow {
-  position: absolute;
-  z-index: -1;
-  top: -5px;
-  right: -5px;
-  width: calc(100% + 10px);
-  height: calc(100% + 10px);
-  background-color: rgba(0, 0, 0, 0.05);
-  border-top-left-radius: 80px;
-  border-bottom-left-radius: 80px;
-  opacity: 0;
-  -webkit-transition: opacity 1s ease-in;
-  -moz-transition: opacity 1s ease-in;
-  transition: opacity 1s ease-in;
-}
-.fuzzfinders-app .alert-wrapper .fuzz-alert {
-  height: 100%;
-  width: 100%;
-  border-top-left-radius: 70px;
-  border-bottom-left-radius: 70px;
-  background: pink;
-  box-shadow: 0px 2px 9px 0px rgba(0, 0, 0, 0.15);
-  padding: 2px 3px;
-  opacity: 0;
-  -webkit-transition: opacity 1s ease-in;
-  -moz-transition: opacity 1s ease-in;
-  transition: opacity 1s ease-in;
-}
-.fuzzfinders-app .alert-wrapper .fuzz-alert .image-wrapper {
-  display: block;
-  float: left;
-  height: 76px;
-  width: 76px;
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -khtml-border-radius: 50%;
-  -o-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -icab-border-radius: 50%;
-  margin: 2px 0 0 2px;
-  background-image: image-url("sightings-pet-4.png");
-  background-size: cover;
-  background-position: 50% 50%;
-}
-.fuzzfinders-app .alert-wrapper .fuzz-alert .content-wrapper {
-  display: block;
-  float: left;
-  padding: 0;
-  width: calc(100% - 80px);
-  height: 76px;
-  overflow: hidden;
-  padding: 12px 25px !important;
-}
-.fuzzfinders-app .alert-wrapper .fuzz-alert .content-wrapper h1, .fuzzfinders-app .alert-wrapper .fuzz-alert .content-wrapper p, .fuzzfinders-app .alert-wrapper .fuzz-alert .content-wrapper .faq-page-wrapper .section-wrapper .question .question-content a, .fuzzfinders-app .faq-page-wrapper .section-wrapper .question .question-content .alert-wrapper .fuzz-alert .content-wrapper a {
-  margin: 0;
-  padding: 0;
-  font-size: 20px;
-  font-weight: 500;
-  color: white;
-  letter-spacing: 0.02em;
-}
-.fuzzfinders-app .alert-wrapper .fuzz-alert .close {
-  position: absolute;
-  top: 50%;
-  right: 35px;
-  margin-top: -20px;
-  color: white;
-  -webkit-transform: none;
-  -moz-transform: none;
-  -ms-transform: none;
-  -o-transform: none;
-  transform: none;
-  font-size: 25px;
-}
-.fuzzfinders-app .alert-wrapper .fuzz-alert .close:hover {
-  -webkit-transform: none;
-  -moz-transform: none;
-  -ms-transform: none;
-  -o-transform: none;
-  transform: none;
-}
-.fuzzfinders-app .alert-wrapper .fuzz-alert .close:before {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin: -0.5em 0 0 -0.5em;
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-.fuzzfinders-app .alert-wrapper.lost-pet .fuzz-alert {
-  background-color: #E2573B;
-}
-.fuzzfinders-app .alert-wrapper.found-pet .fuzz-alert {
-  background-color: #1E9F84;
-}
-.fuzzfinders-app .alert-wrapper.show {
-  right: 0;
-}
-.fuzzfinders-app .alert-wrapper.show .shadow {
-  opacity: 1;
-}
-.fuzzfinders-app .alert-wrapper.show .fuzz-alert {
-  opacity: 1;
-}
-
-@media screen and (min-width: 600px) {
-  .fuzzfinders-app .alert-wrapper {
-    width: 60%;
-  }
-}
-@media screen and (min-width: 720px) {
-  .fuzzfinders-app .alert-wrapper {
-    width: 480px;
-  }
-  .fuzzfinders-app .alert-wrapper .fuzz-alert .content-wrapper h1, .fuzzfinders-app .alert-wrapper .fuzz-alert .content-wrapper p, .fuzzfinders-app .alert-wrapper .fuzz-alert .content-wrapper .faq-page-wrapper .section-wrapper .question .question-content a, .fuzzfinders-app .faq-page-wrapper .section-wrapper .question .question-content .alert-wrapper .fuzz-alert .content-wrapper a {
-    display: inline-block;
-    line-height: 46px;
-  }
-  .fuzzfinders-app .alert-wrapper .fuzz-alert .content-wrapper h1 {
-    padding-right: 30px;
-  }
-}
-@media screen and (min-width: 1025px) {
-  .fuzzfinders-app .alert-wrapper {
-    top: auto;
-    bottom: 0;
-  }
-  .fuzzfinders-app .alert-wrapper .fuzz-alert .content-wrapper {
-    padding-top: 18px !important;
-  }
-  .fuzzfinders-app .alert-wrapper .fuzz-alert .close {
-    right: 15px;
-  }
-}
 .fuzzfinders-app .mainpage-wrapper {
   width: 100%;
   height: 100%;
@@ -1747,26 +1747,32 @@
   background-position: 70% center;
   background-size: cover;
 }
+
 .fuzzfinders-app .mainpage-wrapper .nav-trigger.nav-trigger-black {
   position: absolute;
   top: 30px;
   right: 30px;
   margin: 0;
 }
+
 .fuzzfinders-app .mainpage-wrapper .content-wrapper {
   display: block;
   padding-top: 22%;
 }
+
 .fuzzfinders-app .mainpage-wrapper .brand {
   margin: 0 auto 45px;
 }
+
 .fuzzfinders-app .mainpage-wrapper .brand .brand-title {
   margin-top: 20px;
 }
+
 .fuzzfinders-app .mainpage-wrapper .btn {
   display: block;
   margin: 25px auto;
 }
+
 .fuzzfinders-app .mainpage-wrapper .btn-down {
   margin: 0;
   position: absolute;
@@ -1798,11 +1804,13 @@
     font-size: 18px;
   }
 }
+
 @media screen and (max-height: 480px) {
   .fuzzfinders-app .mainpage-wrapper .content-wrapper {
     padding-top: 20%;
   }
 }
+
 @media screen and (max-height: 500px) and (orientation: landscape) {
   .fuzzfinders-app .mainpage-wrapper .content-wrapper {
     padding-top: 20px;
@@ -1812,6 +1820,7 @@
     margin: 20px auto;
   }
 }
+
 @media screen and (max-height: 400px) and (orientation: landscape) {
   .fuzzfinders-app .mainpage-wrapper .content-wrapper {
     padding-top: 32px;
@@ -1833,6 +1842,7 @@
     padding-right: 15px;
   }
 }
+
 @media screen and (max-height: 350px) and (orientation: landscape) {
   .fuzzfinders-app .mainpage-wrapper .nav-trigger.nav-trigger-black {
     top: 22px;
@@ -1851,6 +1861,7 @@
     height: 40px;
   }
 }
+
 @media screen and (max-height: 350px) and (orientation: landscape) {
   .fuzzfinders-app .mainpage-wrapper .nav-trigger.nav-trigger-black {
     top: 12px;
@@ -1859,6 +1870,7 @@
     padding-top: 15px;
   }
 }
+
 @media screen and (min-width: 600px) and (min-height: 600px) {
   .fuzzfinders-app .mainpage-wrapper .content-wrapper {
     width: 50%;
@@ -1878,6 +1890,7 @@
     margin-bottom: 65px;
   }
 }
+
 @media screen and (min-width: 1025px) and (min-height: 500px) {
   .fuzzfinders-app .mainpage-wrapper .nav-trigger {
     display: none;
@@ -1900,27 +1913,32 @@
     overflow-y: hidden;
   }
 }
+
 @media screen and (min-width: 1025px) and (min-height: 500px) {
   .fuzzfinders-app .mainpage-wrapper .content-wrapper .btn:not(.btn-down):not(.btn-big) {
     width: 370px;
   }
 }
+
 @media screen and (min-width: 1025px) and (max-height: 700px) {
   .fuzzfinders-app .mainpage-wrapper .content-wrapper {
     margin-top: -220px;
   }
 }
+
 @media screen and (min-width: 1025px) and (max-height: 630px) {
   .fuzzfinders-app .mainpage-wrapper .content-wrapper .brand {
     margin-bottom: 35px;
   }
 }
+
 @media screen and (min-width: 1025px) and (max-height: 568px) {
   .fuzzfinders-app .mainpage-wrapper .content-wrapper {
     margin-top: 20vh;
     padding-top: 0;
   }
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper {
   position: absolute;
   top: 0;
@@ -1949,14 +1967,17 @@
   background-color: #ECF0F1;
   z-index: 200;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper.show, .fuzzfinders-app .mainpage-wrapper .show.faq-page-wrapper, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper.show {
   left: 0;
   height: 100%;
   width: 100%;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper.show .ancete-wrapper.step-1 .step-wrapper-1, .fuzzfinders-app .mainpage-wrapper .show.faq-page-wrapper .ancete-wrapper.step-1 .step-wrapper-1, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper.show .ancete-wrapper.step-1 .step-wrapper-1 {
   height: auto;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .section-wrapper, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .section-wrapper, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .section-wrapper {
   display: block;
   width: 100%;
@@ -1964,16 +1985,19 @@
   overflow-x: hidden;
   overflow-y: scroll;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .progress-step, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .progress-step, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .progress-step {
   margin: 25px auto 25px;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper {
   position: relative;
   width: 100%;
-  min-height: calc( 100% - 91px);
+  min-height: calc(100% - 91px);
   overflow-x: hidden;
   overflow-y: hidden;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper [class^="step-wrapper-"], .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper [class^="step-wrapper-"], .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper [class^="step-wrapper-"] {
   display: block;
   position: absolute;
@@ -1988,17 +2012,21 @@
   -moz-transition: all 0.3s ease-in;
   transition: all 0.3s ease-in;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper [class^="step-wrapper-"] .btn:last-child, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper [class^="step-wrapper-"] .btn:last-child, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper [class^="step-wrapper-"] .btn:last-child {
   margin-bottom: 20px;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper.step-1 .step-wrapper-1, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper.step-1 .step-wrapper-1, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper.step-1 .step-wrapper-1 {
   left: 0;
   height: auto;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper.step-2 .step-wrapper-2, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper.step-2 .step-wrapper-2, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper.step-2 .step-wrapper-2 {
   left: 0;
   height: auto;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper.step-3 .step-wrapper-3, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper.step-3 .step-wrapper-3, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper.step-3 .step-wrapper-3 {
   left: 0;
   height: auto;
@@ -2006,31 +2034,40 @@
   -moz-animation-delay: 0.5s;
   animation-delay: 0.5s;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .empty .btn-new, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .empty .btn-new, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .empty .btn-new {
   display: block;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .empty .btn-done, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .empty .btn-done, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .empty .btn-done {
   display: none;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .done .btn-new, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .done .btn-new, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .done .btn-new {
   display: none;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .done .btn-done, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .done .btn-done, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .done .btn-done {
   display: block;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .title, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .title, .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .title-bold, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .title-bold, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .title, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .title-bold {
   margin: 0 0 15px;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .description, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .description, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .description {
   margin-bottom: 15px;
   padding: 0 10px;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-1 .btn-big, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-1 .btn-big, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-1 .btn-big {
   margin: 20px auto;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-1 .photo-wrapper, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-1 .photo-wrapper, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-1 .photo-wrapper {
   cursor: pointer;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-1 .photo-wrapper .preview-holder, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-1 .photo-wrapper .preview-holder, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-1 .photo-wrapper .preview-holder {
   display: block;
   width: 100%;
@@ -2048,25 +2085,31 @@
   background-repeat: no-repeat no-repeat;
   position: relative;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-1 .photo-wrapper .preview-holder i, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-1 .photo-wrapper .preview-holder i, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-1 .photo-wrapper .preview-holder i {
   position: absolute;
   color: rgba(0, 0, 0, 0.6);
   font-size: 30px;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-1 .photo-wrapper.empty.wrapper-cat .preview-holder, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-1 .photo-wrapper.empty.wrapper-cat .preview-holder, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-1 .photo-wrapper.empty.wrapper-cat .preview-holder {
   background-image: image-url("wrapper-cat.png");
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-1 .photo-wrapper.empty.wrapper-cat .preview-holder i, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-1 .photo-wrapper.empty.wrapper-cat .preview-holder i, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-1 .photo-wrapper.empty.wrapper-cat .preview-holder i {
   bottom: 25px;
   right: 25px;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-1 .photo-wrapper.empty.wrapper-dog .preview-holder, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-1 .photo-wrapper.empty.wrapper-dog .preview-holder, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-1 .photo-wrapper.empty.wrapper-dog .preview-holder {
   background-image: image-url("wrapper-dog.png");
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-1 .photo-wrapper.empty.wrapper-dog .preview-holder i, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-1 .photo-wrapper.empty.wrapper-dog .preview-holder i, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-1 .photo-wrapper.empty.wrapper-dog .preview-holder i {
   top: 25px;
   right: 25px;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-1 .photo-wrapper.done .preview-holder, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-1 .photo-wrapper.done .preview-holder, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-1 .photo-wrapper.done .preview-holder {
   border: none;
   background-position: cover;
@@ -2074,12 +2117,15 @@
   -o-background-size: cover;
   background-size: cover;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-1 .photo-wrapper.done .preview-holder i, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-1 .photo-wrapper.done .preview-holder i, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-1 .photo-wrapper.done .preview-holder i {
   display: none;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-2 .description, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-2 .description, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-2 .description {
   margin-top: 20px;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-2 .map, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-2 .map, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-2 .map {
   width: 100%;
   height: 240px;
@@ -2096,72 +2142,93 @@
    * position: center bottom
    * size: cover */
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .dropdown, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .dropdown, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .dropdown {
   margin: 0 auto 25px;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .textarea, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .textarea, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .textarea {
   height: 120px;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .extra-area, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .extra-area, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .extra-area {
   display: none;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .input, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .input, .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .textarea, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .textarea, .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .message-input .form-control, .fuzzfinders-app .message-input .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .form-control, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .message-input .form-control, .fuzzfinders-app .message-input .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .form-control, .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .textarea, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .textarea, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .input, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .textarea, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .message-input .form-control, .fuzzfinders-app .message-input .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .form-control, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .textarea {
   margin-bottom: 25px;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .input::-webkit-input-placeholder, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .input::-webkit-input-placeholder, .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .textarea::-webkit-input-placeholder, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .textarea::-webkit-input-placeholder, .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .message-input .form-control::-webkit-input-placeholder, .fuzzfinders-app .message-input .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .form-control::-webkit-input-placeholder, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .message-input .form-control::-webkit-input-placeholder, .fuzzfinders-app .message-input .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .form-control::-webkit-input-placeholder, .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .textarea::-webkit-input-placeholder, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .textarea::-webkit-input-placeholder, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .input::-webkit-input-placeholder, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .textarea::-webkit-input-placeholder, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .message-input .form-control::-webkit-input-placeholder, .fuzzfinders-app .message-input .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .form-control::-webkit-input-placeholder, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .textarea::-webkit-input-placeholder {
   opacity: 1;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .input:-moz-placeholder, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .input:-moz-placeholder, .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .textarea:-moz-placeholder, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .textarea:-moz-placeholder, .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .message-input .form-control:-moz-placeholder, .fuzzfinders-app .message-input .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .form-control:-moz-placeholder, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .message-input .form-control:-moz-placeholder, .fuzzfinders-app .message-input .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .form-control:-moz-placeholder, .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .textarea:-moz-placeholder, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .textarea:-moz-placeholder, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .input:-moz-placeholder, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .textarea:-moz-placeholder, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .message-input .form-control:-moz-placeholder, .fuzzfinders-app .message-input .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .form-control:-moz-placeholder, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .textarea:-moz-placeholder {
   opacity: 1;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .input::-moz-placeholder, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .input::-moz-placeholder, .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .textarea::-moz-placeholder, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .textarea::-moz-placeholder, .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .message-input .form-control::-moz-placeholder, .fuzzfinders-app .message-input .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .form-control::-moz-placeholder, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .message-input .form-control::-moz-placeholder, .fuzzfinders-app .message-input .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .form-control::-moz-placeholder, .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .textarea::-moz-placeholder, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .textarea::-moz-placeholder, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .input::-moz-placeholder, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .textarea::-moz-placeholder, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .message-input .form-control::-moz-placeholder, .fuzzfinders-app .message-input .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .form-control::-moz-placeholder, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .textarea::-moz-placeholder {
   opacity: 1;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .input:-ms-input-placeholder, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .input:-ms-input-placeholder, .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .textarea:-ms-input-placeholder, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .textarea:-ms-input-placeholder, .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .message-input .form-control:-ms-input-placeholder, .fuzzfinders-app .message-input .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .form-control:-ms-input-placeholder, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .message-input .form-control:-ms-input-placeholder, .fuzzfinders-app .message-input .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .form-control:-ms-input-placeholder, .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .textarea:-ms-input-placeholder, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .textarea:-ms-input-placeholder, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .input:-ms-input-placeholder, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .textarea:-ms-input-placeholder, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .message-input .form-control:-ms-input-placeholder, .fuzzfinders-app .message-input .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .form-control:-ms-input-placeholder, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .textarea:-ms-input-placeholder {
   opacity: 1;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .btn-big, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .btn-big, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .btn-big {
   letter-spacing: 0.05em;
   position: relative;
   font-weight: 300;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .btn-big i, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .btn-big i, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .btn-big i {
   position: absolute;
   left: 15px;
   top: 0.8em;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .last-seen-custom, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .last-seen-custom, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .last-seen-custom {
   display: none;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description.custom-date .last-seen-custom, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description.custom-date .last-seen-custom, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description.custom-date .last-seen-custom {
   display: block;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description.custom-date .last-seen-dropdown, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description.custom-date .last-seen-dropdown, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description.custom-date .last-seen-dropdown {
   display: none;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description.extra-open .btn-subarea, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description.extra-open .btn-subarea, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description.extra-open .btn-subarea {
   display: none;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description.extra-open .extra-area, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description.extra-open .extra-area, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description.extra-open .extra-area {
   display: block;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description.extra-open .extra-area .row, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description.extra-open .extra-area .row, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description.extra-open .extra-area .row {
   margin: 0;
   padding-bottom: 25px;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description.extra-open .extra-area .row .col-xs-6:nth-child(odd), .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description.extra-open .extra-area .row .col-xs-6:nth-child(odd), .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description.extra-open .extra-area .row .col-xs-6:nth-child(odd) {
   padding: 0 15px 0 0;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description.extra-open .extra-area .row .col-xs-6:nth-child(even), .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description.extra-open .extra-area .row .col-xs-6:nth-child(even), .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description.extra-open .extra-area .row .col-xs-6:nth-child(even) {
   padding: 0 0 0 15px;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description.extra-open .extra-area .row .input, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description.extra-open .extra-area .row .input, .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description.extra-open .extra-area .row .textarea, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description.extra-open .extra-area .row .textarea, .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description.extra-open .extra-area .row .message-input .form-control, .fuzzfinders-app .message-input .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description.extra-open .extra-area .row .form-control, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description.extra-open .extra-area .row .message-input .form-control, .fuzzfinders-app .message-input .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description.extra-open .extra-area .row .form-control, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description.extra-open .extra-area .row .input, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description.extra-open .extra-area .row .textarea, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description.extra-open .extra-area .row .message-input .form-control, .fuzzfinders-app .message-input .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description.extra-open .extra-area .row .form-control {
   margin: 0;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description.extra-open .extra-area .dropdown-small, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description.extra-open .extra-area .dropdown-small, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description.extra-open .extra-area .dropdown-small {
   margin: 0;
   width: 100%;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description.extra-open .extra-area .dropdown-small .btn-dropdown, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description.extra-open .extra-area .dropdown-small .btn-dropdown, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description.extra-open .extra-area .dropdown-small .btn-dropdown {
   margin: 0;
 }
@@ -2179,6 +2246,7 @@
     height: 200px;
   }
 }
+
 @media screen and (max-height: 567px) and (orientation: landscape) {
   .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .title, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .title, .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .title-bold, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .title-bold, .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .description, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper .description, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .title, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .title-bold, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper .description {
     margin: 0 auto 10px;
@@ -2197,6 +2265,7 @@
     margin: 10px auto;
   }
 }
+
 @media screen and (max-height: 567px) {
   .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .progress-step, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .progress-step, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .progress-step {
     margin: 25px auto 25px;
@@ -2205,6 +2274,7 @@
     height: calc(100% - 60px);
   }
 }
+
 @media screen and (min-width: 640px) and (min-height: 640px) {
   .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .section-wrapper .progress-step, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .section-wrapper .progress-step, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .section-wrapper .progress-step {
     margin: 9% auto 6%;
@@ -2277,6 +2347,7 @@
     margin: 50px auto;
   }
 }
+
 @media screen and (min-width: 640px) and (min-height: 640px) and (orientation: landscape) {
   .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .section-wrapper .progress-step, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .section-wrapper .progress-step, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .section-wrapper .progress-step {
     margin: 5% auto 5%;
@@ -2321,6 +2392,7 @@
     margin: 30px auto 0;
   }
 }
+
 @media screen and (min-width: 1025px) and (min-height: 500px) {
   .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper, .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper, .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper {
     top: 120px;
@@ -2333,7 +2405,7 @@
     width: 905px;
     height: auto;
     min-height: 800px;
-    left: calc( 50% - 453px );
+    left: calc(50% - 453px);
     margin-bottom: 100px;
     overflow-y: auto;
     box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.2);
@@ -2348,6 +2420,7 @@
     min-width: 0;
   }
 }
+
 .fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper {
   position: absolute;
   top: 0;
@@ -2376,9 +2449,11 @@
   background-color: #ECF0F1;
   z-index: 200;
 }
+
 .fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper.show {
   left: 0;
 }
+
 .fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper {
   display: block;
   width: 100%;
@@ -2386,11 +2461,13 @@
   overflow-x: hidden;
   overflow-y: scroll;
 }
+
 .fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .map {
   display: block;
   width: 100%;
   height: 300px;
 }
+
 .fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .search-area {
   display: block;
   height: 0;
@@ -2402,65 +2479,81 @@
   -moz-transition: height 0.9s ease-in-out;
   transition: height 0.9s ease-in-out;
 }
+
 .fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .search-area .input, .fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .search-area .textarea, .fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .search-area .message-input .form-control, .fuzzfinders-app .message-input .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .search-area .form-control {
   color: #2C3E51;
   margin-bottom: 25px;
 }
+
 .fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .search-area .input::-webkit-input-placeholder, .fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .search-area .textarea::-webkit-input-placeholder, .fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .search-area .message-input .form-control::-webkit-input-placeholder, .fuzzfinders-app .message-input .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .search-area .form-control::-webkit-input-placeholder {
   color: #2C3E51;
   opacity: 1;
 }
+
 .fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .search-area .input:-moz-placeholder, .fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .search-area .textarea:-moz-placeholder, .fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .search-area .message-input .form-control:-moz-placeholder, .fuzzfinders-app .message-input .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .search-area .form-control:-moz-placeholder {
   color: #2C3E51;
   opacity: 1;
 }
+
 .fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .search-area .input::-moz-placeholder, .fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .search-area .textarea::-moz-placeholder, .fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .search-area .message-input .form-control::-moz-placeholder, .fuzzfinders-app .message-input .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .search-area .form-control::-moz-placeholder {
   color: #2C3E51;
   opacity: 1;
 }
+
 .fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .search-area .input:-ms-input-placeholder, .fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .search-area .textarea:-ms-input-placeholder, .fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .search-area .message-input .form-control:-ms-input-placeholder, .fuzzfinders-app .message-input .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .search-area .form-control:-ms-input-placeholder {
   color: #2C3E51;
   opacity: 1;
 }
+
 .fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .search-area .row {
   margin: 0;
   padding: 0;
 }
+
 .fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .search-area .row .col-xs-6 {
   padding: 0;
 }
+
 .fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .search-area .row .col-xs-6:first-child {
   padding-right: 12px;
 }
+
 .fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .search-area .row .col-xs-6:last-child {
   padding-left: 12px;
 }
+
 .fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .search-area .row .col-xs-6 .dropdown {
   width: 100%;
   margin: 0 0 25px;
 }
+
 .fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .search-area .row .col-xs-6 .dropdown .btn-dropdown {
   margin: 0;
 }
+
 .fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .search-area .row .col-xs-6 .btn-small {
   margin: 0;
   width: 100%;
   font-weight: 500;
   letter-spacing: 0.03em;
 }
+
 .fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper.extra-open .search-area {
   padding: 25px 5% 20px;
   height: auto;
   overflow: visible;
 }
+
 .fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .btn-search {
   margin: 0;
   width: 100%;
   box-shadow: 0px -2px 10px 0px rgba(127, 140, 141, 0.5);
 }
+
 .fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .posts {
   padding: 50px 5% 10px;
 }
+
 .fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .posts .post {
   width: 100%;
   height: 165px;
@@ -2476,6 +2569,7 @@
   background-color: white;
   cursor: pointer;
 }
+
 .fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .posts .post .title, .fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .posts .post .title-bold {
   display: block;
   margin: 0;
@@ -2487,6 +2581,7 @@
   line-height: 40px;
   color: white;
 }
+
 .fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .posts .post .photo-holder {
   display: inline-block;
   width: 30%;
@@ -2495,12 +2590,14 @@
   background-position: center center;
   background-size: cover;
 }
+
 .fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .posts .post .content-holder {
   display: inline-block;
   width: 68%;
   padding: 20px 0 0 15px;
   vertical-align: top;
 }
+
 .fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .posts .post .content-holder table td {
   display: inline-block;
   font-size: 14px;
@@ -2509,26 +2606,33 @@
   color: #2C3E51;
   padding-bottom: 15px;
 }
+
 .fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .posts .post .content-holder table td:last-child {
   padding-left: 5px;
   font-weight: 500;
 }
+
 .fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .posts .post .content-holder .read-more {
   display: block;
   text-align: center;
 }
+
 .fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .posts .post.lost-post .title, .fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .posts .post.lost-post .title-bold {
   background-color: #E2573B;
 }
+
 .fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .posts .post.lost-post .content-holder .read-more {
   color: #E2573B;
 }
+
 .fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .posts .post.found-post .title, .fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .posts .post.found-post .title-bold {
   background-color: #1E9F84;
 }
+
 .fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .posts .post.found-post .content-holder .read-more {
   color: #1E9F84;
 }
+
 .fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .posts .placeholder-dog .photo-holder {
   border-right: 2px solid rgba(236, 240, 241, 0.4);
   background-image: image-url("dog.png");
@@ -2537,6 +2641,7 @@
   background-repeat: no-repeat;
   background-color: rgba(236, 240, 241, 0.2);
 }
+
 .fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .posts .placeholder-cat .photo-holder {
   border-right: 2px solid rgba(236, 240, 241, 0.4);
   background-image: image-url("cat.png");
@@ -2545,6 +2650,7 @@
   background-repeat: no-repeat;
   background-color: rgba(236, 240, 241, 0.2);
 }
+
 .fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .posts .placeholder-bird .photo-holder {
   border-right: 2px solid rgba(236, 240, 241, 0.4);
   background-image: image-url("bird.png");
@@ -2559,17 +2665,20 @@
     height: calc(100% - 60px);
   }
 }
+
 @media screen and (max-width: 350px) {
   .fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .posts .post .content-holder table td {
     font-size: 12px;
     line-height: 18px;
   }
 }
+
 @media screen and (max-width: 350px) {
   .fuzzfinders-app .nav-block h2 {
     font-size: 18px;
   }
 }
+
 @media screen and (max-width: 320px) {
   .fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .search-area .row .col-xs-6:first-child {
     padding-right: 5px;
@@ -2591,6 +2700,7 @@
     margin-bottom: 16px;
   }
 }
+
 @media screen and (min-width: 640px) and (min-height: 640px) {
   .fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .map {
     height: 450px;
@@ -2616,11 +2726,13 @@
     line-height: 20px;
   }
 }
+
 @media screen and (min-width: 640px) and (min-height: 640px) and (orientation: landscape) {
   .fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .map {
     height: 350px;
   }
 }
+
 @media screen and (min-width: 1025px) and (min-height: 500px) {
   .fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper {
     top: 120px;
@@ -2633,7 +2745,7 @@
     width: 905px;
     height: auto;
     min-height: 800px;
-    left: calc( 50% - 453px );
+    left: calc(50% - 453px);
     margin-bottom: 100px;
     overflow-y: auto;
     box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.2);
@@ -2645,11 +2757,13 @@
     height: 800px;
   }
 }
+
 .fuzzfinders-app .mainpage-wrapper {
   /*.found-pet-post-wrapper
    * .section-wrapper .map
    *  background-image: <%= image_url('\1.png') %> */
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper {
   position: absolute;
   top: 0;
@@ -2678,9 +2792,11 @@
   background-color: #ECF0F1;
   z-index: 300;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper.show, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper.show {
   left: 0;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper {
   display: block;
   width: 100%;
@@ -2688,11 +2804,13 @@
   overflow-x: hidden;
   overflow-y: scroll;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .map, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .map {
   display: block;
   width: 100%;
   height: 250px;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .photo-wrapper, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .photo-wrapper {
   width: 90%;
   height: 200px;
@@ -2708,6 +2826,7 @@
   position: relative;
   z-index: 100;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .photo-wrapper .photo, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .photo-wrapper .photo {
   width: 100%;
   height: 160px;
@@ -2721,6 +2840,7 @@
   background-position: center center;
   background-size: cover;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .photo-wrapper .label, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .photo-wrapper .label {
   display: block;
   margin: 0;
@@ -2732,6 +2852,7 @@
   color: white;
   text-align: center;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .placeholder-dog .photo, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .placeholder-dog .photo {
   background-image: image-url("dog.png");
   background-size: auto 80%;
@@ -2739,6 +2860,7 @@
   background-repeat: no-repeat;
   background-color: #ECF0F1;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .placeholder-cat .photo, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .placeholder-cat .photo {
   background-image: image-url("cat.png");
   background-size: auto 80%;
@@ -2746,6 +2868,7 @@
   background-repeat: no-repeat;
   background-color: #ECF0F1;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .placeholder-bird .photo, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .placeholder-bird .photo {
   background-image: image-url("bird.png");
   background-size: auto 80%;
@@ -2753,6 +2876,7 @@
   background-repeat: no-repeat;
   background-color: #ECF0F1;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .post-description, .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .social-share-wrapper, .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .comments-wrapper .comment, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .post-description, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .social-share-wrapper, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .comments-wrapper .comment {
   width: 90%;
   margin: auto;
@@ -2766,9 +2890,11 @@
   background-color: white;
   padding-bottom: 40px;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .post-description .header, .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .social-share-wrapper .header, .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .comments-wrapper .comment .header, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .post-description .header, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .social-share-wrapper .header, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .comments-wrapper .comment .header {
   padding: 15px;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .post-description .header .face-lockup, .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .social-share-wrapper .header .face-lockup, .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .comments-wrapper .comment .header .face-lockup, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .post-description .header .face-lockup, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .social-share-wrapper .header .face-lockup, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .comments-wrapper .comment .header .face-lockup {
   display: inline-block;
   vertical-align: top;
@@ -2785,9 +2911,11 @@
   background-position: center center;
   background-size: cover;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .post-description .header .content, .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .social-share-wrapper .header .content, .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .comments-wrapper .comment .header .content, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .post-description .header .content, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .social-share-wrapper .header .content, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .comments-wrapper .comment .header .content {
   display: inline-block;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .post-description .header .content p, .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .social-share-wrapper .header .content p, .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .comments-wrapper .comment .header .content p, .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .faq-page-wrapper .section-wrapper .post-description .header .content .question .question-content a, .fuzzfinders-app .faq-page-wrapper .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .post-description .header .content .question .question-content a, .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .faq-page-wrapper .section-wrapper .question .question-content .post-description .header .content a, .fuzzfinders-app .faq-page-wrapper .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .question .question-content .post-description .header .content a, .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .faq-page-wrapper .section-wrapper .social-share-wrapper .header .content .question .question-content a, .fuzzfinders-app .faq-page-wrapper .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .social-share-wrapper .header .content .question .question-content a, .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .faq-page-wrapper .section-wrapper .question .question-content .social-share-wrapper .header .content a, .fuzzfinders-app .faq-page-wrapper .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .question .question-content .social-share-wrapper .header .content a, .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .faq-page-wrapper .section-wrapper .comments-wrapper .comment .header .content .question .question-content a, .fuzzfinders-app .faq-page-wrapper .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .comments-wrapper .comment .header .content .question .question-content a, .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .faq-page-wrapper .section-wrapper .question .question-content .comments-wrapper .comment .header .content a, .fuzzfinders-app .faq-page-wrapper .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .question .question-content .comments-wrapper .comment .header .content a, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .post-description .header .content p, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .social-share-wrapper .header .content p, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .comments-wrapper .comment .header .content p, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .faq-page-wrapper .section-wrapper .post-description .header .content .question .question-content a, .fuzzfinders-app .faq-page-wrapper .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .post-description .header .content .question .question-content a, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .faq-page-wrapper .section-wrapper .question .question-content .post-description .header .content a, .fuzzfinders-app .faq-page-wrapper .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .question .question-content .post-description .header .content a, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .faq-page-wrapper .section-wrapper .social-share-wrapper .header .content .question .question-content a, .fuzzfinders-app .faq-page-wrapper .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .social-share-wrapper .header .content .question .question-content a, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .faq-page-wrapper .section-wrapper .question .question-content .social-share-wrapper .header .content a, .fuzzfinders-app .faq-page-wrapper .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .question .question-content .social-share-wrapper .header .content a, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .faq-page-wrapper .section-wrapper .comments-wrapper .comment .header .content .question .question-content a, .fuzzfinders-app .faq-page-wrapper .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .comments-wrapper .comment .header .content .question .question-content a, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .faq-page-wrapper .section-wrapper .question .question-content .comments-wrapper .comment .header .content a, .fuzzfinders-app .faq-page-wrapper .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .question .question-content .comments-wrapper .comment .header .content a {
   margin: auto;
   font-size: 15px;
@@ -2795,12 +2923,14 @@
   line-height: 19px;
   color: #7F8C8D;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .post-description .header .content .type, .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .social-share-wrapper .header .content .type, .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .comments-wrapper .comment .header .content .type, .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .post-description .header .content .data, .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .social-share-wrapper .header .content .data, .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .comments-wrapper .comment .header .content .data, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .post-description .header .content .type, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .social-share-wrapper .header .content .type, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .comments-wrapper .comment .header .content .type, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .post-description .header .content .data, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .social-share-wrapper .header .content .data, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .comments-wrapper .comment .header .content .data {
   font-size: 24px;
   line-height: 24px;
   color: #2C3E51;
   opacity: 1;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .post-description .table td, .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .social-share-wrapper .table td, .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .comments-wrapper .comment .table td, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .post-description .table td, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .social-share-wrapper .table td, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .comments-wrapper .comment .table td {
   opacity: 0.7;
   font-size: 16px;
@@ -2809,10 +2939,12 @@
   color: #2C3E51;
   padding: 0 0 0 30px;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .post-description .table td:last-child, .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .social-share-wrapper .table td:last-child, .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .comments-wrapper .comment .table td:last-child, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .post-description .table td:last-child, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .social-share-wrapper .table td:last-child, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .comments-wrapper .comment .table td:last-child {
   font-size: 18px;
   opacity: 0.8;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .post-description .description, .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .social-share-wrapper .description, .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .comments-wrapper .comment .description, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .post-description .description, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .social-share-wrapper .description, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .comments-wrapper .comment .description {
   opacity: 0.8;
   font-size: 18px;
@@ -2822,15 +2954,18 @@
   margin: 25px 25px 20px;
   text-align: left;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .post-description .btn-big, .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .social-share-wrapper .btn-big, .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .comments-wrapper .comment .btn-big, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .post-description .btn-big, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .social-share-wrapper .btn-big, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .comments-wrapper .comment .btn-big {
   display: block;
   width: calc(100% - 50px);
   margin: 0 auto;
   font-weight: 400;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .post-description .btn-big i, .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .social-share-wrapper .btn-big i, .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .comments-wrapper .comment .btn-big i, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .post-description .btn-big i, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .social-share-wrapper .btn-big i, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .comments-wrapper .comment .btn-big i {
   margin-right: 10px;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .social-share-wrapper, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .social-share-wrapper {
   margin: 30px auto;
   padding: 20px 10px;
@@ -2843,6 +2978,7 @@
   -ms-border-radius: 5px;
   -icab-border-radius: 5px;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .social-share-wrapper p, .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .faq-page-wrapper .section-wrapper .social-share-wrapper .question .question-content a, .fuzzfinders-app .faq-page-wrapper .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .social-share-wrapper .question .question-content a, .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .faq-page-wrapper .section-wrapper .question .question-content .social-share-wrapper a, .fuzzfinders-app .faq-page-wrapper .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .question .question-content .social-share-wrapper a, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .social-share-wrapper p, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .faq-page-wrapper .section-wrapper .social-share-wrapper .question .question-content a, .fuzzfinders-app .faq-page-wrapper .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .social-share-wrapper .question .question-content a, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .faq-page-wrapper .section-wrapper .question .question-content .social-share-wrapper a, .fuzzfinders-app .faq-page-wrapper .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .question .question-content .social-share-wrapper a {
   margin: auto;
   font-size: 16px;
@@ -2851,10 +2987,12 @@
   color: #2C3E51;
   text-align: center;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .social-share-wrapper .buttons-wrapper, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .social-share-wrapper .buttons-wrapper {
   width: 160px;
   margin: auto;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .social-share-wrapper .buttons-wrapper [class^="social-"], .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .social-share-wrapper .buttons-wrapper [class^="social-"] {
   height: 30px;
   width: 30px;
@@ -2872,25 +3010,32 @@
   margin-top: 20px;
   margin-right: 30px;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .social-share-wrapper .buttons-wrapper [class^="social-"]:hover, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .social-share-wrapper .buttons-wrapper [class^="social-"]:hover {
   opacity: 0.9;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .social-share-wrapper .buttons-wrapper [class^="social-"]:last-child, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .social-share-wrapper .buttons-wrapper [class^="social-"]:last-child {
   margin-right: 0;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .social-share-wrapper .buttons-wrapper .social-facebook, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .social-share-wrapper .buttons-wrapper .social-facebook {
   background-image: asset-url("Facebook-squared.png");
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .social-share-wrapper .buttons-wrapper .social-twitter, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .social-share-wrapper .buttons-wrapper .social-twitter {
   background-image: asset-url("Twitter-squared.png");
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .social-share-wrapper .buttons-wrapper .social-instagram, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .social-share-wrapper .buttons-wrapper .social-instagram {
   background-image: asset-url("Instagram-squared.png");
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .comments-wrapper, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .comments-wrapper {
   width: 90%;
   margin: auto;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .comments-wrapper h2, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .comments-wrapper h2 {
   font-size: 24px;
   line-height: 24px;
@@ -2899,15 +3044,18 @@
   text-align: center;
   margin-bottom: 30px;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .comments-wrapper .comment, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .comments-wrapper .comment {
   width: 100%;
   padding-bottom: 1px;
   margin-bottom: 30px;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .comments-wrapper .comment .header .face-lockup, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .comments-wrapper .comment .header .face-lockup {
   height: 40px;
   width: 40px;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .comments-wrapper .comment .image, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .comments-wrapper .comment .image {
   display: block;
   margin: 0 auto 30px;
@@ -2924,9 +3072,11 @@
   background-position: center center;
   background-size: cover;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .comments-wrapper .comment .description, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .comments-wrapper .comment .description {
   margin: 0 35px 30px;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .comments-wrapper .comment .location-sign, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .comments-wrapper .comment .location-sign {
   display: block;
   margin: 10px 30px 30px;
@@ -2936,14 +3086,17 @@
   line-height: 15px;
   color: #7F8C8D;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .comments-wrapper .comment .location-sign i, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .comments-wrapper .comment .location-sign i {
   margin-right: 0.5em;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .post-comment, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .post-comment {
   width: 90%;
   margin: auto;
   padding-bottom: 40px;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .post-comment h2, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .post-comment h2 {
   font-size: 24px;
   line-height: 24px;
@@ -2952,37 +3105,47 @@
   text-align: center;
   margin-bottom: 20px;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .post-comment .textarea, .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .post-comment .btn, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .post-comment .textarea, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .post-comment .btn {
   margin-top: 0;
   margin-bottom: 20px;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .post-comment .textarea, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .post-comment .textarea {
   min-height: 200px;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .post-comment .row, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .post-comment .row {
   margin: 0;
   width: 100%;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .post-comment .row .col-xs-6, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .post-comment .row .col-xs-6 {
   padding: 0 12px 0 0;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .post-comment .row .col-xs-6:last-child, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .post-comment .row .col-xs-6:last-child {
   padding: 0 0 0 12px;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .post-comment .row .col-xs-6 .btn, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .post-comment .row .col-xs-6 .btn {
   width: 100%;
   font-weight: 500;
   letter-spacing: 0.03em;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .post-comment .btn-xbig, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .post-comment .btn-xbig {
   width: 100%;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .post-comment .photo-wrapper, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .post-comment .photo-wrapper {
   display: none;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .post-comment .location-wrapper, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .post-comment .location-wrapper {
   display: none;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .post-comment.photo-added .photo-wrapper, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .post-comment.photo-added .photo-wrapper {
   display: block;
   margin: 20px auto;
@@ -2991,6 +3154,7 @@
   background-position: center center;
   position: relative;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .post-comment.photo-added .photo-wrapper .btn-remove, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .post-comment.photo-added .photo-wrapper .btn-remove {
   position: absolute;
   top: 15px;
@@ -3010,33 +3174,42 @@
   background-repeat: no-repeat;
   background-position: center;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .post-comment.photo-added .btn-photo, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .post-comment.photo-added .btn-photo {
   display: none;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .post-comment.photo-added .col-xs-6, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .post-comment.photo-added .col-xs-6 {
   width: 100%;
   padding: 0;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .post-comment.photo-added .col-xs-6:last-child, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .post-comment.photo-added .col-xs-6:last-child {
   padding: 0;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .post-comment.location-added .location-wrapper, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .post-comment.location-added .location-wrapper {
   display: block;
   margin-bottom: 30px;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .post-comment.location-added .btn-location, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .post-comment.location-added .btn-location {
   display: none;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .post-comment.location-added .col-xs-6, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .post-comment.location-added .col-xs-6 {
   width: 100%;
   padding: 0;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .post-comment.location-added .col-xs-6:last-child, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .post-comment.location-added .col-xs-6:last-child {
   padding: 0;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .photo-wrapper-purple, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .photo-wrapper-purple {
   background-color: #E2573B;
 }
+
 .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .photo-wrapper-green, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .photo-wrapper-green {
   background-color: #1E9F84;
 }
@@ -3056,6 +3229,7 @@
     font-size: 20px;
   }
 }
+
 @media screen and (max-height: 567px) and (orientation: landscape) {
   .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .nav-block, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .nav-block {
     height: 50px;
@@ -3070,6 +3244,7 @@
     max-width: 100%;
   }
 }
+
 @media screen and (min-width: 375px) {
   .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .social-share-wrapper, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .social-share-wrapper {
     padding: 30px 25px;
@@ -3087,6 +3262,7 @@
     margin-right: 40px;
   }
 }
+
 @media screen and (min-width: 640px) and (min-height: 640px) {
   .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .map, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .map {
     height: 450px;
@@ -3217,6 +3393,7 @@
     margin-bottom: 30px;
   }
 }
+
 @media screen and (min-width: 640px) and (min-height: 640px) and (orientation: landscape) {
   .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .photo-wrapper, .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .post-description, .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .social-share-wrapper, .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .comments-wrapper .comment, .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .post-comment, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .photo-wrapper, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .post-description, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .social-share-wrapper, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .comments-wrapper .comment, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .post-comment {
     width: 50%;
@@ -3228,6 +3405,7 @@
     width: 100%;
   }
 }
+
 @media screen and (min-width: 1025px) and (min-height: 500px) {
   .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper, .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper {
     top: 120px;
@@ -3240,7 +3418,7 @@
     width: 905px;
     height: auto;
     min-height: 800px;
-    left: calc( 50% - 453px );
+    left: calc(50% - 453px);
     margin-bottom: 100px;
     overflow-y: auto;
     box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.2);
@@ -3258,9 +3436,11 @@
     width: 100%;
   }
 }
+
 .fuzzfinders-app.navigation-orange.demo .menu-navigation ul li {
   margin-right: 30px;
 }
+
 .fuzzfinders-app.navigation-orange.demo .menu-navigation ul li.action a {
   text-align: center;
   display: inline-block;
@@ -3280,20 +3460,25 @@
   -moz-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
+
 .fuzzfinders-app.navigation-orange.demo .menu-navigation ul li.action a:hover {
   background-color: rgba(255, 255, 255, 0.3);
 }
+
 .fuzzfinders-app.navigation-orange.demo .section-wrapper .post-description .description.up-side, .fuzzfinders-app.navigation-orange.demo .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .social-share-wrapper .description.up-side, .fuzzfinders-app.navigation-orange.demo .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .social-share-wrapper .description.up-side, .fuzzfinders-app.navigation-orange.demo .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .comments-wrapper .comment .description.up-side, .fuzzfinders-app.navigation-orange.demo .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .comments-wrapper .comment .description.up-side {
   margin: 40px 50px 0 80px;
 }
+
 .fuzzfinders-app.navigation-orange.demo .section-wrapper .post-comment {
   padding: 30px 45px 20px;
 }
+
 .fuzzfinders-app.navigation-orange.demo .section-wrapper .post-comment h2 {
   margin-bottom: 20px;
   font-size: 24px;
   font-weight: 700;
 }
+
 .fuzzfinders-app.navigation-orange.demo .section-wrapper .post-comment p, .fuzzfinders-app.navigation-orange.demo .faq-page-wrapper .section-wrapper .post-comment .question .question-content a, .fuzzfinders-app.navigation-orange.demo .faq-page-wrapper .section-wrapper .question .question-content .post-comment a {
   text-align: center;
   font-size: 20px;
@@ -3302,6 +3487,7 @@
   color: #34495F;
   padding-bottom: 20px;
 }
+
 .fuzzfinders-app.navigation-orange.demo .back-arrow {
   opacity: 0;
 }
@@ -3311,6 +3497,7 @@
     width: 110px;
   }
 }
+
 @media screen and (max-width: 1024px) {
   .fuzzfinders-app.navigation-orange.demo .menu-navigation ul li.action a {
     border: none;
@@ -3322,6 +3509,7 @@
     background: none;
   }
 }
+
 @media screen and (max-width: 568px) {
   .fuzzfinders-app.navigation-orange.demo .section-wrapper .post-description .description.up-side, .fuzzfinders-app.navigation-orange.demo .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .social-share-wrapper .description.up-side, .fuzzfinders-app.navigation-orange.demo .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .social-share-wrapper .description.up-side, .fuzzfinders-app.navigation-orange.demo .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .comments-wrapper .comment .description.up-side, .fuzzfinders-app.navigation-orange.demo .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .comments-wrapper .comment .description.up-side {
     margin: 0 20px 0 30px;
@@ -3338,6 +3526,7 @@
     line-height: 18px;
   }
 }
+
 .fuzzfinders-app .mainpage-wrapper .fuzz-chat-wrapper, .fuzzfinders-app .mainpage-wrapper .contact-view-wrapper {
   -webkit-transition: left 0.5s ease-in-out;
   -moz-transition: left 0.5s ease-in-out;
@@ -3368,19 +3557,23 @@
   transition: top 0.6s ease-in;
   z-index: 400;
 }
+
 .fuzzfinders-app .mainpage-wrapper .fuzz-chat-wrapper.show, .fuzzfinders-app .mainpage-wrapper .show.contact-view-wrapper {
   top: 0;
 }
+
 .fuzzfinders-app .mainpage-wrapper .fuzz-chat-wrapper .chat-wrapper, .fuzzfinders-app .mainpage-wrapper .contact-view-wrapper .chat-wrapper {
   height: calc(100% - 130px);
   overflow-y: scroll;
   padding: 30px 30px 30px 20px;
 }
+
 .fuzzfinders-app .mainpage-wrapper .fuzz-chat-wrapper .chat-wrapper .message-wrapper:after, .fuzzfinders-app .mainpage-wrapper .contact-view-wrapper .chat-wrapper .message-wrapper:after {
   content: "";
   display: table;
   clear: both;
 }
+
 .fuzzfinders-app .mainpage-wrapper .fuzz-chat-wrapper .chat-wrapper .face-lockup, .fuzzfinders-app .mainpage-wrapper .contact-view-wrapper .chat-wrapper .face-lockup {
   display: block;
   height: 10vw;
@@ -3397,6 +3590,7 @@
   background-position: center;
   background-repeat: no-repeat;
 }
+
 .fuzzfinders-app .mainpage-wrapper .fuzz-chat-wrapper .chat-wrapper .text-holder, .fuzzfinders-app .mainpage-wrapper .contact-view-wrapper .chat-wrapper .text-holder {
   display: block;
   width: 82%;
@@ -3413,6 +3607,7 @@
   padding: 0 15px;
   position: relative;
 }
+
 .fuzzfinders-app .mainpage-wrapper .fuzz-chat-wrapper .chat-wrapper .text-holder:before, .fuzzfinders-app .mainpage-wrapper .contact-view-wrapper .chat-wrapper .text-holder:before {
   content: " ";
   display: block;
@@ -3423,13 +3618,16 @@
   top: 12px;
   left: -7px;
 }
+
 .fuzzfinders-app .mainpage-wrapper .fuzz-chat-wrapper .chat-wrapper .text-holder:before .time, .fuzzfinders-app .mainpage-wrapper .contact-view-wrapper .chat-wrapper .text-holder:before .time {
   margin: 5px auto 15px;
 }
+
 .fuzzfinders-app .mainpage-wrapper .fuzz-chat-wrapper .message-input, .fuzzfinders-app .mainpage-wrapper .contact-view-wrapper .message-input {
   position: absolute;
   bottom: -11px;
 }
+
 .fuzzfinders-app .mainpage-wrapper .fuzz-chat-wrapper .message-input .btn-message, .fuzzfinders-app .mainpage-wrapper .contact-view-wrapper .message-input .btn-message {
   margin: 0;
   padding: 4px 0;
@@ -3438,7 +3636,7 @@
 
 @media screen and (min-width: 640px) and (min-height: 640px) {
   .fuzzfinders-app .mainpage-wrapper .fuzz-chat-wrapper .chat-wrapper, .fuzzfinders-app .mainpage-wrapper .contact-view-wrapper .chat-wrapper {
-    height: calc( 100% - 140px);
+    height: calc(100% - 140px);
     padding: 50px 100px;
   }
   .fuzzfinders-app .mainpage-wrapper .fuzz-chat-wrapper .chat-wrapper .message-wrapper .face-lockup, .fuzzfinders-app .mainpage-wrapper .contact-view-wrapper .chat-wrapper .message-wrapper .face-lockup {
@@ -3456,11 +3654,12 @@
     height: 60px;
   }
 }
+
 @media screen and (min-width: 1025px) and (min-height: 500px) {
   .fuzzfinders-app .mainpage-wrapper .fuzz-chat-wrapper, .fuzzfinders-app .mainpage-wrapper .contact-view-wrapper {
     width: 905px;
     height: 800px;
-    left: calc( 50% - 453px );
+    left: calc(50% - 453px);
   }
   .fuzzfinders-app .mainpage-wrapper .fuzz-chat-wrapper .chat-wrapper .message-wrapper .face-lockup, .fuzzfinders-app .mainpage-wrapper .contact-view-wrapper .chat-wrapper .message-wrapper .face-lockup {
     height: 70px;
@@ -3478,6 +3677,7 @@
     box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.2);
   }
 }
+
 .fuzzfinders-app .file-view-wrapper {
   background-color: #ECF0F1;
   width: 100vw;
@@ -3486,24 +3686,29 @@
   display: block;
   position: relative;
 }
+
 .fuzzfinders-app .file-view-wrapper .menu-navigation .nav-trigger {
   position: absolute;
   top: 15px;
   right: 4px;
   margin: 0;
 }
+
 .fuzzfinders-app .file-view-wrapper .table td {
   padding: 0 0 0 32px;
   font-weight: 500;
 }
+
 .fuzzfinders-app .file-view-wrapper .table td:first-child {
   font-size: 16px;
   line-height: 40px;
 }
+
 .fuzzfinders-app .file-view-wrapper .table td:last-child {
   font-size: 18px;
   line-height: 40px;
 }
+
 .fuzzfinders-app .file-view-wrapper .top-profile-wrapper {
   width: 100%;
   height: 150px;
@@ -3511,6 +3716,7 @@
   position: relative;
   z-index: 1;
 }
+
 .fuzzfinders-app .file-view-wrapper .top-profile-wrapper .locker {
   height: 100%;
   width: 100%;
@@ -3518,6 +3724,7 @@
   position: relative;
   background-color: rgba(44, 129, 187, 0.3);
 }
+
 .fuzzfinders-app .file-view-wrapper .top-profile-wrapper .locker .blured-profile {
   position: absolute;
   top: -10px;
@@ -3532,6 +3739,7 @@
   background-position: center center;
   z-index: -1;
 }
+
 .fuzzfinders-app .file-view-wrapper .top-profile-wrapper .photo-profile {
   height: 120px;
   width: 120px;
@@ -3550,11 +3758,13 @@
   bottom: -60px;
   left: 50%;
 }
+
 .fuzzfinders-app .file-view-wrapper .btn-big.btn-blue {
   display: block;
   width: 75%;
   margin: 50px auto 20px;
 }
+
 .fuzzfinders-app .file-view-wrapper .file-edit-wrapper {
   position: absolute;
   top: 100%;
@@ -3569,14 +3779,17 @@
   -moz-transition: all 0.6s ease-in-out;
   transition: all 0.6s ease-in-out;
 }
+
 .fuzzfinders-app .file-view-wrapper .file-edit-wrapper.show {
   top: 0;
   height: 100%;
 }
+
 .fuzzfinders-app .file-view-wrapper .file-edit-wrapper .settings-title {
   margin: 30px auto;
   text-align: center;
 }
+
 .fuzzfinders-app .file-view-wrapper .file-edit-wrapper #photo-holder {
   display: block;
   margin: auto;
@@ -3594,19 +3807,24 @@
   background-size: contain;
   background-position: center center;
 }
+
 .fuzzfinders-app .file-view-wrapper .file-edit-wrapper #upload-profile-image {
   margin: 30px auto;
   width: 100%;
 }
+
 .fuzzfinders-app .file-view-wrapper .file-edit-wrapper .profile-edit-wrapper {
   margin: 0 42px 50px;
 }
+
 .fuzzfinders-app .file-view-wrapper .file-edit-wrapper .profile-edit-wrapper .form-group {
   margin-bottom: 30px;
 }
+
 .fuzzfinders-app .file-view-wrapper .file-edit-wrapper .profile-edit-wrapper .input, .fuzzfinders-app .file-view-wrapper .file-edit-wrapper .profile-edit-wrapper .textarea, .fuzzfinders-app .file-view-wrapper .file-edit-wrapper .profile-edit-wrapper .message-input .form-control, .fuzzfinders-app .message-input .file-view-wrapper .file-edit-wrapper .profile-edit-wrapper .form-control {
   width: 100%;
 }
+
 .fuzzfinders-app .file-view-wrapper .file-edit-wrapper .profile-edit-wrapper .dropdown {
   width: 100%;
 }
@@ -3623,11 +3841,13 @@
     bottom: -45px;
   }
 }
+
 @media screen and (max-height: 480px) {
   .fuzzfinders-app .file-view-wrapper .btn-big.btn-blue {
     margin: -10px auto 20px;
   }
 }
+
 @media screen and (min-width: 640px) and (min-height: 640px) {
   .fuzzfinders-app .file-view-wrapper .top-profile-wrapper {
     height: 250px;
@@ -3695,6 +3915,7 @@
     margin-bottom: 80px;
   }
 }
+
 @media screen and (min-width: 1025px) and (min-height: 500px) {
   .fuzzfinders-app.navigation-blue {
     -ms-overflow-y: scroll;
@@ -3720,7 +3941,7 @@
     height: auto;
     padding-bottom: 30px;
     margin-bottom: 50px;
-    left: calc( 50% - 453px );
+    left: calc(50% - 453px);
   }
   .fuzzfinders-app.navigation-blue .file-view-wrapper .nav-block .brand-logo, .fuzzfinders-app.navigation-blue .file-view-wrapper .nav-block .nav-trigger {
     display: none;
@@ -3737,6 +3958,7 @@
     overflow-y: auto;
   }
 }
+
 .fuzzfinders-app .fund {
   background-color: #ECF0F1;
   display: block;
@@ -3744,12 +3966,14 @@
   padding: 0 40px 10px;
   min-height: calc(100% - 70px);
 }
+
 .fuzzfinders-app .fund .title, .fuzzfinders-app .fund .title-bold {
   font-size: 24px;
   color: #506A86;
   padding: 40px 0 30px;
   margin: 0;
 }
+
 .fuzzfinders-app .fund p, .fuzzfinders-app .fund .faq-page-wrapper .section-wrapper .question .question-content a, .fuzzfinders-app .faq-page-wrapper .section-wrapper .question .question-content .fund a {
   font-size: 16px;
   font-weight: 400;
@@ -3757,10 +3981,12 @@
   color: #2C3E51;
   margin-bottom: 22px;
 }
+
 .fuzzfinders-app .fund .fund-donate {
   margin-top: 40px;
   text-align: center;
 }
+
 .fuzzfinders-app .fund .fund-donate .btn {
   font-weight: 500;
   margin-bottom: 30px;
@@ -3771,6 +3997,7 @@
   letter-spacing: 1px;
   text-transform: uppercase;
 }
+
 .fuzzfinders-app .fund .fund-donate:after {
   content: " ";
   display: block;
@@ -3785,6 +4012,7 @@
     padding: 0 20px;
   }
 }
+
 /*@media screen and (min-width: 640px) and (min-height: 640px) {
   .fuzzfinders-app {
     position: relative;
@@ -3830,7 +4058,7 @@
     height: calc(100vh - 200px);
     padding-bottom: 30px;
     margin-bottom: 50px;
-    left: calc( 50% - 453px );
+    left: calc(50% - 453px);
     z-index: 100;
     background-color: #ECF0F1;
   }
@@ -3852,6 +4080,7 @@
     margin-top: -230px;
   }
 }
+
 .fuzzfinders-app .contact-view-wrapper .content-wrapper {
   width: 100%;
   height: calc(100% - 60px);
@@ -3859,14 +4088,17 @@
   padding: 30px 5%;
   overflow-y: scroll;
 }
+
 .fuzzfinders-app .contact-view-wrapper .content-wrapper .title, .fuzzfinders-app .contact-view-wrapper .content-wrapper .title-bold {
   margin-bottom: 15px;
 }
+
 .fuzzfinders-app .contact-view-wrapper .content-wrapper .input, .fuzzfinders-app .contact-view-wrapper .content-wrapper .textarea, .fuzzfinders-app .contact-view-wrapper .content-wrapper .message-input .form-control, .fuzzfinders-app .message-input .contact-view-wrapper .content-wrapper .form-control, .fuzzfinders-app .contact-view-wrapper .content-wrapper .textarea {
   margin: 30px auto;
   width: 90%;
   max-width: 400px;
 }
+
 .fuzzfinders-app .contact-view-wrapper .content-wrapper .btn {
   width: 90%;
   margin: auto;
@@ -3878,6 +4110,7 @@
     padding: 0 30px;
   }
 }
+
 @media screen and (min-width: 600px) and (min-height: 600px) {
   .fuzzfinders-app .contact-view-wrapper .content-wrapper {
     position: static;
@@ -3890,11 +4123,13 @@
     height: 200px;
   }
 }
+
 @media screen and (min-width: 600px) and (min-height: 660px) {
   .fuzzfinders-app .contact-view-wrapper .content-wrapper {
     padding-top: calc(50vh - 330px);
   }
 }
+
 @media screen and (min-width: 1025px) and (min-height: 500px) {
   .fuzzfinders-app .contact-view-wrapper {
     overflow-y: auto;
@@ -3912,10 +4147,12 @@
     overflow: auto;
   }
 }
+
 .fuzzfinders-app:not(.navigation-orange):not(.navigation-green):not(.navigation-blue-light):not(.navigation-blue) .menu-navigation li .active {
   color: #1E9F84;
   opacity: 0.9;
 }
+
 .fuzzfinders-app .facts-wrapper {
   display: block;
   width: 100%;
@@ -3929,6 +4166,7 @@
   overflow: auto !important;
   height: auto !important;
 }
+
 .fuzzfinders-app .faq-page-wrapper .section-wrapper .question {
   border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -3943,9 +4181,11 @@
   transition: all 0.3s ease-in;
   margin-bottom: 35px;
 }
+
 .fuzzfinders-app .faq-page-wrapper .section-wrapper .question:last-child {
   margin-bottom: 0;
 }
+
 .fuzzfinders-app .faq-page-wrapper .section-wrapper .question .question-button {
   padding: 15px 40px 15px 20px;
   white-space: normal;
@@ -3953,9 +4193,11 @@
   line-height: 22px;
   margin: 0;
 }
+
 .fuzzfinders-app .faq-page-wrapper .section-wrapper .question .question-content {
   padding: 20px 20px 10px;
 }
+
 .fuzzfinders-app .faq-page-wrapper .section-wrapper .question .question-content p, .fuzzfinders-app .faq-page-wrapper .section-wrapper .question .question-content a {
   font-size: 16px;
   font-weight: 400;
@@ -3963,16 +4205,20 @@
   line-height: 22px;
   margin-bottom: 10px;
 }
+
 .fuzzfinders-app .faq-page-wrapper .section-wrapper .question .question-content a {
   color: #1E9F84;
 }
+
 .fuzzfinders-app .faq-page-wrapper .section-wrapper .question .question-content a:hover {
   color: #23BB9A;
 }
+
 .fuzzfinders-app .faq-page-wrapper .section-wrapper .question .question-content a.text-center {
   display: block;
   text-align: center;
 }
+
 .fuzzfinders-app .faq-page-wrapper .section-wrapper .question .question-content ul {
   padding-left: 20px;
   margin: 0 0 10px;
@@ -3981,12 +4227,14 @@
   color: #2C3E51;
   line-height: 22px;
 }
+
 .fuzzfinders-app .faq-page-wrapper .section-wrapper .question .question-content ul li {
   padding-bottom: 0.5em;
   list-style-type: none;
   position: relative;
   line-height: 22px;
 }
+
 .fuzzfinders-app .faq-page-wrapper .section-wrapper .question .question-content ul li:before {
   content: "";
   display: block;
@@ -4005,9 +4253,11 @@
   -ms-border-radius: 50%;
   -icab-border-radius: 50%;
 }
+
 .fuzzfinders-app .faq-page-wrapper .section-wrapper .question.show {
   box-shadow: 0px 0px 5px 0px rgba(127, 140, 141, 0.5);
 }
+
 .fuzzfinders-app .faq-page-wrapper .section-wrapper .question.show .question-button .caret {
   -webkit-transform: rotate(180deg);
   -moz-transform: rotate(180deg);
@@ -4044,6 +4294,7 @@
     line-height: 27px;
   }
 }
+
 @media screen and (min-width: 1025px) {
   .fuzzfinders-app .background-for-navigation {
     z-index: 1;
@@ -4078,23 +4329,28 @@
     line-height: 27px;
   }
 }
+
 .fuzzfinders-app.faq-outer-page {
   background-size: cover;
   background-image: image-url("background.png");
   background-attachment: fixed;
 }
+
 .fuzzfinders-app.faq-outer-page .header-11 {
   background-color: white;
 }
+
 .fuzzfinders-app.faq-outer-page .header-11 .logo {
   margin-top: 0;
   margin-bottom: 0;
   padding-top: 10px;
 }
+
 .fuzzfinders-app.faq-outer-page .btn.btn-sign, .fuzzfinders-app.faq-outer-page .btn.btn-logout {
   max-width: 130px;
   max-height: 38px;
 }
+
 .fuzzfinders-app.faq-outer-page .faq-page-wrapper .section-wrapper {
   padding: 50px 100px;
   margin: 60px 242px;
@@ -4107,16 +4363,19 @@
     max-width: none;
   }
 }
+
 @media screen and (max-width: 580px) {
   .fuzzfinders-app.faq-outer-page .faq-page-wrapper .section-wrapper {
     padding: 28px;
   }
 }
+
 @media screen and (max-width: 375px) {
   .fuzzfinders-app.faq-outer-page .header-11 .logo {
     margin-left: 0;
   }
 }
+
 .labels {
   color: red;
   background-color: white;
@@ -4140,18 +4399,23 @@
   margin: auto;
   background-color: #ECF0F1;
 }
+
 .ui-kit button {
   margin: 30px;
 }
+
 .ui-kit input {
   margin: 30px;
 }
+
 .ui-kit .inputs-wrapper {
   background-color: #D8D8D8;
 }
+
 .ui-kit .dropdown-wrapper {
   background-color: #D8D8D8;
 }
+
 .ui-kit .navigation-wrapper {
   background-color: #D8D8D8;
 }
@@ -4159,6 +4423,7 @@
 .test-transitions {
   background: grey;
 }
+
 .test-transitions .transition-holder {
   background: #ECF0F1;
   display: block;
@@ -4168,10 +4433,12 @@
   position: relative;
   overflow: hidden;
 }
+
 .test-transitions .transition-holder .btn {
   display: block;
   margin: 30px auto;
 }
+
 .test-transitions .transition-holder .transition-area {
   position: absolute;
   top: 0;
@@ -4182,9 +4449,11 @@
   -moz-transition: left, 0.3s, ease-in-out;
   transition: left, 0.3s, ease-in-out;
 }
+
 .test-transitions .transition-holder .transition-area.open {
   left: 0;
 }
+
 .test-transitions .transition-holder .transition-area .transition-holder {
   margin-top: 50px;
   display: block;
@@ -4192,18 +4461,23 @@
   position: relative;
   background: none;
 }
+
 .test-transitions .transition-holder .area-1 {
   background: red;
 }
+
 .test-transitions .transition-holder .area-2 {
   background: blue;
 }
+
 .test-transitions .transition-holder .area-3 {
   background: pink;
 }
+
 .test-transitions .transition-holder .area-11 {
   background: grey;
 }
+
 .test-transitions .transition-holder .area-12 {
   background: maroon;
 }
