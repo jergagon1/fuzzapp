@@ -1,4 +1,4 @@
-<div data-route="local/<%= report.report_type %>/<%= report.id %>" class="post <%= report.report_type %>-post small-report-card <%= report.img_url? ? "" : "placeholder-#{report.animal_type.downcase}" %>"
+<div data-route="local/<%= report.report_type %>/<%= report.id %>" class="post <%= report.report_type %>-post small-report-card <%= report.img_url? ? "" : "placeholder-#{report.animal_type.downcase || 'def'}" %>"
      data-report-id="<%= report.id %>" data-lat="<%= report.lat %>" data-lng="<%= report.lng %>" data-type="<%= report.report_type %>">
   <h3 class="title"><%= report.report_type.capitalize %> <%= report.animal_type.capitalize %></h3>
   <% if report.img_url? %>

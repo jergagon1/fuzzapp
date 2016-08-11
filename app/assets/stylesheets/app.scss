@@ -2633,6 +2633,15 @@
   color: #1E9F84;
 }
 
+.fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .posts .small-report-card .photo-holder {
+  border-right: 2px solid rgba(236, 240, 241, 0.4);
+  background-image: image-url("dog.png");
+  background-size: 80% auto;
+  background-position: 50% 40%;
+  background-repeat: no-repeat;
+  background-color: rgba(236, 240, 241, 0.2);
+}
+
 .fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .posts .placeholder-dog .photo-holder {
   border-right: 2px solid rgba(236, 240, 241, 0.4);
   background-image: image-url("dog.png");
