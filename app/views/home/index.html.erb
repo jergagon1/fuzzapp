@@ -797,18 +797,26 @@
 </script>
 
 <script id="report-comment-template" type="text/x-handlers-template">
-  <div class="comment with-image">
-    <div class="header">
-      <div style="background-image: url('<%= image_url('user-picture-5.png') %>')" class="face-lockup"></div>
-      <div class="content">
+  <div class="Comment {{head_class}}">
+    <div class="Comment__header">
+      <div style="background-image: url('<%= image_url('user-picture-5.png') %>')" class="Comment__header-avatar"></div>
+      <div class="Comment__header-content">
         <p>Posted by {{comment_username}}</p>
         <p>{{created_at_ago}} ago</p>
       </div>
     </div>
-    <div style="background-image: url('<%= image_url('dog-demo-3.png') %>')" class="image"></div>
-    <div class="description-wrapper">
-      <p class="description">{{content}}</p>
-      <div class="location-sign"><i class="icon-location"></i>Location point added</div>
+    {{#if image }}
+    <div class="Comment__image">
+      <img class="Comment__image-img" src="{{image}}"/>
+    </div>
+    {{/if}}
+    <div class="Comment__description">
+      <p class="Comment__description-content">{{content}}</p>
+      {{#if hasLocation }}
+      <div class="Comment__description-location">
+        <i class="icon-location"></i>Location point added
+      </div>
+      {{/if}}
     </div>
   </div>
 </script>
@@ -829,8 +837,14 @@
       <div class="CommentForm__map"></div>
     </div>
     <div class="row">
+
+    </div>
+    <div class="row">
       <div class="col-xs-6">
-        <button type="button" class="btn btn-small btn-blue btn-photo">Upload Photo</button>
+        <label class="CommentForm__upload btn btn-small btn-blue btn-photo">
+          Upload Photo
+          <input type="file" name="image" ref="upload" class="CommentForm-input CommentForm__upload-uploader"/>
+        </label>
       </div>
       <div class="col-xs-6">
         <button type="button" class="CommentForm__location btn btn-small btn-blue">Add a Location</button>

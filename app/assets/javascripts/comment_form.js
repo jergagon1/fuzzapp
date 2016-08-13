@@ -76,14 +76,27 @@ CommentForm.prototype.getElement = function () {
 CommentForm.prototype.submit = function (e) {
   e.preventDefault();
   var comment = this.serialize();
+
+  if (comment.image) {
+    comment.image = this._$el.querySelector('.CommentForm__upload-uploader').files[0];
+  }
+
+  var fd = new FormData();
+
+  Object.keys(comment).forEach(function (key) {
+    fd.append('comment[' + key + ']', comment[key]);
+  });
+
+  console.log(fd, comment);
+
   var self = this;
   var ajax = $.ajax({
     url: '/api/v1/reports/' + this.report.getId() + '/comments',
     method: 'POST',
-    dataType: 'json',
-    data: {
-      comment: comment
-    }
+    processData: false,
+    contentType: false,
+    dataType: "json",
+    data: fd
   });
 
   ajax.done(function (data) {
