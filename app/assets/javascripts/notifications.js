@@ -1,6 +1,6 @@
 Pusher.logToConsole = true;
 
-Template.register('reportTemplate', document.querySelector('#notification-template').innerHTML);
+Template.register('notificationTemplate', document.querySelector('#notification-template').innerHTML);
 
 var Notification = {
   _container: document.querySelector('.notifications'),
@@ -8,7 +8,7 @@ var Notification = {
   showReport: function (report) {
     var self = this;
     var deferred = $.Deferred();
-    var $el = Template.render('reportTemplate', report);
+    var $el = Template.render('notificationTemplate', report);
     self.showNotification($el)
       .then(function () {
         deferred.resolve(report);

@@ -1,6 +1,5 @@
 Template.register('reportCommentTemplate', document.querySelector('#report-comment-template').innerHTML);
 
-
 function Comment(comment) {
   this.comment = comment;
   this._$el = this.render();

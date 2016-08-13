@@ -1,5 +1,4 @@
 Template.register('reportsTemplate', document.querySelector('#reports-template').innerHTML);
-Template.register('reportLostTemplate', document.querySelector('#report-lost-template').innerHTML);
 
 var Modal = {
   _navigationStack: [],

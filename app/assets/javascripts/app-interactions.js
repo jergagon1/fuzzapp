@@ -84,12 +84,7 @@ $(function () {
 
   Router
     .add('local', 'local', Modal.showReports.bind(Modal))
-    .add('local_found', 'local/found/(.*)', function (fragment, id) {
-      $.get("/api/v1/reports/" + id, null, 'script')
-        .done(function () {
-          Modal.show(fragment, '.found-pet-post-wrapper', 'show', true);
-        });
-    })
+    .add('local_found', 'local/found/(.*)', Modal.showReport.bind(Modal))
     .add('local_lost', 'local/lost/(.*)', Modal.showReport.bind(Modal))
     .add('lost', 'lost', function (fragment) {
       Modal.show(fragment, '.lost-pet-page-wrapper', 'show');
@@ -323,21 +318,7 @@ function initMap2() {
     };
   }
 
-
-  var foundPostMapDOM = $('.fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .map')[0],
-    foundPostMap = new google.maps.Map(foundPostMapDOM, mapOptions),
-    polyCoordinates = [];
-
-
-  var foundPostMapPath = new google.maps.Polyline({
-    path: polyCoordinates,
-    geodesic: true,
-    strokeColor: '#1E9F84',
-    strokeOpacity: 1.0,
-    strokeWeight: 3,
-    map: foundPostMap
-  });
-
+  var polyCoordinates = [];
 
   var circleSymbol = {
       path: google.maps.SymbolPath.CIRCLE,

@@ -1,5 +1,9 @@
+//= require locate
 //= require comment
 //= require comment_form
+
+Template.register('reportTemplate', document.querySelector('#report-template').innerHTML);
+
 
 function Report(report, comments) {
 
@@ -17,8 +21,9 @@ function Report(report, comments) {
   this._$comments = Array.prototype.slice.call($comments, 0);
   this._marker;
 
-  this.initMap();
   this.initEvents();
+
+  Locate.then(this.initMap.bind(this));
 }
 
 Report.prototype.initEvents = function () {
@@ -37,7 +42,7 @@ Report.prototype.initComments = function (comments) {
   });
 };
 
-Report.prototype.initMap = function () {
+Report.prototype.initMap = function (me) {
   var position = this.getPosition();
   var mapOptions = {
     zoom: 14,
@@ -54,9 +59,17 @@ Report.prototype.initMap = function () {
     position: this.getPosition(),
     map: this._map,
     icon: this.getIcon(),
-    draggable: false
+    draggable: false,
+    title: 'Pet'
   });
 
+  this._me = new google.maps.Marker({
+    position: me,
+    map: this._map,
+    icon: '/img/app/map/me-pin.png',
+    draggable: false,
+    title: 'Me'
+  });
 };
 
 Report.prototype.getPosition = function () {
@@ -79,8 +92,8 @@ Report.prototype.serialize = function () {
 };
 
 Report.prototype.render = function () {
-  var $el = Template.render('report' + this.report.report_type + 'Template', this.serialize());
-
+  var $el = Template.render('reportTemplate', this.serialize());
+  console.log($el);
   if (this._comments.length) {
     var $comments = $el.querySelector('.Report__comments');
     this._comments.forEach(function (comment) {

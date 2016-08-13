@@ -1,3 +1,6 @@
+//= require locate
+
+
 function Reports($el) {
   this._$el = $el;
   this._$map = this._$el.querySelector('.map');
@@ -12,7 +15,8 @@ function Reports($el) {
   this.updateMap = this.updateMap.bind(this);
   this.updateReports = this.updateReports.bind(this);
 
-  this.initMap();
+  Locate.then(this.initMap.bind(this));
+
   this.initEvents();
   this.initFilter();
 }
@@ -47,19 +51,15 @@ Reports.prototype.initFilter = function () {
   })
 };
 
-Reports.prototype.initMap = function () {
+Reports.prototype.initMap = function (me) {
   var mapOptions = {
     zoom: 14,
     styles: FuzzAppMapStyles,
     mapTypeControl: false,
     streetViewControl: false,
-    scrollwheel: false
+    scrollwheel: false,
+    center: new google.maps.LatLng(me.lat, me.lng)
   };
-  if (window.geolocation) {
-    mapOptions.center = new google.maps.LatLng(geolocation.coords.latitude, geolocation.coords.longitude);
-  } else {
-    mapOptions.center = new google.maps.LatLng(37.801, -122.28);
-  }
 
   this._map = new google.maps.Map(this._$map, mapOptions);
   var self = this;
@@ -67,6 +67,14 @@ Reports.prototype.initMap = function () {
     self.updateReports();
     self._map.addListener('center_changed', self.updateReports);
     self._map.addListener('zoom_changed', self.updateReports);
+  });
+
+  this._me = new google.maps.Marker({
+    position: me,
+    map: this._map,
+    icon: '/img/app/map/me-pin.png',
+    draggable: false,
+    title: 'Me'
   });
 };
 
