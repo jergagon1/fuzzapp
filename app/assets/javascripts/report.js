@@ -55,7 +55,7 @@ Report.prototype.initMap = function () {
     map: this._map,
     icon: this.getIcon(),
     draggable: false
-  })
+  });
 
 };
 

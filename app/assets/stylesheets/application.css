@@ -16,6 +16,7 @@
  *= require notification
  *= require selectize
  *= require filter
+ *= require comment_form
  *= require_self
  */
 

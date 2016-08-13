@@ -18,6 +18,7 @@
 //= require vendor/handlebars
 //= require vendor/moment
 //= require vendor/geolocator
+//= require geostuff
 //= require template
 //= require reportItem
 //= require reports
@@ -30,7 +31,6 @@
 //= require jquery.ui.widget
 //= require jquery.iframe-transport
 //= require jquery.fileupload
-//= require geostuff
 //= require image-upload
 //= require app-flow
 //= require pusher/pusher
