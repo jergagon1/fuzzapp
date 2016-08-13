@@ -83,27 +83,21 @@ $(function () {
   Router.root = '/fuzzapp/';
 
   Router
-    .add('local', 'local', function (fragment) {
-      document.querySelector('.pet-sightings-page-wrapper').classList.add('show');
-      after_router(fragment, '.pet-sightings-page-wrapper', 'show');
-    })
+    .add('local', 'local', Modal.showReports.bind(Modal))
     .add('local_found', 'local/found/(.*)', function (fragment, id) {
       $.get("/api/v1/reports/" + id, null, 'script')
         .done(function () {
-          document.querySelector('.found-pet-post-wrapper').classList.add('show');
-          after_router(fragment, '.found-pet-post-wrapper', 'show', true);
+          Modal.show(fragment, '.found-pet-post-wrapper', 'show', true);
         });
     })
     .add('local_lost', 'local/lost/(.*)', function (fragment, id) {
       $.get("/api/v1/reports/" + id, null, 'script')
         .done(function () {
-          document.querySelector('.lost-pet-post-wrapper').classList.add('show');
-          after_router(fragment, '.lost-pet-post-wrapper', 'show', true);
+          Modal.show(fragment, '.lost-pet-post-wrapper', 'show', true);
         })
     })
     .add('lost', 'lost', function (fragment) {
-      document.querySelector('.lost-pet-page-wrapper').classList.add('show');
-      after_router(fragment, '.lost-pet-page-wrapper', 'show');
+      Modal.show(fragment, '.lost-pet-page-wrapper', 'show');
     })
     .add('lost_step2', 'lost/step_2', function (fragment) {
       document.querySelector('.lost-pet-page-wrapper').classList.add('show');
@@ -156,55 +150,11 @@ $(function () {
   $('.btn-toggler, .btn-apply').click(function () {
     var target = $(this).data('target');
     var tClass = $(this).data('toggle');
-    $(target).toggleClass(tClass);
-
-    navigationStack.push([target, tClass]);
-    $('body').scrollTop(0);
-    $(target).parent().scrollTop(0);
-
-    if (tClass === 'step-2') {
-      if (window.geolocation) {
-      }
-    }
-
-    var navigationClass = getNavigationToggler(target);
-    if (navigationClass && (tClass === 'show')) {
-      if (target.indexOf('post-wrapper') > -1) {
-        $('.fuzzfinders-app').removeClass('navigation-blue-light');
-        $('.fuzzfinders-app .pet-sightings-page-wrapper').addClass('post-shown');
-      }
-      $('.fuzzfinders-app').addClass(navigationClass);
-    }
+    Modal.show(null, target, tClass)
   });
 
   $('body').on('click', '.back-arrow', function () {
-    var lastTransition = navigationStack.pop();
-    var target = lastTransition[0];
-    var tClass = lastTransition[1];
-
-    $(target).toggleClass(tClass);
-    $('body').scrollTop(0);
-
-    var navigationClass = getNavigationToggler(target);
-    if (navigationClass && (tClass === 'show')) {
-      if (target.indexOf('post-wrapper') > -1) {
-        $('.fuzzfinders-app').addClass('navigation-blue-light');
-        $('.fuzzfinders-app .pet-sightings-page-wrapper').removeClass('post-shown');
-      }
-      $('.fuzzfinders-app').removeClass(navigationClass);
-    }
-    if (($(window).width() > 1024) && ($(window).height() > 640)) {
-      $('.show .ancete-wrapper').height(300);
-    }
-    $('.show .ancete-wrapper').height(300);
-
-    var prev = navigationStack.slice(-1)
-    if (prev.length) {
-      Router.navigate(prev[0][2]);
-    } else {
-      Router.navigate();
-    }
-
+    Modal.hide();
   });
 
   // SHOW DROPDOWN AREA IN ANCETE AND SIGHTS SCREEN
@@ -315,84 +265,6 @@ $(function () {
   })
 });
 
-
-window.FuzzAppMapStyles = [
-  {
-    "featureType": "landscape.man_made",
-    "elementType": "geometry",
-    "stylers": [{"color": "#f7f1df"}]
-  },
-  {
-    "featureType": "landscape.natural",
-    "elementType": "geometry",
-    "stylers": [{"color": "#d0e3b4"}]
-  },
-  {
-    "featureType": "landscape.natural.terrain",
-    "elementType": "geometry",
-    "stylers": [{"visibility": "off"}]
-  },
-  {
-    "featureType": "poi",
-    "elementType": "labels",
-    "stylers": [{"visibility": "off"}]
-  },
-  {
-    "featureType": "poi.business",
-    "elementType": "all",
-    "stylers": [{"visibility": "off"}]
-  },
-  {
-    "featureType": "poi.medical",
-    "elementType": "geometry",
-    "stylers": [{"color": "#fbd3da"}]
-  },
-  {
-    "featureType": "poi.park",
-    "elementType": "geometry",
-    "stylers": [{"color": "#bde6ab"}]
-  },
-  {
-    "featureType": "road",
-    "elementType": "geometry.stroke",
-    "stylers": [{"visibility": "off"}]
-  },
-  {
-    "featureType": "road",
-    "elementType": "labels",
-    "stylers": [{"visibility": "off"}]
-  },
-  {
-    "featureType": "road.highway",
-    "elementType": "geometry.fill",
-    "stylers": [{"color": "#ffe15f"}]
-  },
-  {
-    "featureType": "road.highway",
-    "elementType": "geometry.stroke",
-    "stylers": [{"color": "#efd151"}]
-  },
-  {
-    "featureType": "road.arterial",
-    "elementType": "geometry.fill",
-    "stylers": [{"color": "#ffffff"}]
-  },
-  {
-    "featureType": "road.local",
-    "elementType": "geometry.fill",
-    "stylers": [{"color": "black"}]
-  },
-  {
-    "featureType": "transit.station.airport",
-    "elementType": "geometry.fill",
-    "stylers": [{"color": "#cfb2db"}]
-  },
-  {
-    "featureType": "water",
-    "elementType": "geometry",
-    "stylers": [{"color": "#a2daf2"}]
-  }];
-
 function showReport(item) {
   Router.navigate('local/' + item.type + '/' + item.id);
 }
@@ -480,8 +352,6 @@ function initMap2() {
   });
 
 
-  var sightingsMapDOM = $('.fuzzfinders-app .mainpage-wrapper .pet-sightings-page-wrapper .section-wrapper .map')[0];
-
   if (window.geolocation) {
     var mapOptions = {
       zoom: 14,
@@ -502,7 +372,6 @@ function initMap2() {
     };
   }
 
-  window.sightingsMap = new google.maps.Map(sightingsMapDOM, mapOptions);
 
   var lostPostMapDOM = $('.fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .map')[0],
     lostPostMap = new google.maps.Map(lostPostMapDOM, mapOptions),
@@ -510,71 +379,6 @@ function initMap2() {
     foundPostMap = new google.maps.Map(foundPostMapDOM, mapOptions),
     polyCoordinates = [];
 
-
-  $(function () {
-
-
-    google.maps.event.addListenerOnce(sightingsMap, 'idle', function () {
-      getReports(sightingsMap, updateMap)
-
-      sightingsMap.addListener('center_changed', function () {
-        getReports(sightingsMap, updateMap)
-      });
-
-      sightingsMap.addListener('zoom_changed', function () {
-        getReports(sightingsMap, updateMap)
-      });
-    });
-
-    var lost = [], found = [];
-    $('[data-type="lost"]').each(function (i, coord) {
-      lost.push({
-        id: $(coord).data('report-id'),
-        type: $(coord).data('type'),
-        lat: $(coord).data('lat'),
-        lng: $(coord).data('lng')
-      });
-    });
-
-    $('[data-type="found"]').each(function (i, coord) {
-      found.push({
-        id: $(coord).data('report-id'),
-        type: $(coord).data('type'),
-        lat: $(coord).data('lat'),
-        lng: $(coord).data('lng')
-      })
-    })
-
-    lost.forEach(function (item, i) {
-      if (item.lat && item.lng) {
-        var marker = new google.maps.Marker({
-          position: item,
-          map: sightingsMap,
-          icon: '/img/app/map/lost-pin.png',
-          draggable: false,
-          opacity: (10 - i) / 10
-        });
-
-        marker.addListener('click', showReport.bind(null, item));
-
-        polyCoordinates.push(item);
-      }
-    });
-
-    found.forEach(function (item, i) {
-      if (item.lat && item.lng) {
-        var marker = new google.maps.Marker({
-          position: item,
-          map: sightingsMap,
-          icon: '/img/app/map/found-pin.png',
-          draggable: false,
-          opacity: (10 - i) / 10
-        });
-
-        marker.addListener('click', showReport.bind(null, item));
-      }
-    })
-  })
 
   var lostPostMapPath = new google.maps.Polyline({
       path: polyCoordinates,

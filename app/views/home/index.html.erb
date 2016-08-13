@@ -374,110 +374,10 @@
       </div>
     </div>
   </div>
+
   <div class="pet-sightings-page-wrapper">
-    <div class="nav-block nav-block-blue">
-      <btn class="back-arrow"><i class="icon-back"></i></btn>
-      <h2 class="title"> Local FuzzAlerts</h2>
-      <div class="nav-trigger nav-trigger-white"><span></span><span></span><span></span></div>
-    </div>
-    <div class="section-wrapper">
-      <!--********************************************************************************************************************************-->
-      <!--********************************************************************************************************************************-->
-      <!--********************************************************************************************************************************-->
-      <!-- Про генерацию карты можем отдельно поговорить — так будет просто быстрее-->
-      <!--********************************************************************************************************************************-->
-      <!--********************************************************************************************************************************-->
-      <!--********************************************************************************************************************************-->
-      <div class="map"></div>
-      <form class="search-area">
-        <input placeholder="Search Keywords" class="input form-control"/>
-        <div class="row">
-          <div class="col-xs-6">
-            <div class="dropdown dropdown-small">
-              <button id="sightings-lost-or-found" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn btn-dropdown dropdown-toggle">Lost
-                or Found<span class="caret"></span></button>
-              <ul aria-labelledby="sightings-lost-or-found" class="dropdown-menu">
-                <li><a href="#">Lost</a></li>
-                <li><a href="#">Found</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-xs-6">
-            <div class="dropdown">
-              <button id="sightings-pet-type-btn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn btn-dropdown dropdown-toggle">Pet
-                type<span class="caret"></span></button>
-              <ul aria-labelledby="sightings-pet-type-btn" class="dropdown-menu">
-                <li><a href="#">Dog</a></li>
-                <li><a href="#">Cat</a></li>
-                <li><a href="#">Bird</a></li>
-                <li><a href="#">Other</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-6">
-            <input placeholder="Pet color" class="input input-small form-control"/>
-          </div>
-          <div class="col-xs-6">
-            <input placeholder="Pet Breed" class="input input-small form-control"/>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-6">
-            <div class="dropdown dropdown-small">
-              <button id="sightings-gender-btn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn btn-dropdown dropdown-toggle">Gender<span class="caret"></span>
-              </button>
-              <ul aria-labelledby="sightings-gender-btn" class="dropdown-menu">
-                <li><a href="#">Male</a></li>
-                <li><a href="#">Female</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-xs-6">
-            <div class="dropdown dropdown-small">
-              <button id="sightings-size-btn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn btn-dropdown dropdown-toggle">Size<span class="caret"></span>
-              </button>
-              <ul aria-labelledby="sightings-size-btn" class="dropdown-menu">
-                <li><a href="#">Small</a></li>
-                <li><a href="#">Medium</a></li>
-                <li><a href="#">Large </a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-6">
-            <div class="dropdown dropdown-small">
-              <button id="sightings-age-btn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn btn-dropdown dropdown-toggle">Age<span class="caret"></span>
-              </button>
-              <ul aria-labelledby="sightings-age-btn" class="dropdown-menu">
-                <li><a href="#">Baby</a></li>
-                <li><a href="#">Young</a></li>
-                <li><a href="#">Adult</a></li>
-                <li><a href="#">Senior</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-xs-6">
-            <button type="reset" class="btn btn-small btn-blue">Reset Filters</button>
-          </div>
-        </div>
-      </form>
-      <!--********************************************************************************************************************************-->
-      <!--********************************************************************************************************************************-->
-      <!--********************************************************************************************************************************-->
-      <!-- Просто добавляет у родителя класс .extra-open. Все остальное уже задача CSS-->
-      <!--********************************************************************************************************************************-->
-      <!--********************************************************************************************************************************-->
-      <!--********************************************************************************************************************************-->
-      <button class="btn btn-search btn-blue btn-subarea"><span class="icon icon-search"></span>Search FuzzAlerts
-      </button>
-
-      <%= render 'reports/reports', reports: @reports %>
-
-    </div>
   </div>
+
   <div class="lost-pet-post-wrapper">
     <div class="nav-block nav-block-orange">
       <btn class="back-arrow"><i class="icon-back"></i></btn>
@@ -843,6 +743,120 @@
         <p>{{normalized_title}} Buggy</p>
       </div>
       <div class="Notification__alert-close icon-plus"></div>
+    </div>
+  </div>
+</script>
+
+<script id="reports-template" type="text/x-handlers-template">
+  <div>
+    <div class="nav-block nav-block-blue">
+      <btn class="back-arrow"><i class="icon-back"></i></btn>
+      <h2 class="title"> Local FuzzAlerts</h2>
+      <div class="nav-trigger nav-trigger-white"><span></span><span></span><span></span></div>
+    </div>
+    <div class="section-wrapper">
+      <div class="map"></div>
+      <form class="search-area">
+        <input placeholder="Search Keywords" name="keyword" class="Filter__input input form-control"/>
+        <div class="row">
+          <div class="col-xs-6">
+            <div class="Filter">
+              <select class="Filter__select" name="report_type" data-filter="report_type" placeholder="Lost or Found">
+                <option value="">Lost or Found</option>
+                <option value="lost">Lost</option>
+                <option value="found">Found</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-xs-6">
+            <div class="Filter">
+              <select class="Filter__select" name="type" data-filter="type" placeholder="Pet type">
+                <option value="">Pet type</option>
+                <option value="dog">Dog</option>
+                <option value="cat">Cat</option>
+                <option value="bird">Bird</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            <input placeholder="Pet color" name="color" class="Filter__input input input-small form-control"/>
+          </div>
+          <div class="col-xs-6">
+            <input placeholder="Pet Breed" name="breed" class="Filter__input input input-small form-control"/>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            <div class="Filter">
+              <select class="Filter__select" name="gender" data-filter="gender" placeholder="Gender">
+                <option value="">Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-xs-6">
+            <div class="Filter">
+              <select class="Filter__select" name="size" data-filter="size" placeholder="Size">
+                <option value="">Size</option>
+                <option value="small">Small</option>
+                <option value="medium">Medium</option>
+                <option value="large">Large</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            <div class="Filter">
+              <select class="Filter__select" name="age" data-filter="age" placeholder="Age">
+                <option value="">Age</option>
+                <option value="baby">Baby</option>
+                <option value="young">Young</option>
+                <option value="adult">Adult</option>
+                <option value="senior">Senior</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-xs-6">
+            <button type="reset" class="Filter__reset btn btn-small btn-blue">Reset Filters</button>
+          </div>
+        </div>
+      </form>
+      <button class="btn btn-search btn-blue" data-filter-toggler>
+        <span class="icon icon-search"></span>Search FuzzAlerts
+      </button>
+      <div class="posts" id="reports_list">
+      </div>
+    </div>
+  </div>
+</script>
+
+<script id="reports-item-template" type="text/x-handlers-template">
+  <div class="post {{report_type}}-post small-report-card" data-report-id="{{id}}">
+    <h3 class="title">{{report_type}} {{animal_type}}</h3>
+    {{#if title}}
+    <div class="photo-holder" style="background-image: url('{{img_url}}')"></div>
+    {{else}}
+    <div class="photo-holder"></div>
+    {{/if}}
+    <div class="content-holder">
+      <table>
+        {{#if last_seen}}
+        <tr>
+          <td>Last Seen</td>
+          <td>{{last_seen}}</td>
+        </tr>
+        {{/if}}
+        <tr>
+          <td>Posted by</td>
+          <td>{{report_username}}</td>
+        </tr>
+      </table>
+      <a class="read-more">Read more</a>
     </div>
   </div>
 </script>
