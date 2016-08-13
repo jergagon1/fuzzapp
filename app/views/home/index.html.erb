@@ -791,26 +791,7 @@
         <h2>Comments</h2>
         <div class="Report__comments"></div>
       </div>
-      <form class="Report__comment post-comment">
-        <h2>Post Your Comment</h2>
-        <textarea placeholder="Type Here" name="content" row="4" class="Report__comment-input textarea form-control"></textarea>
-        <div style="background-image: url('<%= image_url('dog-demo-2.png') %>')" class="photo-wrapper">
-          <button class="btn-remove"></button>
-        </div>
-        <div class="location-wrapper">
-          <div class="map"></div>
-          <div class="btn-remove"></div>
-        </div>
-        <div class="row">
-          <div class="col-xs-6">
-            <button type="button" class="btn btn-small btn-blue btn-photo">Upload Photo</button>
-          </div>
-          <div class="col-xs-6">
-            <button type="button" class="btn btn-small btn-blue btn-location">Add a Location</button>
-          </div>
-        </div>
-        <button type="submit" class="Report__comment-submit btn btn-xbig btn-blue">Post</button>
-      </form>
+      <div class="Report__comment-form"></div>
     </div>
   </div>
 </script>
@@ -830,6 +811,29 @@
       <div class="location-sign"><i class="icon-location"></i>Location point added</div>
     </div>
   </div>
+</script>
+
+<script id="comment-form-template" type="text/x-handlers-template">
+  <form class="CommentForm post-comment">
+    <h2>Post Your Comment</h2>
+    <textarea placeholder="Type Here" name="content" row="4" class="CommentForm-input textarea form-control"></textarea>
+    <div style="background-image: url('<%= image_url('dog-demo-2.png') %>')" class="photo-wrapper">
+      <button class="btn-remove"></button>
+    </div>
+    <div class="location-wrapper">
+      <div class="map"></div>
+      <div class="btn-remove"></div>
+    </div>
+    <div class="row">
+      <div class="col-xs-6">
+        <button type="button" class="btn btn-small btn-blue btn-photo">Upload Photo</button>
+      </div>
+      <div class="col-xs-6">
+        <button type="button" class="btn btn-small btn-blue btn-location">Add a Location</button>
+      </div>
+    </div>
+    <button type="submit" class="CommentForm-submit btn btn-xbig btn-blue">Post</button>
+  </form>
 </script>
 
 <div class="notifications"></div>

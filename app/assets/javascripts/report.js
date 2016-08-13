@@ -1,4 +1,5 @@
 //= require comment
+//= require comment_form
 
 function Report(report, comments) {
 
@@ -7,23 +8,27 @@ function Report(report, comments) {
   this._comments = [];
   this.initComments(comments);
 
+  this.commentForm = new CommentForm(this);
+
   this._$el = this.render();
   this._$map = this._$el.querySelector('.map');
 
   var $comments = this._$el.querySelectorAll('.Report__comment .Report__comment-input');
-
   this._$comments = Array.prototype.slice.call($comments, 0);
-  this._$commentSubmit = this._$el.querySelector('.Report__comment-submit');
   this._marker;
-
-  this.createComment = this.createComment.bind(this);
 
   this.initMap();
   this.initEvents();
 }
 
 Report.prototype.initEvents = function () {
-  this._$commentSubmit.addEventListener('click', this.createComment, false);
+  var self = this;
+  this.commentForm.events.subscribe('/report/create_comment', function (data) {
+    var comment = new Comment(data);
+    var $comments = self._$el.querySelector('.Report__comments');
+    $comments.appendChild(comment.getElement());
+    self._comments.push(comment);
+  });
 };
 
 Report.prototype.initComments = function (comments) {
@@ -83,6 +88,8 @@ Report.prototype.render = function () {
     });
   }
 
+  $el.querySelector('.Report__comment-form').appendChild(this.commentForm.getElement());
+
   return $el;
 };
 
@@ -108,38 +115,6 @@ Report.prototype.getLastSeen = function () {
   return this.report.last_seen && moment(this.report.last_seen).format('DD MMM HH:mm');
 };
 
-Report.prototype.getComment = function () {
-  return this._$comments.reduce(function (state, $el) {
-    if ($el.value) {
-      state[$el.name] = $el.value;
-    }
-    return state;
-  }, {});
-};
-
 Report.prototype.getId = function () {
   return this.report.id;
-};
-
-Report.prototype.createComment = function (e) {
-  e.preventDefault();
-  var comment = this.getComment();
-  var self = this;
-  var ajax = $.ajax({
-    url: '/api/v1/reports/' + this.getId() + '/comments',
-    method: 'POST',
-    dataType: 'json',
-    data: {
-      comment: comment
-    }
-  });
-
-  ajax.done(function (data) {
-    var comment = new Comment(data.comment);
-    var $comments = self._$el.querySelector('.Report__comments');
-    $comments.appendChild(comment.getElement());
-    self._comments.push(comment);
-  });
-
-  return false;
 };
