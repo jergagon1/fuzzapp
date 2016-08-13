@@ -23,7 +23,7 @@ class ReportsController < ApplicationController
     @report = Report.find params[:id]
     @tags = @report.tags
     @comments = @report.comments
-    # render json: { :report => @report, :tags => @tags, :comments => @comments }
+    render json: { :report => @report, :tags => @tags, :comments => @comments }
   end
 
   def update

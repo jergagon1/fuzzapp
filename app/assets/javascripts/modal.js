@@ -1,4 +1,5 @@
 Template.register('reportsTemplate', document.querySelector('#reports-template').innerHTML);
+Template.register('reportLostTemplate', document.querySelector('#report-lost-template').innerHTML);
 
 var Modal = {
   _navigationStack: [],
@@ -23,7 +24,19 @@ var Modal = {
       this._rendered['reports'] = new Reports($el);
     }
     this.show(fragment, '.pet-sightings-page-wrapper', 'show');
+  },
+  showReport: function (fragment, id) {
+    var self = this;
+    $.getJSON('/api/v1/reports/' + id, function (result) {
+      self.showReportData(fragment, result.report, result.comments);
+    });
+  },
+  showReportData: function (fragment, report, comments) {
 
+    var current = new Report(report, comments);
+    document.querySelector('.' + current.getType() + '-pet-post-wrapper').appendChild(current.getElement());
+    this._rendered['report'] = current;
+    this.show(fragment, '.' + current.getType() + '-pet-post-wrapper', 'show', true);
   },
   show: function (fragment, target, tClass, state) {
 

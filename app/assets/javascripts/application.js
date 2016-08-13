@@ -21,6 +21,7 @@
 //= require template
 //= require reportItem
 //= require reports
+//= require report
 //= require router
 //= require modal
 //= require mresize

@@ -2,10 +2,10 @@ var Template = {
   _templates: {},
   register: function (key, template) {
     template = template.trim();
-    this._templates[key] = Handlebars.compile(template)
+    this._templates[key.toLowerCase()] = Handlebars.compile(template)
   },
   render: function (key, data) {
-    var template = this._templates[key];
+    var template = this._templates[key.toLowerCase()];
 
     if (data) {
       return this.toHTML(template(data));

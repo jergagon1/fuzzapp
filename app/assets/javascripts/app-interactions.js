@@ -90,12 +90,7 @@ $(function () {
           Modal.show(fragment, '.found-pet-post-wrapper', 'show', true);
         });
     })
-    .add('local_lost', 'local/lost/(.*)', function (fragment, id) {
-      $.get("/api/v1/reports/" + id, null, 'script')
-        .done(function () {
-          Modal.show(fragment, '.lost-pet-post-wrapper', 'show', true);
-        })
-    })
+    .add('local_lost', 'local/lost/(.*)', Modal.showReport.bind(Modal))
     .add('lost', 'lost', function (fragment) {
       Modal.show(fragment, '.lost-pet-page-wrapper', 'show');
     })
@@ -265,50 +260,6 @@ $(function () {
   })
 });
 
-function showReport(item) {
-  Router.navigate('local/' + item.type + '/' + item.id);
-}
-
-function getBounds(map) {
-  var bounds = map.getBounds();
-  var ne = bounds.getNorthEast();
-  var sw = bounds.getSouthWest();
-
-  return {
-    ne: {
-      lat: ne.lat(),
-      lng: ne.lng()
-    },
-    sw: {
-      lat: sw.lat(),
-      lng: sw.lng()
-    }
-  };
-}
-
-var need_update = false;
-var last_bound;
-function getReports(map, callback) {
-  last_bound = getBounds(map);
-  if (!need_update) {
-    need_update = setTimeout(function () {
-      $.getJSON('/api/v1/reports/mapquery.json?sw=' + last_bound.sw.lat + ',' + last_bound.sw.lng + '&ne=' + last_bound.ne.lat + ',' + last_bound.ne.lng, callback);
-      need_update = false;
-    }, 100);
-  }
-}
-
-function updateMap(data) {
-  var active = data.reports.map(function (report) {
-    return report.id;
-  });
-
-  $('.pet-sightings-page-wrapper .small-report-card').each(function (i, card) {
-    var id = $(this).data('report-id');
-    this.style.display = active.indexOf(id) > -1 ? 'inline-block' : 'none';
-  });
-}
-
 function initMap2() {
   var lostPetMapDOM = $('.fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .section-wrapper .ancete-wrapper .step-wrapper-2 .map')[0],
 
@@ -373,30 +324,19 @@ function initMap2() {
   }
 
 
-  var lostPostMapDOM = $('.fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .map')[0],
-    lostPostMap = new google.maps.Map(lostPostMapDOM, mapOptions),
-    foundPostMapDOM = $('.fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .map')[0],
+  var foundPostMapDOM = $('.fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .map')[0],
     foundPostMap = new google.maps.Map(foundPostMapDOM, mapOptions),
     polyCoordinates = [];
 
 
-  var lostPostMapPath = new google.maps.Polyline({
-      path: polyCoordinates,
-      geodesic: true,
-      strokeColor: '#E2573B',
-      strokeOpacity: 1.0,
-      strokeWeight: 3,
-      map: lostPostMap
-    }),
-
-    foundPostMapPath = new google.maps.Polyline({
-      path: polyCoordinates,
-      geodesic: true,
-      strokeColor: '#1E9F84',
-      strokeOpacity: 1.0,
-      strokeWeight: 3,
-      map: foundPostMap
-    });
+  var foundPostMapPath = new google.maps.Polyline({
+    path: polyCoordinates,
+    geodesic: true,
+    strokeColor: '#1E9F84',
+    strokeOpacity: 1.0,
+    strokeWeight: 3,
+    map: foundPostMap
+  });
 
 
   var circleSymbol = {
