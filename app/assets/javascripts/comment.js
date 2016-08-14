@@ -1,3 +1,5 @@
+//= require pubsub
+
 Template.register('reportCommentTemplate', document.querySelector('#report-comment-template').innerHTML);
 
 function Comment(comment) {
@@ -13,8 +15,8 @@ Comment.HEAD_CLASS = 'Comment-withimage';
 Comment.IMAGE_PORTRAIT = 'Comment__image-portrait';
 
 Comment.prototype.initEvents = function () {
+  var self = this;
   if (this.comment.image) {
-    var self = this;
     this._$image.onload = function () {
       if (self._$image.offsetWidth < self._$image.offsetHeight) {
         self._$image.classList.add(Comment.IMAGE_PORTRAIT);
@@ -22,6 +24,13 @@ Comment.prototype.initEvents = function () {
         self._$image.classList.remove(Comment.IMAGE_PORTRAIT);
       }
     }
+  }
+
+  if (this.hasLocation()) {
+    this._$el.querySelector('.Comment__description-locationLink')
+      .addEventListener('click', function () {
+        PubSub.publish('/report/map', self.getLocation());
+      }, false);
   }
 };
 
@@ -49,6 +58,13 @@ Comment.prototype.getCreatedAtAgo = function () {
 
 Comment.prototype.getAvatar = function () {
   return this.comment.user.image.url;
+};
+
+Comment.prototype.getLocation = function () {
+  return {
+    lat: this.comment.lat,
+    lng: this.comment.lng
+  }
 };
 
 Comment.prototype.render = function () {

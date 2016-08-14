@@ -1,4 +1,5 @@
 //= require locate
+//= require pubsub
 //= require comment
 //= require comment_form
 
@@ -10,6 +11,7 @@ function Report(report, comments) {
   this.report = report;
 
   this._comments = [];
+  this._markers = [];
   this.initComments(comments);
 
   this.commentForm = new CommentForm(this);
@@ -28,11 +30,20 @@ function Report(report, comments) {
 
 Report.prototype.initEvents = function () {
   var self = this;
-  this.commentForm.events.subscribe('/report/create_comment', function (data) {
+  this.events = PubSub;
+  PubSub.subscribe('/report/create_comment', function (data) {
     var comment = new Comment(data);
     var $comments = self._$el.querySelector('.Report__comments');
     $comments.appendChild(comment.getElement());
+    if (comment.hasLocation()) {
+      self.addCircleMarker(comment.getLocation());
+    }
     self._comments.push(comment);
+  });
+
+  PubSub.subscribe('/report/map', function (position) {
+    self._map.setCenter(position);
+    self._$map.scrollIntoView(false)
   });
 };
 
@@ -42,7 +53,25 @@ Report.prototype.initComments = function (comments) {
   });
 };
 
+Report.prototype.addCircleMarker = function (position) {
+  var marker = new google.maps.Marker({
+    position: position,
+    map: this._map,
+    icon: {
+      path: google.maps.SymbolPath.CIRCLE,
+      fillOpacity: 1,
+      fillColor: '#E2573B',
+      scale: 7,
+      strokeColor: '#E2573B'
+    },
+    draggable: false
+  });
+
+  this._markers.push(marker);
+};
+
 Report.prototype.initMap = function (me) {
+  var self = this;
   var position = this.getPosition();
   var mapOptions = {
     zoom: 14,
@@ -70,6 +99,14 @@ Report.prototype.initMap = function (me) {
     draggable: false,
     title: 'Me'
   });
+
+  this._comments
+    .filter(function (comment) {
+      return comment.hasLocation();
+    })
+    .forEach(function (comment) {
+      self.addCircleMarker(comment.getLocation());
+    });
 };
 
 Report.prototype.getPosition = function () {
@@ -93,7 +130,6 @@ Report.prototype.serialize = function () {
 
 Report.prototype.render = function () {
   var $el = Template.render('reportTemplate', this.serialize());
-  console.log($el);
   if (this._comments.length) {
     var $comments = $el.querySelector('.Report__comments');
     this._comments.forEach(function (comment) {

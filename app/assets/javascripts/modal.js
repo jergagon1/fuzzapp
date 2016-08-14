@@ -32,6 +32,11 @@ var Modal = {
   },
   showReportData: function (fragment, report, comments) {
 
+    if (this._rendered['report']) {
+      var old = this._rendered['report'].getElement();
+      old.parentNode.removeChild(old);
+    }
+
     var current = new Report(report, comments);
     document.querySelector('.' + current.getType() + '-pet-post-wrapper').appendChild(current.getElement());
     this._rendered['report'] = current;

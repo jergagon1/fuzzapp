@@ -45,8 +45,6 @@ CommentForm.prototype.initMap = function (position) {
 };
 
 CommentForm.prototype.initEvents = function () {
-  this.events = PubSub;
-
   this.$submit.addEventListener('click', this.submit, false);
   this.$location.addEventListener('click', this.toggleMap, false);
 };
@@ -100,7 +98,7 @@ CommentForm.prototype.submit = function (e) {
   });
 
   ajax.done(function (data) {
-    self.events.publish('/report/create_comment', data.comment);
+    PubSub.publish('/report/create_comment', data.comment);
     self._$el.reset();
     self._$map.classList.remove(CommentForm.MAP_VISIBLE);
   });

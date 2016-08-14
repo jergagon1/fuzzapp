@@ -93,33 +93,33 @@ $(function () {
       document.querySelector('.lost-pet-page-wrapper').classList.add('show');
       document.querySelector('.lost-pet-page-wrapper .progress-step').classList.add('step-2');
       document.querySelector('.lost-pet-page-wrapper .ancete-wrapper').classList.add('step-2');
-      after_router(fragment, '.lost-pet-page-wrapper .progress-step , .lost-pet-page-wrapper .ancete-wrapper ', 'step-2');
+      Modal.show(fragment, '.lost-pet-page-wrapper .progress-step , .lost-pet-page-wrapper .ancete-wrapper ', 'step-2');
     })
     .add('lost_step3', 'lost/step_3', function (fragment) {
       document.querySelector('.lost-pet-page-wrapper').classList.add('show');
       document.querySelector('.lost-pet-page-wrapper .progress-step').classList.add('step-3');
       document.querySelector('.lost-pet-page-wrapper .ancete-wrapper').classList.add('step-3');
-      after_router(fragment, '.lost-pet-page-wrapper .progress-step , .lost-pet-page-wrapper .ancete-wrapper ', 'step-3');
+      Modal.show(fragment, '.lost-pet-page-wrapper .progress-step , .lost-pet-page-wrapper .ancete-wrapper ', 'step-3');
     })
     .add('found', 'found', function (fragment) {
       document.querySelector('.found-pet-page-wrapper').classList.add('show');
-      after_router(fragment, '.found-pet-page-wrapper', 'show');
+      Modal.show(fragment, '.found-pet-page-wrapper', 'show');
     })
     .add('found_step2', 'found/step_2', function (fragment) {
       document.querySelector('.found-pet-page-wrapper').classList.add('show');
       document.querySelector('.found-pet-page-wrapper .progress-step').classList.add('step-2');
       document.querySelector('.found-pet-page-wrapper .ancete-wrapper').classList.add('step-2');
-      after_router(fragment, '.found-pet-page-wrapper .progress-step , .found-pet-page-wrapper .ancete-wrapper ', 'step-2');
+      Modal.show(fragment, '.found-pet-page-wrapper .progress-step , .found-pet-page-wrapper .ancete-wrapper ', 'step-2');
     })
     .add('found_step3', 'found/step_3', function (fragment) {
       document.querySelector('.found-pet-page-wrapper').classList.add('show');
       document.querySelector('.found-pet-page-wrapper .progress-step').classList.add('step-3');
       document.querySelector('.found-pet-page-wrapper .ancete-wrapper').classList.add('step-3');
-      after_router(fragment, '.found-pet-page-wrapper .progress-step , .found-pet-page-wrapper .ancete-wrapper ', 'step-3');
+      Modal.show(fragment, '.found-pet-page-wrapper .progress-step , .found-pet-page-wrapper .ancete-wrapper ', 'step-3');
     })
     .add('chat', 'chat', function (fragment) {
       document.querySelector('.fuzz-chat-wrapper').classList.add('show');
-      after_router(fragment, '.fuzz-chat-wrapper', 'show');
+      Modal.show(fragment, '.fuzz-chat-wrapper', 'show');
     })
     .listen();
 
