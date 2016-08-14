@@ -27,17 +27,17 @@ var Modal = {
   showReport: function (fragment, id) {
     var self = this;
     $.getJSON('/api/v1/reports/' + id, function (result) {
-      self.showReportData(fragment, result.report, result.comments);
+      self.showReportData(fragment, result.report, result.comments, result.user);
     });
   },
-  showReportData: function (fragment, report, comments) {
+  showReportData: function (fragment, report, comments, user) {
 
     if (this._rendered['report']) {
       var old = this._rendered['report'].getElement();
       old.parentNode.removeChild(old);
     }
 
-    var current = new Report(report, comments);
+    var current = new Report(report, comments, user);
     document.querySelector('.' + current.getType() + '-pet-post-wrapper').appendChild(current.getElement());
     this._rendered['report'] = current;
     this.show(fragment, '.' + current.getType() + '-pet-post-wrapper', 'show', true);

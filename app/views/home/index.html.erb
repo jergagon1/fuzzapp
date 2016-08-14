@@ -600,11 +600,9 @@
       </div>
       <div class="post-description">
         <div class="header">
-          {{#if img_url}}
-          <div style="background-image: url('<%= image_url('user-picture-3.png') %>')" class="face-lockup"></div>
-          {{else}}
-          <div style="background-image: url('<%= image_url('user-picture-3.png') %>')" class="face-lockup"></div>
-          {{/if}}
+          <div class="face-lockup">
+            <img src="{{user_avatar}}"/>
+          </div>
           <div class="content">
             <p>Posted by {{report_username}}</p>
             <p>{{created_at_ago}} ago</p>

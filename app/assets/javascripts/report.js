@@ -6,10 +6,10 @@
 Template.register('reportTemplate', document.querySelector('#report-template').innerHTML);
 
 
-function Report(report, comments) {
+function Report(report, comments, user) {
 
   this.report = report;
-
+  this.user = user;
   this._comments = [];
   this._markers = [];
   this.initComments(comments);
@@ -125,8 +125,13 @@ Report.prototype.serialize = function () {
   data.created_at_ago = this.getCreatedAtAgo();
   data.last_seen_ago = this.getLastSeenAgo();
   data.last_seen = this.getLastSeen();
+  data.user_avatar = this.getAvatar();
   return data;
 };
+
+Report.prototype.getAvatar = function () {
+  return this.user.image.url;
+}
 
 Report.prototype.render = function () {
   var $el = Template.render('reportTemplate', this.serialize());
