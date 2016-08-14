@@ -17,7 +17,7 @@ ReportItem.prototype.serialize = function () {
 };
 
 ReportItem.prototype.getRoute = function () {
-  return 'local/' + this.report.report_type + '/' + this.report.id
+  return 'report/' + this.report.id
 };
 
 ReportItem.prototype.hasPosition = function () {

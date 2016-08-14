@@ -83,9 +83,10 @@ $(function () {
   Router.root = '/fuzzapp/';
 
   Router
-    .add('local', 'local', Modal.showReports.bind(Modal))
-    .add('local_found', 'local/found/(.*)', Modal.showReport.bind(Modal))
-    .add('local_lost', 'local/lost/(.*)', Modal.showReport.bind(Modal))
+    .add('reports', 'reports', function (fragment) {
+      Modal.showReports(fragment)
+    })
+    .add('report', 'report/(.*)', Modal.showReport.bind(Modal))
     .add('lost', 'lost', function (fragment) {
       Modal.show(fragment, '.lost-pet-page-wrapper', 'show');
     })
@@ -121,11 +122,14 @@ $(function () {
       document.querySelector('.fuzz-chat-wrapper').classList.add('show');
       Modal.show(fragment, '.fuzz-chat-wrapper', 'show');
     })
+    .add('main', '?', function () {
+      Modal.hide(true);
+    })
     .listen();
 
   if (window.location.pathname && window.location.pathname) {
     var hash = Router.getFragment();
-    if (Router.is(['local', 'local_found', 'local_lost'], hash)) {
+    if (Router.is(['reports', 'report'], hash)) {
       Router.check(hash);
     } else {
       Router.navigate();

@@ -94,6 +94,9 @@ var Router = {
   navigate: function (path) {
     path = path ? path : '';
     if (this.mode === 'history') {
+      var root = this.root.substr(0, 1) === '/' ? this.root.substr(1) : this.root;
+      path = this.root != '/' ? path.replace(root, '') : path;
+
       history.pushState(null, null, this.root + this.clearSlashes(path));
     } else {
       window.location.href = window.location.href.replace(/#(.*)$/, '') + '#' + path;

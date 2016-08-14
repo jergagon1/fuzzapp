@@ -42,27 +42,44 @@ var Modal = {
     this._rendered['report'] = current;
     this.show(fragment, '.' + current.getType() + '-pet-post-wrapper', 'show', true);
   },
+  check: function (target) {
+    var prev = this._navigationStack.slice(-2, -1);
+    return prev.length && prev[0][0] === target;
+  },
   show: function (fragment, target, tClass, state) {
+    if (this.check(target)) {
+      Modal.hide();
+    } else {
 
-    document.querySelector(target).classList.add(tClass);
-    this._navigationStack.push([target, tClass, fragment]);
-    var navigationClass = this.getNavigationToggler(target);
-    if (navigationClass && (tClass === 'show')) {
-      if (state) {
-        $('.fuzzfinders-app').removeClass('navigation-blue-light');
-        $('.fuzzfinders-app .pet-sightings-page-wrapper').addClass('post-shown');
+      document.querySelector(target).classList.add(tClass);
+      this._navigationStack.push([target, tClass, fragment]);
+      var navigationClass = this.getNavigationToggler(target);
+      if (navigationClass && (tClass === 'show')) {
+        if (state) {
+          $('.fuzzfinders-app').removeClass('navigation-blue-light');
+          $('.fuzzfinders-app .pet-sightings-page-wrapper').addClass('post-shown');
+        }
+        $('.fuzzfinders-app').addClass(navigationClass);
       }
-      $('.fuzzfinders-app').addClass(navigationClass);
     }
   },
-  hide: function () {
+  hide: function (force) {
     var lastTransition = this._navigationStack.pop();
+    $('body').scrollTop(0);
+    if (force === true) {
+      if (lastTransition) {
+        while (lastTransition[1] !== 'show') {
+          lastTransition = this._navigationStack.pop();
+        }
+      } else {
+        return;
+      }
+    }
+
     var target = lastTransition[0];
     var tClass = lastTransition[1];
 
     $(target).toggleClass(tClass);
-    $('body').scrollTop(0);
-
     var navigationClass = this.getNavigationToggler(target);
     if (navigationClass && (tClass === 'show')) {
       if (target.indexOf('post-wrapper') > -1) {
@@ -71,12 +88,13 @@ var Modal = {
       }
       $('.fuzzfinders-app').removeClass(navigationClass);
     }
+
     if (($(window).width() > 1024) && ($(window).height() > 640)) {
       $('.show .ancete-wrapper').height(300);
     }
     $('.show .ancete-wrapper').height(300);
 
-    var prev = navigationStack.slice(-1)
+    var prev = this._navigationStack.slice(-1);
     if (prev.length) {
       Router.navigate(prev[0][2]);
     } else {

@@ -1,20 +1,6 @@
 // file for app submission logic and client server data transfers
 
 $(function () {
-  $('body').on('click', '.comments_button', function () {
-    $.post("/api/v1/reports/" + $('.comment_report_id').val() + "/comments", {
-      comment: {
-        content: $('.comment_body').val(),
-        report_id: $('.comment_report_id').val(),
-        lat: '1',
-        lng: '1',
-        image: 'lost'
-      }
-    });
-
-    return false;
-  });
-
   $('#lost_pet_button').click(function () {
     $.post("/api/v1/reports", {
       report: {
@@ -44,8 +30,8 @@ $(function () {
       }
     })
       .done(function (data) {
-        alert('saved');
-        Router.navigate();
+        console.log('saved', data);
+        Modal.hide(true)
       });
   });
 
@@ -76,8 +62,8 @@ $(function () {
       }
     })
       .done(function (data) {
-        alert('saved');
-        Router.navigate();
+        console.log('saved', data);
+        Modal.hide(true)
       });
   });
 });
