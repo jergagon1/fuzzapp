@@ -44,7 +44,6 @@ Comment.prototype.serialize = function () {
   comment.hasLocation = this.hasLocation();
   comment.avatar = this.getAvatar();
   comment.locationLabel = this.getLocationLabel();
-  console.log(comment);
   return comment;
 };
 

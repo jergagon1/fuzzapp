@@ -66,7 +66,11 @@ Report.prototype.addCircleMarker = function (position, label) {
       strokeColor: '#E2573B'
     },
     draggable: false,
-    label: label.toString()
+    label: {
+      text: label.toString(),
+      color: '#FFFFFF',
+      stroke: '#E2573B'
+    }
   });
 
   this._markers.push(marker);
