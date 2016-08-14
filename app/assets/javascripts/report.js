@@ -36,7 +36,7 @@ Report.prototype.initEvents = function () {
     var $comments = self._$el.querySelector('.Report__comments');
     $comments.appendChild(comment.getElement());
     if (comment.hasLocation()) {
-      self.addCircleMarker(comment.getLocation());
+      self.addCircleMarker(comment.getLocation(), comment.getLocationLabel());
     }
     self._comments.push(comment);
   });
@@ -53,7 +53,7 @@ Report.prototype.initComments = function (comments) {
   });
 };
 
-Report.prototype.addCircleMarker = function (position) {
+Report.prototype.addCircleMarker = function (position, label) {
   var marker = new google.maps.Marker({
     position: position,
     map: this._map,
@@ -61,10 +61,12 @@ Report.prototype.addCircleMarker = function (position) {
       path: google.maps.SymbolPath.CIRCLE,
       fillOpacity: 1,
       fillColor: '#E2573B',
+
       scale: 7,
       strokeColor: '#E2573B'
     },
-    draggable: false
+    draggable: false,
+    label: label.toString()
   });
 
   this._markers.push(marker);
@@ -105,7 +107,7 @@ Report.prototype.initMap = function (me) {
       return comment.hasLocation();
     })
     .forEach(function (comment) {
-      self.addCircleMarker(comment.getLocation());
+      self.addCircleMarker(comment.getLocation(), comment.getLocationLabel());
     });
 };
 

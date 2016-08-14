@@ -2,10 +2,13 @@
 
 Template.register('reportCommentTemplate', document.querySelector('#report-comment-template').innerHTML);
 
+var LocationLabel = 1;
+
 function Comment(comment) {
   this.comment = comment;
-  this._$el = this.render();
+  this._locationLabel = this.hasLocation() ? LocationLabel++ : 0;
 
+  this._$el = this.render();
   this._$image = this._$el.querySelector('.Comment__image');
 
   this.initEvents();
@@ -40,6 +43,8 @@ Comment.prototype.serialize = function () {
   comment.head_class = this.headClass();
   comment.hasLocation = this.hasLocation();
   comment.avatar = this.getAvatar();
+  comment.locationLabel = this.getLocationLabel();
+  console.log(comment);
   return comment;
 };
 
@@ -49,6 +54,10 @@ Comment.prototype.headClass = function () {
 
 Comment.prototype.hasLocation = function () {
   return this.comment.lat && this.comment.lng;
+};
+
+Comment.prototype.getLocationLabel = function () {
+  return this._locationLabel;
 };
 
 Comment.prototype.getCreatedAtAgo = function () {
