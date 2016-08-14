@@ -586,13 +586,10 @@
     </div>
     <div class="section-wrapper">
       <div class="map"></div>
-      <div class="photo-wrapper placeholder-dog">
-
-        {{#if img_url}}
-        <div class="photo" style="background-size: initial; background-image: url('{{img_url}}')"></div>
-        {{else}}
-        <div style="background-image: url('<%= image_url('user-picture-3.png') %>')" class="face-lockup"></div>
-        {{/if}}
+      <div class="photo-wrapper">
+        <div class="Report__photo photo">
+          <img class="Report__photo-img" src="{{image}}"/>
+        </div>
 
         {{#if last_seen}}
         <h3 class="label">Last Seen {{last_seen_ago}} ago</h3>

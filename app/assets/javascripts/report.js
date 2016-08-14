@@ -147,11 +147,28 @@ Report.prototype.serialize = function () {
   data.last_seen_ago = this.getLastSeenAgo();
   data.last_seen = this.getLastSeen();
   data.user_avatar = this.getAvatar();
+  data.image = this.getImage();
   return data;
 };
 
 Report.prototype.getAvatar = function () {
   return this.user.image.url;
+};
+
+Report.prototype.getImage = function () {
+  if (this.report.img_url) {
+    return this.report.img_url;
+  } else {
+    switch (this.report.animal_type) {
+      case 'dog':
+      default:
+        return '/img/app/dog.png';
+      case 'cat':
+        return '/img/app/cat.png';
+      case 'bird':
+        return '/img/app/bird.png'
+    }
+  }
 }
 
 Report.prototype.render = function () {
