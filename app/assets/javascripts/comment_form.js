@@ -1,7 +1,7 @@
 //= require locate
 //= require pubsub
 
-Template.register('commentFormTemplate', document.querySelector('#comment-form-template').innerHTML);
+Template.register('commentFormTemplate', '#comment-form-template');
 
 function CommentForm(report) {
   this.report = report
@@ -84,8 +84,6 @@ CommentForm.prototype.submit = function (e) {
   Object.keys(comment).forEach(function (key) {
     fd.append('comment[' + key + ']', comment[key]);
   });
-
-  console.log(fd, comment);
 
   var self = this;
   var ajax = $.ajax({

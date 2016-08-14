@@ -1,6 +1,6 @@
 Pusher.logToConsole = true;
 
-Template.register('notificationTemplate', document.querySelector('#notification-template').innerHTML);
+Template.register('notificationTemplate', '#notification-template');
 
 var Notification = {
   _container: document.querySelector('.notifications'),

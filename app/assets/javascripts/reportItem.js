@@ -1,4 +1,4 @@
-Template.register('reportsItemTemplate', document.querySelector('#reports-item-template').innerHTML);
+Template.register('reportsItemTemplate', '#reports-item-template');
 
 function ReportItem(report) {
   this.report = report;

@@ -1,4 +1,4 @@
-Template.register('reportsTemplate', document.querySelector('#reports-template').innerHTML);
+Template.register('reportsTemplate', '#reports-template');
 
 var Modal = {
   _navigationStack: [],

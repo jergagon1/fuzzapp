@@ -3,7 +3,7 @@
 //= require comment
 //= require comment_form
 
-Template.register('reportTemplate', document.querySelector('#report-template').innerHTML);
+Template.register('reportTemplate', '#report-template');
 
 
 function Report(report, comments, user) {
@@ -86,8 +86,6 @@ Report.prototype.addCircleMarker = function (position, label) {
       strokeWeight: 5,
       map: this._map
     });
-
-    console.log(line, last);
   }
 
   this._markers.push(marker);

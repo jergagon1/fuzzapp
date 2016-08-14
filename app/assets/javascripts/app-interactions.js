@@ -1,3 +1,5 @@
+//= require modal
+
 window.moveBus = function (map, marker, geolocation, updateInputs) {
   map.panTo(new google.maps.LatLng(geolocation.coords.latitude, geolocation.coords.longitude));
 

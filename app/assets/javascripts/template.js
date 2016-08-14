@@ -1,7 +1,12 @@
 var Template = {
   _templates: {},
   register: function (key, template) {
-    template = template.trim();
+    var tmpl = document.querySelector(template);
+    if (!tmpl) {
+      tmpl = document.createElement('div');
+    }
+
+    template = tmpl.innerHTML.trim();
     this._templates[key.toLowerCase()] = Handlebars.compile(template)
   },
   render: function (key, data) {

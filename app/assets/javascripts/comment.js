@@ -1,6 +1,6 @@
 //= require pubsub
 
-Template.register('reportCommentTemplate', document.querySelector('#report-comment-template').innerHTML);
+Template.register('reportCommentTemplate', '#report-comment-template');
 
 var LocationLabel = 1;
 
