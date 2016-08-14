@@ -667,7 +667,9 @@
 <script id="report-comment-template" type="text/x-handlers-template">
   <div class="Comment {{head_class}}">
     <div class="Comment__header">
-      <div style="background-image: url('<%= image_url('user-picture-5.png') %>')" class="Comment__header-avatar"></div>
+      <div class="Comment__header-avatar">
+        <img src="{{avatar}}"/>
+      </div>
       <div class="Comment__header-content">
         <p>Posted by {{comment_username}}</p>
         <p>{{created_at_ago}} ago</p>

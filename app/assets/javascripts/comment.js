@@ -23,13 +23,14 @@ Comment.prototype.initEvents = function () {
       }
     }
   }
-}
+};
 
 Comment.prototype.serialize = function () {
   var comment = this.comment;
   comment.created_at_ago = this.getCreatedAtAgo();
   comment.head_class = this.headClass();
   comment.hasLocation = this.hasLocation();
+  comment.avatar = this.getAvatar();
   return comment;
 };
 
@@ -44,6 +45,10 @@ Comment.prototype.hasLocation = function () {
 Comment.prototype.getCreatedAtAgo = function () {
   var diff = moment().diff(this.comment.created_at, 'minutes');
   return this.comment.created_at && moment.duration(diff, 'minutes').humanize();
+};
+
+Comment.prototype.getAvatar = function () {
+  return this.comment.user.image.url;
 };
 
 Comment.prototype.render = function () {
