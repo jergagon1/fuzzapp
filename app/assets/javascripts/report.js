@@ -159,7 +159,7 @@ Report.prototype.getImage = function () {
   if (this.report.img_url) {
     return this.report.img_url;
   } else {
-    switch (this.report.animal_type) {
+    switch (this.report.animal_type.toLowerCase()) {
       case 'dog':
       default:
         return '/img/app/dog.png';
