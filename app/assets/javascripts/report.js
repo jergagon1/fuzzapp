@@ -2,6 +2,7 @@
 //= require pubsub
 //= require comment
 //= require comment_form
+//= require helpers
 
 Template.register('reportTemplate', '#report-template');
 
@@ -148,7 +149,18 @@ Report.prototype.serialize = function () {
   data.last_seen = this.getLastSeen();
   data.user_avatar = this.getAvatar();
   data.image = this.getImage();
+  data.title = this.getTitle();
+  data.type = this.getAnimalType();
   return data;
+};
+
+Report.prototype.getTitle = function () {
+  return Helpers.getTitleReport(this.report);
+};
+
+Report.prototype.getAnimalType = function () {
+  var str = this.report.report_type + ' ' + Helpers.getAnimalTypeReport(this.report);
+  return Helpers.camelize(str);
 };
 
 Report.prototype.getAvatar = function () {
@@ -159,8 +171,9 @@ Report.prototype.getImage = function () {
   if (this.report.img_url) {
     return this.report.img_url;
   } else {
-    switch (this.report.animal_type.toLowerCase()) {
+    switch (Helpers.getAnimalTypeReport(this.report)) {
       case 'dog':
+      case 'pet':
       default:
         return '/img/app/dog.png';
       case 'cat':
@@ -169,7 +182,7 @@ Report.prototype.getImage = function () {
         return '/img/app/bird.png'
     }
   }
-}
+};
 
 Report.prototype.render = function () {
   var $el = Template.render('reportTemplate', this.serialize());

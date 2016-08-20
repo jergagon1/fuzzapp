@@ -553,7 +553,7 @@
 
 <script id="reports-item-template" type="text/x-handlers-template">
   <div class="post {{report_type}}-post small-report-card" data-report-id="{{id}}">
-    <h3 class="title">{{report_type}} {{animal_type}}</h3>
+    <h3 class="title">{{title}}</h3>
     {{#if title}}
     <div class="photo-holder" style="background-image: url('{{img_url}}')"></div>
     {{else}}
@@ -581,7 +581,7 @@
   <div class="Report Report-{{report_type}}">
     <div class="nav-block">
       <btn class="back-arrow"><i class="icon-back"></i></btn>
-      <h2 class="title"> Lost {{animal_type}}</h2>
+      <h2 class="title">{{title}}</h2>
       <div class="nav-trigger nav-trigger-white"><span></span><span></span><span></span></div>
     </div>
     <div class="section-wrapper">
@@ -603,7 +603,7 @@
           <div class="content">
             <p>Posted by {{report_username}}</p>
             <p>{{created_at_ago}} ago</p>
-            <p class="type">Lost {{animal_type}}</p>
+            <p class="type">{{type}}</p>
           </div>
         </div>
 

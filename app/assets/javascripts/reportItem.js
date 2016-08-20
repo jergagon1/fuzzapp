@@ -1,3 +1,4 @@
+//= require helpers
 Template.register('reportsItemTemplate', '#reports-item-template');
 
 function ReportItem(report) {
@@ -27,7 +28,12 @@ ReportItem.prototype.getLastSeenAgo = function () {
 ReportItem.prototype.serialize = function () {
   var data = this.report;
   data.last_seen = this.getLastSeenAgo();
+  data.title = this.getTitle();
   return data;
+};
+
+ReportItem.prototype.getTitle = function () {
+  return Helpers.getTitleReport(this.report);
 };
 
 ReportItem.prototype.getRoute = function () {
