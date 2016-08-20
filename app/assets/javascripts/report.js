@@ -73,21 +73,23 @@ Report.prototype.addCircleMarker = function (position, label) {
       stroke: '#E2573B'
     }
   });
-
+  var last;
   if (this._markers.length) {
-    var last = this._markers.slice(-1)[0];
-
-    var line = new google.maps.Polyline({
-      path: [
-        new google.maps.LatLng(position.lat, position.lng),
-        new google.maps.LatLng(last.position.lat(), last.position.lng())
-      ],
-      strokeColor: "#E2573B",
-      strokeOpacity: 1.0,
-      strokeWeight: 5,
-      map: this._map
-    });
+    last = this._markers.slice(-1)[0];
+  } else {
+    last = this._marker
   }
+
+  var line = new google.maps.Polyline({
+    path: [
+      new google.maps.LatLng(position.lat, position.lng),
+      new google.maps.LatLng(last.position.lat(), last.position.lng())
+    ],
+    strokeColor: "#E2573B",
+    strokeOpacity: 1.0,
+    strokeWeight: 5,
+    map: this._map
+  });
 
   this._markers.push(marker);
 };
