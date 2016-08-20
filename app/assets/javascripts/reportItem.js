@@ -16,7 +16,7 @@ ReportItem.prototype.getLastSeenAgo = function () {
     var diff = moment().diff(this.report.last_seen, 'minutes');
 
     if (diff < 60) {
-      return '15 minutes ago';
+      return moment.duration(diff, 'minutes').humanize() + ' ago';
     } else if (diff < 60 * 24) {
       return moment.duration(diff, 'minutes').humanize() + ' ago';
     } else {
