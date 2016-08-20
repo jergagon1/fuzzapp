@@ -590,7 +590,11 @@
 .fuzzfinders-app .back-arrow {
   height: 50px;
   width: 50px;
-  display: table;
+  display: inline-block;
+  text-align: center;
+  line-height: 50px;
+  border: none;
+  background-color: inherit;
 }
 
 .fuzzfinders-app .back-arrow .icon-back {
