@@ -61,16 +61,16 @@ Report.prototype.addCircleMarker = function (position, label) {
     icon: {
       path: google.maps.SymbolPath.CIRCLE,
       fillOpacity: 1,
-      fillColor: '#E2573B',
+      fillColor: this.getColor(),
 
       scale: 7,
-      strokeColor: '#E2573B'
+      strokeColor: this.getColor()
     },
     draggable: false,
     label: {
       text: label.toString(),
       color: '#FFFFFF',
-      stroke: '#E2573B'
+      stroke: this.getColor()
     }
   });
   var last;
@@ -85,7 +85,7 @@ Report.prototype.addCircleMarker = function (position, label) {
       new google.maps.LatLng(position.lat, position.lng),
       new google.maps.LatLng(last.position.lat(), last.position.lng())
     ],
-    strokeColor: "#E2573B",
+    strokeColor: this.getColor(),
     strokeOpacity: 1.0,
     strokeWeight: 5,
     map: this._map
@@ -93,6 +93,10 @@ Report.prototype.addCircleMarker = function (position, label) {
 
   this._markers.push(marker);
 };
+
+Report.prototype.getColor = function () {
+  return this.getType() === 'lost' ? '#e37e26' : '#1E9F84';
+}
 
 Report.prototype.initMap = function (me) {
   var self = this;
