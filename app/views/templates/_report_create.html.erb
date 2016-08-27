@@ -41,7 +41,7 @@
         <div class="step-wrapper-2 ReportCreate__step-2">
           <h3 class="title">Enter last known location</h3>
           <div class="form-group empty">
-            <input placeholder="Type address here" name="address" class="input form-control ReportCreate-input"/>
+            <input placeholder="Type address here" name="address" value="{{address}}" class="input form-control ReportCreate-input"/>
             <p class="description">Or drag map pin to location</p>
             <div class="map ReportCreate__map"></div>
             <button class="btn btn-big btn-blue ">Use My Current Location
@@ -55,10 +55,10 @@
             <div class="Select">
               <select name="animal_type" class="Select-input ReportCreate-input" placeholder="Per type">
                 <option value="">Pet type</option>
-                <option value="dog">Dog</option>
-                <option value="cat">Cat</option>
-                <option value="bird">Bird</option>
-                <option value="other">Other</option>
+                <option value="dog"  {{#if isAninalDog}} selected="selected" {{/if}}>Dog</option>
+                <option value="cat" {{#if isAninalCat}} selected="selected" {{/if}}>Cat</option>
+                <option value="bird" {{#if isAninalBird}} selected="selected" {{/if}}>Bird</option>
+                <option value="other" {{#if isAninalOther}} selected="selected" {{/if}}>Other</option>
               </select>
             </div>
             <div class="Select">
@@ -73,14 +73,14 @@
                 <option value="custom">custom date/time</option>
               </select>
             </div>
-            <div class="form-group last-seen-custom">
-              <input placeholder="MM/DD HH:MM AM" class="input input-small form-control"/>
+            <div class="form-group">
+              <input placeholder="MM/DD HH:MM AM" value="{{last_seen}}" class="input input-small form-control"/>
             </div>
             <div class="form-group">
-              <input placeholder="Pet name" name="pet_name" class="input input-small form-control  ReportCreate-input"/>
+              <input placeholder="Pet name" name="pet_name" value="{{pet_name}}" class="input input-small form-control  ReportCreate-input"/>
             </div>
             <div class="form-group">
-              <textarea name="notes" placeholder="Briefly describe the incident" rows="4" class="textarea form-control ReportCreate-input"></textarea>
+              <textarea name="notes" placeholder="Briefly describe the incident" value="{{notes}}" rows="4" class="textarea form-control ReportCreate-input"></textarea>
             </div>
             <button type="button" class="btn btn-big btn-green ReportCreate__toggleDetails">
               <i class="icon-plus"></i>Add Pet Details
@@ -91,8 +91,8 @@
                   <div class="Select">
                     <select class="Select-input ReportCreate-input" name="gender" placeholder="Gender">
                       <option value="">Gender</option>
-                      <option value="male">Male</option>
-                      <option value="female">Female</option>
+                      <option value="male" {{#if isGenderMale}} selected="selected" {{/if}}>Male</option>
+                      <option value="female" {{#if isGenderFemale}} selected="selected" {{/if}}>Female</option>
                     </select>
                   </div>
                 </div>
@@ -100,9 +100,9 @@
                   <div class="Select">
                     <select class="Select-input ReportCreate-input" name="size" placeholder="Size">
                       <option value="">Size</option>
-                      <option value="small">Small</option>
-                      <option value="medium">Medium</option>
-                      <option value="large">Large</option>
+                      <option value="small" {{#if isSizeSmall}} selected="selected" {{/if}}>Small</option>
+                      <option value="medium"  {{#if isSizeMedium}} selected="selected" {{/if}}>Medium</option>
+                      <option value="large"  {{#if isSizeLarge}} selected="selected" {{/if}}>Large</option>
                     </select>
                   </div>
                 </div>
@@ -112,25 +112,25 @@
                   <div class="Select">
                     <select class="Select-input ReportCreate-input" name="age" placeholder="Age">
                       <option value="">Age</option>
-                      <option value="baby">Baby</option>
-                      <option value="young">Young</option>
-                      <option value="adult">Adult</option>
-                      <option value="senior">Senior</option>
+                      <option value="baby"  {{#if isAgeBaby}} selected="selected" {{/if}}>Baby</option>
+                      <option value="young"  {{#if isAgeYoung}} selected="selected" {{/if}}>Young</option>
+                      <option value="adult"  {{#if isAgeAdult}} selected="selected" {{/if}}>Adult</option>
+                      <option value="senior"  {{#if isAgeSenior}} selected="selected" {{/if}}>Senior</option>
                     </select>
                   </div>
                 </div>
                 <div class="col-xs-6">
-                  <input placeholder="Pet color" name="color" class="input input-small form-control ReportCreate-input"/>
+                  <input placeholder="Pet color" name="color" value="{{color}}" class="input input-small form-control ReportCreate-input"/>
                 </div>
               </div>
               <div class="row">
                 <div class="col-xs-12">
-                  <input placeholder="Pet Breed" name="breed" class="input input-small form-control ReportCreate-input"/>
+                  <input placeholder="Pet Breed" name="breed" value="{{breed}}" class="input input-small form-control ReportCreate-input"/>
                 </div>
               </div>
               <div class="row">
                 <div class="col-xs-12">
-                  <input placeholder="Additional keywords" name="tag_list" class="input input-small form-control ReportCreate-input"/>
+                  <input placeholder="Additional keywords" name="tag_list" value="{{tag_list}}" class="input input-small form-control ReportCreate-input"/>
                 </div>
               </div>
             </div>

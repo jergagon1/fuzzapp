@@ -25,8 +25,5 @@ $(function () {
     }));
 
     window.geolocation = location;
-
-    moveBus(window.lostPetMap, window.lostPetMarker, location);
-    moveBus(window.foundPetMap, window.foundPetMarker, location);
   });
 });

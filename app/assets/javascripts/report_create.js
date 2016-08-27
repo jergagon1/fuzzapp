@@ -4,9 +4,9 @@ Template.register('reportCreateTemplate', '#report-create-template');
 
 var slides = ['step-1', 'step-2', 'step-3'];
 
-function ReportCreate(type) {
+function ReportCreate(type, report) {
   this.type = type;
-
+  this.report = report;
   this._$el = this.render();
   this._slides = [];
 
@@ -58,6 +58,10 @@ ReportCreate.prototype.initEvents = function () {
   this._$submit.addEventListener('click', this.submit, false);
 };
 
+ReportCreate.prototype.getType = function () {
+  return this.report && this.report.type || this.type;
+};
+
 ReportCreate.prototype.getElement = function () {
   return this._$el;
 };
@@ -105,10 +109,32 @@ ReportCreate.prototype.serialize = function () {
   });
 };
 
+ReportCreate.prototype.getData = function () {
+  var data = this.report || {}
+
+  data.isAninalDog = this.isAnimal('dog')
+  data.isAninalCat = this.isAnimal('cat')
+  data.isAninalBird = this.isAnimal('bird')
+  data.isAninalOther = this.isAnimal('pet') || this.isAnimal('other');
+  data.isGenderMale = this.report.sex.toLowerCase() === 'male';
+  data.isGenderFemale = this.report.sex.toLowerCase() === 'female';
+  data.isSizeSmall = this.report.pet_size.toLowerCase() === 'small';
+  data.isSizeMedium = this.report.pet_size.toLowerCase() === 'medium';
+  data.isSizeLarge = this.report.pet_size.toLowerCase() === 'large';
+  data.isAgeBaby = this.report.age.toLowerCase() === 'baby';
+  data.isAgeYoung = this.report.age.toLowerCase() === 'young';
+  data.isAgeAdult = this.report.age.toLowerCase() === 'adult';
+  data.isAgeSenior = this.report.age.toLowerCase() === 'senior';
+  return data;
+}
+
+ReportCreate.prototype.isAnimal = function (type) {
+  console.log(Helpers.getAnimalTypeReport(this.report), type);
+  return Helpers.getAnimalTypeReport(this.report) === type;
+};
+
 ReportCreate.prototype.render = function () {
-  var $el = Template.render('reportCreateTemplate', {
-    report_type: this.type
-  });
+  var $el = Template.render('reportCreateTemplate', this.getData());
 
   return $el;
 };
@@ -124,23 +150,32 @@ ReportCreate.prototype.updatePhoto = function () {
 };
 
 ReportCreate.prototype.initMap = function (me) {
+  var coord = this.report ? this.getPosition() : me;
+
   var mapOptions = {
     zoom: 14,
     styles: FuzzAppMapStyles,
     mapTypeControl: false,
     streetViewControl: false,
     scrollwheel: false,
-    center: new google.maps.LatLng(me.lat, me.lng)
+    center: new google.maps.LatLng(coord.lat, coord.lng)
   };
 
   this._map = new google.maps.Map(this._$map, mapOptions);
   this._marker = new google.maps.Marker({
-    position: me,
+    position: coord,
     map: this._map,
     icon: '/img/app/map/me-pin.png',
     draggable: true,
     title: 'Me'
   });
+};
+
+ReportCreate.prototype.getPosition = function () {
+  return {
+    lat: this.report.lat,
+    lng: this.report.lng
+  }
 };
 
 

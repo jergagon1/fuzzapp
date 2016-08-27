@@ -27,6 +27,23 @@ var Modal = {
     }
     this.show(fragment, '.pet-sightings-page-wrapper', 'show');
   },
+  showReportEdit: function (fragment, id) {
+    var self = this;
+    $.getJSON('/api/v1/reports/' + id, function (result) {
+      self.showReportEditData(fragment, result.report);
+    });
+  },
+  showReportEditData: function (fragment, report) {
+    if (this._rendered['report_edit']) {
+      var old = this._rendered['report_edit'].getElement();
+      old.parentNode.removeChild(old);
+    }
+
+    var current = new ReportCreate(report.report_type, report);
+    document.querySelector('.' + report.report_type + '-pet-page-wrapper').appendChild(current.getElement());
+    this._rendered['report_edit'] = current;
+    this.show(fragment, '.' + report.report_type + '-pet-page-wrapper', 'show', true);
+  },
   showProfile: function (fragment) {
     this.show(fragment, '.file-view-wrapper', 'show');
   },
@@ -54,7 +71,7 @@ var Modal = {
     }
     this.show(fragment, '.found-pet-page-wrapper', 'show', null, this._rendered['report_create_found']);
   },
-  showReportCreateLost: function(fragment) {
+  showReportCreateLost: function (fragment) {
     if (!this._rendered['report_create_lost']) {
       var current = new ReportCreate('lost');
 
@@ -99,7 +116,7 @@ var Modal = {
   hide: function (force) {
     var lastTransition = this._navigationStack.pop();
     $('body').scrollTop(0);
-    if (lastTransition && lastTransition[3] && lastTransition[3].back &&!force) {
+    if (lastTransition && lastTransition[3] && lastTransition[3].back && !force) {
 
       var a = lastTransition[3].back();
       if (a) {

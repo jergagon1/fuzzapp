@@ -19,7 +19,7 @@ function Report(report, comments, user) {
 
   this._$el = this.render();
   this._$map = this._$el.querySelector('.map');
-
+  this._$edit = this._$el.querySelector('.Report__edit-button');
   var $comments = this._$el.querySelectorAll('.Report__comment .Report__comment-input');
   this._$comments = Array.prototype.slice.call($comments, 0);
   this._marker;
@@ -46,6 +46,8 @@ Report.prototype.initEvents = function () {
     self._map.setCenter(position);
     self._$map.scrollIntoView(false)
   });
+
+  this._$edit.addEventListener('click', this.edit.bind(this), false);
 };
 
 Report.prototype.initComments = function (comments) {
@@ -228,4 +230,8 @@ Report.prototype.getLastSeen = function () {
 
 Report.prototype.getId = function () {
   return this.report.id;
+};
+
+Report.prototype.edit = function () {
+  Router.navigate('fuzzapp/report/' + this.getId() + '/edit');
 };
