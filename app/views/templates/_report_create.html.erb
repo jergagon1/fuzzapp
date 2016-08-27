@@ -33,12 +33,12 @@
                 {{/if}}
               </div>
 
-              <label class="Uploader">
-                Upload Photo
+              <label class="Uploader {{photo_title_class}}">
+                <span>{{photo_title}}</span>
                 <input type="file" name="image" ref="upload" class="ReportCreate-input Uploader-input"/>
               </label>
 
-              <button class="btn btn-big btn-blue ReportCreate__next">Continue</button>
+              <button class="btn btn-big ReportCreate__next ReportCreate__continue {{photo_continue_class}}">{{photo_continue}}</button>
             </div>
           </div>
         </div>
@@ -57,30 +57,30 @@
           <h3 class="title">Describe the pet</h3>
           <form class="Pet-description">
             <div class="form-group">
-            <div class="Select">
-              <select name="animal_type" class="Select-input ReportCreate-input" placeholder="Per type">
-                <option value="" {{#if isAninalDef}} selected="selected" {{/if}}>Pet type</option>
-                <option value="dog"  {{#if isAninalDog}} selected="selected" {{/if}}>Dog</option>
-                <option value="cat" {{#if isAninalCat}} selected="selected" {{/if}}>Cat</option>
-                <option value="bird" {{#if isAninalBird}} selected="selected" {{/if}}>Bird</option>
-                <option value="other" {{#if isAninalOther}} selected="selected" {{/if}}>Other</option>
-              </select>
-            </div>
+              <div class="Select">
+                <select name="animal_type" class="Select-input ReportCreate-input" placeholder="Per type">
+                  <option value="" {{#if isAninalDef}} selected="selected" {{/if}}>Pet type</option>
+                  <option value="dog" {{#if isAninalDog}} selected="selected" {{/if}}>Dog</option>
+                  <option value="cat" {{#if isAninalCat}} selected="selected" {{/if}}>Cat</option>
+                  <option value="bird" {{#if isAninalBird}} selected="selected" {{/if}}>Bird</option>
+                  <option value="other" {{#if isAninalOther}} selected="selected" {{/if}}>Other</option>
+                </select>
               </div>
+            </div>
             <div class="form-group">
-            <div class="Select">
-              <select class="Select-input" placeholder="Last seen">
-                <option value="">Last seen</option>
-                <option value="just now">&nbsp;&nbsp;just now</option>
-                <option value="1 hour ago">&nbsp;&nbsp;1 hour ago</option>
-                <option value="2 hours ago">&nbsp;&nbsp;2 hours ago</option>
-                <option value="12 hours ago">12 hours ago</option>
-                <option value="24 hours ago">24 hours ago</option>
-                <option value="48 hours ago">48 hours ago</option>
-                <option value="custom">custom date/time</option>
-              </select>
-            </div>
+              <div class="Select">
+                <select class="Select-input" placeholder="Last seen">
+                  <option value="">Last seen</option>
+                  <option value="just now">&nbsp;&nbsp;just now</option>
+                  <option value="1 hour ago">&nbsp;&nbsp;1 hour ago</option>
+                  <option value="2 hours ago">&nbsp;&nbsp;2 hours ago</option>
+                  <option value="12 hours ago">12 hours ago</option>
+                  <option value="24 hours ago">24 hours ago</option>
+                  <option value="48 hours ago">48 hours ago</option>
+                  <option value="custom">custom date/time</option>
+                </select>
               </div>
+            </div>
             <div class="form-group">
               <input placeholder="MM/DD HH:MM AM" value="{{last_seen}}" name="last_seen" class="input input-small form-control  ReportCreate-input"/>
             </div>
@@ -109,8 +109,8 @@
                     <select class="Select-input ReportCreate-input" name="size" placeholder="Size">
                       <option value="">Size</option>
                       <option value="small" {{#if isSizeSmall}} selected="selected" {{/if}}>Small</option>
-                      <option value="medium"  {{#if isSizeMedium}} selected="selected" {{/if}}>Medium</option>
-                      <option value="large"  {{#if isSizeLarge}} selected="selected" {{/if}}>Large</option>
+                      <option value="medium" {{#if isSizeMedium}} selected="selected" {{/if}}>Medium</option>
+                      <option value="large" {{#if isSizeLarge}} selected="selected" {{/if}}>Large</option>
                     </select>
                   </div>
                 </div>
@@ -120,10 +120,10 @@
                   <div class="Select">
                     <select class="Select-input ReportCreate-input" name="age" placeholder="Age">
                       <option value="">Age</option>
-                      <option value="baby"  {{#if isAgeBaby}} selected="selected" {{/if}}>Baby</option>
-                      <option value="young"  {{#if isAgeYoung}} selected="selected" {{/if}}>Young</option>
-                      <option value="adult"  {{#if isAgeAdult}} selected="selected" {{/if}}>Adult</option>
-                      <option value="senior"  {{#if isAgeSenior}} selected="selected" {{/if}}>Senior</option>
+                      <option value="baby" {{#if isAgeBaby}} selected="selected" {{/if}}>Baby</option>
+                      <option value="young" {{#if isAgeYoung}} selected="selected" {{/if}}>Young</option>
+                      <option value="adult" {{#if isAgeAdult}} selected="selected" {{/if}}>Adult</option>
+                      <option value="senior" {{#if isAgeSenior}} selected="selected" {{/if}}>Senior</option>
                     </select>
                   </div>
                 </div>

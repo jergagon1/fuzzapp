@@ -68,3 +68,17 @@
 .ReportCreate-input {
   margin-top: 0px !important;
 }
+
+.ReportCreate-green {
+  background-color: #1E9F84;
+  &:hover {
+    background-color: rgba(30, 159, 132, 0.9);
+  }
+}
+
+.ReportCreate-blue {
+  background-color: #3498DB;
+  &:hover {
+    background-color: rgba(52, 152, 219, 0.9);
+  }
+}

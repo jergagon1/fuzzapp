@@ -125,6 +125,12 @@ ReportCreate.prototype.getData = function () {
   data.isAgeYoung = this.report.age && this.report.age.toLowerCase() === 'young';
   data.isAgeAdult = this.report.age && this.report.age.toLowerCase() === 'adult';
   data.isAgeSenior = this.report.age && this.report.age.toLowerCase() === 'senior';
+
+  data.photo_title = data.image ? 'Replace photo' : 'Upload Photo';
+  data.photo_title_class = data.image ? 'ReportCreate-blue' : 'ReportCreate-green';
+  data.photo_continue = data.image ? 'Continue' : 'Continue without photo';
+  data.photo_continue_class = data.image ? 'ReportCreate-green' : 'ReportCreate-blue';
+
   return data;
 };
 
@@ -146,6 +152,15 @@ ReportCreate.prototype.updatePhoto = function () {
   };
 
   reader.readAsDataURL(this._$photo.files[0]);
+
+  var cont = this._$el.querySelector('.ReportCreate__continue')
+  cont.classList.remove('ReportCreate-green', 'ReportCreate-blue')
+  cont.classList.add('ReportCreate-blue')
+  cont.innerText = 'Continue';
+  var upload = this._$el.querySelector('.Uploader>span');
+  upload.innerText = 'Replace photo';
+  upload.classList.remove('ReportCreate-green', 'ReportCreate-blue');
+  upload.classList.add('ReportCreate-green');
 };
 
 ReportCreate.prototype.initMap = function (me) {
