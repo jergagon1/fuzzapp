@@ -255,8 +255,8 @@
       </div>
       <div class="post-description">
         <div class="header">
-          <div class="face-lockup">
-            <img src="{{user_avatar}}"/>
+          <div class="face-lockup Avatar">
+            <img src="{{user_avatar}}" class="Avatar-img"/>
           </div>
           <div class="content">
             <p>Posted by {{report_username}}</p>
@@ -320,8 +320,8 @@
 <script id="report-comment-template" type="text/x-handlers-template">
   <div class="Comment {{head_class}}">
     <div class="Comment__header">
-      <div class="Comment__header-avatar">
-        <img src="{{avatar}}"/>
+      <div class="Comment__header-avatar Avatar">
+        <img src="{{avatar}}" class="Avatar-img"/>
       </div>
       <div class="Comment__header-content">
         <p>Posted by {{comment_username}}</p>
@@ -366,9 +366,9 @@
     </div>
     <div class="row">
       <div class="col-xs-6">
-        <label class="CommentForm__upload btn btn-small btn-blue btn-photo">
+        <label class="CommentForm__upload btn btn-small btn-blue btn-photo Uploader">
           Upload Photo
-          <input type="file" name="image" ref="upload" class="CommentForm-input CommentForm__upload-uploader"/>
+          <input type="file" name="image" ref="upload" class="CommentForm-input Uploader-input"/>
         </label>
       </div>
       <div class="col-xs-6">

@@ -963,7 +963,7 @@
 
 @media screen and (max-height: 567px) {
   .fuzzfinders-app .nav-block {
-    height: 60px;
+    height: 70px;
   }
   .fuzzfinders-app .nav-block .brand-logo {
     padding: 0;
@@ -2817,7 +2817,7 @@
   .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper.show {
     top: 120px;
     width: 905px;
-    height: auto;
+    height: 100%;
     min-height: 800px;
     left: calc(50% - 453px);
     margin-bottom: 100px;
@@ -3829,7 +3829,7 @@
 @media screen and (max-height: 567px) and (orientation: landscape) {
   .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .nav-block,
   .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .nav-block {
-    height: 50px;
+    height: 70px;
   }
   .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .photo-wrapper-purple,
   .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .photo-wrapper-purple {

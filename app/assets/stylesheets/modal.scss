@@ -1,0 +1,13 @@
+.Modal {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.Modal__nav {
+  flex-basis: 70px;
+}
+
+.Modal__container {
+  flex: 1 0 0;
+}

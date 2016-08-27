@@ -1,0 +1,15 @@
+.Avatar {
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  opacity: .99;
+}
+
+.Avatar-img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  height: auto !important;
+}
