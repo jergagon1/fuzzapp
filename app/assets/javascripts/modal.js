@@ -1,3 +1,5 @@
+//= require profile_edit
+
 Template.register('reportsTemplate', '#reports-template');
 
 var Modal = {
@@ -23,6 +25,18 @@ var Modal = {
       this._rendered['reports'] = new Reports($el);
     }
     this.show(fragment, '.pet-sightings-page-wrapper', 'show');
+  },
+  showProfile: function (fragment) {
+    this.show(fragment, '.file-view-wrapper', 'show');
+  },
+  showProfileEdit: function (fragment) {
+    if (!this._rendered['profile_edit']) {
+      var current = new ProfileEdit(__INITIAL_STATE__.user);
+
+      document.querySelector('.file-edit-wrapper').appendChild(current.getElement());
+      this._rendered['profile_edit'] = current;
+    }
+    this.show(fragment, '.file-edit-wrapper', 'show');
   },
   showReport: function (fragment, id) {
     var self = this;
@@ -98,7 +112,7 @@ var Modal = {
     if (prev.length) {
       Router.navigate(prev[0][2]);
     } else {
-      Router.navigate();
+      Router.navigate('fuzzapp');
     }
   }
 };

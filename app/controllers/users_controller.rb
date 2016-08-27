@@ -4,15 +4,15 @@ class UsersController < ApplicationController
 
   def update_coordinates
     if @user && @user.update_coordinates!(params[:latitude], params[:longitude])
-      render json: { result: 'Ok' }
+      render json: {result: 'Ok'}
     else
-      render json: { error: 'some error' }
+      render json: {error: 'some error'}
     end
   end
 
   def wags
     if @user
-      render json: { wags: @user.wags }
+      render json: {wags: @user.wags}
     end
   end
 
@@ -25,13 +25,13 @@ class UsersController < ApplicationController
          else
            pp.except(:password_confirmation, :password)
          end
+    user = User.find(params[:id])
+    user.update pp
 
-    @user.update pp
-
-    if @user.valid?
-      render json: { status: 'Ok', user: @user }
+    if user.valid?
+      render json: {status: 'Ok', user: user}
     else
-      render json: { status: 'Error', errors: @user.errors }
+      render json: {status: 'Error', errors: user.errors}
     end
   end
 

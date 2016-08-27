@@ -16,17 +16,17 @@
   <!--********************************************************************************************************************************-->
   <!--********************************************************************************************************************************-->
   <!--********************************************************************************************************************************-->
-  <button data-route="chat" class="btn btn-down">Local FuzzChat</button>
+  <button data-route="fuzzapp/chat" class="btn btn-down">Local FuzzChat</button>
   <div class="content-wrapper">
     <div class="brand">
       <div class="logo"></div>
       <h1 class="brand-title">Fuzz<span class="alt">Finders</span><span class="trademark">TM</span></h1>
     </div>
-    <button data-route="lost" class="btn btn-orange">I Lost a Pet
+    <button data-route="fuzzapp/lost" class="btn btn-orange">I Lost a Pet
     </button>
-    <button data-route="found" class="btn btn-green">I Found a Pet
+    <button data-route="fuzzapp/found" class="btn btn-green">I Found a Pet
     </button>
-    <button data-route="reports" class="btn btn-blue">Local FuzzAlerts</button>
+    <button data-route="fuzzapp/reports" class="btn btn-blue">Local FuzzAlerts</button>
   </div>
   <div class="lost-pet-page-wrapper">
     <div class="nav-block nav-block-orange">
@@ -83,12 +83,12 @@
               <p id="lost_pet_info"></p>
               <input type="hidden" name="lost_pet_image" id="lost-pet-image-url"/>
 
-              <button data-route="lost/step_2" class="btn btn-big btn-green btn-new btn-next-step">Continue</button>
-              <button data-route="lost/step_2" class="btn btn-big btn-blue btn-new btn-next-step">Continue
+              <button data-route="fuzzapp/lost/step_2" class="btn btn-big btn-green btn-new btn-next-step">Continue</button>
+              <button data-route="fuzzapp/lost/step_2" class="btn btn-big btn-blue btn-new btn-next-step">Continue
                 without Photo
               </button>
               <!-- <button class="btn btn&#45;big btn&#45;green btn&#45;done">Upload another Photo</button> -->
-              <button data-route="lost/step_2" class="btn btn-big btn-blue btn-done btn-next-step">Continue</button>
+              <button data-route="fuzzapp/lost/step_2" class="btn btn-big btn-blue btn-done btn-next-step">Continue</button>
             </div>
           </div>
         </div>
@@ -104,7 +104,7 @@
             <button data-target=".lost-pet-page-wrapper .progress-step, .lost-pet-page-wrapper .ancete-wrapper" id="lost_current_location" class="btn btn-big btn-blue btn-new">Use
               My Current Location
             </button>
-            <button data-route="lost/step_3" class="btn btn-big btn-green btn-new btn-next-step" data-toggle="step-2">Continue</button>
+            <button data-route="fuzzapp/lost/step_3" class="btn btn-big btn-green btn-new btn-next-step" data-toggle="step-2">Continue</button>
           </div>
         </div>
         <div class="step-wrapper-3">
@@ -268,12 +268,12 @@
               <p id="found_pet_info"></p>
               <input type="hidden" name="found_pet_image" id="found-pet-image-url"/>
 
-              <button data-route="found/step_2" class="btn btn-big btn-green btn-new btn-next-step">Continue</button>
-              <button data-route="found/step_2" class="btn btn-big btn-blue btn-new btn-next-step">Continue without
+              <button data-route="fuzzapp/found/step_2" class="btn btn-big btn-green btn-new btn-next-step">Continue</button>
+              <button data-route="fuzzapp/found/step_2" class="btn btn-big btn-blue btn-new btn-next-step">Continue without
                 Photo
               </button>
               <!-- <btn class="btn btn&#45;big btn&#45;green btn&#45;done">Upload another Photo</btn> -->
-              <button data-route="found/step_2" class="btn btn-big btn-blue btn-done btn-next-step">Continue</button>
+              <button data-route="fuzzapp/found/step_2" class="btn btn-big btn-blue btn-done btn-next-step">Continue</button>
 
             </div>
           </div>
@@ -286,8 +286,8 @@
             <input type="hidden" id="found_position_lat" value="">
             <p class="description">Or drag map pin to location</p>
             <div class="map"></div>
-            <button data-route="found/step_3" class="btn btn-big btn-blue btn-new">Use My Current Location</button>
-            <button data-route="found/step_3" class="btn btn-big btn-green btn-done">Use Location Provided</button>
+            <button data-route="fuzzapp/found/step_3" class="btn btn-big btn-blue btn-new">Use My Current Location</button>
+            <button data-route="fuzzapp/found/step_3" class="btn btn-big btn-green btn-done">Use Location Provided</button>
           </div>
         </div>
         <div class="step-wrapper-3">
@@ -476,8 +476,8 @@
         <input placeholder="Search Keywords" name="keyword" class="Filter__input input form-control"/>
         <div class="row">
           <div class="col-xs-6">
-            <div class="Filter">
-              <select class="Filter__select" name="report_type" data-filter="report_type" placeholder="Lost or Found">
+            <div class="Select">
+              <select class="Select-input" name="report_type" data-filter="report_type" placeholder="Lost or Found">
                 <option value="">Lost or Found</option>
                 <option value="lost">Lost</option>
                 <option value="found">Found</option>
@@ -485,8 +485,8 @@
             </div>
           </div>
           <div class="col-xs-6">
-            <div class="Filter">
-              <select class="Filter__select" name="type" data-filter="type" placeholder="Pet type">
+            <div class="Select">
+              <select class="Select-input" name="type" data-filter="type" placeholder="Pet type">
                 <option value="">Pet type</option>
                 <option value="dog">Dog</option>
                 <option value="cat">Cat</option>
@@ -506,8 +506,8 @@
         </div>
         <div class="row">
           <div class="col-xs-6">
-            <div class="Filter">
-              <select class="Filter__select" name="gender" data-filter="gender" placeholder="Gender">
+            <div class="Select">
+              <select class="Select-input" name="gender" data-filter="gender" placeholder="Gender">
                 <option value="">Gender</option>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
@@ -515,8 +515,8 @@
             </div>
           </div>
           <div class="col-xs-6">
-            <div class="Filter">
-              <select class="Filter__select" name="size" data-filter="size" placeholder="Size">
+            <div class="Select">
+              <select class="Select-input" name="size" data-filter="size" placeholder="Size">
                 <option value="">Size</option>
                 <option value="small">Small</option>
                 <option value="medium">Medium</option>
@@ -527,8 +527,8 @@
         </div>
         <div class="row">
           <div class="col-xs-6">
-            <div class="Filter">
-              <select class="Filter__select" name="age" data-filter="age" placeholder="Age">
+            <div class="Select">
+              <select class="Select-input" name="age" data-filter="age" placeholder="Age">
                 <option value="">Age</option>
                 <option value="baby">Baby</option>
                 <option value="young">Young</option>

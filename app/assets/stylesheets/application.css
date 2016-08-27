@@ -15,10 +15,13 @@
  *= require app
  *= require notification
  *= require selectize
- *= require filter
+ *= require select
  *= require report
  *= require comment
  *= require comment_form
+ *= require navigation
+ *= require profile
+ *= require profile_edit
  *= require_self
  */
 

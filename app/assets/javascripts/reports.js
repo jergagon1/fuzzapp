@@ -40,7 +40,7 @@ Reports.prototype.initEvents = function () {
 };
 
 Reports.prototype.initFilter = function () {
-  this._selectize = $('.Filter .Filter__select', this._$el).selectize({
+  this._selectize = $('.Select .Select-input', this._$el).selectize({
     plugins: ['hidden_textfield'],
     onChange: this.updateReports
   });

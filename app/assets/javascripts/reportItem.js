@@ -37,7 +37,7 @@ ReportItem.prototype.getTitle = function () {
 };
 
 ReportItem.prototype.getRoute = function () {
-  return 'report/' + this.report.id
+  return 'fuzzapp/report/' + this.report.id
 };
 
 ReportItem.prototype.hasPosition = function () {

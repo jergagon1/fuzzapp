@@ -82,59 +82,60 @@ $(function () {
     }
   }
 
-  Router.root = '/fuzzapp/';
 
   Router
-    .add('reports', 'reports', function (fragment) {
+    .add('reports', 'fuzzapp/reports', function (fragment) {
       Modal.showReports(fragment)
     })
-    .add('report', 'report/(.*)', Modal.showReport.bind(Modal))
+    .add('report', 'fuzzapp/report/(.*)', Modal.showReport.bind(Modal))
     .add('lost', 'lost', function (fragment) {
       Modal.show(fragment, '.lost-pet-page-wrapper', 'show');
     })
-    .add('lost_step2', 'lost/step_2', function (fragment) {
+    .add('lost_step2', 'fuzzapp/lost/step_2', function (fragment) {
       document.querySelector('.lost-pet-page-wrapper').classList.add('show');
       document.querySelector('.lost-pet-page-wrapper .progress-step').classList.add('step-2');
       document.querySelector('.lost-pet-page-wrapper .ancete-wrapper').classList.add('step-2');
       Modal.show(fragment, '.lost-pet-page-wrapper .progress-step , .lost-pet-page-wrapper .ancete-wrapper ', 'step-2');
     })
-    .add('lost_step3', 'lost/step_3', function (fragment) {
+    .add('lost_step3', 'fuzzapp/lost/step_3', function (fragment) {
       document.querySelector('.lost-pet-page-wrapper').classList.add('show');
       document.querySelector('.lost-pet-page-wrapper .progress-step').classList.add('step-3');
       document.querySelector('.lost-pet-page-wrapper .ancete-wrapper').classList.add('step-3');
       Modal.show(fragment, '.lost-pet-page-wrapper .progress-step , .lost-pet-page-wrapper .ancete-wrapper ', 'step-3');
     })
-    .add('found', 'found', function (fragment) {
+    .add('found', 'fuzzapp/found', function (fragment) {
       document.querySelector('.found-pet-page-wrapper').classList.add('show');
       Modal.show(fragment, '.found-pet-page-wrapper', 'show');
     })
-    .add('found_step2', 'found/step_2', function (fragment) {
+    .add('found_step2', 'fuzzapp/found/step_2', function (fragment) {
       document.querySelector('.found-pet-page-wrapper').classList.add('show');
       document.querySelector('.found-pet-page-wrapper .progress-step').classList.add('step-2');
       document.querySelector('.found-pet-page-wrapper .ancete-wrapper').classList.add('step-2');
       Modal.show(fragment, '.found-pet-page-wrapper .progress-step , .found-pet-page-wrapper .ancete-wrapper ', 'step-2');
     })
-    .add('found_step3', 'found/step_3', function (fragment) {
+    .add('found_step3', 'fuzzapp/found/step_3', function (fragment) {
       document.querySelector('.found-pet-page-wrapper').classList.add('show');
       document.querySelector('.found-pet-page-wrapper .progress-step').classList.add('step-3');
       document.querySelector('.found-pet-page-wrapper .ancete-wrapper').classList.add('step-3');
       Modal.show(fragment, '.found-pet-page-wrapper .progress-step , .found-pet-page-wrapper .ancete-wrapper ', 'step-3');
     })
-    .add('chat', 'chat', function (fragment) {
+    .add('chat', 'fuzzapp/chat', function (fragment) {
       document.querySelector('.fuzz-chat-wrapper').classList.add('show');
       Modal.show(fragment, '.fuzz-chat-wrapper', 'show');
     })
-    .add('main', '?', function () {
+    .add('main', 'fuzzapp', function () {
       Modal.hide(true);
     })
+    .add('profile', 'profile', Modal.showProfile.bind(Modal))
+    .add('profile_edit', 'profile/edit' ,  Modal.showProfileEdit.bind(Modal))
     .listen();
 
   if (window.location.pathname && window.location.pathname) {
     var hash = Router.getFragment();
-    if (Router.is(['reports', 'report'], hash)) {
+    if (Router.is(['reports', 'report', 'profile'], hash)) {
       Router.check(hash);
     } else {
-      Router.navigate();
+      Router.navigate('fuzzapp');
     }
   }
 

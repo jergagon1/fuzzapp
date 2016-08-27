@@ -1,89 +1,91 @@
 <html>
-  <head>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= csrf_meta_tags %>
+<head>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
 
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width"/>
-    <!-- <link href="/css/vendor.css" rel="stylesheet"/> -->
-    <!-- <link href="/css/custom.css" rel="stylesheet"/> -->
-    <!-- <link href="/css/vendor/angular-bootstrap-lightbox.css" rel="stylesheet"/> -->
-    <!-- <link href="/css/app.css" rel="stylesheet"/> -->
-    <meta property="og:title" content="FuzzFinders is a super-intuitive app bringing people together to find lost pets."/>
-    <meta property="og:url" content="http://fuzzfinders.com/"/>
-    <meta property="og:description" content="Interactive features, collaborative mapping technology, and instant alerts. FuzzFinders is the social network empowering you to get Fuzzy back!"/>
-    <meta property="og:locale" content="en_US"/>
-    <meta property="og:image" content="http://fuzzfinders.com/img/OGP.png"/>
-    <meta name="twitter:card" content="summary_large_image"/>
-    <meta name="twitter:site" content="@FuzzFinders"/>
-    <meta name="twitter:title" content="FuzzFinders is a super-intuitive app bringing people together to find lost pets."/>
-    <meta name="twitter:description" content="Interactive features, collaborative mapping technology, and instant alerts. FuzzFinders is the social network empowering you to get Fuzzy back!"/>
-    <meta name="twitter:image" content="http://fuzzfinders.com/img/OGP.png"/>
-  </head>
-  <!--********************************************************************************************************************************-->
-  <!--********************************************************************************************************************************-->
-  <!--********************************************************************************************************************************-->
-  <!-- При открытых областях к body добавляются классы по цвету навигации-->
-  <!-- - для lost-pet-page и lost-pet-post : .navigation-orange-->
-  <!-- - для found-pet-page и found-pet-post : .navigation-green-->
-  <!-- - для local-fuzzalerts : .navigation-blue-light-->
-  <!-- - для local fuzzchat : .navigation-blue-dark-->
-  <!-- - для экрана профиля и его настроек : .navigation-blue-->
-  <!-- - остальные экраны — дам спецификацию позже-->
-  <!-- ВАЖНО: поскольку будет конфликт css этих классов — тип цвета навигации только 1 одновременно.-->
-  <!--********************************************************************************************************************************-->
-  <!--********************************************************************************************************************************-->
-  <!--********************************************************************************************************************************-->
-  <body class="fuzzfinders-app <%= menu_navigation_style %>">
-    <script type="text/javascript" charset="utf-8">
-      window.fuzzfinders = {};
-      window.fuzzfinders.pusherKey = '<%= ENV['PUSHER_KEY'] %>';
-      window.fuzzfinders.pusherChannel = '<%= ENV['PUSHER_CHANNEL_NAME'] %>';
-    </script>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width"/>
+  <!-- <link href="/css/vendor.css" rel="stylesheet"/> -->
+  <!-- <link href="/css/custom.css" rel="stylesheet"/> -->
+  <!-- <link href="/css/vendor/angular-bootstrap-lightbox.css" rel="stylesheet"/> -->
+  <!-- <link href="/css/app.css" rel="stylesheet"/> -->
+  <meta property="og:title" content="FuzzFinders is a super-intuitive app bringing people together to find lost pets."/>
+  <meta property="og:url" content="http://fuzzfinders.com/"/>
+  <meta property="og:description" content="Interactive features, collaborative mapping technology, and instant alerts. FuzzFinders is the social network empowering you to get Fuzzy back!"/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="og:image" content="http://fuzzfinders.com/img/OGP.png"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:site" content="@FuzzFinders"/>
+  <meta name="twitter:title" content="FuzzFinders is a super-intuitive app bringing people together to find lost pets."/>
+  <meta name="twitter:description" content="Interactive features, collaborative mapping technology, and instant alerts. FuzzFinders is the social network empowering you to get Fuzzy back!"/>
+  <meta name="twitter:image" content="http://fuzzfinders.com/img/OGP.png"/>
+</head>
+<!--********************************************************************************************************************************-->
+<!--********************************************************************************************************************************-->
+<!--********************************************************************************************************************************-->
+<!-- При открытых областях к body добавляются классы по цвету навигации-->
+<!-- - для lost-pet-page и lost-pet-post : .navigation-orange-->
+<!-- - для found-pet-page и found-pet-post : .navigation-green-->
+<!-- - для local-fuzzalerts : .navigation-blue-light-->
+<!-- - для local fuzzchat : .navigation-blue-dark-->
+<!-- - для экрана профиля и его настроек : .navigation-blue-->
+<!-- - остальные экраны — дам спецификацию позже-->
+<!-- ВАЖНО: поскольку будет конфликт css этих классов — тип цвета навигации только 1 одновременно.-->
+<!--********************************************************************************************************************************-->
+<!--********************************************************************************************************************************-->
+<!--********************************************************************************************************************************-->
+<body class="fuzzfinders-app <%= menu_navigation_style %>">
+<script type="text/javascript" charset="utf-8">
+  window.fuzzfinders = {};
+  window.fuzzfinders.pusherKey = '<%= ENV['PUSHER_KEY'] %>';
+  window.fuzzfinders.pusherChannel = '<%= ENV['PUSHER_CHANNEL_NAME'] %>';
+</script>
 
-    <!-- layouts/application -->
-    <div class="background-for-navigation"></div>
-    <div class="menu-navigation"><a href="/" class="brand">
-        <div class="logo"></div>
-        <h3 class="brand-title">Fuzz<span class="alt">Finders</span><span class="trademark">TM</span></h3></a>
-      <div class="profile-wrapper">
-        <!--********************************************************************************************************************************-->
-        <!--********************************************************************************************************************************-->
-        <!--********************************************************************************************************************************-->
-        <!-- Во всей верстке картинки находятся на бэкграунде чтоб их было легче контролировать.-->
-        <!-- Там где я предполагал увидеть картинку ты увидешь в html инлайновый стиль.-->
-        <!--********************************************************************************************************************************-->
-        <!--********************************************************************************************************************************-->
-        <!--********************************************************************************************************************************-->
-        <div style="background-image: url('<%= image_url('user-picture.png') %>')" class="user-photo"></div>
-        <p class="user-name"><%= current_user.username %></p>
-      </div>
-
-      <ul>
-        <li class="link-home <%= 'action' if current_page?('/') || current_page?('/fuzzapp') %>"><a href="/">FuzzFinders</a>
-        </li>
-        <li class="<%= 'action' if current_page?('/profile') %>"><a href="/profile">FuzzProfile</a></li>
-        <li class="<%= 'action' if current_page?('/facts') %>"><a href="/facts">FuzzFacts</a></li>
-        <li class="<%= 'action' if current_page?('/faq') %>"><a href="/faq">FAQ</a></li>
-        <li class="<%= 'action' if current_page?('/findus') %>"><a href="/findus">Find Us</a></li>
-        <li class="_btn-logout"><a href="#">Log Out</a></li>
-        <li class="mobile-legal"><a href="/legal">User's agreement and Conditions</a>
-        </li>
-      </ul>
-
-      <!--********************************************************************************************************************************-->
-      <!--********************************************************************************************************************************-->
-      <!--********************************************************************************************************************************-->
-      <!-- Область, которая на мобильных отвечает за закрытие навигации. Роман, ты худший верстальщик -->
-      <!--********************************************************************************************************************************-->
-      <!--********************************************************************************************************************************-->
-      <!--********************************************************************************************************************************    -->
-      <div class="extra-area"></div>
-      <div class="nav-trigger nav-trigger-white open"><span></span><span></span><span></span></div>
+<!-- layouts/application -->
+<div class="background-for-navigation"></div>
+<div class="menu-navigation Navigation"><a href="/" class="brand">
+  <div class="logo"></div>
+  <h3 class="brand-title">Fuzz<span class="alt">Finders</span><span class="trademark">TM</span></h3></a>
+  <div class="profile-wrapper">
+    <!--********************************************************************************************************************************-->
+    <!--********************************************************************************************************************************-->
+    <!--********************************************************************************************************************************-->
+    <!-- Во всей верстке картинки находятся на бэкграунде чтоб их было легче контролировать.-->
+    <!-- Там где я предполагал увидеть картинку ты увидешь в html инлайновый стиль.-->
+    <!--********************************************************************************************************************************-->
+    <!--********************************************************************************************************************************-->
+    <!--********************************************************************************************************************************-->
+    <div class="user-photo Navigation__photo">
+      <img src="<%= current_user.image.url %>" class="Navigation__photo-img"/>
     </div>
+    <p class="user-name"><%= current_user.username %></p>
+  </div>
 
-    <%= yield %>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDaLeywAepT480tGLGBfoSUyvhClCfD8YE"></script>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  </body>
+  <ul>
+    <li class="link-home <%= 'action' if current_page?('/') || current_page?('/fuzzapp') %>"><a href="/">FuzzFinders</a>
+    </li>
+    <li class="<%= 'action' if current_page?('/profile') %>"><a href="/profile">FuzzProfile</a></li>
+    <li class="<%= 'action' if current_page?('/facts') %>"><a href="/facts">FuzzFacts</a></li>
+    <li class="<%= 'action' if current_page?('/faq') %>"><a href="/faq">FAQ</a></li>
+    <li class="<%= 'action' if current_page?('/findus') %>"><a href="/findus">Find Us</a></li>
+    <li class="_btn-logout"><a href="#">Log Out</a></li>
+    <li class="mobile-legal"><a href="/legal">User's agreement and Conditions</a>
+    </li>
+  </ul>
+
+  <!--********************************************************************************************************************************-->
+  <!--********************************************************************************************************************************-->
+  <!--********************************************************************************************************************************-->
+  <!-- Область, которая на мобильных отвечает за закрытие навигации. Роман, ты худший верстальщик -->
+  <!--********************************************************************************************************************************-->
+  <!--********************************************************************************************************************************-->
+  <!--********************************************************************************************************************************    -->
+  <div class="extra-area"></div>
+  <div class="nav-trigger nav-trigger-white open"><span></span><span></span><span></span></div>
+</div>
+
+<%= yield %>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDaLeywAepT480tGLGBfoSUyvhClCfD8YE"></script>
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+</body>
 </html>
