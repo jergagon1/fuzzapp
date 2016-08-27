@@ -54,6 +54,15 @@ var Modal = {
     }
     this.show(fragment, '.found-pet-page-wrapper', 'show', null, this._rendered['report_create_found']);
   },
+  showReportCreateLost: function(fragment) {
+    if (!this._rendered['report_create_lost']) {
+      var current = new ReportCreate('lost');
+
+      document.querySelector('.lost-pet-page-wrapper').appendChild(current.getElement());
+      this._rendered['report_create_lost'] = current;
+    }
+    this.show(fragment, '.lost-pet-page-wrapper', 'show', null, this._rendered['report_create_lost']);
+  },
   showReportData: function (fragment, report, comments, user) {
 
     if (this._rendered['report']) {

@@ -91,10 +91,7 @@ $(function () {
     .add('lost', 'lost', function (fragment) {
       Modal.show(fragment, '.lost-pet-page-wrapper', 'show');
     })
-    .add('found', 'fuzzapp/lost', function (fragment) {
-      document.querySelector('.lost-pet-page-wrapper').classList.add('show');
-      Modal.show(fragment, '.lost-pet-page-wrapper', 'show');
-    })
+    .add('found', 'fuzzapp/lost', Modal.showReportCreateLost.bind(Modal))
     .add('lost_step2', 'fuzzapp/lost/step_2', function (fragment) {
       document.querySelector('.lost-pet-page-wrapper').classList.add('show');
       document.querySelector('.lost-pet-page-wrapper .progress-step').classList.add('step-2');

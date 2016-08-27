@@ -106,7 +106,9 @@ ReportCreate.prototype.serialize = function () {
 };
 
 ReportCreate.prototype.render = function () {
-  var $el = Template.render('reportCreateTemplate', {});
+  var $el = Template.render('reportCreateTemplate', {
+    report_type: this.type
+  });
 
   return $el;
 };
@@ -152,8 +154,6 @@ ReportCreate.prototype.submit = function (e) {
   Object.keys(report).forEach(function (key) {
     fd.append('report[' + key + ']', report[key]);
   });
-
-  console.log(fd);
 
   var ajax = $.ajax({
     url: '/api/v1/reports',

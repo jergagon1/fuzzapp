@@ -2,6 +2,52 @@
 
 }
 
+.ReportCreate-lost {
+  .nav-block {
+    background-color: #E2573B;
+  }
+
+  .ReportCreate__progress.step-1 {
+    .ReportCreate__progress-1 {
+      background-color: #E2573B;
+    }
+  }
+  .ReportCreate__progress.step-2 {
+    .ReportCreate__progress-1, .ReportCreate__progress-2 {
+      background-color: #E2573B;
+    }
+  }
+
+  .ReportCreate__progress.step-3 {
+    .ReportCreate__progress-1, .ReportCreate__progress-2, .ReportCreate__progress-3 {
+      background-color: #E2573B;
+    }
+  }
+}
+
+.ReportCreate-found {
+  .nav-block {
+    background-color: #1E9F84;
+  }
+
+  .ReportCreate__progress.step-1 {
+    .ReportCreate__progress-1 {
+      background-color: #1E9F84;
+    }
+  }
+  .ReportCreate__progress.step-2 {
+    .ReportCreate__progress-1, .ReportCreate__progress-2 {
+      background-color: #1E9F84;
+    }
+  }
+
+  .ReportCreate__progress.step-3 {
+    .ReportCreate__progress-1, .ReportCreate__progress-2, .ReportCreate__progress-3 {
+      background-color: #1E9F84;
+    }
+  }
+}
+
 .ReportCreate__step {
   min-height: 100% !important;
   height: 100%;

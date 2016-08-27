@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var channel = pusher.subscribe(window.fuzzfinders.pusherChannel);
   channel.bind('report_created', function (data) {
     Notification.showReport(data.report).then(function (report) {
-      Router.navigate('report/' + report.id);
+      Router.navigate('fuzzapp/report/' + report.id);
     });
   });
 }, false);
