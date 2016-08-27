@@ -49,6 +49,7 @@ class Report < ActiveRecord::Base
     attributes.merge({
       report_username: user.username, report_taggings: tag_list,
       subscriptions: user.subscribed_reports.ids,
+      image: image.url(:normal),
       normalized_title: normalized_title
     }).as_json
   end

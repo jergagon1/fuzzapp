@@ -4,8 +4,7 @@ Template.register('reportCreateTemplate', '#report-create-template');
 
 var slides = ['step-1', 'step-2', 'step-3'];
 
-function ReportCreate(type, report) {
-  this.type = type;
+function ReportCreate(report) {
   this.report = report;
   this._$el = this.render();
   this._slides = [];
@@ -59,7 +58,7 @@ ReportCreate.prototype.initEvents = function () {
 };
 
 ReportCreate.prototype.getType = function () {
-  return this.report && this.report.type || this.type;
+  return this.report && this.report.report_type;
 };
 
 ReportCreate.prototype.getElement = function () {
@@ -103,33 +102,33 @@ ReportCreate.prototype.serialize = function () {
     }
     return state;
   }, {
-    report_type: this.type,
+    report_type: this.report.report_type,
     lat: position.lat,
     lng: position.lng
   });
 };
 
 ReportCreate.prototype.getData = function () {
-  var data = this.report || {}
+  var data = this.report;
 
   data.isAninalDog = this.isAnimal('dog')
   data.isAninalCat = this.isAnimal('cat')
   data.isAninalBird = this.isAnimal('bird')
-  data.isAninalOther = this.isAnimal('pet') || this.isAnimal('other');
-  data.isGenderMale = this.report.sex.toLowerCase() === 'male';
-  data.isGenderFemale = this.report.sex.toLowerCase() === 'female';
-  data.isSizeSmall = this.report.pet_size.toLowerCase() === 'small';
-  data.isSizeMedium = this.report.pet_size.toLowerCase() === 'medium';
-  data.isSizeLarge = this.report.pet_size.toLowerCase() === 'large';
-  data.isAgeBaby = this.report.age.toLowerCase() === 'baby';
-  data.isAgeYoung = this.report.age.toLowerCase() === 'young';
-  data.isAgeAdult = this.report.age.toLowerCase() === 'adult';
-  data.isAgeSenior = this.report.age.toLowerCase() === 'senior';
+  data.isAninalOther = this.isAnimal('other');
+  data.isAninalDef = this.isAnimal('pet');
+  data.isGenderMale = this.report.sex && this.report.sex.toLowerCase() === 'male';
+  data.isGenderFemale = this.report.sex && this.report.sex.toLowerCase() === 'female';
+  data.isSizeSmall = this.report.pet_size && this.report.pet_size.toLowerCase() === 'small';
+  data.isSizeMedium = this.report.pet_size && this.report.pet_size.toLowerCase() === 'medium';
+  data.isSizeLarge = this.report.pet_size && this.report.pet_size.toLowerCase() === 'large';
+  data.isAgeBaby = this.report.age && this.report.age.toLowerCase() === 'baby';
+  data.isAgeYoung = this.report.age && this.report.age.toLowerCase() === 'young';
+  data.isAgeAdult = this.report.age && this.report.age.toLowerCase() === 'adult';
+  data.isAgeSenior = this.report.age && this.report.age.toLowerCase() === 'senior';
   return data;
-}
+};
 
 ReportCreate.prototype.isAnimal = function (type) {
-  console.log(Helpers.getAnimalTypeReport(this.report), type);
   return Helpers.getAnimalTypeReport(this.report) === type;
 };
 
@@ -150,7 +149,7 @@ ReportCreate.prototype.updatePhoto = function () {
 };
 
 ReportCreate.prototype.initMap = function (me) {
-  var coord = this.report ? this.getPosition() : me;
+  var coord = this.report.lat && this.report.lng ? this.getPosition() : me;
 
   var mapOptions = {
     zoom: 14,
@@ -190,20 +189,35 @@ ReportCreate.prototype.submit = function (e) {
     fd.append('report[' + key + ']', report[key]);
   });
 
-  var ajax = $.ajax({
-    url: '/api/v1/reports',
-    method: 'POST',
-    processData: false,
-    contentType: false,
-    dataType: "json",
-    data: fd
-  });
+  var ajax = this.report.id ? this.update(this.report.id, fd) : this.create(fd);
 
   ajax.done(function (data) {
     Modal.hide(true);
   });
 
   return false;
+};
+
+ReportCreate.prototype.create = function (data) {
+  return $.ajax({
+    url: '/api/v1/reports',
+    method: 'POST',
+    processData: false,
+    contentType: false,
+    dataType: "json",
+    data: data
+  });
+};
+
+ReportCreate.prototype.update = function (id, data) {
+  return $.ajax({
+    url: '/api/v1/reports/' + id,
+    method: 'PUT',
+    processData: false,
+    contentType: false,
+    dataType: "json",
+    data: data
+  });
 };
 
 ReportCreate.prototype.toggleDetails = function () {

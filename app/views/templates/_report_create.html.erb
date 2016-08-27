@@ -26,7 +26,11 @@
           <div class="photo-wrapper wrapper-dog empty">
             <div class="form-group">
               <div class="preview-holder  ReportCreate__photo FullImage">
+                {{#if image}}
+                <img src="{{image}}" class="FullImage-img"/>
+                {{else}}
                 <img src="<%= asset_url('wrapper-dog.png') %>" class="FullImage-img"/>
+                {{/if}}
               </div>
 
               <label class="Uploader">
@@ -52,17 +56,20 @@
         <div class="step-wrapper-3 ReportCreate__step-3">
           <h3 class="title">Describe the pet</h3>
           <form class="Pet-description">
+            <div class="form-group">
             <div class="Select">
               <select name="animal_type" class="Select-input ReportCreate-input" placeholder="Per type">
-                <option value="">Pet type</option>
+                <option value="" {{#if isAninalDef}} selected="selected" {{/if}}>Pet type</option>
                 <option value="dog"  {{#if isAninalDog}} selected="selected" {{/if}}>Dog</option>
                 <option value="cat" {{#if isAninalCat}} selected="selected" {{/if}}>Cat</option>
                 <option value="bird" {{#if isAninalBird}} selected="selected" {{/if}}>Bird</option>
                 <option value="other" {{#if isAninalOther}} selected="selected" {{/if}}>Other</option>
               </select>
             </div>
+              </div>
+            <div class="form-group">
             <div class="Select">
-              <select name="last_seen" class="Select-input ReportCreate-input" placeholder="Last seen">
+              <select class="Select-input" placeholder="Last seen">
                 <option value="">Last seen</option>
                 <option value="just now">&nbsp;&nbsp;just now</option>
                 <option value="1 hour ago">&nbsp;&nbsp;1 hour ago</option>
@@ -73,8 +80,9 @@
                 <option value="custom">custom date/time</option>
               </select>
             </div>
+              </div>
             <div class="form-group">
-              <input placeholder="MM/DD HH:MM AM" value="{{last_seen}}" class="input input-small form-control"/>
+              <input placeholder="MM/DD HH:MM AM" value="{{last_seen}}" name="last_seen" class="input input-small form-control  ReportCreate-input"/>
             </div>
             <div class="form-group">
               <input placeholder="Pet name" name="pet_name" value="{{pet_name}}" class="input input-small form-control  ReportCreate-input"/>

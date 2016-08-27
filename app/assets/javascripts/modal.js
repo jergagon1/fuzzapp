@@ -39,7 +39,7 @@ var Modal = {
       old.parentNode.removeChild(old);
     }
 
-    var current = new ReportCreate(report.report_type, report);
+    var current = new ReportCreate(report);
     document.querySelector('.' + report.report_type + '-pet-page-wrapper').appendChild(current.getElement());
     this._rendered['report_edit'] = current;
     this.show(fragment, '.' + report.report_type + '-pet-page-wrapper', 'show', true);
@@ -64,7 +64,7 @@ var Modal = {
   },
   showReportCreateFound: function (fragment) {
     if (!this._rendered['report_create_found']) {
-      var current = new ReportCreate('found');
+      var current = new ReportCreate({report_type: 'found', animal_type: '', sex: '', pet_size: '', age: ''});
 
       document.querySelector('.found-pet-page-wrapper').appendChild(current.getElement());
       this._rendered['report_create_found'] = current;
@@ -73,7 +73,7 @@ var Modal = {
   },
   showReportCreateLost: function (fragment) {
     if (!this._rendered['report_create_lost']) {
-      var current = new ReportCreate('lost');
+      var current = new ReportCreate({report_type: 'lost', animal_type: '', sex: '', pet_size: '', age: ''});
 
       document.querySelector('.lost-pet-page-wrapper').appendChild(current.getElement());
       this._rendered['report_create_lost'] = current;

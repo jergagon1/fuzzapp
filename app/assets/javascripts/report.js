@@ -176,8 +176,8 @@ Report.prototype.getAvatar = function () {
 };
 
 Report.prototype.getImage = function () {
-  if (this.report.img_url) {
-    return this.report.img_url;
+  if (this.report.image) {
+    return this.report.image;
   } else {
     switch (Helpers.getAnimalTypeReport(this.report)) {
       case 'dog':
