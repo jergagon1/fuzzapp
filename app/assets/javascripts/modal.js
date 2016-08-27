@@ -42,7 +42,7 @@ var Modal = {
     var current = new ReportCreate(report);
     document.querySelector('.' + report.report_type + '-pet-page-wrapper').appendChild(current.getElement());
     this._rendered['report_edit'] = current;
-    this.show(fragment, '.' + report.report_type + '-pet-page-wrapper', 'show', true);
+    this.show(fragment, '.' + report.report_type + '-pet-page-wrapper', 'show', true, current);
   },
   showProfile: function (fragment) {
     this.show(fragment, '.file-view-wrapper', 'show');
@@ -97,40 +97,31 @@ var Modal = {
     return prev.length && prev[0][0] === target;
   },
   show: function (fragment, target, tClass, state, current) {
-    if (this.check(target)) {
-      Modal.hide();
-    } else {
-
+    var last = this.getLast();
+    if (!last || last[2] !== fragment) {
       document.querySelector(target).classList.add(tClass);
       this._navigationStack.push([target, tClass, fragment, current]);
       var navigationClass = this.getNavigationToggler(target);
       if (navigationClass && (tClass === 'show')) {
-        if (state) {
-          $('.fuzzfinders-app').removeClass('navigation-blue-light');
-          $('.fuzzfinders-app .pet-sightings-page-wrapper').addClass('post-shown');
-        }
         $('.fuzzfinders-app').addClass(navigationClass);
       }
     }
   },
+  getLast: function () {
+    var last = this._navigationStack.slice(-1);
+    return last && last[0]
+  },
   hide: function (force) {
     var lastTransition = this._navigationStack.pop();
-    $('body').scrollTop(0);
-    if (lastTransition && lastTransition[3] && lastTransition[3].back && !force) {
-
-      var a = lastTransition[3].back();
-      if (a) {
-        this._navigationStack.push(lastTransition);
-        return;
-      }
+    if (!lastTransition) {
+      Router.navigate('fuzzapp');
+      return;
     }
 
-    if (force === true) {
-      if (lastTransition) {
-        while (lastTransition[1] !== 'show') {
-          lastTransition = this._navigationStack.pop();
-        }
-      } else {
+    $('body').scrollTop(0);
+    if (lastTransition && lastTransition[3] && lastTransition[3].back && !force) {
+      if (lastTransition[3].back()) {
+        this._navigationStack.push(lastTransition);
         return;
       }
     }
@@ -141,21 +132,12 @@ var Modal = {
     $(target).toggleClass(tClass);
     var navigationClass = this.getNavigationToggler(target);
     if (navigationClass && (tClass === 'show')) {
-      if (target.indexOf('post-wrapper') > -1) {
-        $('.fuzzfinders-app').addClass('navigation-blue-light');
-        $('.fuzzfinders-app .pet-sightings-page-wrapper').removeClass('post-shown');
-      }
       $('.fuzzfinders-app').removeClass(navigationClass);
     }
 
-    if (($(window).width() > 1024) && ($(window).height() > 640)) {
-      $('.show .ancete-wrapper').height(300);
-    }
-    $('.show .ancete-wrapper').height(300);
-
-    var prev = this._navigationStack.slice(-1);
-    if (prev.length) {
-      Router.navigate(prev[0][2]);
+    var prev = this.getLast();
+    if (prev) {
+      Router.navigate(prev[2]);
     } else {
       Router.navigate('fuzzapp');
     }
