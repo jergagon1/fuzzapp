@@ -66,7 +66,9 @@ class ReportsController < ApplicationController
     params.require(:report).permit(
       :pet_name, :animal_type, :lat, :lng,
       :user_id, :report_type, :notes,
-      :img_url, :age, :breed, :sex,
+      :image,
+      # :img_url,
+      :age, :breed, :sex,
       :pet_size, :distance, :color,
       :last_seen, :tag_list,
       :address, :image
