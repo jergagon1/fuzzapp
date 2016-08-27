@@ -91,6 +91,10 @@ $(function () {
     .add('lost', 'lost', function (fragment) {
       Modal.show(fragment, '.lost-pet-page-wrapper', 'show');
     })
+    .add('found', 'fuzzapp/lost', function (fragment) {
+      document.querySelector('.lost-pet-page-wrapper').classList.add('show');
+      Modal.show(fragment, '.lost-pet-page-wrapper', 'show');
+    })
     .add('lost_step2', 'fuzzapp/lost/step_2', function (fragment) {
       document.querySelector('.lost-pet-page-wrapper').classList.add('show');
       document.querySelector('.lost-pet-page-wrapper .progress-step').classList.add('step-2');
@@ -103,10 +107,7 @@ $(function () {
       document.querySelector('.lost-pet-page-wrapper .ancete-wrapper').classList.add('step-3');
       Modal.show(fragment, '.lost-pet-page-wrapper .progress-step , .lost-pet-page-wrapper .ancete-wrapper ', 'step-3');
     })
-    .add('found', 'fuzzapp/found', function (fragment) {
-      document.querySelector('.found-pet-page-wrapper').classList.add('show');
-      Modal.show(fragment, '.found-pet-page-wrapper', 'show');
-    })
+    .add('found', 'fuzzapp/found', Modal.showReportCreateFound.bind(Modal))
     .add('found_step2', 'fuzzapp/found/step_2', function (fragment) {
       document.querySelector('.found-pet-page-wrapper').classList.add('show');
       document.querySelector('.found-pet-page-wrapper .progress-step').classList.add('step-2');
@@ -127,7 +128,7 @@ $(function () {
       Modal.hide(true);
     })
     .add('profile', 'profile', Modal.showProfile.bind(Modal))
-    .add('profile_edit', 'profile/edit' ,  Modal.showProfileEdit.bind(Modal))
+    .add('profile_edit', 'profile/edit', Modal.showProfileEdit.bind(Modal))
     .listen();
 
   if (window.location.pathname && window.location.pathname) {
@@ -210,26 +211,6 @@ $(function () {
     $('body').scrollTop(0);
   });
 
-
-  $(window).load(function () {
-    $('*[class^="step-wrapper-"]').on('mresize', function () {
-      var ancete = $(this).parent();
-      var active;
-      if (ancete.hasClass('step-1')) {
-        active = ancete.children('step-wrapper-1');
-      }
-      else if (ancete.hasClass('step-2')) {
-        active = ancete.children('step-wrapper-2');
-      }
-      else if (ancete.hasClass('step-3')) {
-        active = ancete.children('step-wrapper-3');
-      }
-
-      ancete.height($(this).height() + 32);
-
-
-    });
-  });
   //Dropdown interaction
 
   $('.dropdown .dropdown-menu li a').click(function () {
@@ -287,112 +268,6 @@ function initMap2() {
     $('#lost_position_lat').val(this.position.lat());
     $('#lost_position_lng').val(this.position.lng());
   });
-
-  var foundPetMapDOM = $('.fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .section-wrapper .ancete-wrapper .step-wrapper-2 .map')[0];
-
-  window.foundPetMap = new google.maps.Map(foundPetMapDOM, mapOptions);
-
-  window.foundPetMarker = new google.maps.Marker({
-    position: {lat: 37.802, lng: -122.28},
-    map: foundPetMap,
-    icon: '/img/app/map/found-pin.png',
-    draggable: true
-  });
-
-  google.maps.event.addListener(foundPetMarker, 'dragend', function (event) {
-    $('#found_position_lat').val(this.position.lat());
-    $('#found_position_lng').val(this.position.lng());
-  });
-
-
-  if (window.geolocation) {
-    var mapOptions = {
-      zoom: 14,
-      center: new google.maps.LatLng(geolocation.coords.latitude, geolocation.coords.longitude),
-      styles: FuzzAppMapStyles,
-      mapTypeControl: false,
-      streetViewControl: false,
-      scrollwheel: false
-    };
-  } else {
-    var mapOptions = {
-      zoom: 14,
-      center: new google.maps.LatLng(37.801, -122.28),
-      styles: FuzzAppMapStyles,
-      mapTypeControl: false,
-      streetViewControl: false,
-      scrollwheel: false
-    };
-  }
-
-  var polyCoordinates = [];
-
-  var circleSymbol = {
-      path: google.maps.SymbolPath.CIRCLE,
-      fillOpacity: 1,
-      fillColor: '#E2573B',
-      scale: 7,
-      strokeColor: '#E2573B'
-    },
-    circleStartSymbol = {
-      path: google.maps.SymbolPath.CIRCLE,
-      fillOpacity: 1,
-      fillColor: '#FFF',
-      scale: 9,
-      strokeColor: '#E2573B'
-    },
-    circleSymbolAlt = {
-      path: google.maps.SymbolPath.CIRCLE,
-      fillOpacity: 1,
-      fillColor: '#1E9F84',
-      scale: 7,
-      strokeColor: '#1E9F84'
-    },
-    circleStartSymbolAlt = {
-      path: google.maps.SymbolPath.CIRCLE,
-      fillOpacity: 1,
-      fillColor: '#FFF',
-      scale: 9,
-      strokeColor: '#1E9F84'
-    };
-
-  /*
-   arrayCoodinates1.forEach(function (item, i) {
-
-   if (i === 0) {
-   new MarkerWithLabel({
-   position: {lat: item[0], lng: item[1]},
-   map: lostPostMap,
-   icon: circleStartSymbol,
-   draggable: false
-   });
-   new MarkerWithLabel({
-   position: {lat: item[0], lng: item[1]},
-   map: foundPostMap,
-   icon: circleStartSymbolAlt,
-   draggable: false
-   });
-   } else {
-   new google.maps.Marker({
-   position: {lat: item[0], lng: item[1]},
-   map: lostPostMap,
-   icon: circleSymbol,
-   draggable: false,
-
-   label: i.toString()
-   });
-   new google.maps.Marker({
-   position: {lat: item[0], lng: item[1]},
-   map: foundPostMap,
-   icon: circleSymbolAlt,
-   draggable: false,
-
-   label: i.toString()
-   });
-   }
-
-   });
-   */
 };
 
 google.maps.event.addDomListener(window, 'load', initMap2);
@@ -401,7 +276,7 @@ google.maps.event.addDomListener(window, 'load', initMap2);
 // Edits after march 23
 
 function initMap() {
-  autosize($(".fuzzfinders-app .ancete-wrapper .step-wrapper-3 .textarea"));
+  // autosize($(".fuzzfinders-app .ancete-wrapper .step-wrapper-3 .textarea"));
   autosize($(".fuzzfinders-app .post-comment .textarea"));
   $.mask.definitions['A'] = '[APap]';
   $.mask.definitions['1'] = '[01]';
@@ -445,18 +320,7 @@ function initMap() {
       map: lostPostMap,
       icon: '/img/app/map/lost-pin.png',
       draggable: true
-    }),
-
-    foundPostMapDOM = $('.fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .location-wrapper .map')[0],
-
-    foundPostMap = new google.maps.Map(foundPostMapDOM, mapOptions),
-
-    foundPostMarker = new google.maps.Marker({
-      position: {lat: 37.802, lng: -122.28},
-      map: foundPostMap,
-      icon: '/img/app/map/found-pin.png',
-      draggable: true
-    });
+    })
 };
 
 google.maps.event.addDomListener(window, 'load', initMap);

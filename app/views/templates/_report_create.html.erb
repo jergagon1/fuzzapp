@@ -1,0 +1,140 @@
+<script id="report-create-template" type="text/x-handlers-template">
+  <div class="ReportCreate">
+    <div class="nav-block nav-block-green">
+      <button class="back-arrow"><i class="icon-back"></i></button>
+      <h2 class="title"> I Found a pet</h2>
+      <div class="nav-trigger nav-trigger-white"><span></span><span></span><span></span></div>
+    </div>
+    <div class="section-wrapper">
+      <div class="progress-step progress-green step-1">
+        <div class="step-icon step-1">
+          <div class="icon-photo-edit"></div>
+        </div>
+        <div class="devider step-2"></div>
+        <div class="step-icon step-2">
+          <div class="icon-location"></div>
+        </div>
+        <div class="devider step-3"></div>
+        <div class="step-icon step-3">
+          <div class="icon-fuzz-description"></div>
+        </div>
+      </div>
+      <div class="ancete-wrapper step-1 ReportCreate__step">
+        <div class="step-wrapper-1 ReportCreate__step-1">
+          <h3 class="title">Snap a Photo</h3>
+          <p class="description">Photos are the best way to identify a&nbsp;missing&nbsp;pet!</p>
+          <div class="photo-wrapper wrapper-dog empty">
+            <div class="form-group">
+              <div class="preview-holder  ReportCreate__photo FullImage">
+                <img src="<%= asset_url('wrapper-dog.png') %>" class="FullImage-img"/>
+              </div>
+
+              <label class="Uploader">
+                Upload Photo
+                <input type="file" name="image" ref="upload" class="ReportCreate-input Uploader-input"/>
+              </label>
+
+              <button class="btn btn-big btn-blue ReportCreate__next">Continue</button>
+            </div>
+          </div>
+        </div>
+        <div class="step-wrapper-2 ReportCreate__step-2">
+          <h3 class="title">Enter last known location</h3>
+          <div class="form-group empty">
+            <input placeholder="Type address here" name="address" class="input form-control ReportCreate-input"/>
+            <p class="description">Or drag map pin to location</p>
+            <div class="map ReportCreate__map"></div>
+            <button class="btn btn-big btn-blue ">Use My Current Location
+            </button>
+            <button class="btn btn-big btn-green  ReportCreate__next">Continue</button>
+          </div>
+        </div>
+        <div class="step-wrapper-3 ReportCreate__step-3">
+          <h3 class="title">Describe the pet</h3>
+          <form class="Pet-description">
+            <div class="Select">
+              <select name="animal_type" class="Select-input ReportCreate-input" placeholder="Per type">
+                <option value="">Pet type</option>
+                <option value="dog">Dog</option>
+                <option value="cat">Cat</option>
+                <option value="bird">Bird</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="Select">
+              <select name="last_seen" class="Select-input ReportCreate-input" placeholder="Last seen">
+                <option value="">Last seen</option>
+                <option value="just now">&nbsp;&nbsp;just now</option>
+                <option value="1 hour ago">&nbsp;&nbsp;1 hour ago</option>
+                <option value="2 hours ago">&nbsp;&nbsp;2 hours ago</option>
+                <option value="12 hours ago">12 hours ago</option>
+                <option value="24 hours ago">24 hours ago</option>
+                <option value="48 hours ago">48 hours ago</option>
+                <option value="custom">custom date/time</option>
+              </select>
+            </div>
+            <div class="form-group last-seen-custom">
+              <input placeholder="MM/DD HH:MM AM" class="input input-small form-control"/>
+            </div>
+            <div class="form-group">
+              <textarea name="notes" placeholder="Briefly describe the incident" rows="4" class="textarea form-control ReportCreate-input"></textarea>
+            </div>
+            <button type="button" class="btn btn-big btn-green ReportCreate__toggleDetails">
+              <i class="icon-plus"></i>Add Pet Details
+            </button>
+            <div class="extra-area ReportCreate__details">
+              <div class="row">
+                <div class="col-xs-6">
+                  <div class="Select">
+                    <select class="Select-input ReportCreate-input" name="gender" placeholder="Gender">
+                      <option value="">Gender</option>
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-xs-6">
+                  <div class="Select">
+                    <select class="Select-input ReportCreate-input" name="size" placeholder="Size">
+                      <option value="">Size</option>
+                      <option value="small">Small</option>
+                      <option value="medium">Medium</option>
+                      <option value="large">Large</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-6">
+                  <div class="Select">
+                    <select class="Select-input ReportCreate-input" name="age" placeholder="Age">
+                      <option value="">Age</option>
+                      <option value="baby">Baby</option>
+                      <option value="young">Young</option>
+                      <option value="adult">Adult</option>
+                      <option value="senior">Senior</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-xs-6">
+                  <input placeholder="Pet color" name="color" class="input input-small form-control ReportCreate-input"/>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12">
+                  <input placeholder="Pet Breed" name="breed" class="input input-small form-control ReportCreate-input"/>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12">
+                  <input placeholder="Additional keywords" name="tag_list" class="input input-small form-control ReportCreate-input"/>
+                </div>
+              </div>
+            </div>
+            <button type="button" class="btn btn-big btn-blue ReportCreate-submit">Post FuzzAlert</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</script>

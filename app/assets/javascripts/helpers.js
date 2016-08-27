@@ -8,7 +8,7 @@ var Helpers = {
     return this.camelize(str);
   },
   getAnimalTypeReport: function (report) {
-    var type = report.animal_type.toLowerCase().replace(/(\s+)/gm, ' ');
+    var type = report.animal_type && report.animal_type.toLowerCase().replace(/(\s+)/gm, ' ');
     if (!type || type === 'pet type') {
       type = 'pet'
     }

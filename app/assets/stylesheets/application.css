@@ -16,7 +16,10 @@
  *= require notification
  *= require selectize
  *= require select
+ *= require full_image
+ *= require uploader
  *= require report
+ *= require report_create
  *= require comment
  *= require comment_form
  *= require navigation

@@ -11,6 +11,9 @@ function ProfileEdit(profile) {
   this._$photo = this._$el.querySelector('.ProfileEdit__upload-uploader');
   this._$photoContainer = this._$el.querySelector('.ProfileEdit__photo-container');
 
+  this._$map = this._$el.querySelector('.ProfileEdit__map');
+
+
   this.submit = this.submit.bind(this);
   this.updatePhoto = this.updatePhoto.bind(this);
   this.initEvents()
@@ -41,7 +44,6 @@ ProfileEdit.prototype.serialize = function () {
 
 ProfileEdit.prototype.render = function () {
   var $el = Template.render('profileEditTemplate', {});
-
   return $el;
 };
 

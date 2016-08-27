@@ -40,6 +40,7 @@
     padding: 0 18px;
 
     & > input {
+      width: 80% !important;
       @media screen and (min-height: 640px) and (min-width: 641px) {
         line-height: 50px;
         font-size: 20px;

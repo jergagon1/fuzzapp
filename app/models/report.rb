@@ -13,6 +13,8 @@ class Report < ActiveRecord::Base
 
   after_save :generate_slug!
 
+  mount_uploader :image, ImageUploader
+
   # associations
   has_many :comments
 
@@ -39,6 +41,7 @@ class Report < ActiveRecord::Base
   scope :age, -> (age) { where age: age }
   scope :breed, -> (breed) { where breed: breed }
   scope :color, -> (color) { where color: color }
+  scope :image, -> (image) {where image: image}
 
   # Add report creator's username to json output
   # Todo look at ActiveModel Serializers to improve this

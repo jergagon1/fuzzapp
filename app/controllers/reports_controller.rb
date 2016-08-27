@@ -69,7 +69,7 @@ class ReportsController < ApplicationController
       :img_url, :age, :breed, :sex,
       :pet_size, :distance, :color,
       :last_seen, :tag_list,
-      :address
+      :address, :image
     )
   end
 end

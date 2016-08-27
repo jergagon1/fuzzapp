@@ -1,4 +1,5 @@
 //= require profile_edit
+//= require report_create
 
 Template.register('reportsTemplate', '#reports-template');
 
@@ -44,6 +45,15 @@ var Modal = {
       self.showReportData(fragment, result.report, result.comments, result.user);
     });
   },
+  showReportCreateFound: function (fragment) {
+    if (!this._rendered['report_create_found']) {
+      var current = new ReportCreate('found');
+
+      document.querySelector('.found-pet-page-wrapper').appendChild(current.getElement());
+      this._rendered['report_create_found'] = current;
+    }
+    this.show(fragment, '.found-pet-page-wrapper', 'show', null, this._rendered['report_create_found']);
+  },
   showReportData: function (fragment, report, comments, user) {
 
     if (this._rendered['report']) {
@@ -60,13 +70,13 @@ var Modal = {
     var prev = this._navigationStack.slice(-2, -1);
     return prev.length && prev[0][0] === target;
   },
-  show: function (fragment, target, tClass, state) {
+  show: function (fragment, target, tClass, state, current) {
     if (this.check(target)) {
       Modal.hide();
     } else {
 
       document.querySelector(target).classList.add(tClass);
-      this._navigationStack.push([target, tClass, fragment]);
+      this._navigationStack.push([target, tClass, fragment, current]);
       var navigationClass = this.getNavigationToggler(target);
       if (navigationClass && (tClass === 'show')) {
         if (state) {
@@ -80,6 +90,15 @@ var Modal = {
   hide: function (force) {
     var lastTransition = this._navigationStack.pop();
     $('body').scrollTop(0);
+    if (lastTransition && lastTransition[3] && lastTransition[3].back &&!force) {
+
+      var a = lastTransition[3].back();
+      if (a) {
+        this._navigationStack.push(lastTransition);
+        return;
+      }
+    }
+
     if (force === true) {
       if (lastTransition) {
         while (lastTransition[1] !== 'show') {
