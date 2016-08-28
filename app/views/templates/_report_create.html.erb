@@ -68,20 +68,20 @@
             </div>
             <div class="form-group">
               <div class="Select">
-                <select class="Select-input" placeholder="Last seen">
+                <select class="Select-input ReportCreate-lastSelect" placeholder="Last seen">
                   <option value="">Last seen</option>
-                  <option value="just now">&nbsp;&nbsp;just now</option>
-                  <option value="1 hour ago">&nbsp;&nbsp;1 hour ago</option>
-                  <option value="2 hours ago">&nbsp;&nbsp;2 hours ago</option>
-                  <option value="12 hours ago">12 hours ago</option>
-                  <option value="24 hours ago">24 hours ago</option>
-                  <option value="48 hours ago">48 hours ago</option>
+                  <option value="0">&nbsp;&nbsp;just now</option>
+                  <option value="1">&nbsp;&nbsp;1 hour ago</option>
+                  <option value="2">&nbsp;&nbsp;2 hours ago</option>
+                  <option value="12">12 hours ago</option>
+                  <option value="24">24 hours ago</option>
+                  <option value="48">48 hours ago</option>
                   <option value="custom">custom date/time</option>
                 </select>
               </div>
             </div>
             <div class="form-group">
-              <input placeholder="MM/DD HH:MM AM" value="{{last_seen}}" name="last_seen" class="input input-small form-control  ReportCreate-input"/>
+              <input placeholder="MM/DD HH:mm" value="{{last_seen}}" type="{{last_seen_type}}" name="last_seen" class="input input-small form-control  ReportCreate-input ReportCreate-lastSeen"/>
             </div>
             <div class="form-group">
               <input placeholder="Pet name" name="pet_name" value="{{pet_name}}" class="input input-small form-control  ReportCreate-input"/>

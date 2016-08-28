@@ -1,3 +1,4 @@
+//= require vendor/jquery.maskedinput
 //= require locate
 
 Template.register('reportCreateTemplate', '#report-create-template');
@@ -31,11 +32,15 @@ function ReportCreate(report) {
 
   this._$address = this._$el.querySelector('.ReportCreate-address');
 
+  this._$lastSelect = this._$el.querySelector('.ReportCreate-lastSelect');
+  this._$lastSeen = this._$el.querySelector('.ReportCreate-lastSeen');
+
   this.next = this.next.bind(this);
   this.updatePhoto = this.updatePhoto.bind(this);
   this.toggleDetails = this.toggleDetails.bind(this);
   this.submit = this.submit.bind(this);
   this.updateContinueButton = this.updateContinueButton.bind(this);
+  this.setTime = this.setTime.bind(this);
 
   this.goTo(slides[0]);
 
@@ -69,8 +74,23 @@ ReportCreate.prototype.initEvents = function () {
         self.moveMarker(location.coords);
       });
     }
-  }, false)
+  }, false);
+
+  $(this._$lastSelect).on('change', function (e) {
+    if (e.target.value === 'custom') {
+      self._$lastSeen.setAttribute('type', 'text');
+    } else {
+      self._$lastSeen.setAttribute('type', 'hidden');
+      self._$lastSeen.value = moment().subtract(e.target.value, 'hours').format('MM/DD HH:mm');
+    }
+  });
+
+  $(this._$lastSeen).mask("99/99 99:99");
 };
+
+ReportCreate.prototype.setTime = function () {
+
+}
 
 ReportCreate.prototype.moveMarker = function (coord) {
   var latlng = new google.maps.LatLng(coord.latitude, coord.longitude);
@@ -132,9 +152,9 @@ ReportCreate.prototype.serialize = function () {
 ReportCreate.prototype.getData = function () {
   var data = this.report;
 
-  data.isAninalDog = this.isAnimal('dog')
-  data.isAninalCat = this.isAnimal('cat')
-  data.isAninalBird = this.isAnimal('bird')
+  data.isAninalDog = this.isAnimal('dog');
+  data.isAninalCat = this.isAnimal('cat');
+  data.isAninalBird = this.isAnimal('bird');
   data.isAninalOther = this.isAnimal('other');
   data.isAninalDef = this.isAnimal('pet');
   data.isGenderMale = this.report.sex && this.report.sex.toLowerCase() === 'male';
@@ -151,6 +171,8 @@ ReportCreate.prototype.getData = function () {
   data.photo_title_class = data.image ? 'ReportCreate-blue' : 'ReportCreate-green';
   data.photo_continue = data.image ? 'Continue' : 'Continue without photo';
   data.photo_continue_class = data.image ? 'ReportCreate-green' : 'ReportCreate-blue';
+
+  data.last_seen_type = data.last_seen ? 'text' : 'hidden';
 
   return data;
 };
@@ -174,9 +196,9 @@ ReportCreate.prototype.updatePhoto = function () {
 
   reader.readAsDataURL(this._$photo.files[0]);
 
-  var cont = this._$el.querySelector('.ReportCreate__next-photo')
-  cont.classList.remove('ReportCreate-green', 'ReportCreate-blue')
-  cont.classList.add('ReportCreate-blue')
+  var cont = this._$el.querySelector('.ReportCreate__next-photo');
+  cont.classList.remove('ReportCreate-green', 'ReportCreate-blue');
+  cont.classList.add('ReportCreate-blue');
   cont.innerText = 'Continue';
   var upload = this._$el.querySelector('.Uploader>span');
   upload.innerText = 'Replace photo';
@@ -200,14 +222,16 @@ ReportCreate.prototype.initMap = function (me) {
   this._marker = new google.maps.Marker({
     position: coord,
     map: this._map,
-    icon: '/img/app/map/me-pin.png',
+    icon: this.getIcon(),
     draggable: true,
     title: 'Me'
   });
 
   this._marker.addListener('position_changed', this.updateContinueButton);
+};
 
-  // google.maps.event.addListener(this._marker, "position_changed", this.updateContinueButton);
+ReportCreate.prototype.getIcon = function () {
+  return this.report.report_type === 'found' ? '/img/app/map/found-pin.png' : '/img/app/map/lost-pin.png';
 };
 
 ReportCreate.prototype.getPosition = function () {
@@ -223,6 +247,10 @@ ReportCreate.prototype.submit = function (e) {
   var report = this.serialize();
   if (report.image) {
     report.image = this._$photo.files[0];
+  }
+
+  if(report.last_seen) {
+    report.last_seen = moment(report.last_seen, 'MM/DD HH:mm').toString();
   }
   var fd = new FormData();
   Object.keys(report).forEach(function (key) {
@@ -265,5 +293,5 @@ ReportCreate.prototype.toggleDetails = function () {
 };
 
 ReportCreate.prototype.updateContinueButton = function () {
-  this._$el.querySelector('.ReportCreate__next-location').innerText = 'Use provided location'
+  this._$el.querySelector('.ReportCreate__next-location').innerText = 'Use provided location';
 };

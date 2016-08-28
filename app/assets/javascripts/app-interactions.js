@@ -16,19 +16,7 @@ $(function () {
   });
 
   window.navigationStack = [];
-
-  $("#lost_address").keypress(function (event) {
-    if (event.which == 13) {
-      var address = $(this).val();
-
-      geolocator.geocode({address: address}, function (err, location) {
-        console.log('callback');
-      });
-
-      event.preventDefault();
-    }
-  });
-
+  
   Router
     .add('reports', 'fuzzapp/reports', Modal.showReports.bind(Modal))
     .add('report', 'fuzzapp/report/(.*)/edit', Modal.showReportEdit.bind(Modal))
