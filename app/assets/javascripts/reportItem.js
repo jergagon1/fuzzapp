@@ -23,12 +23,13 @@ ReportItem.prototype.getLastSeenAgo = function () {
       return moment(this.report.last_seen).format('DD MMM HH:mm');
     }
   }
-}
+};
 
 ReportItem.prototype.serialize = function () {
   var data = this.report;
   data.last_seen = this.getLastSeenAgo();
   data.title = this.getTitle();
+  data.image = this.getImage();
   return data;
 };
 
@@ -53,4 +54,21 @@ ReportItem.prototype.getPosition = function () {
 
 ReportItem.prototype.getIcon = function () {
   return this.report.report_type === 'found' ? '/img/app/map/found-pin.png' : '/img/app/map/lost-pin.png';
-}
+};
+
+ReportItem.prototype.getImage = function () {
+  if (this.report.image) {
+    return this.report.image;
+  } else {
+    switch (Helpers.getAnimalTypeReport(this.report)) {
+      case 'dog':
+      case 'pet':
+      default:
+        return '/img/app/dog.png';
+      case 'cat':
+        return '/img/app/cat.png';
+      case 'bird':
+        return '/img/app/bird.png'
+    }
+  }
+};

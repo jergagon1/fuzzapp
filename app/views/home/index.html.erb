@@ -213,7 +213,11 @@
   <div class="post {{report_type}}-post small-report-card" data-report-id="{{id}}">
     <h3 class="title">{{title}}</h3>
     {{#if title}}
-    <div class="photo-holder" style="background-image: url('{{img_url}}')"></div>
+    <div class="photo-holder">
+      <div class="FullImage">
+        <img src="{{image}}" class="FullImage-img"/>
+      </div>
+    </div>
     {{else}}
     <div class="photo-holder"></div>
     {{/if}}
