@@ -29,10 +29,13 @@ function ReportCreate(report) {
   this._$toggleDetails = this._$el.querySelector('.ReportCreate__toggleDetails');
   this._$details = this._$el.querySelector('.ReportCreate__details');
 
+  this._$address = this._$el.querySelector('.ReportCreate-address');
+
   this.next = this.next.bind(this);
   this.updatePhoto = this.updatePhoto.bind(this);
   this.toggleDetails = this.toggleDetails.bind(this);
   this.submit = this.submit.bind(this);
+  this.updateContinueButton = this.updateContinueButton.bind(this);
 
   this.goTo(slides[0]);
 
@@ -55,6 +58,24 @@ ReportCreate.prototype.initEvents = function () {
 
   this._$toggleDetails.addEventListener('click', this.toggleDetails, false);
   this._$submit.addEventListener('click', this.submit, false);
+
+  this._$address.addEventListener('keypress', function (e) {
+    var key = e.keyCode || e.which;
+
+    if (key == 13) {
+      e.preventDefault();
+
+      geolocator.geocode({address: self._$address.value}, function (err, location) {
+        self.moveMarker(location.coords);
+      });
+    }
+  }, false)
+};
+
+ReportCreate.prototype.moveMarker = function (coord) {
+  var latlng = new google.maps.LatLng(coord.latitude, coord.longitude);
+  this._marker.setPosition(latlng);
+  this._map.setCenter(latlng);
 };
 
 ReportCreate.prototype.getType = function () {
@@ -153,7 +174,7 @@ ReportCreate.prototype.updatePhoto = function () {
 
   reader.readAsDataURL(this._$photo.files[0]);
 
-  var cont = this._$el.querySelector('.ReportCreate__continue')
+  var cont = this._$el.querySelector('.ReportCreate__next-photo')
   cont.classList.remove('ReportCreate-green', 'ReportCreate-blue')
   cont.classList.add('ReportCreate-blue')
   cont.innerText = 'Continue';
@@ -183,6 +204,10 @@ ReportCreate.prototype.initMap = function (me) {
     draggable: true,
     title: 'Me'
   });
+
+  this._marker.addListener('position_changed', this.updateContinueButton);
+
+  // google.maps.event.addListener(this._marker, "position_changed", this.updateContinueButton);
 };
 
 ReportCreate.prototype.getPosition = function () {
@@ -237,4 +262,8 @@ ReportCreate.prototype.update = function (id, data) {
 
 ReportCreate.prototype.toggleDetails = function () {
   this._$details.classList.toggle('show');
+};
+
+ReportCreate.prototype.updateContinueButton = function () {
+  this._$el.querySelector('.ReportCreate__next-location').innerText = 'Use provided location'
 };

@@ -38,19 +38,17 @@
                 <input type="file" name="image" ref="upload" class="ReportCreate-input Uploader-input"/>
               </label>
 
-              <button class="btn btn-big ReportCreate__next ReportCreate__continue {{photo_continue_class}}">{{photo_continue}}</button>
+              <button class="btn btn-big ReportCreate__next ReportCreate__next-photo {{photo_continue_class}}">{{photo_continue}}</button>
             </div>
           </div>
         </div>
         <div class="step-wrapper-2 ReportCreate__step-2">
           <h3 class="title">Enter last known location</h3>
           <div class="form-group empty">
-            <input placeholder="Type address here" name="address" value="{{address}}" class="input form-control ReportCreate-input"/>
+            <input placeholder="Type address here" name="address" value="{{address}}" class="input form-control ReportCreate-input ReportCreate-address"/>
             <p class="description">Or drag map pin to location</p>
             <div class="map ReportCreate__map"></div>
-            <button class="btn btn-big btn-blue ">Use My Current Location
-            </button>
-            <button class="btn btn-big btn-green  ReportCreate__next">Continue</button>
+            <button class="btn btn-big btn-green  ReportCreate__next ReportCreate__next-location">Use current location</button>
           </div>
         </div>
         <div class="step-wrapper-3 ReportCreate__step-3">
