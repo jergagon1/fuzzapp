@@ -47,13 +47,16 @@ var Modal = {
   showProfile: function (fragment) {
     this.show(fragment, '.file-view-wrapper', 'show');
   },
-  showProfileEdit: function (fragment) {
-    if (!this._rendered['profile_edit']) {
-      var current = new ProfileEdit(__INITIAL_STATE__.user);
-
-      document.querySelector('.file-edit-wrapper').appendChild(current.getElement());
-      this._rendered['profile_edit'] = current;
+  showProfileEdit: function profile_edit(fragment) {
+    if (this._rendered['report_edit']) {
+      var old = this._rendered['profile_edit'].getElement();
+      old.parentNode.removeChild(old);
     }
+
+    var current = new ProfileEdit(__INITIAL_STATE__.user);
+    document.querySelector('.file-edit-wrapper').appendChild(current.getElement());
+    this._rendered['profile_edit'] = current;
+
     this.show(fragment, '.file-edit-wrapper', 'show');
   },
   showReport: function (fragment, id) {

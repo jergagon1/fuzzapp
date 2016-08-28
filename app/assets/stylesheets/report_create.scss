@@ -23,6 +23,24 @@
       background-color: #E2573B;
     }
   }
+
+  .ReportCreate__step-1, .ReportCreate__step-2, .ReportCreate__step-3 {
+    display: none !important;
+  }
+
+  .ReportCreate__step {
+    &.step-1 .ReportCreate__step-1 {
+      display: block !important;
+    }
+
+    &.step-2 .ReportCreate__step-2 {
+      display: block !important;
+    }
+
+    &.step-3 .ReportCreate__step-3 {
+      display: block !important;
+    }
+  }
 }
 
 .ReportCreate-found {

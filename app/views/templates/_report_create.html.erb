@@ -57,7 +57,7 @@
           <form class="Pet-description">
             <div class="form-group">
               <div class="Select">
-                <select name="animal_type" class="Select-input ReportCreate-input" placeholder="Per type">
+                <select name="animal_type" class="Select-input ReportCreate-input" placeholder="Pet type">
                   <option value="" {{#if isAninalDef}} selected="selected" {{/if}}>Pet type</option>
                   <option value="dog" {{#if isAninalDog}} selected="selected" {{/if}}>Dog</option>
                   <option value="cat" {{#if isAninalCat}} selected="selected" {{/if}}>Cat</option>
@@ -65,6 +65,9 @@
                   <option value="other" {{#if isAninalOther}} selected="selected" {{/if}}>Other</option>
                 </select>
               </div>
+            </div>
+            <div class="form-group">
+              <input placeholder="Pet name" name="pet_name" value="{{pet_name}}" class="input input-small form-control  ReportCreate-input"/>
             </div>
             <div class="form-group">
               <div class="Select">
@@ -82,9 +85,6 @@
             </div>
             <div class="form-group">
               <input placeholder="MM/DD HH:mm" value="{{last_seen}}" type="{{last_seen_type}}" name="last_seen" class="input input-small form-control  ReportCreate-input ReportCreate-lastSeen"/>
-            </div>
-            <div class="form-group">
-              <input placeholder="Pet name" name="pet_name" value="{{pet_name}}" class="input input-small form-control  ReportCreate-input"/>
             </div>
             <div class="form-group">
               <textarea name="notes" placeholder="Briefly describe the incident" value="{{notes}}" rows="4" class="textarea form-control ReportCreate-input"></textarea>

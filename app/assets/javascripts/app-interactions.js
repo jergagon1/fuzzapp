@@ -16,7 +16,7 @@ $(function () {
   });
 
   window.navigationStack = [];
-  
+
   Router
     .add('reports', 'fuzzapp/reports', Modal.showReports.bind(Modal))
     .add('report', 'fuzzapp/report/(.*)/edit', Modal.showReportEdit.bind(Modal))
