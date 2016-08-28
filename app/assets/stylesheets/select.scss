@@ -30,6 +30,8 @@
         border-color: #34495e transparent transparent transparent;
       }
     }
+
+
   }
 
   .selectize-input {
@@ -50,6 +52,13 @@
     @media screen and (min-height: 640px) and (min-width: 641px) {
       line-height: 50px;
       font-size: 20px;
+    }
+
+    &.input-active {
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+      box-shadow: none;
+      border-bottom: 0px;
     }
   }
 
@@ -74,5 +83,19 @@
   .selectize-dropdown {
     box-shadow: none;
     border: none;
+
+    &:before {
+      content: " ";
+      z-index: -1;
+      position: absolute;
+      top: -50px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      box-shadow: 0px 0px 4px 0px rgba(127, 140, 141, 0.5);
+      transition: box-shadow 0.3s ease-in;
+      border-radius: 5px;
+    }
   }
 }
+
