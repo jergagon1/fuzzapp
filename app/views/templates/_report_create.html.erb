@@ -2,7 +2,7 @@
   <div class="Modal ReportCreate ReportCreate-{{report_type}}">
     <div class="nav-block Modal__nav">
       <button class="back-arrow"><i class="icon-back"></i></button>
-      <h2 class="title"> I Found a pet</h2>
+      <h2 class="title"> I {{report_type}} a pet</h2>
       <div class="nav-trigger nav-trigger-white"><span></span><span></span><span></span></div>
     </div>
     <div class="section-wrapper Modal__container">
@@ -31,6 +31,7 @@
                 {{else}}
                 <img src="<%= asset_url('wrapper-dog.png') %>" class="FullImage-img"/>
                 {{/if}}
+                <i class="icon-photo-edit"></i>
               </div>
 
               <label class="Uploader {{photo_title_class}}">
