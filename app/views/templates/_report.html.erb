@@ -61,7 +61,9 @@
           {{/if}}
         </table>
         <p class="description">{{notes}}</p>
+        {{#if can_edit}}
         <button class="btn btn-big btn-blue Report__edit-button"><i class="icon-edit"></i>Edit Post</button>
+        {{/if}}
       </div>
       <div class="social-share-wrapper">
         <p>Share this post to help find fuzzy!</p>

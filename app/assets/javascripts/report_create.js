@@ -5,8 +5,9 @@ Template.register('reportCreateTemplate', '#report-create-template');
 
 var slides = ['step-1', 'step-2', 'step-3'];
 
-function ReportCreate(report) {
+function ReportCreate(report, user) {
   this.report = report;
+  this.user = user;
   this._$el = this.render();
   this._slides = [];
 
@@ -48,6 +49,10 @@ function ReportCreate(report) {
   Locate.then(this.initMap.bind(this));
 
   this.initEvents()
+}
+
+ReportCreate.prototype.canEdit = function () {
+  return this.user.id === this.report.user_id;
 }
 
 ReportCreate.prototype.initEvents = function () {

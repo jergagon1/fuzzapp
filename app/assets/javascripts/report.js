@@ -29,6 +29,10 @@ function Report(report, comments, user) {
   Locate.then(this.initMap.bind(this));
 }
 
+Report.prototype.canEdit = function () {
+  return this.user.id === this.report.user_id;
+}
+
 Report.prototype.initEvents = function () {
   var self = this;
   this.events = PubSub;
@@ -159,6 +163,7 @@ Report.prototype.serialize = function () {
   data.image = this.getImage();
   data.title = this.getTitle();
   data.type = this.getAnimalType();
+  data.can_edit = this.canEdit();
   return data;
 };
 

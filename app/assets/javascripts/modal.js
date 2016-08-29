@@ -30,7 +30,11 @@ var Modal = {
   showReportEdit: function (fragment, id) {
     var self = this;
     $.getJSON('/api/v1/reports/' + id, function (result) {
-      self.showReportEditData(fragment, result.report);
+      if (result.report.user_id === result.user.id) {
+        self.showReportEditData(fragment, result.report);
+      } else {
+        Router.navigate('/fuzzapp/report/' + result.report.id);
+      }
     });
   },
   showReportEditData: function (fragment, report) {
