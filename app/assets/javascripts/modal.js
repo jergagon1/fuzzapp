@@ -6,6 +6,7 @@ Template.register('reportsTemplate', '#reports-template');
 var Modal = {
   _navigationStack: [],
   _rendered: {},
+  _menu: false,
   getNavigationToggler: function (target) {
     if (target.indexOf('.lost-pet-') > -1) {
       return 'navigation-orange';
@@ -112,6 +113,7 @@ var Modal = {
     return prev.length && prev[0][0] === target;
   },
   show: function (fragment, target, tClass, state, current) {
+    var self = this;
     if (this.check(target)) {
       Modal.hide();
     } else {
@@ -124,6 +126,18 @@ var Modal = {
           $('.fuzzfinders-app').addClass(navigationClass);
         }
       }
+
+      $('.nav-trigger').on('click', function (e) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        if (self._menu) {
+          $('.menu-navigation').removeClass('open');
+          self._menu = false;
+        } else {
+          $('.menu-navigation').addClass('open');
+          self._menu = true;
+        }
+      });
     }
   },
   getLast: function () {

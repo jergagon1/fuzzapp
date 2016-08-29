@@ -1,11 +1,11 @@
 //= require modal
 
 $(function () {
-  $('.nav-trigger').click(function () {
+  $('.nav-trigger').on('click', function () {
     $('.menu-navigation').toggleClass('open');
   });
 
-  $('.menu-navigation .extra-area').click(function () {
+  $('.menu-navigation .extra-area').on('click', function () {
     $('.menu-navigation').toggleClass('open');
   });
 

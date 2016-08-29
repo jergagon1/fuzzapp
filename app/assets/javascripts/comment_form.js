@@ -76,7 +76,7 @@ CommentForm.prototype.submit = function (e) {
   var comment = this.serialize();
 
   if (comment.image) {
-    comment.image = this._$el.querySelector('.CommentForm__upload-uploader').files[0];
+    comment.image = this._$el.querySelector('.Uploader-input').files[0];
   }
 
   var fd = new FormData();
