@@ -45,7 +45,7 @@ var Notification = {
       return false;
     }, false);
 
-    this._timeout = setTimeout(deferred.reject, 1500000);
+    this._timeout = setTimeout(deferred.reject, 30 * 1000);
 
     var $container = this._container;
     $container.appendChild($el);

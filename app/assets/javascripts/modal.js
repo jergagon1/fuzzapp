@@ -66,22 +66,30 @@ var Modal = {
     });
   },
   showReportCreateFound: function (fragment) {
-    if (!this._rendered['report_create_found']) {
-      var current = new ReportCreate({report_type: 'found', animal_type: '', sex: '', pet_size: '', age: ''});
 
-      document.querySelector('.found-pet-page-wrapper').appendChild(current.getElement());
-      this._rendered['report_create_found'] = current;
+    if (this._rendered['report_create']) {
+      var old = this._rendered['report_create'].getElement();
+      old.parentNode.removeChild(old);
     }
-    this.show(fragment, '.found-pet-page-wrapper', 'show', null, this._rendered['report_create_found']);
+
+    var current = new ReportCreate({report_type: 'found', animal_type: '', sex: '', pet_size: '', age: ''});
+
+    document.querySelector('.found-pet-page-wrapper').appendChild(current.getElement());
+    this._rendered['report_create'] = current;
+
+    this.show(fragment, '.found-pet-page-wrapper', 'show', null, this._rendered['report_create']);
   },
   showReportCreateLost: function (fragment) {
-    if (!this._rendered['report_create_lost']) {
-      var current = new ReportCreate({report_type: 'lost', animal_type: '', sex: '', pet_size: '', age: ''});
-
-      document.querySelector('.lost-pet-page-wrapper').appendChild(current.getElement());
-      this._rendered['report_create_lost'] = current;
+    if (this._rendered['report_create']) {
+      var old = this._rendered['report_create'].getElement();
+      old.parentNode.removeChild(old);
     }
-    this.show(fragment, '.lost-pet-page-wrapper', 'show', null, this._rendered['report_create_lost']);
+    var current = new ReportCreate({report_type: 'lost', animal_type: '', sex: '', pet_size: '', age: ''});
+
+    document.querySelector('.lost-pet-page-wrapper').appendChild(current.getElement());
+    this._rendered['report_create'] = current;
+
+    this.show(fragment, '.lost-pet-page-wrapper', 'show', null, this._rendered['report_create']);
   },
   showReportData: function (fragment, report, comments, user) {
 
@@ -100,13 +108,17 @@ var Modal = {
     return prev.length && prev[0][0] === target;
   },
   show: function (fragment, target, tClass, state, current) {
-    var last = this.getLast();
-    if (!last || last[2] !== fragment) {
-      document.querySelector(target).classList.add(tClass);
-      this._navigationStack.push([target, tClass, fragment, current]);
-      var navigationClass = this.getNavigationToggler(target);
-      if (navigationClass && (tClass === 'show')) {
-        $('.fuzzfinders-app').addClass(navigationClass);
+    if (this.check(target)) {
+      Modal.hide();
+    } else {
+      var last = this.getLast();
+      if (!last || last[2] !== fragment) {
+        document.querySelector(target).classList.add(tClass);
+        this._navigationStack.push([target, tClass, fragment, current]);
+        var navigationClass = this.getNavigationToggler(target);
+        if (navigationClass && (tClass === 'show')) {
+          $('.fuzzfinders-app').addClass(navigationClass);
+        }
       }
     }
   },

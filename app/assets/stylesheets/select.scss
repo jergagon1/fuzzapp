@@ -3,9 +3,12 @@
   margin: 0 0 25px;
   margin-bottom: 40px;
   color: #2C3E51;
+  max-width: 100%;
+  min-width: 100px;
 }
 
 .Select-input {
+  max-width: 100%;
   font-size: 14px;
   &.selectize-control {
     margin: 0px;

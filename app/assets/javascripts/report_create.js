@@ -24,6 +24,7 @@ function ReportCreate(report) {
 
   this._$photo = this._$el.querySelector('.Uploader-input');
   this._$photoContainer = this._$el.querySelector('.FullImage-img');
+  this._$photoWrapper = this._$el.querySelector('.ReportCreate__photo')
 
   this._$map = this._$el.querySelector('.ReportCreate__map');
 
@@ -86,6 +87,10 @@ ReportCreate.prototype.initEvents = function () {
   });
 
   $(this._$lastSeen).mask("99/99 99:99");
+
+  this._$photoWrapper.addEventListener('click', function () {
+    Helpers.fireEvent(self._$photo, 'click');
+  }, false)
 };
 
 ReportCreate.prototype.setTime = function () {
@@ -107,10 +112,17 @@ ReportCreate.prototype.getElement = function () {
 };
 
 ReportCreate.prototype.goTo = function (slide) {
+  var self = this;
   this._$progresStep.classList.remove.apply(this._$progresStep.classList, slides);
   this._$ancetteWrapper.classList.remove.apply(this._$ancetteWrapper.classList, slides);
   this._$progresStep.classList.add(slide);
   this._$ancetteWrapper.classList.add(slide);
+  if (this._map) {
+    google.maps.event.trigger(self._map, 'resize');
+    self._map.setCenter(self._marker.getPosition());
+
+  }
+
   if (this._slides[this._slides.length - 1] !== slide) {
     this._slides.push(slide);
   }
@@ -249,7 +261,7 @@ ReportCreate.prototype.submit = function (e) {
     report.image = this._$photo.files[0];
   }
 
-  if(report.last_seen) {
+  if (report.last_seen) {
     report.last_seen = moment(report.last_seen, 'MM/DD HH:mm').toString();
   }
   var fd = new FormData();
