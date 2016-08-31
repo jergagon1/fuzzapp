@@ -13,12 +13,12 @@ class Comment < ActiveRecord::Base
     attributes.merge({
       comment_username: user.try(:username),
       subscriptions: user.try(:subscribed_reports).try(:ids),
-      image: image.url(:thumb)
+      image: image.url(:thumb),
+      user: user
     }).as_json
   end
 
   mount_uploader :image, ImageUploader
-
   private
 
   def subscribe_user_and_notify_all

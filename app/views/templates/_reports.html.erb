@@ -1,0 +1,87 @@
+<script id="reports-template" type="text/x-handlers-template">
+  <div>
+    <div class="nav-block nav-block-blue">
+      <button class="back-arrow"><i class="icon-back"></i></button>
+      <h2 class="title"> Local FuzzAlerts</h2>
+      <div class="nav-trigger nav-trigger-white"><span></span><span></span><span></span></div>
+    </div>
+    <div class="section-wrapper">
+      <div class="map"></div>
+      <form class="search-area">
+        <input placeholder="Search Keywords" name="keyword" class="Filter__input input form-control"/>
+        <div class="row">
+          <div class="col-xs-6">
+            <div class="Select">
+              <select class="Select-input" name="report_type" data-filter="report_type" placeholder="Lost or Found">
+                <option value="">Lost or Found</option>
+                <option value="lost">Lost</option>
+                <option value="found">Found</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-xs-6">
+            <div class="Select">
+              <select class="Select-input" name="type" data-filter="type" placeholder="Pet type">
+                <option value="">Pet type</option>
+                <option value="dog">Dog</option>
+                <option value="cat">Cat</option>
+                <option value="bird">Bird</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            <input placeholder="Pet color" name="color" class="Filter__input input input-small form-control"/>
+          </div>
+          <div class="col-xs-6">
+            <input placeholder="Pet Breed" name="breed" class="Filter__input input input-small form-control"/>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            <div class="Select">
+              <select class="Select-input" name="gender" data-filter="gender" placeholder="Gender">
+                <option value="">Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-xs-6">
+            <div class="Select">
+              <select class="Select-input" name="size" data-filter="size" placeholder="Size">
+                <option value="">Size</option>
+                <option value="small">Small</option>
+                <option value="medium">Medium</option>
+                <option value="large">Large</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            <div class="Select">
+              <select class="Select-input" name="age" data-filter="age" placeholder="Age">
+                <option value="">Age</option>
+                <option value="baby">Baby</option>
+                <option value="young">Young</option>
+                <option value="adult">Adult</option>
+                <option value="senior">Senior</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-xs-6">
+            <button type="reset" class="Filter__reset btn btn-small btn-blue">Reset Filters</button>
+          </div>
+        </div>
+      </form>
+      <button class="btn btn-search btn-blue" data-filter-toggler>
+        <span class="icon icon-search"></span>Search FuzzAlerts
+      </button>
+      <div class="posts" id="reports_list">
+      </div>
+    </div>
+  </div>
+</script>

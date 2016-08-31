@@ -1,21 +1,7 @@
 // file for app submission logic and client server data transfers
 
-$(function(){
-  $('body').on('click', '.comments_button', function() {
-    $.post("/api/v1/reports/" + $('.comment_report_id').val() + "/comments", {
-      comment: {
-        content: $('.comment_body').val(),
-        report_id: $('.comment_report_id').val(),
-        lat: '1',
-        lng: '1',
-        image: 'lost'
-      }
-    });
-
-    return false;
-  });
-
-  $('#lost_pet_button').click(function(){
+$(function () {
+  $('#lost_pet_button').click(function () {
     $.post("/api/v1/reports", {
       report: {
         pet_name: $('#lost_pet_name').val(),
@@ -34,7 +20,7 @@ $(function(){
         color: $('#lost_pet_color').val(),
         breed: $('#lost_pet_breed').val(),
         sex: ($('#lost-gender-btn').text() == "Gender") ? "" : $('#lost-gender-btn').text(),
-        pet_size: ($('#lost-size-btn').text() == "Size")  ? "" : $('#lost-size-btn').text(),
+        pet_size: ($('#lost-size-btn').text() == "Size") ? "" : $('#lost-size-btn').text(),
         // distance: $('#').val(),
         distance: '11',
         last_seen: $('#lost-pet-seen-btn').text(),
@@ -43,25 +29,13 @@ $(function(){
         // address: $('#').val()
       }
     })
-      .done(function (data)
-          {
-            alert('saved');
-            // alert( "Data Loaded: " + data );
-            // data = JSON.parse(data);
-            // if (data["success"] == true)
-            // {
-            //    hidePopup();
-            //    showRegisterCompletePopup();
-            //    $(evt.target).reset();
-            //    $.cookie("alreadyRegistered", 1);
-            // } else
-            // {
-            //    alert("Ошибка: " + data["error"]);
-            // }
-          });
+      .done(function (data) {
+        console.log('saved', data);
+        Modal.hide(true)
+      });
   });
 
-  $('#found_pet_button').click(function(){
+  $('#found_pet_button').click(function () {
     $.post("/api/v1/reports", {
       report: {
         pet_name: $('#found_pet_name').val(),
@@ -87,33 +61,9 @@ $(function(){
         // address: $('#').val()
       }
     })
-      .done(function (data)
-          {
-            alert('saved');
-            // alert( "Data Loaded: " + data );
-            // data = JSON.parse(data);
-            // if (data["success"] == true)
-            // {
-            //    hidePopup();
-            //    showRegisterCompletePopup();
-            //    $(evt.target).reset();
-            //    $.cookie("alreadyRegistered", 1);
-            // } else
-            // {
-            //    alert("Ошибка: " + data["error"]);
-            // }
-          });
+      .done(function (data) {
+        console.log('saved', data);
+        Modal.hide(true)
+      });
   });
-
-
-
-  $('.small-report-card').click(function(){
-    $.get("/api/v1/reports/"+$(this).data('report-id'), null, 'script');
-  });
-
-
-
-
-
-
 });

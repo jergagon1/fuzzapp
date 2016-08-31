@@ -1,0 +1,40 @@
+.Report {
+
+}
+
+.Report-lost {
+  .nav-block, .photo-wrapper {
+    background-color: #E2573B;
+  }
+}
+
+.Report-found {
+  .nav-block, .photo-wrapper {
+    background-color: #1E9F84;
+  }
+}
+
+.Report__photo {
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px;
+  box-shadow: 0px 0px 4px 0px rgba(127, 140, 141, 0.5);
+  padding: 5px;
+  background-color: #fff;
+}
+
+.Report__photo-img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 100%;
+  width: auto;
+  transform: translate(-50%, -50%);
+  max-width: inherit;
+  max-height: inherit;
+}
+
+.Report__photo-portrait {
+  width: 100%;
+  height: auto;
+}

@@ -1,0 +1,83 @@
+<script id="report-template" type="text/x-handlers-template">
+  <div class="Report Report-{{report_type}}">
+    <div class="nav-block">
+      <button class="back-arrow"><i class="icon-back"></i></button>
+      <h2 class="title">{{title}}</h2>
+      <div class="nav-trigger nav-trigger-white"><span></span><span></span><span></span></div>
+    </div>
+    <div class="section-wrapper">
+      <div class="map"></div>
+      <div class="photo-wrapper">
+        <div class="Report__photo photo FullImage">
+          <img class="Report__photo-img FullImage-img" src="{{image}}"/>
+        </div>
+
+        {{#if last_seen}}
+        <h3 class="label">Last Seen {{last_seen_ago}} ago</h3>
+        {{/if}}
+      </div>
+      <div class="post-description">
+        <div class="header">
+          <div class="face-lockup Avatar">
+            <img src="{{user_avatar}}" class="Avatar-img"/>
+          </div>
+          <div class="content">
+            <p>Posted by {{report_username}}</p>
+            <p>{{created_at_ago}} ago</p>
+            <p class="type">{{type}}</p>
+          </div>
+        </div>
+
+        <table class="table table-stripped">
+          {{#if pet_size}}
+          <tr>
+            <td>Size</td>
+            <td>{{pet_size}}</td>
+          </tr>
+          {{/if}}
+          {{#if color}}
+          <tr>
+            <td>Color</td>
+            <td>{{color}}</td>
+          </tr>
+          {{/if}}
+          {{#if breed}}
+          <tr>
+            <td>Breed</td>
+            <td>{{breed}}</td>
+          </tr>
+          {{/if}}
+          {{#if sex}}
+          <tr>
+            <td>Sex</td>
+            <td>{{sex}}</td>
+          </tr>
+          {{/if}}
+          {{#if last_seen}}
+          <tr>
+            <td>Last seen</td>
+            <td>{{last_seen}}</td>
+          </tr>
+          {{/if}}
+        </table>
+        <p class="description">{{notes}}</p>
+        {{#if can_edit}}
+        <button class="btn btn-big btn-blue Report__edit-button"><i class="icon-edit"></i>Edit Post</button>
+        {{/if}}
+      </div>
+      <div class="social-share-wrapper">
+        <p>Share this post to help find fuzzy!</p>
+        <div class="buttons-wrapper">
+          <button class="social-facebook"></button>
+          <button class="social-twitter"></button>
+          <button class="social-instagram"></button>
+        </div>
+      </div>
+      <div class="comments-wrapper">
+        <h2>Comments</h2>
+        <div class="Report__comments"></div>
+      </div>
+      <div class="Report__comment-form"></div>
+    </div>
+  </div>
+</script>

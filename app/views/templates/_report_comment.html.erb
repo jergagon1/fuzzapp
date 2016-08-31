@@ -1,0 +1,28 @@
+<script id="report-comment-template" type="text/x-handlers-template">
+  <div class="Comment {{head_class}}">
+    <div class="Comment__header">
+      <div class="Comment__header-avatar Avatar">
+        <img src="{{avatar}}" class="Avatar-img"/>
+      </div>
+      <div class="Comment__header-content">
+        <p>Posted by {{comment_username}}</p>
+        <p>{{created_at_ago}} ago</p>
+      </div>
+    </div>
+    {{#if image }}
+    <div class="Comment__image">
+      <img class="Comment__image-img" src="{{image}}"/>
+    </div>
+    {{/if}}
+    <div class="Comment__description">
+      <p class="Comment__description-content">{{content}}</p>
+      {{#if hasLocation }}
+      <div class="Comment__description-location">
+        <a href="javascript:void(0)" class="Comment__description-locationLink">
+          <span class="Comment__description-locationMarker">{{locationLabel}}</span>Location point added
+        </a>
+      </div>
+      {{/if}}
+    </div>
+  </div>
+</script>

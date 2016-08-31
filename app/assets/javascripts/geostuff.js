@@ -1,5 +1,4 @@
-
-$(function() {
+$(function () {
   geolocator.config({
     language: "en",
     google: {
@@ -20,10 +19,11 @@ $(function() {
 
   geolocator.locate(options, function (err, location) {
     if (err) return console.log(err);
-    window.geolocation = location;
+    localStorage.setItem('current_position', JSON.stringify({
+      lat: location.coords.latitude,
+      lng: location.coords.longitude
+    }));
 
-    moveBus(window.lostPetMap, window.lostPetMarker, location);
-    moveBus(window.foundPetMap, window.foundPetMarker, location);
-    moveBus(window.sightingsMap, null, location);
+    window.geolocation = location;
   });
 });

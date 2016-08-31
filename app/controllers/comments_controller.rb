@@ -16,6 +16,8 @@ class CommentsController < ApplicationController
 
     @comment.save
 
+    render json: {:comment => @comment}
+
     # NotificationEmailer.found_email(@original_poster) if @original_poster != @comment.user
   end
 

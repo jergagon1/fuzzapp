@@ -13,6 +13,8 @@ class Report < ActiveRecord::Base
 
   after_save :generate_slug!
 
+  mount_uploader :image, ImageUploader
+
   # associations
   has_many :comments
 
@@ -39,6 +41,7 @@ class Report < ActiveRecord::Base
   scope :age, -> (age) { where age: age }
   scope :breed, -> (breed) { where breed: breed }
   scope :color, -> (color) { where color: color }
+  scope :image, -> (image) {where image: image}
 
   # Add report creator's username to json output
   # Todo look at ActiveModel Serializers to improve this
@@ -46,6 +49,7 @@ class Report < ActiveRecord::Base
     attributes.merge({
       report_username: user.username, report_taggings: tag_list,
       subscriptions: user.subscribed_reports.ids,
+      image: image.url(:normal),
       normalized_title: normalized_title
     }).as_json
   end
@@ -90,9 +94,9 @@ class Report < ActiveRecord::Base
   end
 
   def subscribe_user_and_notify
-    # subscriptions.create(user: user)
+    subscriptions.create(user: user)
 
-    # Notification.notify_about_new_report(self)
+    Notification.notify_about_new_report(self)
   end
 
   def downcase_fields

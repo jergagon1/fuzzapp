@@ -23,7 +23,7 @@ class ReportsController < ApplicationController
     @report = Report.find params[:id]
     @tags = @report.tags
     @comments = @report.comments
-    # render json: { :report => @report, :tags => @tags, :comments => @comments }
+    render json: { :report => @report, :tags => @tags, :comments => @comments, :user => @report.user }
   end
 
   def update
@@ -66,10 +66,12 @@ class ReportsController < ApplicationController
     params.require(:report).permit(
       :pet_name, :animal_type, :lat, :lng,
       :user_id, :report_type, :notes,
-      :img_url, :age, :breed, :sex,
+      :image,
+      # :img_url,
+      :age, :breed, :sex,
       :pet_size, :distance, :color,
       :last_seen, :tag_list,
-      :address
+      :address, :image
     )
   end
 end

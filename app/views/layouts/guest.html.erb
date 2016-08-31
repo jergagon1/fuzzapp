@@ -1,7 +1,6 @@
 <html>
   <head>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
     <%= csrf_meta_tags %>
 
     <meta charset="utf-8"/>
@@ -132,7 +131,7 @@
                     <input id="sign-up-confirm-input" type="password" data-target="confirmation" placeholder="Confirm Password" name="user-pass-confirm" required="required" class="form-control icon-password"/><i class="icon-password form-control-feedback"></i>
                   </div>
                   <label for="legalcheckbox" class="checkbox">
-                    <input id="legalcheckbox" type="checkbox" value="" data-toggle="checkbox" required="required"/>I accept the <a href="legal.html">Legal Agreement</a>
+                    <input id="legalcheckbox" type="checkbox" value="" data-toggle="checkbox" required="required"/>I accept the <a href="/legal">Legal Agreement</a>
                   </label>
                   <button type="submit" class="btn btn-block btn-submit">Sign Up, Free!</button>
                   <!-- <div class="social&#45;holder"> -->
@@ -149,6 +148,7 @@
       </div>
     </div>
 
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDaLeywAepT480tGLGBfoSUyvhClCfD8YE"></script>
     <%= javascript_include_tag 'guest', 'data-turbolinks-track' => true %>
   </body>
 </html>

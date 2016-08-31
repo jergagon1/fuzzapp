@@ -13,6 +13,20 @@
  *= require vendor
  *= require custom
  *= require app
+ *= require notification
+ *= require selectize
+ *= require modal
+ *= require avatar
+ *= require select
+ *= require full_image
+ *= require uploader
+ *= require report
+ *= require report_create
+ *= require comment
+ *= require comment_form
+ *= require navigation
+ *= require profile
+ *= require profile_edit
  *= require_self
  */
 

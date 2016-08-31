@@ -1,27 +1,27 @@
-<div data-target=".<%= report.report_type %>-pet-post-wrapper" data-toggle="show" class="post <%= report.report_type %>-post btn-toggler small-report-card
-<%= report.img_url? ? "" : "placeholder-#{report.animal_type.downcase}" %>"
-data-report-id="<%= report.id %>">
-  <h3 class="title"><%= report.report_type.capitalize %> <%=report.animal_type.capitalize %></h3>
+<div data-route="local/<%= report.report_type %>/<%= report.id %>" class="post <%= report.report_type %>-post small-report-card <%= report.img_url? ? "" : "placeholder-#{report.animal_type.downcase || 'def'}" %>"
+     data-report-id="<%= report.id %>" data-lat="<%= report.lat %>" data-lng="<%= report.lng %>" data-type="<%= report.report_type %>">
+  <h3 class="title"><%= report.report_type.capitalize %> <%= report.animal_type.capitalize %></h3>
   <% if report.img_url? %>
-    <div class="photo-holder" style="background-image: url('<%= report.img_url %>')"></div>
+      <div class="photo-holder" style="background-image: url('<%= report.img_url %>')"></div>
   <% else %>
-    <div class="photo-holder"></div>
+      <div class="photo-holder"></div>
   <% end %>
   <div class="content-holder">
     <table>
 
       <% unless report.last_seen.nil? %>
-        <tr>
-          <td>Last Seen</td>
-          <td><%= l report.last_seen, format: :short %></td>
-        </tr>
+          <tr>
+            <td>Last Seen</td>
+            <td><%= l report.last_seen, format: :short %></td>
+          </tr>
       <% end %>
 
       <tr>
         <td>Posted by</td>
         <td><%= report.user.username %></td>
       </tr>
-    </table><a data-target=".<%= report.report_type %>-pet-post" class="read-more">Read more</a>
+    </table>
+    <a data-target=".<%= report.report_type %>-pet-post" class="read-more">Read more</a>
   </div>
 </div>
 

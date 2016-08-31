@@ -1,0 +1,104 @@
+.ReportCreate {
+  .Select {
+    margin-bottom: 20px;
+  }
+}
+
+.ReportCreate-lost {
+  .nav-block {
+    background-color: #E2573B;
+  }
+
+  .ReportCreate__progress.step-1 {
+    .ReportCreate__progress-1 {
+      background-color: #E2573B;
+    }
+  }
+  .ReportCreate__progress.step-2 {
+    .ReportCreate__progress-1, .ReportCreate__progress-2 {
+      background-color: #E2573B;
+    }
+  }
+
+  .ReportCreate__progress.step-3 {
+    .ReportCreate__progress-1, .ReportCreate__progress-2, .ReportCreate__progress-3 {
+      background-color: #E2573B;
+    }
+  }
+
+  .ReportCreate__step-1, .ReportCreate__step-2, .ReportCreate__step-3 {
+    display: none !important;
+  }
+
+  .ReportCreate__step {
+    &.step-1 .ReportCreate__step-1 {
+      display: block !important;
+    }
+
+    &.step-2 .ReportCreate__step-2 {
+      display: block !important;
+    }
+
+    &.step-3 .ReportCreate__step-3 {
+      display: block !important;
+    }
+  }
+}
+
+.ReportCreate-found {
+  .nav-block {
+    background-color: #1E9F84;
+  }
+
+  .ReportCreate__progress.step-1 {
+    .ReportCreate__progress-1 {
+      background-color: #1E9F84;
+    }
+  }
+  .ReportCreate__progress.step-2 {
+    .ReportCreate__progress-1, .ReportCreate__progress-2 {
+      background-color: #1E9F84;
+    }
+  }
+
+  .ReportCreate__progress.step-3 {
+    .ReportCreate__progress-1, .ReportCreate__progress-2, .ReportCreate__progress-3 {
+      background-color: #1E9F84;
+    }
+  }
+}
+
+.ReportCreate__step {
+  min-height: 100% !important;
+  height: 100%;
+  overflow: visible;
+  overflow-y: visible !important;
+}
+
+.ReportCreate__photo {
+  height: 300px !important;
+}
+
+.ReportCreate__step-2 {
+  overflow: visible;
+  min-height: 100%;
+  height: 100%;
+}
+
+.ReportCreate-input {
+  margin-top: 0px !important;
+}
+
+.ReportCreate-green {
+  background-color: #1E9F84;
+  &:hover {
+    background-color: rgba(30, 159, 132, 0.9);
+  }
+}
+
+.ReportCreate-blue {
+  background-color: #3498DB;
+  &:hover {
+    background-color: rgba(52, 152, 219, 0.9);
+  }
+}
