@@ -5,7 +5,7 @@ function Reports($el) {
   this._$el = $el;
   this._$map = this._$el.querySelector('.map');
   this._reports = {};
-  var $reports = this._$el.querySelectorAll('form input.Filter__input, form select.Filter__select');
+  var $reports = this._$el.querySelectorAll('form input.Filter__input, form select.Select-input');
 
   this._$reports = Array.prototype.slice.call($reports, 0);
   this._$resetFilter = this._$el.querySelector('.Filter__reset');
