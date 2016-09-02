@@ -22,11 +22,19 @@ class HomeController < ApplicationController
   def fund
   end
 
+  def report
+    # redirect_to "/fuzzapp/report/#{params[:id]}" and return if current_user
+
+    @report = Report.find params[:id]
+  end
+
   private
 
   def set_layout
     if %w(faq facts findus fund main).include?(action_name)
       current_user ? 'fuzzapp' : 'new_application'
+    elsif action_name == 'report'
+      'guests/report'
     else
      'application'
     end

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'findus', to: 'home#findus'
   get 'fund', to: 'home#fund'
   get 'fuzzapp', to: 'home#index'
+  resources :reports, only: :show, to: 'home#report'
   get 'fuzzapp/*all', to: 'home#index'
 
   # guest pages
