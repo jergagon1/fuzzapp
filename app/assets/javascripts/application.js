@@ -28,6 +28,8 @@
 //= require mresize
 //= require marketwithlabel
 //= require app-interactions
+//= require jquery
+//= require jquery_ujs
 //= require jquery.ui.widget
 //= require jquery.iframe-transport
 //= require jquery.fileupload
@@ -36,6 +38,7 @@
 //= require pusher/pusher
 //= require custom
 //= require notifications
+//= require messages
 
 
 window.FuzzAppMapStyles = [

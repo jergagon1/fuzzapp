@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
 
   # validates :authentication_token, presence: true, uniqueness: true
 
+  has_many :messages
   has_many :reports
   has_many :comments
   has_many :subscriptions

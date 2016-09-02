@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   # guest pages
   get 'legal', to: 'guests#legal'
 
+  resources :messages, only: [:create]
+
   # Devise Authentication
   scope :api do
     scope :v1 do

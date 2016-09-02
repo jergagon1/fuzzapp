@@ -35,6 +35,7 @@ gem 'sass-rails'
 gem 'therubyracer'
 gem 'uglifier'
 
+gem 'simple_form'
 
 gem 'turbolinks'
 
