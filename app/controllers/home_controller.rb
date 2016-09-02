@@ -26,6 +26,8 @@ class HomeController < ApplicationController
     # redirect_to "/fuzzapp/report/#{params[:id]}" and return if current_user
 
     @report = Report.find params[:id]
+
+    render '/guests/report'
   end
 
   private
@@ -36,11 +38,13 @@ class HomeController < ApplicationController
     elsif action_name == 'report'
       'guests/report'
     else
-     'application'
+      'application'
     end
   end
 
   def authenticate_view
-    render "guest_#{action_name}" unless current_user
+    if action_name != 'report'
+      render "guest_#{action_name}" unless current_user
+    end
   end
 end
