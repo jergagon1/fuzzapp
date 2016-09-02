@@ -2,10 +2,14 @@
   <div class="Notification Notification__type-{{report_type}}">
     <div class="Notification__shadow"></div>
     <div class="Notification__alert">
+      {{#if image}}
+      <div class="Notification__alert-image" style="background-image: url({{image}})"></div>
+      {{else}}
       <div class="Notification__alert-image"></div>
+      {{/if}}
       <div class="Notification__alert-content">
         <h1>FuzzAlert</h1>
-        <p>{{normalized_title}} Buggy</p>
+        <p>{{normalized_title}}</p>
       </div>
       <div class="Notification__alert-close icon-plus"></div>
     </div>
