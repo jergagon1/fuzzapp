@@ -28,6 +28,7 @@
 //= require mresize
 //= require marketwithlabel
 //= require app-interactions
+//= require jquery_ujs
 //= require jquery.ui.widget
 //= require jquery.iframe-transport
 //= require jquery.fileupload
