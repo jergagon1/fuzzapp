@@ -1,0 +1,8 @@
+<div class="message-wrapper animated bouncein">
+  <div style="background-image: url('<%= current_user.image.url %>')" class="face-lockup"></div>
+  <div class="text-holder">
+    <h5 class="name"><%= message.user.username %></h5>
+    <p class="message"><%= message.body %></p>
+    <h6 class="time"><%= time_ago_in_words message.created_at %></h6>
+  </div>
+</div>
