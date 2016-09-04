@@ -5,6 +5,7 @@ function Reports($el) {
   this._$el = $el;
   this._$map = this._$el.querySelector('.map');
   this._reports = {};
+  this._markers = [];
   var $reports = this._$el.querySelectorAll('form input.Filter__input, form select.Select-input');
 
   this._$reports = Array.prototype.slice.call($reports, 0);
@@ -124,13 +125,18 @@ Reports.prototype.updateReports = function () {
 };
 
 Reports.prototype.updateMap = function (data) {
+  this._reports = {};
+
+  this._markers.forEach(function (marker) {
+    marker.setMap(null);
+  });
+
   var active = data.reports.map(function (report) {
     return report.id;
   });
 
   var self = this;
   data.reports.forEach(function (report) {
-
     if (!self._reports[report.id]) {
       var item = new ReportItem(report);
       if (item.hasPosition()) {
@@ -140,6 +146,8 @@ Reports.prototype.updateMap = function (data) {
           icon: item.getIcon(),
           draggable: false
         });
+
+        self._markers.push(marker);
         marker.addListener('click', self.showReport.bind(self, item));
       }
 
