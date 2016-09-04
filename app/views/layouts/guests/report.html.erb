@@ -13,7 +13,10 @@
   <meta property="og:url" content="http://fuzzfinders.com/reports/<%= @report.id %>"/>
   <meta property="og:description" content="<%= @report.notes %>"/>
   <meta property="og:locale" content="en_US"/>
-  <meta property="og:image" content="<%= @report.image %>"/>
+
+  <% if @report.image %>
+    <meta property="og:image" content="<%= @report.image %>"/>
+  <% end  %>
   <meta name="twitter:card" content="summary"/>
   <meta name="twitter:site" content="@FuzzFinders"/>
   <meta name="twitter:title" content="<%= @report.normalized_title %>"/>
