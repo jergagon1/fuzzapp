@@ -44,7 +44,7 @@ var Modal = {
       old.parentNode.removeChild(old);
     }
 
-    var current = new ReportCreate(report);
+    var current = new ReportCreate(report, report.user, true);
     document.querySelector('.' + report.report_type + '-pet-page-wrapper').appendChild(current.getElement());
     this._rendered['report_edit'] = current;
     this.show(fragment, '.' + report.report_type + '-pet-page-wrapper', 'show', true, current);

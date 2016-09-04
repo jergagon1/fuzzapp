@@ -5,7 +5,8 @@ Template.register('reportCreateTemplate', '#report-create-template');
 
 var slides = ['step-1', 'step-2', 'step-3'];
 
-function ReportCreate(report, user) {
+function ReportCreate(report, user, edit_action = false) {
+  this.edit_action = edit_action;
   this.report = report;
   this.user = user;
   this._$el = this.render();
@@ -168,7 +169,8 @@ ReportCreate.prototype.serialize = function () {
 
 ReportCreate.prototype.getData = function () {
   var data = this.report;
-
+  
+  data.isEditAction = this.edit_action;
   data.isAninalDog = this.isAnimal('dog');
   data.isAninalCat = this.isAnimal('cat');
   data.isAninalBird = this.isAnimal('bird');

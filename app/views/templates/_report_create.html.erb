@@ -57,8 +57,10 @@
           <form class="Pet-description">
             <div class="form-group">
               <div class="Select">
-                <select name="animal_type" class="Select-input ReportCreate-input" placeholder="Pet type">
-                  <option value="" {{#if isAninalDef}} selected="selected" {{/if}}>Pet type</option>
+                <select name="animal_type" class="Select-input ReportCreate-input" {{#unless isEditAction}} placeholder="Pet type" {{/unless}}>
+                  {{#unless isEditAction}}
+                    <option value="" {{#if isAninalDef}} selected="selected" {{/if}}>Pet type</option>
+                  {{/unless}}
                   <option value="dog" {{#if isAninalDog}} selected="selected" {{/if}}>Dog</option>
                   <option value="cat" {{#if isAninalCat}} selected="selected" {{/if}}>Cat</option>
                   <option value="bird" {{#if isAninalBird}} selected="selected" {{/if}}>Bird</option>
