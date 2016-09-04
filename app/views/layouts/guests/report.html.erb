@@ -8,21 +8,18 @@
     <link href="/last_markup/css/vendor/angular-bootstrap-lightbox.css" rel="stylesheet"/>
     <link href="/last_markup/css/app.css" rel="stylesheet"/>
 
-
-
-
-
-
-  <meta property="og:title" content="FuzzFinders is a super-intuitive app bringing people together to find lost pets."/>
-  <meta property="og:url" content="http://fuzzfinders.com/"/>
-  <meta property="og:description" content="Interactive features, collaborative mapping technology, and instant alerts. FuzzFinders is the social network empowering you to get Fuzzy back!"/>
+  <meta property="fb:app_id" content="1666717153644924"/>
+  <meta property="og:title" content="<%= @report.normalized_title %>"/>
+  <meta property="og:url" content="http://fuzzfinders.com/reports/<%= @report.id %>"/>
+  <meta property="og:description" content="<%= @report.notes %>"/>
   <meta property="og:locale" content="en_US"/>
-  <meta property="og:image" content="http://fuzzfinders.com/img/OGP.png"/>
-  <meta name="twitter:card" content="summary_large_image"/>
+  <meta property="og:image" content="<%= @report.image %>"/>
+  <meta name="twitter:card" content="summary"/>
   <meta name="twitter:site" content="@FuzzFinders"/>
-  <meta name="twitter:title" content="FuzzFinders is a super-intuitive app bringing people together to find lost pets."/>
-  <meta name="twitter:description" content="Interactive features, collaborative mapping technology, and instant alerts. FuzzFinders is the social network empowering you to get Fuzzy back!"/>
-  <meta name="twitter:image" content="http://fuzzfinders.com/img/OGP.png"/>
+  <meta name="twitter:title" content="<%= @report.normalized_title %>"/>
+  <meta name="twitter:description" content="<%= @report.notes %>"/>
+  <meta name="twitter:image" content="<%= @report.image %>"/>
+  <meta name="twitter:url" content="http://fuzzfinders.com/reports/<%= @report.id %>">
 
   <%= favicon_link_tag "icon-60.png", rel: "apple-touch-icon", sizes: "60x60" %>
   <%= favicon_link_tag "icon-76.png", rel: "apple-touch-icon", sizes: "76x76" %>
@@ -82,96 +79,86 @@
         <div class="section-wrapper">
           <div class="map"></div>
           <div class="photo-wrapper photo-wrapper-purple placeholder-dog">
-            <div class="photo"></div>
-            <h3 class="label">Last Seen 2 Hours Ago</h3>
+            <div class="photo">
+              <div class="Report__photo photo FullImage">
+                <img class="Report__photo-img FullImage-img" src="<%= @report.image %>"/>
+              </div>
+            </div>
+            <% if @report.last_seen.present? %>
+              <h3 class="label">Last Seen <%= time_ago_in_words @report.last_seen %> Ago</h3>
+            <% end %>
           </div>
           <div class="post-description">
             <div class="header">
-              <div style="background-image: url('../img/app/user-picture-3.png')" class="face-lockup"></div>
+              <div class="face-lockup Avatar">
+                <img src="<%= @report.user.image %>" class="Avatar-img"/>
+              </div>
               <div class="content">
-                <p>Posted by SarahJ</p>
-                <p>3 hours ago</p>
-                <p class="type">Lost Dog</p>
+                <p>Posted by <%= @report.user.username %></p>
+                <p><%= time_ago_in_words @report.created_at %></p>
+                <p class="type"><%= @report.normalized_title %></p>
               </div>
             </div>
             <table class="table table-stripped">
-              <tr>
-                <td>Size</td>
-                <td>Medium</td>
-              </tr>
-              <tr>
-                <td>Color</td>
-                <td>Brown</td>
-              </tr>
-              <tr>
-                <td>Breed</td>
-                <td>Shepherd</td>
-              </tr>
-              <tr>
-                <td>Sex</td>
-                <td>Female</td>
-              </tr>
-              <tr>
-                <td>Last seen</td>
-                <td>02/09/2016 6:30PM</td>
-              </tr>
+              <% if @report.pet_size %>
+                <tr>
+                  <td>Size</td>
+                  <td><%= @report.pet_size %></td>
+                </tr>
+              <% end %>
+              <% if @report.color %>
+                <tr>
+                  <td>Color</td>
+                  <td><%= @report.color %></td>
+                </tr>
+              <% end %>
+              <% if @report.breed %>
+                <tr>
+                  <td>Breed</td>
+                  <td><%= @report.breed %></td>
+                </tr>
+              <% end %>
+              <% if @report.sex %>
+                <tr>
+                  <td>Sex</td>
+                  <td><%= @report.sex %></td>
+                </tr>
+              <% end %>
+              <% if @report.last_seen %>
+                <tr>
+                  <td>Last seen</td>
+                  <td><%= time_ago_in_words @report.last_seen %> Ago</td>
+                </tr>
+              <% end %>
             </table>
-            <p class="description up-side">It tore off the leash in the park. If you have any information please contact 732-757-2923</p>
+            <p class="description up-side"><%= @report.notes %></p>
           </div>
           <div class="comments-wrapper">
-            <h2>Comments</h2>
-            <div class="comment with-image">
-              <div class="header">
-                <div style="background-image: url('../img/app/user-placeholder.png')" class="face-lockup"></div>
-                <div class="content">
-                  <p>Posted by Tomas17</p>
-                  <p>3 hours ago</p>
-                </div>
+            <% if @report.comments.any? %>
+              <h2>Comments</h2>
+              <div class="Report__comments">
+                <% @report.comments.each do |comment| %>
+                  <div class="comment <%= comment.image_url ? 'with-image' : '' %>">
+                    <div class="header">
+                      <div style="background-image: url('<%= comment.user.image %>')" class="face-lockup"></div>
+                      <div class="content">
+                        <p>Posted by <%= comment.user.username %></p>
+                        <p><%= time_ago_in_words comment.created_at %> ago</p>
+                      </div>
+                    </div>
+                    <% if comment.image_url %>
+                      <div style="background-image: url('<%= comment.image %>')" class="image"></div>
+                    <% end %>
+                    <div class="description-wrapper">
+                      <p class="description"><%= comment.content %></p>
+                      <% if comment.has_location? %>
+                        <div class="location-sign"><i class="icon-location"></i>Location point added</div>
+                      <% end %>
+                    </div>
+                  </div>
+                <% end %>
               </div>
-              <div style="background-image: url('../img/app/dog-demo-2.png')" class="image"></div>
-              <div class="description-wrapper">
-                <p class="description">Check out is it your dog? Some shepherd-dog walked on my backyard.</p>
-                <div class="location-sign"><i class="icon-location"></i>Location point added</div>
-              </div>
-            </div>
-            <div class="comment">
-              <div class="header">
-                <div style="background-image: url('../img/app/user-picture-3.png')" class="face-lockup"></div>
-                <div class="content">
-                  <p>Posted by SarahJ</p>
-                  <p>2 hours ago</p>
-                </div>
-              </div>
-              <div class="description-wrapper">
-                <p class="description">No, unfurtunately it’s not my Nicy. May be you should post a message about it? </p>
-              </div>
-            </div>
-            <div class="comment with-image">
-              <div class="header">
-                <div style="background-image: url('../img/app/user-picture-5.png')" class="face-lockup"></div>
-                <div class="content">
-                  <p>Posted by AnnaMay</p>
-                  <p>2 hours ago</p>
-                </div>
-              </div>
-              <div style="background-image: url('../img/app/dog-demo-3.png')" class="image"></div>
-              <div class="description-wrapper">
-                <p class="description">Hey, looks like it’s your dog, isn’t it? It was playing in the same park for hours without any owner. I take care for it temporaty. If it’s yours call me by this phone 732-757-2923</p>
-                <div class="location-sign"><i class="icon-location"></i>Location point added</div>
-              </div>
-            </div>
-            <div class="comment">
-              <div class="header">
-                <div style="background-image: url('../img/app/user-picture-3.png')" class="face-lockup"></div>
-                <div class="content">
-                  <p>Posted by SarahJ</p>
-                  <p>2 hours ago</p>
-                </div>
-              </div>
-              <div class="description-wrapper">
-                <p class="description">Oh, thanks! Thanks a lot. It is my dog. I will call you in 5 minutes.</p>
-              </div>
-            </div>
+            <% end %>
           </div>
           <form class="post-comment">
             <h2>Your Comment</h2>

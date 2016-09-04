@@ -19,6 +19,11 @@ class Comment < ActiveRecord::Base
   end
 
   mount_uploader :image, ImageUploader
+
+  def has_location?
+    [lat, lng].reject{|geo| geo.zero?}.any?
+  end
+
   private
 
   def subscribe_user_and_notify_all

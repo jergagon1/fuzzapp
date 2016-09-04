@@ -242,6 +242,9 @@ Report.prototype.getId = function () {
 Report.prototype.shareFacebook = function () {
   FB.ui({
     method: 'share',
+    title: this.getTitle(),
+    picture: this.getImage(),
+    description: this.report.notes,
     href: 'https://fuzzapp-staging.herokuapp.com/reports/' + this.getId(),
   }, function(response){});
 };
