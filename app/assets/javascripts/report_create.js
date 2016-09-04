@@ -87,11 +87,11 @@ ReportCreate.prototype.initEvents = function () {
       self._$lastSeen.setAttribute('type', 'text');
     } else {
       self._$lastSeen.setAttribute('type', 'hidden');
-      self._$lastSeen.value = moment().subtract(e.target.value, 'hours').format('MM/DD HH:mm');
+      self._$lastSeen.value = moment().subtract(e.target.value, 'hours').format('MM/DD hh:mm A');
     }
   });
 
-  $(this._$lastSeen).mask("99/99 99:99");
+  $(this._$lastSeen).mask("99/99 99:99 aa");
 
   this._$photoWrapper.addEventListener('click', function () {
     Helpers.fireEvent(self._$photo, 'click');
@@ -268,7 +268,7 @@ ReportCreate.prototype.submit = function (e) {
   }
 
   if (report.last_seen) {
-    report.last_seen = moment(report.last_seen, 'MM/DD HH:mm').toString();
+    report.last_seen = moment(report.last_seen, 'MM/DD hh:mm A').toString();
   }
   var fd = new FormData();
   Object.keys(report).forEach(function (key) {

@@ -232,7 +232,7 @@ Report.prototype.getLastSeenAgo = function () {
 };
 
 Report.prototype.getLastSeen = function () {
-  return this.report.last_seen && moment(this.report.last_seen).format('DD MMM HH:mm');
+  return this.report.last_seen && moment(this.report.last_seen).format('DD MMM hh:mm A');
 };
 
 Report.prototype.getId = function () {
