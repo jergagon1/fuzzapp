@@ -49,9 +49,26 @@ class Report < ActiveRecord::Base
     attributes.merge({
       report_username: user.username, report_taggings: tag_list,
       subscriptions: user.subscribed_reports.ids,
-      image: image.url(:normal),
+      image: get_image,
       normalized_title: normalized_title
     }).as_json
+  end
+
+  def get_image
+    if image_url
+      image.url(:normal)
+    else
+      case animal_type_normalized.downcase
+      when 'pet'
+        '/img/app/dog.png'
+      when 'dog'
+        '/img/app/dog.png'
+      when 'cat'
+        '/img/app/cat.png'
+      when 'bird'
+        '/img/app/bird.png'
+      end
+    end
   end
 
   def normalized_title
