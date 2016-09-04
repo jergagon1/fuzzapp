@@ -261,6 +261,7 @@ ReportCreate.prototype.getPosition = function () {
 
 ReportCreate.prototype.submit = function (e) {
   e.preventDefault();
+  $(this._$submit).prop('disabled', true)
   var report = this.serialize();
   if (report.image) {
     report.image = this._$photo.files[0];
