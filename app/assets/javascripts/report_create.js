@@ -94,7 +94,10 @@ ReportCreate.prototype.initEvents = function () {
     }
   });
 
-  $(this._$lastSeen).mask("99/99 99:99 aa");
+  if ($(this._$lastSeen).val()) {
+    $(this._$lastSeen).val(moment($(this._$lastSeen).val()).format('MM/DD hh:mm A'));
+    $(this._$lastSeen).mask("99/99 99:99 aa");
+  }
 
   this._$photoWrapper.addEventListener('click', function () {
     Helpers.fireEvent(self._$photo, 'click');
