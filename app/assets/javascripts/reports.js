@@ -131,9 +131,13 @@ Reports.prototype.updateMap = function (data) {
     marker.setMap(null);
   });
 
+  this._markers = [];
+
   var active = data.reports.map(function (report) {
     return report.id;
   });
+
+  $('.post.small-report-card').remove();
 
   var self = this;
   data.reports.forEach(function (report) {
@@ -157,6 +161,7 @@ Reports.prototype.updateMap = function (data) {
       self._reports[report.id] = item;
     }
   });
+
 
   var $reports = this._$el.querySelectorAll('.small-report-card');
   var $els = Array.prototype.slice.call($reports, 0);
