@@ -20,6 +20,7 @@ function Report(report, comments, user) {
   this._$el = this.render();
   this._$map = this._$el.querySelector('.map');
   this._$edit = this._$el.querySelector('.Report__edit-button');
+  this._$shareFb = this._$el.querySelector('.Report__share-facebook');
   var $comments = this._$el.querySelectorAll('.Report__comment .Report__comment-input');
   this._$comments = Array.prototype.slice.call($comments, 0);
   this._marker;
@@ -52,6 +53,7 @@ Report.prototype.initEvents = function () {
   });
 
   this._$edit.addEventListener('click', this.edit.bind(this), false);
+  this._$shareFb.addEventListener('click', this.shareFacebook.bind(this), false);
 };
 
 Report.prototype.initComments = function (comments) {
@@ -230,11 +232,21 @@ Report.prototype.getLastSeenAgo = function () {
 };
 
 Report.prototype.getLastSeen = function () {
-  return this.report.last_seen && moment(this.report.last_seen).format('DD MMM HH:mm');
+  return this.report.last_seen && moment(this.report.last_seen).format('DD MMM hh:mm A');
 };
 
 Report.prototype.getId = function () {
   return this.report.id;
+};
+
+Report.prototype.shareFacebook = function () {
+  FB.ui({
+    method: 'share',
+    title: this.getTitle(),
+    picture: this.getImage(),
+    description: this.report.notes,
+    href: 'https://fuzzapp-staging.herokuapp.com/reports/' + this.getId(),
+  }, function(response){});
 };
 
 Report.prototype.edit = function () {

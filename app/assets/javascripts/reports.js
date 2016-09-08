@@ -5,7 +5,8 @@ function Reports($el) {
   this._$el = $el;
   this._$map = this._$el.querySelector('.map');
   this._reports = {};
-  var $reports = this._$el.querySelectorAll('form input.Filter__input, form select.Filter__select');
+  this._markers = [];
+  var $reports = this._$el.querySelectorAll('form input.Filter__input, form select.Select-input');
 
   this._$reports = Array.prototype.slice.call($reports, 0);
   this._$resetFilter = this._$el.querySelector('.Filter__reset');
@@ -124,13 +125,22 @@ Reports.prototype.updateReports = function () {
 };
 
 Reports.prototype.updateMap = function (data) {
+  this._reports = {};
+
+  this._markers.forEach(function (marker) {
+    marker.setMap(null);
+  });
+
+  this._markers = [];
+
   var active = data.reports.map(function (report) {
     return report.id;
   });
 
+  $('.post.small-report-card').remove();
+
   var self = this;
   data.reports.forEach(function (report) {
-
     if (!self._reports[report.id]) {
       var item = new ReportItem(report);
       if (item.hasPosition()) {
@@ -140,6 +150,8 @@ Reports.prototype.updateMap = function (data) {
           icon: item.getIcon(),
           draggable: false
         });
+
+        self._markers.push(marker);
         marker.addListener('click', self.showReport.bind(self, item));
       }
 
@@ -149,6 +161,7 @@ Reports.prototype.updateMap = function (data) {
       self._reports[report.id] = item;
     }
   });
+
 
   var $reports = this._$el.querySelectorAll('.small-report-card');
   var $els = Array.prototype.slice.call($reports, 0);

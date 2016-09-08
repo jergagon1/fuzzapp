@@ -31,54 +31,15 @@
       <div class="nav-trigger nav-trigger-white"><span></span><span></span><span></span></div>
     </div>
     <div class="chat-wrapper">
-      <div class="message-wrapper">
-        <div style="background-image: url('<%= image_url('user-picture-2.png') %>')" class="face-lockup"></div>
-        <div class="text-holder">
-          <h5 class="name">Robert</h5>
-          <p class="message">Hi guys. Does anyone have a list of shelters of Oakland? I’ve posted Lost pet message, but
-            still worried</p>
-          <h6 class="time">about 10 minutes ago</h6>
-        </div>
-      </div>
-      <div class="message-wrapper">
-        <div style="background-image: url('<%= image_url('user-picture.png') %>')" class="face-lockup"></div>
-        <div class="text-holder">
-          <h5 class="name">Aisher</h5>
-          <p class="message">Well, Robert. System automaticly proposes you links to article with nearest shelters. Don’t
-            you receive it?</p>
-          <h6 class="time">about 10 minutes ago</h6>
-        </div>
-      </div>
-      <div class="message-wrapper">
-        <div style="background-image: url('<%= image_url('user-picture-2.png') %>')" class="face-lockup"></div>
-        <div class="text-holder">
-          <h5 class="name">Robert</h5>
-          <p class="message">I’ve just misclicked and closed window. Is there any place to get this information? Or I
-            should make another post?</p>
-          <h6 class="time">about 9 minutes ago</h6>
-        </div>
-      </div>
-      <div class="message-wrapper">
-        <div style="background-image: url('<%= image_url('user-picture.png') %>')" class="face-lockup"></div>
-        <div class="text-holder">
-          <h5 class="name">Aisher</h5>
-          <p class="message">I've seen it somewhere. Not sure where, but it really was. Wait a bit, I'll try to find
-            this link.</p>
-          <h6 class="time">about 8 minutes ago</h6>
-        </div>
-      </div>
-      <div class="message-wrapper">
-        <div style="background-image: url('<%= image_url('user-picture-2.png') %>')" class="face-lockup"></div>
-        <div class="text-holder">
-          <h5 class="name">Robert</h5>
-          <p class="message">Thanks a lot =)</p>
-          <h6 class="time">about 7 minutes ago</h6>
-        </div>
-      </div>
     </div>
     <div class="message-input form-group">
-      <input placeholder="Enter message" class="form-control"/>
-      <button class="btn btn-message"><span class="icon-fuzz-flash"></span></button>
+      <%= simple_form_for :message, remote: true, url: messages_path, method: :post, html: { id: 'new_message_form'} do |f| %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <%= f.input_field :body, as: :string, required: false, class: 'form-control', placeholder: 'Enter message', autocomplete: 'off' %>
+        <%= f.button :button, class: 'btn btn-message submit' do %>
+          <span class="icon-fuzz-flash"></span>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>
@@ -92,4 +53,3 @@
 <%= render 'templates/reports_item' %>
 <%= render 'templates/comment_form' %>
 <%= render 'templates/notification' %>
-

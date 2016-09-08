@@ -5,7 +5,10 @@ Template.register('reportCreateTemplate', '#report-create-template');
 
 var slides = ['step-1', 'step-2', 'step-3'];
 
-function ReportCreate(report, user) {
+function ReportCreate(report, user, edit_action) {
+  edit_action = typeof edit_action !== 'undefined' ? edit_action : false;
+
+  this.edit_action = edit_action;
   this.report = report;
   this.user = user;
   this._$el = this.render();
@@ -87,11 +90,14 @@ ReportCreate.prototype.initEvents = function () {
       self._$lastSeen.setAttribute('type', 'text');
     } else {
       self._$lastSeen.setAttribute('type', 'hidden');
-      self._$lastSeen.value = moment().subtract(e.target.value, 'hours').format('MM/DD HH:mm');
+      self._$lastSeen.value = moment().subtract(e.target.value, 'hours').format('MM/DD hh:mm A');
     }
   });
 
-  $(this._$lastSeen).mask("99/99 99:99");
+  if ($(this._$lastSeen).val()) {
+    $(this._$lastSeen).val(moment($(this._$lastSeen).val()).format('MM/DD hh:mm A'));
+    $(this._$lastSeen).mask("99/99 99:99 aa");
+  }
 
   this._$photoWrapper.addEventListener('click', function () {
     Helpers.fireEvent(self._$photo, 'click');
@@ -169,6 +175,7 @@ ReportCreate.prototype.serialize = function () {
 ReportCreate.prototype.getData = function () {
   var data = this.report;
 
+  data.isEditAction = this.edit_action;
   data.isAninalDog = this.isAnimal('dog');
   data.isAninalCat = this.isAnimal('cat');
   data.isAninalBird = this.isAnimal('bird');
@@ -261,13 +268,14 @@ ReportCreate.prototype.getPosition = function () {
 
 ReportCreate.prototype.submit = function (e) {
   e.preventDefault();
+  $(this._$submit).prop('disabled', true)
   var report = this.serialize();
   if (report.image) {
     report.image = this._$photo.files[0];
   }
 
   if (report.last_seen) {
-    report.last_seen = moment(report.last_seen, 'MM/DD HH:mm').toString();
+    report.last_seen = moment(report.last_seen, 'MM/DD hh:mm A').toString();
   }
   var fd = new FormData();
   Object.keys(report).forEach(function (key) {

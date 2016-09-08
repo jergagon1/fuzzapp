@@ -8,7 +8,7 @@ function ReportItem(report) {
 }
 
 ReportItem.prototype.last_seen = function () {
-  return this.report.last_seen && moment(this.report.last_seen).format('DD MMM HH:mm');
+  return this.report.last_seen && moment(this.report.last_seen).format('DD MMM HH:mm A');
 };
 
 ReportItem.prototype.getLastSeenAgo = function () {
@@ -20,7 +20,7 @@ ReportItem.prototype.getLastSeenAgo = function () {
     } else if (diff < 60 * 24) {
       return moment.duration(diff, 'minutes').humanize() + ' ago';
     } else {
-      return moment(this.report.last_seen).format('DD MMM HH:mm');
+      return moment(this.report.last_seen).format('DD MMM HH:mm A');
     }
   }
 };
