@@ -1,5 +1,6 @@
-Template.register('profileEditTemplate', '#profile-edit-template');
-
+if (typeof Template !== 'undefined') {
+  Template.register('profileEditTemplate', '#profile-edit-template');
+}
 
 function ProfileEdit(profile) {
   this.profile = profile;

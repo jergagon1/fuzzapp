@@ -1,7 +1,9 @@
 //= require profile_edit
 //= require report_create
 
-Template.register('reportsTemplate', '#reports-template');
+if (typeof Template !== 'undefined') {
+  Template.register('reportsTemplate', '#reports-template');
+}
 
 var Modal = {
   _navigationStack: [],

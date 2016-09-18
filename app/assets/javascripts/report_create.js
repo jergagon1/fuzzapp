@@ -1,7 +1,9 @@
 //= require vendor/jquery.maskedinput
 //= require locate
 
-Template.register('reportCreateTemplate', '#report-create-template');
+if (typeof Template !== 'undefined') {
+  Template.register('reportCreateTemplate', '#report-create-template');
+}
 
 var slides = ['step-1', 'step-2', 'step-3'];
 
