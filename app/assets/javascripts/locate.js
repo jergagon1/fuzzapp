@@ -10,6 +10,31 @@ if (typeof geolocator !== 'undefined') {
         }
       });
 
+      geolocator.setGeoIPSource({
+        provider: 'freegeoip',
+        url: 'https://freegeoip.net/json',
+        callbackParam: 'callback',
+        schema: {
+          ip: 'ip',
+          coords: {
+            latitude: 'latitude',
+            longitude: 'longitude'
+          },
+          address: {
+            city: 'city',
+            state: 'region_name',
+            stateCode: 'region_code',
+            postalCode: 'zip_code',
+            countryCode: 'country_code',
+            country: 'country_name',
+            region: 'region_name'
+          },
+          timezone: {
+            id: 'time_zone'
+          }
+        }
+      });
+
       var options = {
         enableHighAccuracy: true,
         timeout: 6000,
