@@ -15,6 +15,7 @@
 /.env
 
 public/uploads
+public/assets
 
 # Ignore swp files
 *.swp
