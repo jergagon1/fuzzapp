@@ -1,5 +1,5 @@
 class NotificationEmailer < ApplicationMailer
-  layout 'mail'
+
   # notify user about new comment
   def new_comment(comment, user)
     @comment = comment
