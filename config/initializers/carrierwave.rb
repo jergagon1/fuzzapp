@@ -5,11 +5,11 @@ CarrierWave.configure do |config|
     aws_access_key_id: ENV['AWS_ACCESS_KEY_ID'],
     aws_secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
     provider: 'AWS',
-    region: 'us-west-1',
-    host: "#{ENV['S3_BUCKET_NAME']}.s3.amazonaws.com",
-    endpoint: "https://#{ENV['S3_BUCKET_NAME']}.s3.amazonaws.com"
+    region: 'eu-central-1',
+    endpoint: 'http://s3.eu-central-1.amazonaws.com',
+    path_style: true
   }
 
-  config.fog_directory = ''
+  config.fog_directory = 'vthdevtest'
   config.fog_public = true
 end

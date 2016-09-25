@@ -245,7 +245,7 @@ Report.prototype.shareFacebook = function () {
     title: this.getTitle(),
     picture: this.getImage(),
     description: this.report.notes,
-    href: 'https://fuzzapp-staging.herokuapp.com/reports/' + this.getId(),
+    href: location.protocol + "//" + location.host + '/reports/' + this.getId(),
   }, function(response){});
 };
 
