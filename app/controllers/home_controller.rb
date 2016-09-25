@@ -18,6 +18,22 @@ class HomeController < ApplicationController
   def faq
   end
   def findus
+    respond_to do |format|
+      format.html {
+        if request.method.eql?('GET')
+          @contact_message = ContactMessage.new
+        end
+      }
+      format.js {
+        @contact_message = ContactMessage.new(params[:contact_message])
+        if @contact_message.valid?
+          render 'home/contact_message_success'
+          NotificationEmailer.contact_message(@contact_message).deliver_now
+        else
+          render 'home/contact_message_errors'
+        end
+      }
+    end
   end
   def fund
   end

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'profile', to: 'home#profile'
   get 'faq', to: 'home#faq'
   get 'findus', to: 'home#findus'
+  post 'findus', to: 'home#findus', as: :contact_messages
   get 'fund', to: 'home#fund'
   get 'fuzzapp', to: 'home#index'
   resources :reports, only: :show, to: 'home#report'

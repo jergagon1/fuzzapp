@@ -13,5 +13,6 @@
  *= require new_style
  *= require new_home_custom
  *= require new_app
+ *= require contact_message
  *= require_self
  */
