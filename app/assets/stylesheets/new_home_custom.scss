@@ -1,0 +1,92 @@
+/********************************* New Home Template **************************************/
+.player .video-wrapper, .player .video-wrapper .telecine, .player .video-wrapper object, .player .video-wrapper video {
+  width: 100%;
+  height: 100%;
+}
+.flying-header .about h3, .flying-header .about .legal-page .tab-content h4, .legal-page .tab-content .flying-header .about h4 {
+  font-weight: 300;
+  font-size: 26px;
+  line-height: 31px;
+  margin-bottom: 40px;
+}
+.flying-header .about h3 .alt, .flying-header .about .legal-page .tab-content h4 .alt, .legal-page .tab-content .flying-header .about h4 .alt {
+  color: #7F8C8D;
+}
+.description-block .row .content .title {
+  font-weight: 300;
+  font-size: 24px;
+  color: #506A86;
+  margin: 45px auto 30px;
+}
+.flying-header .about p, .flying-header .about .legal-page .tab-content ol > li, .legal-page .tab-content .flying-header .about ol > li, .flying-header .about .legal-page .tab-content ul, .legal-page .tab-content .flying-header .about ul {
+  font-weight: 400;
+  font-size: 16px;
+  color: #34495F;
+  line-height: 24px;
+  margin-bottom: 30px;
+}
+.description-block .row .player-wrapper .player {
+  width: 80%;
+  max-width: 500px;
+  max-height: 326px;
+  box-shadow: 10px 0px 12px 0px rgba(43, 61, 81, 0.5);
+}
+.flying-header .about .btn {
+  width: 100%;
+  background-color: #E2573B;
+  height: 50px;
+  color: white;
+  font-size: 17px;
+  letter-spacing: 0.03em;
+}
+.flying-header .about {
+  display: block;
+  width: 45%;
+  max-width: 560px;
+  background-color: white;
+  padding: 60px 70px 75px 50px;
+  box-shadow: 10px 0px 12px 0px rgba(43, 61, 81, 0.5);
+}  
+.flying-header .row {
+  display: block;
+  margin: 0;
+  padding: 10vw 10%;
+  background-image: url("app-on-phone-background.png");
+  background-size: cover;
+  background-position: center;
+}
+.description-block .row .player-wrapper, .description-block .row .content {
+  width: 50%;
+}
+.description-block {
+  background-color: #ECF0F1;
+}
+.description-block .row {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  max-width: 1360px;
+  margin: auto;
+}
+.description-block .row .player-wrapper {
+  -moz-box-align: center;
+  -moz-box-pack: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.description-block .row .content {
+  padding: 50px 70px;
+}
+.description-block .row .player-wrapper, .description-block .row .content {
+  width: 50%;
+}
+.description-block .content {
+  background-color: #ecf0f1;
+  padding: 50px 70px;
+}
