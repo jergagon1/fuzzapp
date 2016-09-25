@@ -13,6 +13,6 @@ class NotificationEmailer < ApplicationMailer
 
   def contact_message(message)
     @message = message
-    mail to: 'jpearce@yandex.ru', subject: 'New message from Contact Form'
+    mail to: 'support@fuzzfinders.com', subject: 'New message from Contact Form'
   end
 end
