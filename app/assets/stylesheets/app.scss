@@ -2114,12 +2114,20 @@
   height: auto;
 }
 
-.fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .section-wrapper,
+
 .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .section-wrapper,
 .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .section-wrapper {
   display: block;
   width: 100%;
   height: calc(100% - 80px);
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .section-wrapper
+ {
+  display: block;
+  width: 100%;
+  height: auto;
   overflow-x: hidden;
   overflow-y: scroll;
 }
@@ -2818,7 +2826,7 @@
     top: 120px;
     width: 905px;
     height: 100%;
-    min-height: 800px;
+    min-height: 900px;
     left: calc(50% - 453px);
     margin-bottom: 100px;
     overflow-y: auto;
