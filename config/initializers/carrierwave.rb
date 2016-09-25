@@ -10,6 +10,6 @@ CarrierWave.configure do |config|
     path_style: true
   }
 
-  config.fog_directory = 'vthdevtest'
+  config.fog_directory = 'fuzzfinders-updated'
   config.fog_public = true
 end
