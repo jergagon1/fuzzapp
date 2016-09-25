@@ -1,0 +1,47 @@
+<%= simple_form_for @contact_message, remote: true do |f| %>
+  <% if @contact_message.errors[:name].any? %>
+    <div class='input-errors'>
+      <%= f.input_field :name, class: 'input input-small form-control', placeholder: 'Name', required: false, value: @contact_message.name %>
+      <p>
+        <% @contact_message.errors[:name].each do |error| %>
+          <%= error %>
+          <%= '<br/>'.html_safe unless error.eql?(@contact_message.errors[:name].last) %>
+        <% end %>
+      </p>
+    </div>
+  <% else %>
+    <%= f.input_field :name, class: 'input input-small form-control', placeholder: 'Name', required: false, value: @contact_message.name %>
+  <% end %>
+
+  <% if @contact_message.errors[:email].any? %>
+    <div class='input-errors'>
+      <%= f.email_field :email, class: 'input input-small form-control', placeholder: 'Email' %>
+      <p>
+        <% @contact_message.errors[:email].each do |error| %>
+          <%= error %>
+          <%= '<br/>'.html_safe unless error.eql?(@contact_message.errors[:email].last) %>
+        <% end %>
+      </p>
+    </div>
+  <% else %>
+    <%= f.email_field :email, class: 'input input-small form-control', placeholder: 'Email' %>
+  <% end %>
+
+  <% if @contact_message.errors[:message].any? %>
+    <div class='input-errors'>
+      <%= f.text_area :message, class: 'textarea form-control', placeholder: 'Message', rows: 5 %>
+      <p>
+        <% @contact_message.errors[:message].each do |error| %>
+          <%= error %>
+          <%= '<br/>'.html_safe unless error.eql?(@contact_message.errors[:message].last) %>
+        <% end %>
+      </p>
+    </div>
+  <% else %>
+    <%= f.text_area :message, class: 'textarea form-control', placeholder: 'Message', rows: 5 %>
+  <% end %>
+
+  <%= f.button :button, class: 'btn btn-big btn-green' do %>
+    <span class="icon icon-mail"></span>SEND
+  <% end %>
+<% end %>

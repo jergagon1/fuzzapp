@@ -8,12 +8,9 @@
         <div class="content-wrapper">
           <h3 class="title">Questions or Comments</h3>
           <p class="description">Getting in touch is easy @  <a href="#">info@fuzzfinders.com</a><br/>One of our team membert will get back to&nbsp;you!</p>
-          <form>
-            <input type="text" placeholder="Name" class="input input-small form-control"/>
-            <input type="text" placeholder="E-mail" class="input input-small form-control"/>
-            <textarea rows="5" placeholder="Message" class="textarea form-control"></textarea>
-            <button type="submit" class="btn btn-big btn-green"> <span class="icon icon-mail"></span>SEND  </button>
-          </form>
+          <div id='contact_message_form_wrapper'>
+            <%= render 'contact_message', contact_message: @contact_message %>
+          </div>
         </div>
       </div>
     </div>

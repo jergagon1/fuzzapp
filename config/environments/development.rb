@@ -27,6 +27,12 @@ Rails.application.configure do
   # :enable_starttls_auto => true
   # }
 
+  config.action_mailer.delivery_method = :mailgun
+  config.action_mailer.mailgun_settings = {
+    api_key: ENV['MAILGUN_API_KEY'],
+    domain: ENV['MAILGUN_DOMAIN']
+  }
+
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
@@ -49,5 +55,6 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+  config.action_mailer.default content_type: "text/html"
   config.action_mailer.default_url_options = { host: (ENV['CLIENT_URL'] || 'localhost:9393') }
 end
