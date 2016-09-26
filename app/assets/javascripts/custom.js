@@ -70,7 +70,7 @@ $(function() {
     }}).success(function (data) {
       document.location.href = '/fuzzapp';
     }).error(function (data) {
-      alert('error');
+      alert('Invalid username or password');
     })
 
     return false;

@@ -11,9 +11,7 @@ class UsersController < ApplicationController
   end
 
   def wags
-    if @user
-      render json: {wags: @user.wags}
-    end
+    render json: {wags: @user.wags} if @user
   end
 
   def update
@@ -52,14 +50,12 @@ class UsersController < ApplicationController
     params.required(:user).permit(
       :username, :password,
       :password_confirmation, :zipcode,
-      :image
-    )
+      :image)
   end
 
   def load_user
     @user = User.find_by(
       authentication_token: params[:user_token],
-      email: params[:user_email]
-    )
+      email: params[:user_email])
   end
 end
