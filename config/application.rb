@@ -34,6 +34,10 @@ module FuzzfindersApi
       api_key: ENV['MAILGUN_API_KEY'],
       domain: ENV['MAILGUN_DOMAIN']
     }
+    # Allow all insecure resource
+    config.action_dispatch.default_headers = {
+      'X-Frame-Options' => 'ALLOWALL'
+    }
 
     # config.action_mailer.delivery_method = :smtp
     # config.action_mailer.smtp_settings = {
