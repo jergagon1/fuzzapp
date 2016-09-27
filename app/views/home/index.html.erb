@@ -12,17 +12,10 @@
     </button>
     <button data-route="fuzzapp/reports" class="btn btn-blue">Local FuzzAlerts</button>
   </div>
-  <div class="lost-pet-page-wrapper">
-  </div>
-  <div class="found-pet-page-wrapper">
-  </div>
-
-  <div class="pet-sightings-page-wrapper">
-  </div>
-
-  <div class="lost-pet-post-wrapper">
-  </div>
-
+  <div class="lost-pet-page-wrapper"></div>
+  <div class="found-pet-page-wrapper"></div>
+  <div class="pet-sightings-page-wrapper"></div>
+  <div class="lost-pet-post-wrapper"></div>
   <div class="found-pet-post-wrapper"></div>
   <div class="fuzz-chat-wrapper">
     <div class="nav-block nav-block-dark-blue">
@@ -30,8 +23,7 @@
       <h2 class="title"> Local FUZZCHAT</h2>
       <div class="nav-trigger nav-trigger-white"><span></span><span></span><span></span></div>
     </div>
-    <div class="chat-wrapper">
-    </div>
+    <div class="chat-wrapper"></div>
     <div class="message-input form-group">
       <%= simple_form_for :message, remote: true, url: messages_path, method: :post, html: { id: 'new_message_form'} do |f| %>
         <%= f.hidden_field :user_id, value: current_user.id %>
@@ -43,9 +35,7 @@
     </div>
   </div>
 </div>
-
 <div class="notifications"></div>
-
 <%= render 'templates/report_create' %>
 <%= render 'templates/report_comment' %>
 <%= render 'templates/report' %>

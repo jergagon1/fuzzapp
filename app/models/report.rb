@@ -1,30 +1,22 @@
 class Report < ActiveRecord::Base
   include Filterable
-
   FIELDS_FOR_SLUG = %i(report_type animal_type pet_name)
-
-  acts_as_taggable
-
+  #Filters
   before_save :downcase_fields
   after_save :subscribe_user_and_notify
   before_create :increment_wags!
-
   before_destroy :destroy_subscriptions
-
   after_save :generate_slug!
-
   mount_uploader :image, ImageUploader
-
   # associations
   has_many :comments
-
   has_many :subscriptions
   has_many :subscribers, through: :subscriptions, source: :user
-
   belongs_to :user
-
+  # act as taggable
   acts_as_taggable
-
+  acts_as_taggable
+  #act as mappable
   acts_as_mappable default_units: :miles,
                    default_formula: :sphere,
                    distance_field_name: :distance,

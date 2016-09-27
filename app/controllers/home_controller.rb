@@ -1,8 +1,7 @@
 class HomeController < ApplicationController
   layout :set_layout
-
-  before_filter :authenticate_user!, only: %i(index profile)
-  before_filter :authenticate_view, except: :main
+  before_action :authenticate_user!, only: %i(index profile)
+  before_action :authenticate_view, except: :main
 
   def index
     @reports = Report.all.includes(:user)
@@ -12,11 +11,12 @@ class HomeController < ApplicationController
     redirect_to :fuzzapp if current_user
   end
 
+  def facts;end
+  
+  def faq;end
 
-  def facts
-  end
-  def faq
-  end
+  def fund;end
+
   def findus
     respond_to do |format|
       format.html {
@@ -35,14 +35,10 @@ class HomeController < ApplicationController
       }
     end
   end
-  def fund
-  end
 
   def report
     # redirect_to "/fuzzapp/report/#{params[:id]}" and return if current_user
-
     @report = Report.find params[:id]
-
     render '/guests/report'
   end
 

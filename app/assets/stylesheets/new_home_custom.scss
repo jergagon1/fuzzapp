@@ -26,10 +26,12 @@
   margin-bottom: 30px;
 }
 .description-block .row .player-wrapper .player {
-  width: 80%;
+  width: 100%;
   max-width: 500px;
   max-height: 326px;
   box-shadow: 10px 0px 12px 0px rgba(43, 61, 81, 0.5);
+  margin-top:210px;
+  height: 292px !important;
 }
 .flying-header .about .btn {
   width: 100%;
@@ -47,16 +49,19 @@
   padding: 60px 70px 75px 50px;
   box-shadow: 10px 0px 12px 0px rgba(43, 61, 81, 0.5);
 }  
+.clear-box{
+  padding: 0px !important;
+}
 .flying-header .row {
   display: block;
   margin: 0;
   padding: 10vw 10%;
-  background-image: url("app-on-phone-background.png");
+  background-image: image-url("app-background.png");
   background-size: cover;
   background-position: center;
 }
 .description-block .row .player-wrapper, .description-block .row .content {
-  width: 50%;
+  width: 100%;
 }
 .description-block {
   background-color: #ECF0F1;
@@ -65,13 +70,10 @@
   display: -webkit-box;
   display: -moz-box;
   display: box;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex;
   width: 100%;
   max-width: 1360px;
   margin: auto;
+  flex-direction: column-reverse;
 }
 .description-block .row .player-wrapper {
   -moz-box-align: center;
@@ -81,12 +83,124 @@
   justify-content: center;
 }
 .description-block .row .content {
-  padding: 50px 70px;
+  padding: 50px 60px;
 }
 .description-block .row .player-wrapper, .description-block .row .content {
-  width: 50%;
+  width: 100%;
 }
 .description-block .content {
   background-color: #ecf0f1;
   padding: 50px 70px;
+}
+.header.flying-header {
+  padding:0px;
+}
+
+/********************* Responsive CSS for static pages ***********************/
+
+@media screen and (max-width: 1024px){
+  .flying-header .about {
+    width:60%;
+  }
+  .description-block .row .player-wrapper .player{
+    margin-top: 50px;  
+  }
+  .description-block .row{
+    display: flex;
+  }
+  .description-block .row .player-wrapper, .description-block .row .content {
+    width:100%;
+    margin:0 auto;
+  }
+  .col-md-6.player1024 {
+    margin: 0 auto;
+    width: 80%;
+  }
+}
+@media screen and (max-width: 768px){
+  .flying-header .about {
+    width:100%;
+    margin:0 auto;
+  }
+  .description-block .row{
+    display: flex;
+  }
+  .description-block .row .content {
+    padding:10px 20px;
+   }
+  .flying-header .row {
+    background-image: image-url("app-background.png");
+    background-size: cover;
+    background-position: right center;
+  }
+  .col-md-6.player1024 {
+    margin: 0 auto;
+    width: 100%;
+  }
+  .description-block .row .player-wrapper, .description-block .row .content {
+    padding-bottom:50px;
+  }
+}
+@media screen and (max-width: 640px){
+ .flying-header .about {
+    width:100%;
+    padding:30px 40px;
+ } 
+ .flying-header .about h3 {
+    font-size:18px;
+ }
+ .flying-header .about p {
+    font-size:14px;
+ }
+ .flying-header .row {
+    background-image: image-url("app-on-phone-background-blured.png");
+    background-size: cover;
+    background-position: center;
+  }
+  .description-block .row .player-wrapper .player {
+    margin-top:30px;
+  }
+  .description-block .row .content {
+    padding:10px 20px;
+   }
+  .description-block .row{
+    display: flex;
+  }
+  .description-block .row .content .title {
+    text-align:left;
+   }
+ .col-md-6.player1024 {
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 480px){
+ .flying-header .about {
+   width:100%;
+ } 
+ .description-block .row .content {
+    padding:10px 20px;
+ }
+ .col-md-6.player1024 {
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 320px){
+  .flying-header .about {
+     width:100%;
+   } 
+  .description-block .row .content {
+     padding:10px 20px;
+   }
+  .description-block .row .content .title {
+     text-align:left;
+   }
+   .description-block .row .player-wrapper .player {
+     width:80%;
+   }
+   .col-md-6.player1024 {
+    margin: 0 auto;
+    width: 100%;
+  }
 }

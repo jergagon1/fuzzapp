@@ -2,6 +2,7 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width"/>
+  <title><%= yield(:title) %></title>
   <%= stylesheet_link_tag 'new_application', media: 'all', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <meta property="og:title" content="FuzzFinders is a super-intuitive app bringing people together to find lost pets."/>
@@ -14,7 +15,6 @@
   <meta name="twitter:title" content="FuzzFinders is a super-intuitive app bringing people together to find lost pets."/>
   <meta name="twitter:description" content="Interactive features, collaborative mapping technology, and instant alerts. FuzzFinders is the social network empowering you to get Fuzzy back!"/>
   <meta name="twitter:image" content="http://fuzzfinders.com/img/OGP.png"/>
-
   <%= favicon_link_tag "icon-60.png", rel: "apple-touch-icon", sizes: "60x60" %>
   <%= favicon_link_tag "icon-76.png", rel: "apple-touch-icon", sizes: "76x76" %>
   <%= favicon_link_tag "icon-72.png", rel: "apple-touch-icon", sizes: "72x72" %>
@@ -25,7 +25,6 @@
   <%= favicon_link_tag "icon-152.png", rel: "apple-touch-icon", sizes: "152x152" %>
   <%= favicon_link_tag "icon-180.png", rel: "apple-touch-icon", sizes: "180x180" %>
   <%= favicon_link_tag "favicon.ico", rel: "shortcut icon", type: "image/x-icon" %>
-
 </head>
 <!-- layouts/new_application -->
 <body class="<%= content_for :body_class %>">
@@ -51,7 +50,7 @@
           <li><a href="/facts" class="<%= 'active' if current_page?('/facts') %>">FuzzFacts</a></li>
           <li><a href="/faq" class="<%= 'active' if current_page?('/faq') %>">FAQ</a></li>
           <li><a href="/fund" class="<%= 'active' if current_page?('/fund') %>">FuzzFund</a></li>
-          <li><a href="/findus" class="<%= 'active' if current_page?('/findus') %>">Find Us</a></li>
+          <li><a href="/findhelp" class="<%= 'active' if current_page?('/findhelp') %>">Find Help</a></li>
 
           <% unless current_user %>
               <li class="action"><a data-target="sign-in">Sign In</a></li>
@@ -66,22 +65,24 @@
 <%= yield %>
 
 <% unless current_user %>
-    <!-- footer-2-->
-    <footer class="footer-2 bg-midnight-blue">
-      <div class="container">
-        <nav>
-          <ul>
-            <li><a href="/facts" class="<%= 'active' if current_page?('/facts') %>">FuzzFacts</a></li>
-            <li><a href="/faq" class="<%= 'active' if current_page?('/faq') %>">FAQ</a></li>
-            <li><a href="/fund" class="<%= 'active' if current_page?('/fund') %>">FuzzFund</a></li>
-            <li><a href="/findus" class="<%= 'active' if current_page?('/findus') %>">Find Us</a></li>
-          </ul>
-        </nav>
-        <div class="social-btns">
-          <a href="#" class="social-facebook"></a><a href="#" class="social-twitter"></a><a href="#" class="social-instagram"></a>
-        </div>
+  <!-- footer-2-->
+  <footer class="footer-2 bg-midnight-blue">
+    <div class="container">
+      <nav>
+        <ul>
+          <li><a href="/facts" class="<%= 'active' if current_page?('/facts') %>">FuzzFacts</a></li>
+          <li><a href="/faq" class="<%= 'active' if current_page?('/faq') %>">FAQ</a></li>
+          <li><a href="/fund" class="<%= 'active' if current_page?('/fund') %>">FuzzFund</a></li>
+          <li><a href="/findhelp" class="<%= 'active' if current_page?('/findus') %>">Find Help</a></li>
+        </ul>
+      </nav>
+      <div class="social-btns">
+        <a href="https://www.facebook.com/FuzzFinders" class="social-facebook"></a>
+        <a href="https://twitter.com/fuzzfinders" class="social-twitter"></a>
+        <a href="https://www.instagram.com/fuzzfinders/" class="social-instagram"></a>
       </div>
-    </footer>
+    </div>
+  </footer>
 <% end %>
 
 <div id="sign-modal" role="dialog" aria-labelledby="SignModalLabel" aria-hidden="false" class="modal fade">

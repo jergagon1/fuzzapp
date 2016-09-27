@@ -1,12 +1,15 @@
 class Comment < ActiveRecord::Base
+  # associations
   belongs_to :report
   belongs_to :user
-
+  #validation
   validates :user_id, presence: true
   validates :report_id, presence: true
   validates :content, presence: true
-
+  # filters
   after_commit :subscribe_user_and_notify_all
+  # mount uploader
+  mount_uploader :image, ImageUploader
 
   #TODO: look at replacing overwriting as_json with Active Model Serializers
   def as_json(options={})
@@ -17,9 +20,7 @@ class Comment < ActiveRecord::Base
       user: user
     }).as_json
   end
-
-  mount_uploader :image, ImageUploader
-
+  
   def has_location?
     [lat, lng].reject{|geo| geo.zero?}.any?
   end
