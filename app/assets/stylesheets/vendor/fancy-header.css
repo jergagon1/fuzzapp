@@ -1,0 +1,200 @@
+//Top section
+.header-11
+	.container
+		width: 100% !important
+		max-width: 1320px
+		margin: auto
+	.header-11 .navbar .brand .logo
+		margin-left: 0
+		width: auto
+
+.fancy-header
+	widht: 100%
+	background:
+		color: #F5D78F
+		size: 100% 100%
+	overflow: hidden
+	min-height: 500px
+	.row
+		max-width: 1280px
+		margin: auto 
+		.about
+			position: relative
+			z-index: 100
+			padding-top: 125px
+			h3
+				+headerTitleFont
+				color: #50462C
+				font-size: 26px
+				line-height: 31px 
+				span
+					color: #867652
+				padding-bottom: 40px
+				margin: 0
+			p
+				+headerTextFont
+				color: #333333
+				padding-bottom: 30px
+				margin: 0
+		.player-wrapper
+			padding: 140px 0
+		
+		.player
+			position: relative
+			overflow: visible
+			z-index: 2	
+			width: 100%
+			height: 40%
+			
+			&:before
+				content: ' '
+				display: block
+				+set-size(384.31% , 174.24%)
+				
+				z-index: -1
+				top: -9.74%
+				left: -216.47%
+				position: absolute
+				background:
+					image: url("../img/main-page/table-2.png")
+					size: 100% 100%
+					repeat: no-repeat
+			&:after
+				content: ' '
+				display: block
+				top: -34.16%
+				left: -62.57%
+				width: 53.69%
+				height: 85.5%
+				position: absolute
+				background:
+					image: url("../img/main-page/arrow.png")
+					size: 100% 100%
+					repeat: no-repeat	
+		.btn
+			+set-size(72%, 52px)
+			+set-border-radius(5px)
+
+			cursor: pointer
+			font:
+				size: 22px
+				weight: 400
+			line-height: 22px
+			color: white
+			+transition(background, .15s)
+		.btn-big
+			+set-size(100%, 50px)
+			font-size: 17px
+			line-height: 17px
+			font-weight: 500
+		.btn-orange
+			background-color: $maroon_light
+			&:hover, &:focus, &.focus, &:active, &.active
+				background-color: rgba($maroon_light, 0.9)
+
+@media screen and (max-width: 1200px)
+	.fancy-header .row .about
+		padding-top: 100px
+@media screen and (max-width: 1150px)
+	.fancy-header
+		.about
+			padding: 0 0 0 30px 		
+@media screen and (max-width: 1050px)
+	.fancy-header .row .about
+		padding-top: 50px 15%
+
+@media screen and (max-width: 990px)
+	.fancy-header .row
+		.about
+			padding: 70px 20%
+		.player-wrapper
+			width: 60%
+			margin: auto
+			padding: 10px 16.49% 150px 2.87%
+			.player
+				width: 100%
+				height: 30vh
+				&:after
+					display: none
+
+@media screen and (max-width: 676px)
+	.fancy-header .row
+		.about
+			padding: 50px 15%
+		.player-wrapper
+			width: 70%
+			padding: 10px 19.29% 100px 3.47%
+
+@media screen and (max-width: 400px)
+	.fancy-header .row
+		.player-wrapper
+			width: 70%
+			padding-bottom: 75px
+					
+
+.flying-header
+	.row
+		display: block
+		//min-height: 650px
+		margin: 0
+		padding: 10vw 10%
+		background:
+			image: url('/img/app-on-phone-background.png') 
+			size: cover
+			position: center
+	.about
+		display: block
+		width: 45%
+		max-width: 560px 
+		//margin: 110px 0 0 5%
+		background-color: white 
+		padding: 60px 70px 75px 50px
+		box-shadow: 10px 0px 12px 0px rgba(43,61,81,0.50)
+		h3
+			font-weight: 300
+			font-size: 26px
+			line-height: 31px
+			margin-bottom: 40px 
+			.alt
+				color: #7F8C8D
+		p
+			font-weight: 400 
+			font-size: 16px
+			color: #34495F
+			line-height: 24px 
+			margin-bottom: 30px
+		.btn
+			width: 100%
+			background-color: #E2573B
+			height: 50px
+			color: white
+			font-size: 17px
+			letter-spacing: 0.03em 
+
+@media screen and (max-width: 1300px)
+	.flying-header .about
+		width: 60%
+
+@media screen and (max-width: 860px)
+	.flying-header
+		padding: 0
+		.row
+			background-position: center right
+			padding: 10vw 0
+		.about
+			margin: auto
+			width: 80%
+
+@media screen and (max-width: 640px)
+	.flying-header
+		.row
+			background:
+				image: url('/img/app-on-phone-background-blured.png') 
+				size: cover
+				position: center
+		.about
+			padding: 30px 40px
+			h3
+				font-size: 18px
+			p
+				font-size: 14px

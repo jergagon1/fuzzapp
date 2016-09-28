@@ -344,24 +344,20 @@
     font-size: 20px;
     line-height: 28px;
   }
-
   .fuzzHeaderTextFont {
     font-size: 14px;
     line-height: 20px;
   }
-
   .fuzzHeadingFont,
   .fuzzHeadingAccentFont,
   .fuzzHeadingInvertedFont {
     font-size: 20px;
     line-height: 28px;
   }
-
   .fuzzParagraphFont {
     font-size: 14px;
     line-height: 20px;
   }
-
   .fuzzInputsFont {
     font-size: 16px;
     line-height: 16px;
@@ -3808,7 +3804,18 @@
 .fuzzfinders-app .mainpage-wrapper .found-pet-post-wrapper .section-wrapper .photo-wrapper-green {
   background-color: #1E9F84;
 }
-
+@media screen and (max-width: 350px) {
+ .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper,
+ .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper,
+ .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper {
+    overflow-y: hidden;
+  }
+ .fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper, 
+ .fuzzfinders-app .mainpage-wrapper .faq-page-wrapper .ancete-wrapper, 
+ .fuzzfinders-app .mainpage-wrapper .found-pet-page-wrapper .ancete-wrapper{
+   overflow-y: initial;
+ }
+}
 @media screen and (max-width: 350px) {
   .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .post-description .table td,
   .fuzzfinders-app .mainpage-wrapper .lost-pet-post-wrapper .section-wrapper .social-share-wrapper .table td,

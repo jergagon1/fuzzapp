@@ -59,7 +59,6 @@ $(function() {
       // document.location.reload();
       document.location.href = '/';
     });
-
     return false;
   });
 
@@ -72,7 +71,6 @@ $(function() {
     }).error(function (data) {
       alert('Invalid username or password');
     })
-
     return false;
   });
 
@@ -88,9 +86,9 @@ $(function() {
       // document.location.reload();
       document.location.href = '/fuzzapp';
     }).error(function (data) {
-      alert(JSON.stringify(data));
+      alert("Email already existed !!!")
+      // alert(JSON.stringify(data));
     })
-
     return false;
   });
 })
