@@ -303,6 +303,9 @@ ReportCreate.prototype.create = function (data) {
     data: data
   });
 };
+ReportCreate.prototype.create = function(data){
+  window.location.reload()
+}
 
 ReportCreate.prototype.update = function (id, data) {
   return $.ajax({

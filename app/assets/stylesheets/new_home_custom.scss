@@ -66,22 +66,6 @@
 .description-block {
   background-color: #ECF0F1;
 }
-.description-block .row {
-  display: -webkit-box;
-  display: -moz-box;
-  display: box;
-  width: 100%;
-  max-width: 1360px;
-  margin: auto;
-  flex-direction: column-reverse;
-}
-.description-block .row .player-wrapper {
-  -moz-box-align: center;
-  -moz-box-pack: center;
-  align-items: center;
-  display: flex;
-  justify-content: center;
-}
 .description-block .row .content {
   padding: 50px 60px;
 }
